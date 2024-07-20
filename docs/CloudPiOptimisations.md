@@ -38,13 +38,13 @@ graphical and tabular view for choosing best plan based on your situation and fo
 The Savings Plan Recommendation provides insights and recommendations for purchasing 
 Savings Plans for optimal coverage based on Account ID selected. 
 
-![SP Recommendations](images/SP%20Recommendations.png)
+![SP Recommendations](images/sp1.png)
 
 **Generate SP Plan**: When clicking on 'Generate', you can view Account ID, Region and 
 Current average hourly OnDemand spend which allows you to review and edit based on 
 your business forecast before generating a saving plan.
 
-![Generate](images/SP%20Recommendations%20generate.png){: width="300"}
+![Generate](images/gensp1.png){: width="300"}
 
 **Graphical View and Estimated Savings**: Graphical View provide comparison visual 
 representation of your Savings Plans options. A side panel presents various saving options, 
@@ -52,13 +52,13 @@ showing the duration (1-year or 3-year) and the cost structure (On Demand, All U
 Partial Upfront, No Upfront). Choose the most suitable plan according to the estimated 
 savings and upfront payment preference.
 
-![Details](images/SP%20Recommendations%20details.png)
+![Details](images/spgraph1.png)
 
 **Auto Ticketing**: Based on analysis you can choose your savings plan and you can 
 automatically 'Raise Ticket' and view populated fields such as title, Description, Priority, 
 Status. Finally click ‘Create Ticket’ to workflow tool you setup for your organization.
 
-![Details](images/SP%20Recommendations%20raise%20a%20ticket.png){: width="300"}
+![Details](images/spticket.png){: width="300"}
 
 ## RI Recommendations Plan
 The RI Recommendation provides insights and recommendations for purchasing Reserved 
@@ -81,7 +81,7 @@ terms (e.g., 1-year vs. 3-year, all upfront vs. partial upfront).
 **Raising a Ticket**: If you have an issue, you can 'Raise Ticket' and view the fields such as title, 
 Description, Priority, Status and Submit to and click on “Create ticket” button.
 
-![Details](images/RI%20Recommendations%20raise%20a%20ticket.png){: width="300"}
+![Details](images/raiseticket1.png){: width="300"}
 
 ## CloudPi Usage Recommendations
 
@@ -147,9 +147,9 @@ greatest benefits.
 - Accessing Recommendations: Navigate to the Cloud Native Recommendations section on 
 the CloudPi dashboard to view all current recommendations from AWS, Google Cloud, and 
 Azure.
-- Raising Tickets: When a recommendation aligns with strategic goals or operational needs, 
+<!-- - Raising Tickets: When a recommendation aligns with strategic goals or operational needs, 
 users can raise a ticket directly within CloudPi. This ticket will encapsulate all the enriched 
-details, making it ready for review and action by IT teams.
+details, making it ready for review and action by IT teams. -->
 - Managing and Prioritizing Recommendations: IT teams can manage these tickets through 
 CloudPi’s integrated workflow tools, prioritizing them based on the effort required and 
 potential impact. This management helps streamline the implementation process and
@@ -162,4 +162,4 @@ information and tools needed for effective implementation. This capability allow
 organizations to maximize their cloud efficiency, reduce costs, and leverage the full 
 potential of their cloud investments.
 
-![Cloud native](images/cloudlast.png)
+![Cloud native](images/native11.png)

@@ -13,6 +13,8 @@ to the needs and structure of the organization.
 subscriptions to ensure that users are notified about critical events and updates.
 - **Workflow Tools Integration:** Admins can setup different workflow tools to connect 
 with CloudPi.
+
+
 #### Capabilities
 
 
@@ -84,18 +86,18 @@ Select the "User Management" from workspace settings in the header.
 ### Viewing and Managing Users
 "User List" displays all registered users along with details such as their name, project association, role, email ID, and status.
 
-![Viewing and Managing Users](images/Screenshot 2024-05-15 151140.png)
+![Viewing and Managing Users](images/s1.png)
 
 ### Inviting New Users
  Click on "Invite User" to open a dialog where you can enter the new user’s name, email address, role, and associated project. Fill out the necessary details and click “Save” to send an invitation to the user to join the platform.
 
-![Inviting New User](images/invite_user_in_UM.png){: width="500"}
+![Inviting New User](images/s2.png){: width="500"}
 
 <!-- <img src="images/invite_user_in_UM.png" alt="Inviting New User" width="100"> -->
 
 ### Editing Existing Users
 Find the user you wish to edit in the "User List". Click the edit icon next to the user's entry to open the "Edit User" dialog. Modify details such as the username, User ID, Project, Role and Status (Enable/Disable). Click “Save” to apply the changes.
-![Edit user in UM](images/edit%20user%20in%20UM.png){: width="500"}
+![Edit user in UM](images/edituser.png){: width="500"}
 
 
 
@@ -140,7 +142,7 @@ the resources and cost management of their specific projects.
 aspects of a project, typically without having full administrative rights.
 
 
-![Roles and Permissions](images/roles%20and%20permissions.png)
+![Roles and Permissions](images/s4.png)
 
 
 
@@ -153,7 +155,11 @@ categories like Landing, Workflow, Recommendations, Billing.
 
 ![permissions](images/managing%20roles%20in%20roles%20and%20permissions.png){: width="500"}
 
-- **Adding a Role:** Click on "Add Role" button, where you can define the role name, select 
+- **Viewing a Role**: : Existing roles can be viewed.
+
+![View Role](images/viewRole.png){: width="500"}
+
+<!-- - **Adding a Role:** Click on "Add Role" button, where you can define the role name, select 
 permissions, and provide a description. 
 
  ![Adding a Role](images/add%20new%20role%20in%20R&P.png){: width="500"}
@@ -161,7 +167,7 @@ permissions, and provide a description.
 - **Viewing and Editing a Role:** Existing roles can be viewed and edited to modify their 
 description or adjust their permissions.
 
-![Editing a Role](images/edit%20role%20in%20R&P.png){: width="500"}
+![Editing a Role](images/edit%20role%20in%20R&P.png){: width="500"} -->
 
 ## Workflow Tools Integration in CloudPi
 ## Integration Capabilities
@@ -177,9 +183,7 @@ description or adjust their permissions.
 
 ## Setting Up Integrations
 
-ServiceNow and Jira integrations:
-
-Access the 'Integrations' section within CloudPi to connect and configure settings tailored to your organizational workflows.
+- **ServiceNow and Jira**:Access the 'Integrations' section within CloudPi to connect and configure settings tailored to your organizational workflows.
 
 ## Navigating Workflow Tools Integration
 
@@ -248,7 +252,7 @@ To manage JIRA integration:
 
 You can set how you wish to be notified for each type of alert by clicking on toggle button to enable among three alert configuration types such as Email alert, Ticketing alert and Notifications.
 
-![Cost Anomaly](images/global%20alert%20subscription%20(1).png)
+![Cost Anomaly](images/alerts.png)
 
 ## Managing Customer Billing Information in CloudPi
 

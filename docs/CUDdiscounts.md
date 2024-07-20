@@ -13,6 +13,7 @@ Visual Representation of SP and RI Investments:
 coverage, and overall utilization, giving you a clear, at-a-glance understanding of your cloud 
 savings investments. 
  
+ Detailed Analysis of SPs and RIs in Use:
  - SPs Tracking: Track the savings, utilization, and coverage of your Savings Plans on a 
 monthly, quarterly, and cumulative basis. CloudPi offers interactive charts and graphs to 
 help you assess the performance of each plan over time, identifying trends and making 
@@ -54,6 +55,8 @@ instances.
 
 - Streamlined Operations: Automate and streamline the renewal process for SPs and RIs to 
 maintain uninterrupted service and cost savings.
+
+
 CloudPi’s CUDs/Discounts Management feature is a vital tool for organizations looking to 
 maximize their cloud investment returns, offering essential capabilities to manage, monitor, 
 and enhance cloud financial strategies effectively.

@@ -20,6 +20,7 @@ invaluable insights here on how to use CloudPi for better cost management.
 - **Cloud Managers**: If you oversee a team managing an organization's cloud 
 operations, this guide will demonstrate how CloudPi can help improve your team's 
 efficiency and accountability.
+
 ## Features Overview
 - **Projects & groups Management**: Organize your cloud resources with project and 
 project group hierarchy.
@@ -56,7 +57,6 @@ interface. This is your landing page, your command center. It's designed to prov
 Use workspaces for your organization when you want to structure your teams and entities, 
 encourage team collaboration, and have organization-wide views. Each workspace ensures 
 that data is kept separate and secure. A workspace can represent an entire organization or a 
-8
 specific Line of Business with multiple teams and departments. It can also be a collection of 
 applications or divisions serving different clients.
 In Workspace settings, setup third party workflow tools like Jira and ServiceNow. 

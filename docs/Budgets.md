@@ -63,3 +63,33 @@ budget allocations or spending practices.
 The Budget Management feature in CloudPi ensures that organizations can maintain strict 
 financial control, optimize cloud spending, and enhance overall financial planning and 
 management. This tool is crucial for maintaining operational efficiency and achieving long term financial objectives in cloud environments.
+
+![Budgets1](images/budget11.png)
+
+![Budgets2](images/budgetr1.png)
+
+## Budget Reports
+The budget report dashboard from CloudPi. It includes several panels and charts displaying 
+various aspects of budget usage and allocation for cloud services. Here is a detailed 
+breakdown:
+### Top Section: Budget Reports Overview
+- **Fiscal Year Budget (left)**:Shows the budget allocated, used, and remaining for the 
+fiscal year.
+- **Budget Analysis (middle)**:A line chart intended to display the allocated budget, used 
+budget, and budget remaining over time.
+- **Previous Month Budget and Present Month Budget (right)**:This section shows the 
+budget allocated and used for the previous and present month, respectively.
+
+### Bottom Section: Detailed Budget Utilization
+- **Select Month**:Dropdown menu to select the month for viewing the budget report. By 
+default the chart will show the present month’s budget utilization by service group.
+- **Service Group Budget Utilization**:A bar chart displaying budget allocation and 
+usage for different service groups (Storage Instance, Compute Instance, Networking 
+Instance, Analytics, etc). Each bar shows the allocated and used budget for the 
+selected month.
+- **Budget Detail Table**:: The table provides a detailed breakdown of the budget, 
+including various categories and their respective amounts. The column includes 
+Budget Name, Start Date, Service Group, Allocated Budget, Used Budget, Threshold, 
+Variance, Alert, etc.
+
+![Report](images/report1.png)

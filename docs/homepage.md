@@ -5,7 +5,7 @@ Signing In:
    - Navigate to the CloudPi login page provided by PurpleData Inc. 
    - Enter your credentials (provided by your system administrator). 
 
-![Signing In](images/login.png){: width="400"}
+![Signing In](images/loginpurple.png){: width="400"}
 
 ## Home Page/Landing Page 
 
@@ -25,7 +25,7 @@ The CloudPi home page serves as a one-stop-shop for essential workspace informat
 
 - **Health Status Widget:** Provides a health overview of authorized projects based on real-time data. It helps in quickly assessing the status and performance of each project, alerting you to any issues that may need resolution.
 
-![Landing](images/landing.png)
+![Landing](images/landing_.png)
 
 As a logged-in user, depending on your role, you have the ability to:
 
@@ -41,7 +41,7 @@ As a logged-in user, depending on your role, you have the ability to:
 
 Initiate a project by detailing specifics like choosing an icon, stating the Project Name, Description, and Project Group (which is optional), selecting a Cloud Provider, then click next to establish the project.
 
-![Creating a Project](images/create%20new%20project.png){: width="500"}
+![Creating a Project](images/createproject.png){: width="500"}
 
 Project setup can be done as follows: 
 
@@ -66,19 +66,19 @@ Project setup can be done as follows:
      - Access key and Secret key
      - Cross account role ARN and External ID
 
-![Cloud Setup](images/cloud%20setup.png){: width="500"}
+![Cloud Setup](images/setup1.png){: width="500"}
 
 - ***Step 2: Team Setup***
 
 Invite team members by entering email id and their roles within the project. 
 
-![Team Setup](images/team%20setup.png){: width="500"}
+![Team Setup](images/setup2.png){: width="500"}
 
 - ***Step 3: Tag Setup*** 
 
 Add project tags by giving tag key and tag value. 
 
-![Tag Setup](images/tag%20setup.png){: width="500"}
+![Tag Setup](images/setup3.png){: width="500"}
 
 ## Project User Management
 
@@ -97,20 +97,32 @@ Add project tags by giving tag key and tag value.
 2. Click "Create New Group," name it, and define its attributes.
 3. Assign users and projects to the group as needed.
 
-![Project Groups](images/project%20group.png){: width="400"}
+![Project Groups](images/grpname.png){: width="400"}
 
 ## Navigating the Project Settings
 
-Project settings can be accessed by clicking on the edit icon in the list of projects table. Here's how to configure various aspects of your projects:
+Project can be edited by clicking on edit icon in the list of projects table. Project settings 
+allow users to configure and manage various aspects of their projects, including details 
+specific to the project, cloud settings, user settings, and other settings. The project settings 
+interface allows users to manage specific project details, including project name, 
+description, associated group, cloud provider information, and more. Users can also manage 
+account IDs, regions, service groups, and the data collection schedule.
 
 ###  Editing Project Information
 
-- **Project Name:** Update the name of the project for organizational clarity.
-- **Description:** Provide a detailed description of the project's purpose and resources involved.
-- **Project Group:** Assign the project to a specific group for better organization.
-- **Cloud Service Provider:** Choose the cloud service provider (e.g., AWS, Azure, GCP).
+- **Project Name:** You can update the name of the project. It's crucial for organizational 
+clarity and should be descriptive enough to be easily recognized by team members.
+- **Description:** Provide a detailed description of what the project entails, which could 
+include its purpose, resources involved, and any other relevant details.
+- **Project Group:**  Assign the project to a specific group if your organization uses this for 
+categorization. It’s optional but helps in managing multiple projects under a single 
+umbrella.
 
-![Create new project](images/create%20new%20project.png){: width="500"}
+- **Cloud Service Provider:** Choose between the cloud service provider available such as 
+AWS, Azure and GCP.
+
+
+![Create new project](images/c1.png){: width="500"}
 
 ###  Cloud Settings
 
@@ -124,13 +136,13 @@ Project settings can be accessed by clicking on the edit icon in the list of pro
 
 - **Choose Your Role:** Select your role based on parameters like Cross account role, Standard account role, External account role. Validate the following information: Access key and Secret key, Cross account role ARN, and External ID.
 
-![Cloud Settings](images/cloud%20settings.png)
+![Cloud Settings](images/cs1.png)
 
 ###  User Settings
 
 - **Assign Roles to Users:** Manage which team members have access to this project and define their permissions. This includes user and roles management.
 
-![Assign Roles to Users](images/image%20(34)%201.png){: width="600"}
+![Assign Roles to Users](images/us1.png){: width="600"}
 
 
 ###  Other Settings
@@ -139,7 +151,7 @@ Project settings can be accessed by clicking on the edit icon in the list of pro
 
 - **List of Tags:** View the list of tags with Tag ID, Key, and Value. Tags can also be edited or deleted.
 
-![Other Settings](images/other%20settings%20in%20edit(landing%20list%20of%20projects).png){: width="500"}
+![Other Settings](images/os1.png){: width="500"}
 
 ## Project Settings
 
@@ -151,5 +163,5 @@ Navigate to the tag settings from project settings in the main navigation menu b
 - **Remove Tag:** Toggle this option to permit users to remove existing tags from resources within the project.
 - **Virtual Tag:** Enable virtual tags to assign temporary or dynamic tags to resources for specific purposes, such as cost allocation or resource grouping.
 
-![Tag Settings](images/tag%20settings%20in%20project%20settings.png){: width="700"}
+![Tag Settings](images/tag1.png){: width="800"}
 

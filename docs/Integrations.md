@@ -7,7 +7,7 @@ within teams.
 
 ## Key Features 
  
-###Integration with ServiceNow and Jira
+### Integration with ServiceNow and Jira
 - Seamless Connectivity: CloudPi supports integration with ServiceNow and Jira, allowing for 
 the seamless flow of information and tasks between CloudPi and these popular workflow 
 platforms. 
@@ -61,4 +61,4 @@ to leverage their existing IT service management frameworks to enhance cloud ope
 ensuring tasks are handled efficiently and effectively, thus driving better cloud governance 
 and operational agility.
 
-![Adding a Role](images/integration.png)
+![Adding a Role](images/jikrf.png)

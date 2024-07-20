@@ -62,4 +62,4 @@ Use the sharing options provided within each report to share via email, download
 
 Access a section of the dashboard dedicated to viewing reports shared by others. This fosters an environment of transparency and collaborative review. 
 
-![Viewing Reports](images/dashboard.png)
+![Viewing Reports](images/dashboard1.png)

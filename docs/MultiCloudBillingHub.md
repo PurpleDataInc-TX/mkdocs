@@ -27,9 +27,9 @@ This user-friendly hub simplifies your multi-cloud billing management by central
 
 The billing dashboard provides a comprehensive view of your billing details, including billing view, Account ID, Granularity, project, group by and date range. You can select from dropdowns and apply changes, and save the billing view by entering a name. You can toggle between Table View and Graphical View to better understand your billing data. 
 
-  ![Billing Views](images/billing%20landing%20page%20and%20edit%20invoices.png)
+  ![Billing Views](images/b1.png)
 
-   ![save Billing Views](images/save%20billing%20view.png){: width="500"}
+   ![save Billing Views](images/save1.png){: width="400"}
 
 <!-- ### Choose Billing View: 
  Create a billing view or choose billing view from the dropdown. 
@@ -117,7 +117,7 @@ Customize the level of detail shown on invoices for each customer or cost center
 
 **Invoice History**: Here you can view all created billing views.  
 
- ![Invoice History](images/invoices.png)
+ ![Invoice History](images/invoice1.png)
 
 <!-- **Customer Details**: it shows the relevant information about the customer associated with the billing views. It includes the customer's name, project name, cost center, department name, and the date range for the invoice. 
 
@@ -127,18 +127,18 @@ Customize the level of detail shown on invoices for each customer or cost center
 
  **Auto Invoicing**: To enable auto invoicing for a customer, click on auto invoicing icon under actions. In the pop-up window, select the customer from the dropdown menu. Enter the customer’s email ID, set a schedule for the invoicing, specify delivery details such as email id and end date and click on “Save” to enable auto invoicing. 
 
- ![Auto Invoicing](images/auto%20invoicing.png){: width="500"}
+ ![Auto Invoicing](images/auto1.png){: width="500"}
 
 <!-- **Creating Customer Details**: click on create icon under actions. A popup appears, choose the Customer and Billing view and then click on “Save” button.  -->
 **Add Customer**: click on add icon under actions. A popup appears, choose the Customer or create customer details and then click on “Save” button.
 
- ![Add costomer](images/choose%20customer12.png){: width="500"}
+ ![Add costomer](images/choose1.png){: width="500"}
 
 On clicking create customer details, you will be navigated to the customer details page to enter details such as first name, last name, email, phone number, address, city, state, cost center, project name and department name, then click on “Save” button. 
 
-![sAve](images/customer%20details123.png)
+![sAve](images/customer1.png)
 
  **Editing billing view**: click on the edit icon under the actions to modify billing view . You will be navigated to billing management, where you can edit billing details, including billing view, Account ID, Granularity, project, group by and date range. You can select from dropdowns and apply changes, and save the billing view by entering a name.
 
 
-![Invoice History](images/billing%20landing%20page%20and%20edit%20invoices.png)
+![Invoice History](images/b1.png)
