@@ -1,0 +1,267 @@
+/* .md-header img{
+  display: none !important;
+} */
+.md-header {
+  display: none;
+}
+
+:root {
+  /* --md-primary-fg-color:        #EE0F0F; */
+  --md-primary-fg-color:        #6F44A6;
+  --md-primary-fg-color--light: #AC8AE7;
+  /* --md-primary-fg-color--dark:  #90030C; */
+}
+
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+.md-main__inner {
+  margin: 0px  ;
+}
+
+/* reduce font size */
+
+/* Styling for the navigation menu */
+.md-nav--primary .md-nav__list {
+    background-color: #eecbe90f;
+     /* Background color for the menu section */
+    /* border-right: 2px solid #ddd;  */
+    /* Border on the right side of the menu section */
+    padding-left: 0px;
+    z-index: 2;
+
+    position: relative;
+    top: 0;
+
+    /* position: -webkit-sticky; */
+    /* position: sticky; */
+    top: 0;
+    max-height: calc(100vh - 85px); /* Adjust the value '64px' to match your footer height */
+    /* overflow-y:unset; */
+  }
+
+  .md-nav--primary .md-nav__item:first-child {
+    margin-top: 5px;
+  } 
+  .md-nav--secondary .md-nav__list{
+    top: 0;
+    max-height: calc(100vh - 85px); 
+  }
+
+  /* .md-sidebar__scrollwrap{
+    background-color: #363636;
+  } */
+  /* .md-sidebar--secondary {
+    background-color: red;
+  } */
+  .md-nav--primary .md-ellipsis i{
+    margin-right: 5px;
+  }
+  
+
+  .md-nav--primary .md-nav__item{
+    background-color: #eecbe925;
+    /* background-image: linear-gradient(to bottom right, #C47BF4, #F08753); */
+
+  }
+  .md-nav--primary .md-nav__link{
+
+    margin: 0;
+  }
+
+  /* Styling for the menu items */
+  .md-nav--primary .md-nav__list a {
+    padding: 15px 20px; 
+    display: block; 
+    text-decoration: none; 
+  }
+  
+  /* Highlight effect on hover */
+  .md-nav--primary .md-nav__list a:hover{
+    width: 106%;
+    background-color: #ffffff; 
+    /* color: #51308B; */
+    color: black;
+    margin-left: -12px;
+  }
+
+  .md-nav--primary .md-nav__list a:active,
+  .md-nav--primary .md-nav__list a:focus,
+  .md-nav--primary .md-nav__list a.selected 
+    {
+        width: 106% ;
+        background-color: #a6a6a6 ; 
+        color: #8C5ECA;
+        margin-left: -12px;
+        font-weight: bold;
+    }
+
+  .md-nav--primary .main-heading {
+    display: none; 
+}
+
+.md-nav--secondary .md-nav__list a:hover,
+.md-nav--secondary .md-nav__list a:active {
+    font-size: calc(1em + 0.1pt);
+    font-weight: bold;
+  
+}
+
+.md-nav--secondary .md-nav__list ul{
+  list-style-type: disc; /* Add bullets */
+}
+
+.md-nav--secondary .md-nav__list ul ul{
+  list-style-type: disc; /* Add bullets */
+}
+
+/* to reduce boldness size */
+strong {
+  font-weight: lighter; /* Adjust the font-weight as needed */
+  /* color: var(--md-primary-fg-color--light);  */
+  color: #6F44A6;
+}
+
+/* reduce boldness of h4 */
+h4 {
+  font-weight: 500; /* Adjust the font-weight as needed */
+  /* color: var(--md-primary-fg-color--light); */
+}
+
+/* hiding footer */
+.md-footer-meta__inner.md-grid {
+  display: none;
+}
+
+/* reduce primary menu padding */
+/* @media screen and (min-width: 76.25em) {
+  [dir=ltr] .md-nav--primary .md-nav__list {
+      padding-left: 0;
+  }
+} */
+
+@media screen and (min-width: 76.25em) {
+  [dir=ltr] .md-nav--primary .md-nav__item>.md-nav__link {
+      margin-right: 1px;
+  }
+}
+
+.md-nav--secondary .md-nav {
+  /* Adjust the margin-right value as needed to move the secondary menu items to the right */
+  margin-left: 15px;
+}
+
+/* shadows for the images */
+img {
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* reduce icon size in main page */
+.md-content i {
+  font-size: 0.75em; /* Adjust the size as needed */
+}
+
+@media screen and (min-width: 76.25em) {
+  [dir=ltr] .md-nav--primary .md-nav__list {
+      padding-left: .1rem;
+  }
+}  
+
+.md-sidebar__scrollwrap{
+  margin: 0;
+  scrollbar-color: #eecbe90f;
+}
+
+.md-content__inner h1{
+  font-size: 20px;
+  color: black;  
+  
+}
+
+.md-content__inner h2{
+  font-size: 18px;
+}
+.md-content__inner p{
+  font-size: 14px;
+  color: rgb(54, 54, 54);
+}
+
+
+
+/* Custom CSS to change bullet points to arrow marks */
+.md-container ul li {
+  list-style: none; /* Remove default bullet points */
+  position: relative; /* Establish a positioning context for the pseudo-element */
+}
+
+.md-container ul li::before {
+  content: "\f0da"; /* Unicode for fa-caret-right */
+  font-family: "Font Awesome 5 Free"; /* Use Font Awesome font family */
+  position: absolute; /* Position the pseudo-element relative to the list item */
+  font-weight: 900; /* Ensure the correct weight (solid style) */
+  left: -20px; /* Adjust position to place the arrow in the desired location */
+  color: inherit; /* Use the same color as the text */
+}
+
+/* remove shadow from first image in intro section */
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.md-typeset li{
+  font-size: 14px;
+  color: rgb(69, 69, 69);
+}
+
+/*  */
+.md-nav__item .md-nav__link--active, .md-nav__item .md-nav__link--active code {
+  color: inherit;
+}
+.md-nav__link--passed {
+  color: black;
+}
+
+/* gradient for top left menu heading */
+@keyframes gradient-animation {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}
+
+.md-nav--primary .md-nav__title {
+  background: linear-gradient(to right, #815ccc, #016cff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: gradient-animation 0.5 linear infinite;
+  margin: 0px;
+  z-index: -10;
+
+  position: relative;
+}
+
+/* underline for table of content */
+.md-nav__title{
+  text-decoration: underline;
+}
+
+/* extra padding for md nav item */
+.md-sidebar .md-sidebar--secondary .md-nav__list .md-nav__item{
+  margin-top: 5px;
+}
+
+/* ################################################################################## */
+/* .md-main__inner .md-grid */
+/* dynamically change width of content */
+.md-grid {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100rem;
+}
