@@ -38,13 +38,13 @@ graphical and tabular view for choosing best plan based on your situation and fo
 The Savings Plan Recommendation provides insights and recommendations for purchasing 
 Savings Plans for optimal coverage based on Account ID selected. 
 
-![SP Recommendations](images/sp1.png)
+![SP Recommendations](images/rsp1.png)
 
 **Generate SP Plan**: When clicking on 'Generate', you can view Account ID, Region and 
 Current average hourly OnDemand spend which allows you to review and edit based on 
 your business forecast before generating a saving plan.
 
-![Generate](images/gensp1.png){: width="300"}
+![Generate](images/gsp1.png){: width="300"}
 
 **Graphical View and Estimated Savings**: Graphical View provide comparison visual 
 representation of your Savings Plans options. A side panel presents various saving options, 
