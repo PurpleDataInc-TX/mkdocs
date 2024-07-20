@@ -7,7 +7,15 @@ Signing In:
 
 ![Signing In](images/loginpurple.png){: width="400"}
 
-## Home Page/Landing Page 
+## Landing Page 
+Welcome to AWS Workspace! This guide will help you navigate and utilize the various 
+features and functionalities of the AWS Workspace dashboard. The main sections of the 
+dashboard include "My Projects," "My Reports," "Admin Settings," "User Guide," "Videos," 
+and "Blogs."
+
+![welcome](images/welcome.png)
+
+## Home Page
 
 The home page of each CloudPi workspace is designed to give you a comprehensive overview at a glance, facilitating efficient management and monitoring of your cloud environment. It serves as a central dashboard that highlights crucial information, tasks, and project health to streamline your workflow.
 
