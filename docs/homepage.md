@@ -13,7 +13,7 @@ features and functionalities of the AWS Workspace dashboard. The main sections o
 dashboard include "My Projects," "My Reports," "Admin Settings," "User Guide," "Videos," 
 and "Blogs."
 
-![welcome](images/welcome.png)
+![welcome](images/welcome1.png)
 
 ## Home Page
 
