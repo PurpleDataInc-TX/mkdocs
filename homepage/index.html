@@ -1,0 +1,1488 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.purpledatainc.com/homepage/">
+      
+      
+        <link rel="prev" href="../workspace/">
+      
+      
+        <link rel="next" href="../teamcollaboration/">
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>Landing Page - CloudPi User Guide v0.2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=0px:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"0px";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-icons.svg">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #ffffff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Media query for slide menu on smaller screens */
+@media (max-width: 1200px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/Purple Data white 3 1.svg" alt="Logo" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://www.purpledatainc.com/">HOME</a></li>
+      <li><a href="https://www.purpledatainc.com/">FEATURES</a></li>
+      <li><a href="https://www.purpledatainc.com/about-us">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://www.purpledatainc.com/solutions">SOLUTIONS</a></li>
+      <li><a href="https://www.purpledatainc.com/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://www.purpledatainc.com/blog">BLOG</a></li>
+      <li><a href="https://www.purpledatainc.com/faq">FAQ</a></li>
+      <li><a href="#">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://www.purpledatainc.com/contact" class="start-trial">START TRIAL</a>
+    <a href="https://www.purpledatainc.com/contact" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="teamcollaboration/"><i class="fa fa-users" aria-hidden="true"></i> Team Collaboration</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="CUDdiscounts/"><i class="fa fa-percent" aria-hidden="true"></i> CUDs/Discounts</a></li>
+    
+    <li><a href="Budgets/"><i class="fa fa-university" aria-hidden="true"></i> Budgets</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="Automations/"><i class="fa fa-magic" aria-hidden="true"></i> Automation</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation(); // Prevent the click event from bubbling up
+    slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it
+  document.addEventListener("click", function(e) {
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected
+  slideMenu.querySelectorAll("a").forEach(function(item) {
+    item.addEventListener("click", function() {
+      slideMenu.classList.remove("open");
+    });
+  });
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CloudPi User Guide v0.2" class="md-nav__button md-logo" aria-label="CloudPi User Guide v0.2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CloudPi User Guide v0.2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-info-circle"></i>  Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-universal-access"></i> RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-wrench"></i> Workspace Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#landing-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Landing Page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#home-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Home Page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-home-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Home Page
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigating Home Page">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workspace-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workspace Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-user-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project User Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-the-project-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating the Project Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigating the Project Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editing-project-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Project Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-settings_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tag-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teamcollaboration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-users" aria-hidden="true"></i> Team Collaboration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiCloudBillingHub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CUDdiscounts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-percent" aria-hidden="true"></i> CUDs/Discounts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Budgets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-university" aria-hidden="true"></i> Budgets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Automations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#landing-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Landing Page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#home-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Home Page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-home-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Home Page
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigating Home Page">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workspace-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workspace Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-user-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project User Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-the-project-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating the Project Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigating the Project Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editing-project-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Project Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-settings_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tag-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+  <h1><i class="fa fa-home" aria-hidden="true"></i> Landing Page</h1>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>Signing In:</p>
+<ul>
+<li>Navigate to the CloudPi login page provided by PurpleData Inc. </li>
+<li>Enter your credentials (provided by your system administrator). </li>
+</ul>
+<p><img alt="Signing In" src="../images/loginpurple.png" width="400" /></p>
+<h2 id="landing-page">Landing Page</h2>
+<p>Welcome to AWS Workspace! This guide will help you navigate and utilize the various 
+features and functionalities of the AWS Workspace dashboard. The main sections of the 
+dashboard include "My Projects," "My Reports," "Admin Settings," "User Guide," "Videos," 
+and "Blogs."</p>
+<p><img alt="welcome" src="../images/welcome1.png" /></p>
+<h2 id="home-page">Home Page</h2>
+<p>The home page of each CloudPi workspace is designed to give you a comprehensive overview at a glance, facilitating efficient management and monitoring of your cloud environment. It serves as a central dashboard that highlights crucial information, tasks, and project health to streamline your workflow.</p>
+<h2 id="navigating-home-page">Navigating Home Page</h2>
+<p>The CloudPi home page serves as a one-stop-shop for essential workspace information. Here's what you'll find:</p>
+<h3 id="workspace-settings">Workspace Settings</h3>
+<ul>
+<li>
+<p><strong>Project List:</strong> Displays a detailed table listing all the authorized projects with essential project information. This includes project status, recent activities, assigned team members, and other relevant data to help you manage these projects efficiently.</p>
+</li>
+<li>
+<p><strong>Task Widget:</strong> Lists all high-priority tasks across different projects. This widget helps you stay on top of urgent matters needing immediate attention.</p>
+</li>
+<li>
+<p><strong>Highlights Widget:</strong> Offers important notices or updates that require user awareness or action. This could include updates on billing anomalies, savings opportunities, or system updates.</p>
+</li>
+<li>
+<p><strong>Health Status Widget:</strong> Provides a health overview of authorized projects based on real-time data. It helps in quickly assessing the status and performance of each project, alerting you to any issues that may need resolution.</p>
+</li>
+</ul>
+<p><img alt="Landing" src="../images/landing_.png" /></p>
+<p>As a logged-in user, depending on your role, you have the ability to:</p>
+<ul>
+<li>
+<p><strong>Create New Projects:</strong> Simply click the "Create Project" button to start a new project.</p>
+</li>
+<li>
+<p><strong>Manage Existing Projects:</strong> View and edit information of previously set up projects.</p>
+</li>
+<li>
+<p><strong>Navigate Project Pages:</strong> Select any project from the project list and navigate to its dedicated page. Here, manage cloud resources related to that specific project.</p>
+</li>
+<li>
+<p><strong>Modify Project Settings:</strong> Admin users can modify project settings.</p>
+</li>
+</ul>
+<h2 id="creating-a-project">Creating a Project</h2>
+<p>Initiate a project by detailing specifics like choosing an icon, stating the Project Name, Description, and Project Group (which is optional), selecting a Cloud Provider, then click next to establish the project.</p>
+<p><img alt="Creating a Project" src="../images/createproject.png" width="500" /></p>
+<p>Project setup can be done as follows: </p>
+<ul>
+<li>
+<p><strong><em>Step 1: Cloud Setup</em></strong></p>
+<p>Configure Cloud Resources and Settings</p>
+<p>To create a project, you need to configure certain cloud resources and settings. Here's what you need to do:</p>
+</li>
+<li>
+<p>Specify the following details:</p>
+<ul>
+<li>Account ID</li>
+<li>Region</li>
+<li>Service Groups</li>
+</ul>
+</li>
+<li>
+<p>Choose your role based on the following parameters:</p>
+<ul>
+<li>Cross account role</li>
+<li>Standard account role</li>
+<li>External account role</li>
+</ul>
+</li>
+<li>
+<p>Validate the following information:</p>
+<ul>
+<li>Access key and Secret key</li>
+<li>Cross account role ARN and External ID</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Cloud Setup" src="../images/setup1.png" width="500" /></p>
+<ul>
+<li><strong><em>Step 2: Team Setup</em></strong></li>
+</ul>
+<p>Invite team members by entering email id and their roles within the project. </p>
+<p><img alt="Team Setup" src="../images/setup2.png" width="500" /></p>
+<ul>
+<li><strong><em>Step 3: Tag Setup</em></strong> </li>
+</ul>
+<p>Add project tags by giving tag key and tag value. </p>
+<p><img alt="Tag Setup" src="../images/setup3.png" width="500" /></p>
+<h2 id="project-user-management">Project User Management</h2>
+<ol>
+<li>Go to project "Settings" and select "Users."</li>
+<li>To add a user, click "Add User," fill out their details, assign roles, and set permissions.</li>
+<li>To modify user details or permissions, click on an existing user and select "Edit."</li>
+</ol>
+<h2 id="project-settings">Project Settings</h2>
+<ol>
+<li>Click on "Project Settings" from the landing page to configure specific settings for each project.</li>
+<li>Here, you can adjust project-level permissions, enable/disable certain features, and manage project users, viewers.</li>
+</ol>
+<h3 id="project-groups">Project Groups</h3>
+<ol>
+<li>Under "Projects," select "Project Groups."</li>
+<li>Click "Create New Group," name it, and define its attributes.</li>
+<li>Assign users and projects to the group as needed.</li>
+</ol>
+<p><img alt="Project Groups" src="../images/grpname.png" width="400" /></p>
+<h2 id="navigating-the-project-settings">Navigating the Project Settings</h2>
+<p>Project can be edited by clicking on edit icon in the list of projects table. Project settings 
+allow users to configure and manage various aspects of their projects, including details 
+specific to the project, cloud settings, user settings, and other settings. The project settings 
+interface allows users to manage specific project details, including project name, 
+description, associated group, cloud provider information, and more. Users can also manage 
+account IDs, regions, service groups, and the data collection schedule.</p>
+<h3 id="editing-project-information">Editing Project Information</h3>
+<ul>
+<li><strong>Project Name:</strong> You can update the name of the project. It's crucial for organizational 
+clarity and should be descriptive enough to be easily recognized by team members.</li>
+<li><strong>Description:</strong> Provide a detailed description of what the project entails, which could 
+include its purpose, resources involved, and any other relevant details.</li>
+<li>
+<p><strong>Project Group:</strong>  Assign the project to a specific group if your organization uses this for 
+categorization. It’s optional but helps in managing multiple projects under a single 
+umbrella.</p>
+</li>
+<li>
+<p><strong>Cloud Service Provider:</strong> Choose between the cloud service provider available such as 
+AWS, Azure and GCP.</p>
+</li>
+</ul>
+<p><img alt="Create new project" src="../images/c1.png" width="500" /></p>
+<h3 id="cloud-settings">Cloud Settings</h3>
+<ul>
+<li>
+<p><strong>Account ID:</strong> Enter one or more AWS account IDs associated with this project to fetch and manage cost and usage data specific to these accounts.</p>
+</li>
+<li>
+<p><strong>Service Groups:</strong> Define the types of cloud services included in the cost tracking for this project, such as Storage Instances, Networking Instances, etc.</p>
+</li>
+<li>
+<p><strong>Region:</strong> Specify the cloud regions that this project will operate in for effective resource and cost management.</p>
+</li>
+<li>
+<p><strong>Data Collection Schedule:</strong> Set the frequency at which the tool should collect data from the cloud provider, such as daily or weekly.</p>
+</li>
+<li>
+<p><strong>Choose Your Role:</strong> Select your role based on parameters like Cross account role, Standard account role, External account role. Validate the following information: Access key and Secret key, Cross account role ARN, and External ID.</p>
+</li>
+</ul>
+<p><img alt="Cloud Settings" src="../images/cs1.png" /></p>
+<h3 id="user-settings">User Settings</h3>
+<ul>
+<li><strong>Assign Roles to Users:</strong> Manage which team members have access to this project and define their permissions. This includes user and roles management.</li>
+</ul>
+<p><img alt="Assign Roles to Users" src="../images/us1.png" width="600" /></p>
+<h3 id="other-settings">Other Settings</h3>
+<ul>
+<li>
+<p><strong>Project Tags (Optional):</strong> Add tags to the project for easier categorization and searchability within your tools. Tags may include attributes like department names, cost centers, or any other relevant identifiers.</p>
+</li>
+<li>
+<p><strong>List of Tags:</strong> View the list of tags with Tag ID, Key, and Value. Tags can also be edited or deleted.</p>
+</li>
+</ul>
+<p><img alt="Other Settings" src="../images/os1.png" width="500" /></p>
+<h2 id="project-settings_1">Project Settings</h2>
+<h3 id="tag-settings">Tag Settings</h3>
+<p>Navigate to the tag settings from project settings in the main navigation menu bar. Tag settings allow users to manage permissions related to adding, removing, and managing tags within the project. Toggle switches enable users to enable or disable permissions for the following actions:</p>
+<ul>
+<li><strong>Add Tag:</strong> Enable this option to allow users to add new tags to resources within the project.</li>
+<li><strong>Remove Tag:</strong> Toggle this option to permit users to remove existing tags from resources within the project.</li>
+<li><strong>Virtual Tag:</strong> Enable virtual tags to assign temporary or dynamic tags to resources for specific purposes, such as cost allocation or resource grouping.</li>
+</ul>
+<p><img alt="Tag Settings" src="../images/tag1.png" width="800" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <style>
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the footer stays at the bottom */
+}
+
+.content {
+  flex: 1; /* Make the content area flexible */
+  padding-bottom: 80px; /* Add padding to the bottom to accommodate the footer */
+}
+
+    .main{
+        /* background-color: #fdfafb;  */
+        background-image: linear-gradient(to bottom right, #ced1e7,#fbdadb,#dbc2c5,#faf6ff);
+        color: black;
+        padding: 20px;
+        z-index: 100;
+        font-size: 12px;
+        /* font-family: Arial, Helvetica, sans-serif; */
+    }
+    .custom-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 100;
+      position: relative;
+    }
+  
+    .footer-section {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .footer-section p:hover{
+      color: purple;
+      text-decoration: underline;
+    }
+
+    .footer-logo{
+      /* width: 200px; */
+      /* display: flex; */
+      margin: 50px;
+      box-shadow: none; 
+      
+    }
+  
+    .footer-logo .social-icons{
+      margin-left: 50px;
+    }
+  
+    .footer-logo img {
+      width: 200px;
+      box-shadow: none;
+    }
+  
+    .footer-navigation p {
+      margin-bottom: 5px; /* Decrease gap between menu items */
+      font-size: 16px; /* Increase text size */
+    }
+  
+    .footer-navigation a {
+      color: white;
+      text-decoration: none;
+    }
+  
+    .footer-navigation a:hover {
+      text-decoration: underline;
+    }
+  
+    .footer-contact p {
+      margin: 5px 0;
+    }
+  
+    .footer-contact a {
+      color: black;
+    }
+  
+    .navigation-group-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px; /* Make headings more prominent */
+      color: rgb(0 25 85); /* Make headings more bright */
+    }
+  
+    .navigation-group {
+      margin-bottom: 20px;
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .social-icons a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+  
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      /* border-top: 1px solid black; */
+      padding-top: 10px;
+      margin-top: 20px;
+    }
+  
+    .footer-bottom p {
+      margin: 0;
+      font-size: 14px;
+      text-align: left;
+    }
+  
+  </style>
+  <script src="https://kit.fontawesome.com/9b0dfc9f67.js" crossorigin="anonymous"></script>
+
+  <div class="main">
+  <footer style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; margin-left: 30px;">
+    <div style="display: flex; flex-direction: column; align-items: left; margin-right: 50px;">
+      <div>
+        <img style="width: 150px; box-shadow: none; margin-left: -15px;" src="../images/Purple_Data_white_3-removebg-preview (1).png" alt="Logo">
+      </div>
+      <p style="margin-top: -5px;">aI Powered Cloud cost Optimization</p>
+      <div style="cursor: pointer; width: 150px; text-align: center; border-radius: 15px; padding: 10px; background-image: linear-gradient(to bottom right, #C47BF4, #F08753);">
+        <a href="#">
+          <button style="color: white; cursor: pointer;">Register Now <img src="" alt=""></button>
+          <i style="color: white; margin-left: 10px;" class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="social-icons" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; width: 120px;">
+        <a href="https://www.youtube.com/@purpledatainc."><i class="fa-brands fa-square-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/mycompany/verification/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc?igsh=amU5bndidXlobHh0"><i class="fa-brands fa-square-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech"><i class="fa-brands fa-square-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Product</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/cloudpi-dashboard">Features</a></p>
+        <p><a href="#">Integrations</a></p>
+        <p><a href="#">Workflow</a></p>
+        <p><a href="#">Security</a></p>
+        <p><a href="#">Automation</a></p>
+        <p><a href="#">Gen AI</a></p>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Resources</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-3">Solutions</a></p>
+        <p><a href="#">Use cases</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blog">Blogs</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-6">Q&A</a></p>
+        <p><a href="#">Videos</a></p>
+        <p><a href="#">Comparison</a></p>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Company</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/about-us">About us</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-6">News & Updates</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank">Careers</a></p>
+      </div>
+    </div>
+    <div class="footer-section footer-contact">
+      <div class="navigation-group-title" style="">Contact us</div>
+      <!-- <p><a href="mailto:sales@purpledatainc.com">Sales@purpledatainc.com</a></p> -->
+      <!-- <p>India: +91-7892956510</p>
+      <p>US: +1 512 688 6976</p> -->
+      <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-7">Contact us</a></p>
+      <p><a href="#">Contact for Demo</a></p>
+      <p><a href="#">Contact for Trail</a></p>
+      <p><a href="#">Register</a></p>
+    </div>
+</footer>
+<div class="footer-bottom" style="display: grid; grid-template-columns: 2fr 1fr 0.4fr;">
+  <p>&copy; 2023 by Purpledata Inc </p>
+  <a href="#"><p>Cookie Policy</p></a>
+  <a href="#"><p>Privacy Policy</p></a>
+</div>
+</div>
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../js/custom.js"></script>
+      
+    
+  </body>
+</html>

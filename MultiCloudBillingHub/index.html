@@ -1,0 +1,1207 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.purpledatainc.com/MultiCloudBillingHub/">
+      
+      
+        <link rel="prev" href="../Dashboards/">
+      
+      
+        <link rel="next" href="../CloudPiOptimisations/">
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>Multi Cloud Billing Hub - CloudPi User Guide v0.2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=0px:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"0px";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-icons.svg">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#key-features" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #ffffff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Media query for slide menu on smaller screens */
+@media (max-width: 1200px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/Purple Data white 3 1.svg" alt="Logo" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://www.purpledatainc.com/">HOME</a></li>
+      <li><a href="https://www.purpledatainc.com/">FEATURES</a></li>
+      <li><a href="https://www.purpledatainc.com/about-us">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://www.purpledatainc.com/solutions">SOLUTIONS</a></li>
+      <li><a href="https://www.purpledatainc.com/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://www.purpledatainc.com/blog">BLOG</a></li>
+      <li><a href="https://www.purpledatainc.com/faq">FAQ</a></li>
+      <li><a href="#">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://www.purpledatainc.com/contact" class="start-trial">START TRIAL</a>
+    <a href="https://www.purpledatainc.com/contact" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="teamcollaboration/"><i class="fa fa-users" aria-hidden="true"></i> Team Collaboration</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="CUDdiscounts/"><i class="fa fa-percent" aria-hidden="true"></i> CUDs/Discounts</a></li>
+    
+    <li><a href="Budgets/"><i class="fa fa-university" aria-hidden="true"></i> Budgets</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="Automations/"><i class="fa fa-magic" aria-hidden="true"></i> Automation</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation(); // Prevent the click event from bubbling up
+    slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it
+  document.addEventListener("click", function(e) {
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected
+  slideMenu.querySelectorAll("a").forEach(function(item) {
+    item.addEventListener("click", function() {
+      slideMenu.classList.remove("open");
+    });
+  });
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CloudPi User Guide v0.2" class="md-nav__button md-logo" aria-label="CloudPi User Guide v0.2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CloudPi User Guide v0.2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-info-circle"></i>  Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-universal-access"></i> RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-wrench"></i> Workspace Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teamcollaboration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-users" aria-hidden="true"></i> Team Collaboration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-navigate" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Navigate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-billing-views-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Billing Views Page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invoicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoicing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-invoicing-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Invoicing Page
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CUDdiscounts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-percent" aria-hidden="true"></i> CUDs/Discounts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Budgets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-university" aria-hidden="true"></i> Budgets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Automations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-navigate" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Navigate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-billing-views-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Billing Views Page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invoicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoicing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-invoicing-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Invoicing Page
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+  <h1><i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub</h1>
+
+<p>Welcome to your central billing command center! The CloudPi Multi-Cloud Billing Hub offers a comprehensive solution for managing and analyzing billing data across various Cloud Service Providers (CSPs). This hub allows you to create tailored 'BillingViews' to monitor expenditures based on different dimensions like services, service groups, and user-defined cost tags.  </p>
+<h2 id="key-features">Key Features</h2>
+<ul>
+<li>
+<p><strong>Customizable Billing Views</strong>: Easily configure views based on specific dimensions to better understand your cloud expenses. </p>
+</li>
+<li>
+<p><strong>Invoice Customization and Delivery</strong>: Customize and automatically generate invoices tailored to your organizational needs and have them delivered seamlessly. </p>
+</li>
+<li>
+<p><strong>Managed Cloud Services Provider Support</strong>: Receive specialized billing services designed for Managed Cloud Service Providers. </p>
+</li>
+<li>
+<p><strong>CUDS/Savings Plans Management</strong>: Efficiently manage your commitments and savings plans to optimize financial performance. </p>
+</li>
+</ul>
+<h2 id="how-to-navigate">How to Navigate</h2>
+<p>Upon accessing the Multi-Cloud Billing Hub, you'll find the following options: </p>
+<ul>
+<li>
+<p><strong>Billing Views Page</strong>: Customize and edit your Billing Views for different analysis perspectives. </p>
+</li>
+<li>
+<p><strong>Invoice Management</strong>: Access and customize your invoice settings, including setup for auto-generation and delivery. </p>
+</li>
+<li>
+<p><strong>CUDS/Discounts Dashboard</strong>: View and manage your existing CUDS/Discounts Plans to ensure you are maximizing your savings. </p>
+</li>
+</ul>
+<p>This user-friendly hub simplifies your multi-cloud billing management by centralizing and streamlining processes, making it easier to monitor and optimize your cloud investments. </p>
+<h2 id="navigating-billing-views-page">Navigating Billing Views Page</h2>
+<p>The billing dashboard provides a comprehensive view of your billing details, including billing view, Account ID, Granularity, project, group by and date range. You can select from dropdowns and apply changes, and save the billing view by entering a name. You can toggle between Table View and Graphical View to better understand your billing data. </p>
+<p><img alt="Billing Views" src="../images/b1.png" /></p>
+<p><img alt="save Billing Views" src="../images/save1.png" width="400" /></p>
+<!-- ### Choose Billing View: 
+ Create a billing view or choose billing view from the dropdown. 
+
+Create a billing view: you can choose the filters and view the table with the details according to the filters selected. Click on “save the billing view” button, a pop-up will appear, enter a name for your billing view and click on “Save” button. 
+
+
+
+Choose from the list of billing views: you can view the billing view that was previously created. 
+
+
+
+### Date Range
+You can select the date range for the billing information you want to display by using the date picker at the top right corner of the page. 
+
+
+
+### Apply Cost Group
+To apply a cost group to your expenses, click on the “Apply Cost Group” button. A popup will appear where you can enter your Cost Shared Tag and Cost Group Tag. After entering the tags, click “Apply” to assign the cost groups to your selected items. 
+
+
+
+
+
+### Generate Invoices
+To generate an invoice based on the displayed billing information, Click the “Generate Invoice” button at the bottom right of the billing summary. This will create a downloadable invoice including all the details from the billing summary. 
+
+
+
+Switch to Graphical View by toggling the button at the top of the billing page. This view presents your expenses in a bar graph, giving you a visual representation of your spending over the year. 
+
+ ![Edit invoice](images/edit%20invoice%20and%20billing%20landing%20page.png)
+
+  -->
+
+<h2 id="invoicing">Invoicing</h2>
+<p>The Invoicing page in CloudPi centralizes and streamlines the invoicing process, making it easier for users to generate, manage, and review invoices based on comprehensive and customizable billing views. This feature ensures precise financial management across various customers and cost centers, tailored to the unique demands of multi-cloud environments. </p>
+<p>Key Features  </p>
+<p>Invoicing Based on Billing Views: </p>
+<ul>
+<li>
+<p>Customization: 
+Create invoices that reflect the specific cost structures and categories defined in your billing views, such as services, service groups, or user-defined cost tags. </p>
+</li>
+<li>
+<p>Accuracy: 
+Ensure that each invoice accurately represents the consumption and costs as per the configurations set in the billing views, enhancing transparency and accountability. </p>
+</li>
+</ul>
+<p>Invoicing History: </p>
+<ul>
+<li>
+<p>Comprehensive List: 
+Access a detailed list of all past invoices, which includes vital information such as invoice dates, amounts, and associated customer or cost center details. </p>
+</li>
+<li>
+<p>Ease of Management: 
+Track and manage invoicing records effortlessly, with options to search, filter, and retrieve past invoices based on various criteria, facilitating better financial oversight. </p>
+</li>
+</ul>
+<p>Invoicing Automation: </p>
+<ul>
+<li>
+<p>Scheduled Billing: 
+Automate the invoicing process based on selected billing views with customizable schedules (e.g., weekly, monthly). This automation helps maintain consistency in billing cycles and reduces manual workload. </p>
+</li>
+<li>
+<p>Reliability: 
+Automate recurring invoices, ensuring they are generated and dispatched at regular intervals without fail, thus improving efficiency and reducing the chances of human error. </p>
+</li>
+</ul>
+<p>Invoice Customer/Cost Center Details: </p>
+<ul>
+<li>
+<p>Detailed Record-Keeping: 
+Maintain and manage detailed records for each customer or cost center, including specific billing information and contact details. This information is critical for ensuring invoices are accurate and are sent to the correct recipients. </p>
+</li>
+<li>
+<p>Customization and Control: 
+Customize the level of detail shown on invoices for each customer or cost center, allowing for flexibility and specificity in billing practices to meet diverse needs. </p>
+</li>
+</ul>
+<h2 id="navigating-invoicing-page">Navigating Invoicing Page</h2>
+<ul>
+<li>
+<p>Access and Setup: Navigate to the invoicing page from the billing page in left navigation menu. Here, you can configure or modify billing views and set up automation for recurring billing cycles.  </p>
+</li>
+<li>
+<p>Generate Invoices: Select the appropriate billing view and input any required details to generate an invoice. You can preview the invoice before finalization to ensure all details are correct.  </p>
+</li>
+<li>
+<p>Manage and Review: Use the invoicing history section to monitor previously issued invoices, making use of filters to sort and access specific invoices quickly. This section also allows for the reissuing, editing, or cancellation of invoices if necessary.   </p>
+</li>
+</ul>
+<p><strong>Invoice History</strong>: Here you can view all created billing views.  </p>
+<p><img alt="Invoice History" src="../images/invoice1.png" /></p>
+<!-- **Customer Details**: it shows the relevant information about the customer associated with the billing views. It includes the customer's name, project name, cost center, department name, and the date range for the invoice. 
+
+ ![Customer Details](images/customer%20details.png) -->
+
+<p><strong>View Invoices</strong>: view invoices that have been generated under each billing view. You can resend, edit and download invoices.</p>
+<p><strong>Auto Invoicing</strong>: To enable auto invoicing for a customer, click on auto invoicing icon under actions. In the pop-up window, select the customer from the dropdown menu. Enter the customer’s email ID, set a schedule for the invoicing, specify delivery details such as email id and end date and click on “Save” to enable auto invoicing. </p>
+<p><img alt="Auto Invoicing" src="../images/auto1.png" width="500" /></p>
+<!-- **Creating Customer Details**: click on create icon under actions. A popup appears, choose the Customer and Billing view and then click on “Save” button.  -->
+<p><strong>Add Customer</strong>: click on add icon under actions. A popup appears, choose the Customer or create customer details and then click on “Save” button.</p>
+<p><img alt="Add costomer" src="../images/choose1.png" width="500" /></p>
+<p>On clicking create customer details, you will be navigated to the customer details page to enter details such as first name, last name, email, phone number, address, city, state, cost center, project name and department name, then click on “Save” button. </p>
+<p><img alt="sAve" src="../images/customer1.png" /></p>
+<p><strong>Editing billing view</strong>: click on the edit icon under the actions to modify billing view . You will be navigated to billing management, where you can edit billing details, including billing view, Account ID, Granularity, project, group by and date range. You can select from dropdowns and apply changes, and save the billing view by entering a name.</p>
+<p><img alt="Invoice History" src="../images/b1.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <style>
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the footer stays at the bottom */
+}
+
+.content {
+  flex: 1; /* Make the content area flexible */
+  padding-bottom: 80px; /* Add padding to the bottom to accommodate the footer */
+}
+
+    .main{
+        /* background-color: #fdfafb;  */
+        background-image: linear-gradient(to bottom right, #ced1e7,#fbdadb,#dbc2c5,#faf6ff);
+        color: black;
+        padding: 20px;
+        z-index: 100;
+        font-size: 12px;
+        /* font-family: Arial, Helvetica, sans-serif; */
+    }
+    .custom-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 100;
+      position: relative;
+    }
+  
+    .footer-section {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .footer-section p:hover{
+      color: purple;
+      text-decoration: underline;
+    }
+
+    .footer-logo{
+      /* width: 200px; */
+      /* display: flex; */
+      margin: 50px;
+      box-shadow: none; 
+      
+    }
+  
+    .footer-logo .social-icons{
+      margin-left: 50px;
+    }
+  
+    .footer-logo img {
+      width: 200px;
+      box-shadow: none;
+    }
+  
+    .footer-navigation p {
+      margin-bottom: 5px; /* Decrease gap between menu items */
+      font-size: 16px; /* Increase text size */
+    }
+  
+    .footer-navigation a {
+      color: white;
+      text-decoration: none;
+    }
+  
+    .footer-navigation a:hover {
+      text-decoration: underline;
+    }
+  
+    .footer-contact p {
+      margin: 5px 0;
+    }
+  
+    .footer-contact a {
+      color: black;
+    }
+  
+    .navigation-group-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px; /* Make headings more prominent */
+      color: rgb(0 25 85); /* Make headings more bright */
+    }
+  
+    .navigation-group {
+      margin-bottom: 20px;
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .social-icons a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+  
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      /* border-top: 1px solid black; */
+      padding-top: 10px;
+      margin-top: 20px;
+    }
+  
+    .footer-bottom p {
+      margin: 0;
+      font-size: 14px;
+      text-align: left;
+    }
+  
+  </style>
+  <script src="https://kit.fontawesome.com/9b0dfc9f67.js" crossorigin="anonymous"></script>
+
+  <div class="main">
+  <footer style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; margin-left: 30px;">
+    <div style="display: flex; flex-direction: column; align-items: left; margin-right: 50px;">
+      <div>
+        <img style="width: 150px; box-shadow: none; margin-left: -15px;" src="../images/Purple_Data_white_3-removebg-preview (1).png" alt="Logo">
+      </div>
+      <p style="margin-top: -5px;">aI Powered Cloud cost Optimization</p>
+      <div style="cursor: pointer; width: 150px; text-align: center; border-radius: 15px; padding: 10px; background-image: linear-gradient(to bottom right, #C47BF4, #F08753);">
+        <a href="#">
+          <button style="color: white; cursor: pointer;">Register Now <img src="" alt=""></button>
+          <i style="color: white; margin-left: 10px;" class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="social-icons" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; width: 120px;">
+        <a href="https://www.youtube.com/@purpledatainc."><i class="fa-brands fa-square-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/mycompany/verification/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc?igsh=amU5bndidXlobHh0"><i class="fa-brands fa-square-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech"><i class="fa-brands fa-square-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Product</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/cloudpi-dashboard">Features</a></p>
+        <p><a href="#">Integrations</a></p>
+        <p><a href="#">Workflow</a></p>
+        <p><a href="#">Security</a></p>
+        <p><a href="#">Automation</a></p>
+        <p><a href="#">Gen AI</a></p>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Resources</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-3">Solutions</a></p>
+        <p><a href="#">Use cases</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blog">Blogs</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-6">Q&A</a></p>
+        <p><a href="#">Videos</a></p>
+        <p><a href="#">Comparison</a></p>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Company</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/about-us">About us</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-6">News & Updates</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank">Careers</a></p>
+      </div>
+    </div>
+    <div class="footer-section footer-contact">
+      <div class="navigation-group-title" style="">Contact us</div>
+      <!-- <p><a href="mailto:sales@purpledatainc.com">Sales@purpledatainc.com</a></p> -->
+      <!-- <p>India: +91-7892956510</p>
+      <p>US: +1 512 688 6976</p> -->
+      <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-7">Contact us</a></p>
+      <p><a href="#">Contact for Demo</a></p>
+      <p><a href="#">Contact for Trail</a></p>
+      <p><a href="#">Register</a></p>
+    </div>
+</footer>
+<div class="footer-bottom" style="display: grid; grid-template-columns: 2fr 1fr 0.4fr;">
+  <p>&copy; 2023 by Purpledata Inc </p>
+  <a href="#"><p>Cookie Policy</p></a>
+  <a href="#"><p>Privacy Policy</p></a>
+</div>
+</div>
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../js/custom.js"></script>
+      
+    
+  </body>
+</html>

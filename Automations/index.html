@@ -1,0 +1,1170 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.purpledatainc.com/Automations/">
+      
+      
+        <link rel="prev" href="../Integrations/">
+      
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>Automation - CloudPi User Guide v0.2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=0px:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"0px";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-icons.svg">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #ffffff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Media query for slide menu on smaller screens */
+@media (max-width: 1200px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/Purple Data white 3 1.svg" alt="Logo" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://www.purpledatainc.com/">HOME</a></li>
+      <li><a href="https://www.purpledatainc.com/">FEATURES</a></li>
+      <li><a href="https://www.purpledatainc.com/about-us">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://www.purpledatainc.com/solutions">SOLUTIONS</a></li>
+      <li><a href="https://www.purpledatainc.com/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://www.purpledatainc.com/blog">BLOG</a></li>
+      <li><a href="https://www.purpledatainc.com/faq">FAQ</a></li>
+      <li><a href="#">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://www.purpledatainc.com/contact" class="start-trial">START TRIAL</a>
+    <a href="https://www.purpledatainc.com/contact" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="teamcollaboration/"><i class="fa fa-users" aria-hidden="true"></i> Team Collaboration</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="CUDdiscounts/"><i class="fa fa-percent" aria-hidden="true"></i> CUDs/Discounts</a></li>
+    
+    <li><a href="Budgets/"><i class="fa fa-university" aria-hidden="true"></i> Budgets</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="Automations/"><i class="fa fa-magic" aria-hidden="true"></i> Automation</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation(); // Prevent the click event from bubbling up
+    slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it
+  document.addEventListener("click", function(e) {
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected
+  slideMenu.querySelectorAll("a").forEach(function(item) {
+    item.addEventListener("click", function() {
+      slideMenu.classList.remove("open");
+    });
+  });
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CloudPi User Guide v0.2" class="md-nav__button md-logo" aria-label="CloudPi User Guide v0.2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CloudPi User Guide v0.2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-info-circle"></i>  Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-universal-access"></i> RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-wrench"></i> Workspace Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teamcollaboration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-users" aria-hidden="true"></i> Team Collaboration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiCloudBillingHub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CUDdiscounts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-percent" aria-hidden="true"></i> CUDs/Discounts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Budgets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-university" aria-hidden="true"></i> Budgets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terraform-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup and Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigating-the-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating the Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terraform-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup and Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigating-the-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating the Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+  <h1><i class="fa fa-magic" aria-hidden="true"></i> Automation</h1>
+
+<h2 id="overview">Overview</h2>
+<p>CloudPi's integration with Terraform enhances the automation capabilities for managing 
+cloud resources. This feature allows organizations to automate changes to cloud resource 
+configurations, deployment, and management efficiently and reliably. By leveraging 
+Terraform within CloudPi, users can implement Infrastructure as Code (IaC) practices to 
+streamline the provisioning and management of their cloud environments.</p>
+<h2 id="key-features">Key Features</h2>
+<h3 id="terraform-integration">Terraform Integration</h3>
+<ul>
+<li>
+<p>Comprehensive Automation: Utilize Terraform to automate the provisioning, modification, 
+and management of cloud resources. This integration supports a wide range of cloud services 
+and ensures that resource changes are executed in a controlled and predictable manner.</p>
+</li>
+<li>
+<p>CloudPi-Specific Scripts: Leverage scripts specifically tailored for CloudPi environments. 
+These scripts enable users to automate common tasks such as starting, stopping, and scaling 
+resources based on predefined conditions or schedules.</p>
+</li>
+</ul>
+<h3 id="setup-and-configuration">Setup and Configuration</h3>
+<ul>
+<li>
+<p>Accessible via Workspace Settings: Setting up the Terraform integration is straightforward 
+through CloudPi’s workspace settings. This central configuration point simplifies the process 
+of connecting CloudPi with Terraform and managing automation scripts.</p>
+</li>
+<li>
+<p>Custom Script Deployment: Deploy CloudPi-specific Terraform scripts that are designed to 
+optimize the management of your cloud resources. These scripts can be customized and 
+scaled to meet the unique demands of your organization.</p>
+</li>
+</ul>
+<h3 id="benefits">Benefits</h3>
+<ul>
+<li>
+<p>Enhanced Efficiency: Automation reduces the need for manual interventions, speeding up 
+operations and reducing the potential for human error. This leads to more efficient 
+management of cloud resources and faster deployment times.</p>
+</li>
+<li>
+<p>Scalability: With Terraform, scaling your infrastructure up or down becomes more 
+manageable and can be triggered automatically based on performance metrics or predefined 
+conditions.</p>
+</li>
+<li>
+<p>Consistency and Compliance: Automation ensures that all deployments are consistent and 
+adhere to organizational policies and standards. This uniformity is crucial for maintaining 
+security and compliance across all cloud environments.</p>
+</li>
+</ul>
+<h3 id="navigating-the-integration">Navigating the Integration</h3>
+<ul>
+<li>
+<p>Accessing Integration Settings: Log into CloudPi, go to the workspace settings, and select 
+the 'Integrations' section. Here, you can initiate the setup process for integrating Terraform.</p>
+</li>
+<li>
+<p>Configuring Terraform: Follow the provided instructions to connect your Terraform account 
+with CloudPi. This includes entering necessary credentials, selecting the appropriate scripts, 
+and configuring settings specific to your cloud environment.</p>
+</li>
+<li>
+<p>Deploying and Managing Scripts: Once Terraform is integrated, you can begin deploying 
+CloudPi-specific scripts. These scripts can be managed directly from the CloudPi interface, 
+allowing you to modify, activate, or deactivate them as needed.</p>
+</li>
+<li>
+<p>Monitoring Automation: Keep track of the automation processes through CloudPi’s 
+dashboard. This monitoring capability allows you to see real-time updates on the status of 
+your resources and any actions performed by Terraform scripts.</p>
+</li>
+</ul>
+<p>By integrating Terraform with CloudPi, organizations can harness the power of automation 
+to enhance their cloud resource management, reduce operational complexities, and 
+improve overall system reliability and performance. This strategic approach not only saves 
+time and resources but also ensures a more agile and responsive cloud environment.</p>
+<p><img alt="Adding a Role" src="../images/thumbnail_automation%20terraform.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <style>
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the footer stays at the bottom */
+}
+
+.content {
+  flex: 1; /* Make the content area flexible */
+  padding-bottom: 80px; /* Add padding to the bottom to accommodate the footer */
+}
+
+    .main{
+        /* background-color: #fdfafb;  */
+        background-image: linear-gradient(to bottom right, #ced1e7,#fbdadb,#dbc2c5,#faf6ff);
+        color: black;
+        padding: 20px;
+        z-index: 100;
+        font-size: 12px;
+        /* font-family: Arial, Helvetica, sans-serif; */
+    }
+    .custom-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 100;
+      position: relative;
+    }
+  
+    .footer-section {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .footer-section p:hover{
+      color: purple;
+      text-decoration: underline;
+    }
+
+    .footer-logo{
+      /* width: 200px; */
+      /* display: flex; */
+      margin: 50px;
+      box-shadow: none; 
+      
+    }
+  
+    .footer-logo .social-icons{
+      margin-left: 50px;
+    }
+  
+    .footer-logo img {
+      width: 200px;
+      box-shadow: none;
+    }
+  
+    .footer-navigation p {
+      margin-bottom: 5px; /* Decrease gap between menu items */
+      font-size: 16px; /* Increase text size */
+    }
+  
+    .footer-navigation a {
+      color: white;
+      text-decoration: none;
+    }
+  
+    .footer-navigation a:hover {
+      text-decoration: underline;
+    }
+  
+    .footer-contact p {
+      margin: 5px 0;
+    }
+  
+    .footer-contact a {
+      color: black;
+    }
+  
+    .navigation-group-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px; /* Make headings more prominent */
+      color: rgb(0 25 85); /* Make headings more bright */
+    }
+  
+    .navigation-group {
+      margin-bottom: 20px;
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .social-icons a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+  
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      /* border-top: 1px solid black; */
+      padding-top: 10px;
+      margin-top: 20px;
+    }
+  
+    .footer-bottom p {
+      margin: 0;
+      font-size: 14px;
+      text-align: left;
+    }
+  
+  </style>
+  <script src="https://kit.fontawesome.com/9b0dfc9f67.js" crossorigin="anonymous"></script>
+
+  <div class="main">
+  <footer style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; margin-left: 30px;">
+    <div style="display: flex; flex-direction: column; align-items: left; margin-right: 50px;">
+      <div>
+        <img style="width: 150px; box-shadow: none; margin-left: -15px;" src="../images/Purple_Data_white_3-removebg-preview (1).png" alt="Logo">
+      </div>
+      <p style="margin-top: -5px;">aI Powered Cloud cost Optimization</p>
+      <div style="cursor: pointer; width: 150px; text-align: center; border-radius: 15px; padding: 10px; background-image: linear-gradient(to bottom right, #C47BF4, #F08753);">
+        <a href="#">
+          <button style="color: white; cursor: pointer;">Register Now <img src="" alt=""></button>
+          <i style="color: white; margin-left: 10px;" class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="social-icons" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; width: 120px;">
+        <a href="https://www.youtube.com/@purpledatainc."><i class="fa-brands fa-square-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/mycompany/verification/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc?igsh=amU5bndidXlobHh0"><i class="fa-brands fa-square-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech"><i class="fa-brands fa-square-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Product</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/cloudpi-dashboard">Features</a></p>
+        <p><a href="#">Integrations</a></p>
+        <p><a href="#">Workflow</a></p>
+        <p><a href="#">Security</a></p>
+        <p><a href="#">Automation</a></p>
+        <p><a href="#">Gen AI</a></p>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Resources</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-3">Solutions</a></p>
+        <p><a href="#">Use cases</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blog">Blogs</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-6">Q&A</a></p>
+        <p><a href="#">Videos</a></p>
+        <p><a href="#">Comparison</a></p>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Company</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/about-us">About us</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-6">News & Updates</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank">Careers</a></p>
+      </div>
+    </div>
+    <div class="footer-section footer-contact">
+      <div class="navigation-group-title" style="">Contact us</div>
+      <!-- <p><a href="mailto:sales@purpledatainc.com">Sales@purpledatainc.com</a></p> -->
+      <!-- <p>India: +91-7892956510</p>
+      <p>US: +1 512 688 6976</p> -->
+      <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-7">Contact us</a></p>
+      <p><a href="#">Contact for Demo</a></p>
+      <p><a href="#">Contact for Trail</a></p>
+      <p><a href="#">Register</a></p>
+    </div>
+</footer>
+<div class="footer-bottom" style="display: grid; grid-template-columns: 2fr 1fr 0.4fr;">
+  <p>&copy; 2023 by Purpledata Inc </p>
+  <a href="#"><p>Cookie Policy</p></a>
+  <a href="#"><p>Privacy Policy</p></a>
+</div>
+</div>
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../js/custom.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1382 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.purpledatainc.com/WorkspaceSettings/">
+      
+      
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>WorkspaceSettings - CloudPi User Guide v0.2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=0px:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"0px";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-icons.svg">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#managing-workspace-roles-and-access" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #ffffff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Media query for slide menu on smaller screens */
+@media (max-width: 1200px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/Purple Data white 3 1.svg" alt="Logo" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://www.purpledatainc.com/">HOME</a></li>
+      <li><a href="https://www.purpledatainc.com/">FEATURES</a></li>
+      <li><a href="https://www.purpledatainc.com/about-us">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://www.purpledatainc.com/solutions">SOLUTIONS</a></li>
+      <li><a href="https://www.purpledatainc.com/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://www.purpledatainc.com/blog">BLOG</a></li>
+      <li><a href="https://www.purpledatainc.com/faq">FAQ</a></li>
+      <li><a href="#">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://www.purpledatainc.com/contact" class="start-trial">START TRIAL</a>
+    <a href="https://www.purpledatainc.com/contact" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="teamcollaboration/"><i class="fa fa-users" aria-hidden="true"></i> Team Collaboration</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="CUDdiscounts/"><i class="fa fa-percent" aria-hidden="true"></i> CUDs/Discounts</a></li>
+    
+    <li><a href="Budgets/"><i class="fa fa-university" aria-hidden="true"></i> Budgets</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="Automations/"><i class="fa fa-magic" aria-hidden="true"></i> Automation</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation(); // Prevent the click event from bubbling up
+    slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it
+  document.addEventListener("click", function(e) {
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected
+  slideMenu.querySelectorAll("a").forEach(function(item) {
+    item.addEventListener("click", function() {
+      slideMenu.classList.remove("open");
+    });
+  });
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CloudPi User Guide v0.2" class="md-nav__button md-logo" aria-label="CloudPi User Guide v0.2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CloudPi User Guide v0.2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-info-circle"></i>  Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-universal-access"></i> RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-wrench"></i> Workspace Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teamcollaboration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-users" aria-hidden="true"></i> Team Collaboration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiCloudBillingHub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CUDdiscounts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-percent" aria-hidden="true"></i> CUDs/Discounts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Budgets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-university" aria-hidden="true"></i> Budgets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Automations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#managing-workspace-roles-and-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Workspace Roles and Access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features-for-managing-roles-and-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features for Managing Roles and Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features for Managing Roles and Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#role-definition-and-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role Definition and Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-tools-integration-in-cloudpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Tools Integration in CloudPi
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servicenow-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      ServiceNow Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jira-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jira Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Integrations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-workflow-tools-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Workflow Tools Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-status-and-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Status and Settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-jira-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing JIRA Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-servicenow-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing ServiceNow Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-alerts-in-cloudpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workspace Alerts in CloudPi
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alert-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alert Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alert Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#email-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email Alerts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticketing-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ticketing Alerts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Notifications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Alerts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-alerts-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Alerts Available
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-customer-billing-information-in-cloudpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Customer Billing Information in CloudPi
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#billing-management-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Billing Management Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-billing-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Billing Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-the-billing-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating the Billing Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigating the Billing Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-activities-in-the-subscription-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Activities in the Subscription Portal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-subscription-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Active Subscription Details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+  <h1>WorkspaceSettings</h1>
+
+<h2 id="managing-workspace-roles-and-access">Managing Workspace Roles and Access</h2>
+<h2 id="overview">Overview</h2>
+<p>Effective management of workspace roles and access is critical in CloudPi to ensure that 
+team members have the appropriate permissions for their roles, enhancing security and 
+efficiency. This feature allows administrators to customize access levels for different roles 
+such as project admins, cost analysts, and finance team members.</p>
+<h2 id="key-features-for-managing-roles-and-access">Key Features for Managing Roles and Access</h2>
+<h3 id="role-definition-and-management">Role Definition and Management</h3>
+<ul>
+<li><strong>Customizable Permissions:</strong> Define and manage the scope of permissions for each role 
+within the workspace, controlling who can view, edit, or manage specific aspects of the 
+cloud environment.</li>
+<li><strong>Role Assignment:</strong> Assign roles carefully to ensure that individuals have the necessary 
+permissions to perform their tasks effectively without compromising security.</li>
+</ul>
+<p><strong><em>Regular Access Review:</em></strong></p>
+<ul>
+<li><strong>Periodic Audits:</strong> Regularly review and adjust user roles and access permissions to ensure 
+they align with current project scopes and personnel changes. This helps maintain security 
+integrity and operational efficiency.</li>
+</ul>
+<p><strong><em>Navigating Roles and Access</em></strong></p>
+<ul>
+<li><strong>Assign Roles:</strong> Navigate to the 'Roles and Permissions' section in the settings menu, where 
+you can assign or modify roles.</li>
+<li><strong>Audit and Adjust:</strong> Use the audit log to review changes and access patterns, making 
+adjustments as needed to keep the workspace secure and functional.</li>
+</ul>
+<p>Roles are set to define the access level or permissions a user has within the platform. 
+Common roles include "Workspace User," "Project Admin," and "Project User." </p>
+<ul>
+<li><strong>Workspace User:</strong> Generally has permissions to manage project-specific settings 
+within their assigned workspace, integrate with third-party tools, and manage 
+optimization and alert settings.</li>
+<li><strong>Project Admin:</strong> Responsible for managing project-level settings that directly affect 
+the resources and cost management of their specific projects.</li>
+<li><strong>Project User:</strong> Has a more focused set of permissions suitable for managing specific 
+aspects of a project, typically without having full administrative rights.</li>
+</ul>
+<p><img alt="Roles and Permissions" src="../images/roles%20and%20permissions.png" /></p>
+<ul>
+<li><strong>Managing Permissions:</strong> Permissions are managed within the roles and can be adjusted to 
+include or exclude access to various features such as Dashboard, Inventory, Budgeting, 
+Custom Dashboard, Tag Management, Workflow, Recommendations, and Billing. 
+Permissions are usually toggled on and off for each feature associated with a role. For more 
+granular control, some platforms allow setting permissions for sub-features under main 
+categories like Landing, Workflow, Recommendations, Billing.</li>
+</ul>
+<p><img alt="permissions" src="../images/managing%20roles%20in%20roles%20and%20permissions.png" width="500" /></p>
+<ul>
+<li><strong>Adding a Role:</strong> Click on "Add Role" button, where you can define the role name, select 
+permissions, and provide a description. </li>
+</ul>
+<p><img alt="Adding a Role" src="../images/add%20new%20role%20in%20R%26P.png" width="500" /></p>
+<ul>
+<li><strong>Viewing and Editing a Role:</strong> Existing roles can be viewed and edited to modify their 
+description or adjust their permissions.</li>
+</ul>
+<p><img alt="Editing a Role" src="../images/edit%20role%20in%20R%26P.png" width="500" /></p>
+<h2 id="workflow-tools-integration-in-cloudpi">Workflow Tools Integration in CloudPi</h2>
+<h2 id="integration-capabilities">Integration Capabilities</h2>
+<h3 id="servicenow-integration">ServiceNow Integration</h3>
+<ul>
+<li>
+<p><strong>Unified IT Management:</strong> Incorporate CloudPi with ServiceNow to streamline cloud resource management alongside other IT services.</p>
+</li>
+<li>
+<p><strong>Enhanced Service Delivery:</strong> Improve response times and resolution rates by managing cloud resources through ServiceNow’s ITSM platform.</p>
+</li>
+</ul>
+<h3 id="jira-integration">Jira Integration</h3>
+<ul>
+<li><strong>Project Tracking:</strong> Connect CloudPi to Jira to facilitate seamless issue tracking and project management, linking cloud cost optimization directly to your operational tasks.</li>
+</ul>
+<h2 id="setting-up-integrations">Setting Up Integrations</h2>
+<p>ServiceNow and Jira integrations:</p>
+<p>Access the 'Integrations' section within CloudPi to connect and configure settings tailored to your organizational workflows.</p>
+<h2 id="navigating-workflow-tools-integration">Navigating Workflow Tools Integration</h2>
+<p>Workflow tools integration allows you to seamlessly connect with third-party tools such as JIRA and ServiceNow. These integrations facilitate direct issue creation from the cost optimization platform, enhancing workflow efficiency and responsiveness to issues identified during cost analysis.</p>
+<h2 id="integration-status-and-settings">Integration Status and Settings</h2>
+<ul>
+<li>
+<p><strong>Status Check:</strong> At the top of the integration settings page, you can view the current status of the integration system (e.g., Healthy) and the last update time.</p>
+</li>
+<li>
+<p><strong>Enable Integrations:</strong> Toggle switches are provided to enable or disable integration features for JIRA and ServiceNow. Enabling these allows for direct issue creation from the cost optimization system to these platforms.</p>
+</li>
+</ul>
+<h2 id="managing-jira-integration">Managing JIRA Integration</h2>
+<p>To manage JIRA integration:</p>
+<ul>
+<li>
+<p><strong>Enabling JIRA Integration:</strong> Toggle the switch to "Enable" to activate JIRA integration.</p>
+</li>
+<li>
+<p><strong>JIRA Server URL:</strong> Input the server URL of your JIRA instance to link the cost optimization platform with your JIRA account.</p>
+</li>
+<li>
+<p><strong>Default Settings for Issues:</strong> Optional fields such as 'pid' (project id) and 'issuetype' can be set, which dictate the defaults for new issues created from the platform.</p>
+</li>
+</ul>
+<h2 id="managing-servicenow-integration">Managing ServiceNow Integration</h2>
+<ul>
+<li>
+<p><strong>Enabling ServiceNow Integration:</strong> Toggle the switch to "Enable" to activate integration with ServiceNow.</p>
+</li>
+<li>
+<p><strong>Service Management:</strong> Similar to JIRA, ensure that the correct settings are configured to allow the creation of service tickets directly linked to your cost management findings.</p>
+</li>
+</ul>
+<p><img alt="Service Management" src="../images/integ.png" /></p>
+<h2 id="workspace-alerts-in-cloudpi">Workspace Alerts in CloudPi</h2>
+<h2 id="alert-configuration">Alert Configuration</h2>
+<h3 id="email-alerts">Email Alerts</h3>
+<ul>
+<li><strong>Event-Based Notifications:</strong> Set up email alerts for critical events such as budget overruns, cost optimizations, or resource utilization issues.</li>
+</ul>
+<h3 id="ticketing-alerts">Ticketing Alerts</h3>
+<ul>
+<li><strong>Automated Ticket Generation:</strong> Integrate with your ticketing system to automatically create tickets for actionable issues identified within CloudPi.</li>
+</ul>
+<h3 id="custom-notifications">Custom Notifications</h3>
+<ul>
+<li><strong>In-App and Frequency Customization:</strong> Customize the type and frequency of in-app notifications to ensure stakeholders are timely informed about significant changes or updates.</li>
+</ul>
+<h2 id="managing-alerts">Managing Alerts</h2>
+<p><strong>Configure Alerts</strong>: Use the 'Alerts Management' section to set up and customize alert parameters and notification methods.</p>
+<h2 id="types-of-alerts-available">Types of Alerts Available</h2>
+<ul>
+<li>
+<p><strong>Cost Overrun:</strong> Receive notifications when actual cloud expenses exceed the budgeted or expected costs. This helps in taking timely corrective actions to avoid significant overages.</p>
+</li>
+<li>
+<p><strong>Budget Threshold:</strong> Configure alerts to notify you when spending approaches a predefined limit, helping manage cloud expenses effectively without continuous manual monitoring.</p>
+</li>
+<li>
+<p><strong>Optimization:</strong> Stay informed about opportunities to optimize cloud spending, ensuring you maximize the value of deployed resources.</p>
+</li>
+<li>
+<p><strong>Underutilized Resources:</strong> Receive alerts about resources that are not being fully utilized, which can lead to cost savings by reallocating or terminating such resources.</p>
+</li>
+<li>
+<p><strong>Approaching Budget Limit:</strong> Set up alerts to prevent overspending and ensure that your organization stays within allocated budgets.</p>
+</li>
+<li>
+<p><strong>Health:</strong> Monitor the overall health and performance of cloud resources, with alerts that can help ensure optimal cost management and resource allocation.</p>
+</li>
+<li>
+<p><strong>Cost Anomaly:</strong> Get notified about any unexpected or irregular spending patterns that may indicate issues like misconfigurations or unauthorized usage.</p>
+</li>
+</ul>
+<p>You can set how you wish to be notified for each type of alert by clicking on toggle button to enable among three alert configuration types such as Email alert, Ticketing alert and Notifications.</p>
+<p><img alt="Cost Anomaly" src="../images/global%20alert%20subscription%20%281%29.png" /></p>
+<h2 id="managing-customer-billing-information-in-cloudpi">Managing Customer Billing Information in CloudPi</h2>
+<h2 id="billing-management-features">Billing Management Features</h2>
+<ul>
+<li>
+<p><strong>Update and Maintain Billing Details:</strong> Keep customer billing information up-to-date, manage payment methods, and ensure that billing records are accurate and reflective of current engagements.</p>
+</li>
+<li>
+<p><strong>View Billing History:</strong> Access comprehensive billing histories to track transactions and verify charges as part of financial oversight.</p>
+</li>
+</ul>
+<h2 id="accessing-billing-management">Accessing Billing Management</h2>
+<ul>
+<li><strong>Billing Section:</strong> Navigate to the 'Billing Information' area in CloudPi to update billing details and review historical billing data.</li>
+</ul>
+<p>These refined features in CloudPi are designed to streamline workspace management, enhance security, integrate efficiently with existing workflow tools, and ensure effective communication and financial tracking within the organization.</p>
+<h2 id="navigating-the-billing-information">Navigating the Billing Information</h2>
+<h3 id="key-activities-in-the-subscription-portal">Key Activities in the Subscription Portal</h3>
+<ul>
+<li>
+<p><strong>Download Invoices:</strong> Access and download your billing invoices for record-keeping or expense management.</p>
+</li>
+<li>
+<p><strong>Upgrade Your Plan:</strong> Adjust your service plan based on your changing needs. This might involve upgrading to a higher tier to access additional features or increasing the capacity limits of your service.</p>
+</li>
+<li>
+<p><strong>Cancel Your Subscription:</strong> If necessary, you can cancel your subscription through this portal. Note that terms regarding data retention and service cessation should be reviewed before cancellation.</p>
+</li>
+<li>
+<p><strong>Manage Payment Details:</strong> Update billing information such as credit card details, billing address, or payment methods to ensure uninterrupted service.</p>
+</li>
+</ul>
+<h3 id="active-subscription-details">Active Subscription Details</h3>
+<ul>
+<li>View details about your current subscription, including the plan type, start and end date, subscription ID, company name, and billing address. This section helps you keep track of your subscription status and ensure that all company and billing information is up-to-date.</li>
+</ul>
+<p>By effectively utilizing the Billing Information features, you can ensure that your cloud cost optimization efforts are well supported by an appropriate and up-to-date subscription plan.</p>
+<p><img alt="subscription" src="../images/global%20alert%20subscription%20%282%29.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <style>
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the footer stays at the bottom */
+}
+
+.content {
+  flex: 1; /* Make the content area flexible */
+  padding-bottom: 80px; /* Add padding to the bottom to accommodate the footer */
+}
+
+    .main{
+        /* background-color: #fdfafb;  */
+        background-image: linear-gradient(to bottom right, #ced1e7,#fbdadb,#dbc2c5,#faf6ff);
+        color: black;
+        padding: 20px;
+        z-index: 100;
+        font-size: 12px;
+        /* font-family: Arial, Helvetica, sans-serif; */
+    }
+    .custom-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 100;
+      position: relative;
+    }
+  
+    .footer-section {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .footer-section p:hover{
+      color: purple;
+      text-decoration: underline;
+    }
+
+    .footer-logo{
+      /* width: 200px; */
+      /* display: flex; */
+      margin: 50px;
+      box-shadow: none; 
+      
+    }
+  
+    .footer-logo .social-icons{
+      margin-left: 50px;
+    }
+  
+    .footer-logo img {
+      width: 200px;
+      box-shadow: none;
+    }
+  
+    .footer-navigation p {
+      margin-bottom: 5px; /* Decrease gap between menu items */
+      font-size: 16px; /* Increase text size */
+    }
+  
+    .footer-navigation a {
+      color: white;
+      text-decoration: none;
+    }
+  
+    .footer-navigation a:hover {
+      text-decoration: underline;
+    }
+  
+    .footer-contact p {
+      margin: 5px 0;
+    }
+  
+    .footer-contact a {
+      color: black;
+    }
+  
+    .navigation-group-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px; /* Make headings more prominent */
+      color: rgb(0 25 85); /* Make headings more bright */
+    }
+  
+    .navigation-group {
+      margin-bottom: 20px;
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .social-icons a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+  
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      /* border-top: 1px solid black; */
+      padding-top: 10px;
+      margin-top: 20px;
+    }
+  
+    .footer-bottom p {
+      margin: 0;
+      font-size: 14px;
+      text-align: left;
+    }
+  
+  </style>
+  <script src="https://kit.fontawesome.com/9b0dfc9f67.js" crossorigin="anonymous"></script>
+
+  <div class="main">
+  <footer style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; margin-left: 30px;">
+    <div style="display: flex; flex-direction: column; align-items: left; margin-right: 50px;">
+      <div>
+        <img style="width: 150px; box-shadow: none; margin-left: -15px;" src="../images/Purple_Data_white_3-removebg-preview (1).png" alt="Logo">
+      </div>
+      <p style="margin-top: -5px;">aI Powered Cloud cost Optimization</p>
+      <div style="cursor: pointer; width: 150px; text-align: center; border-radius: 15px; padding: 10px; background-image: linear-gradient(to bottom right, #C47BF4, #F08753);">
+        <a href="#">
+          <button style="color: white; cursor: pointer;">Register Now <img src="" alt=""></button>
+          <i style="color: white; margin-left: 10px;" class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="social-icons" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; width: 120px;">
+        <a href="https://www.youtube.com/@purpledatainc."><i class="fa-brands fa-square-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/mycompany/verification/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc?igsh=amU5bndidXlobHh0"><i class="fa-brands fa-square-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech"><i class="fa-brands fa-square-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Product</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/cloudpi-dashboard">Features</a></p>
+        <p><a href="#">Integrations</a></p>
+        <p><a href="#">Workflow</a></p>
+        <p><a href="#">Security</a></p>
+        <p><a href="#">Automation</a></p>
+        <p><a href="#">Gen AI</a></p>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Resources</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-3">Solutions</a></p>
+        <p><a href="#">Use cases</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blog">Blogs</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-6">Q&A</a></p>
+        <p><a href="#">Videos</a></p>
+        <p><a href="#">Comparison</a></p>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="navigation-group">
+        <div class="navigation-group-title">Company</div>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/about-us">About us</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-6">News & Updates</a></p>
+        <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank">Careers</a></p>
+      </div>
+    </div>
+    <div class="footer-section footer-contact">
+      <div class="navigation-group-title" style="">Contact us</div>
+      <!-- <p><a href="mailto:sales@purpledatainc.com">Sales@purpledatainc.com</a></p> -->
+      <!-- <p>India: +91-7892956510</p>
+      <p>US: +1 512 688 6976</p> -->
+      <p><a href="https://yogecreative.wixstudio.io/puurpledata/blank-7">Contact us</a></p>
+      <p><a href="#">Contact for Demo</a></p>
+      <p><a href="#">Contact for Trail</a></p>
+      <p><a href="#">Register</a></p>
+    </div>
+</footer>
+<div class="footer-bottom" style="display: grid; grid-template-columns: 2fr 1fr 0.4fr;">
+  <p>&copy; 2023 by Purpledata Inc </p>
+  <a href="#"><p>Cookie Policy</p></a>
+  <a href="#"><p>Privacy Policy</p></a>
+</div>
+</div>
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../js/custom.js"></script>
+      
+    
+  </body>
+</html>
