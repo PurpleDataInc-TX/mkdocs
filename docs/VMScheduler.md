@@ -236,6 +236,8 @@ Access recommendation details and analysis by navigating to **Actions -> View**.
   - Users can select metrics like CPU or network usage to assess resource activity trends.
   - This feature allows users to validate recommendations before creating schedules, ensuring they align with usage patterns.
 
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/2aca951596e6dc7058cfc69468db1c847a856401/docs/images/Usage%20Analysis.png)
+
 ---
 
 ## Resource Scheduling
@@ -243,10 +245,13 @@ Access recommendation details and analysis by navigating to **Actions -> View**.
 The **Resources** section allows you to view and manage resources eligible for scheduling actions.
 
 - **Select Resources**: Check the box in the row for one or more resources to enable the "Create Schedule" button.
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/2b0044ef132ed80b6322fe2247bcb47da2360fae/docs/images/Resource%20Scheduling.png)
 - **Create Schedule**: After selecting resources, click the **Create Schedule** button to define scheduling parameters, including:
   - **Schedule Type** (Vacation or Custom).
   - **Description, Start/End Date, Stop/Start Times, and Time Zone**.
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/28a3eee2e7c0ced18783183a6eb4a3857ed148c0/docs/images/Create%20Schedule.png)
 - **View Resource Details**: Use the **View** action in the Actions column to see specific details about a resource, including tags and region information.
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/28a3eee2e7c0ced18783183a6eb4a3857ed148c0/docs/images/View%20Resource%20Details.png)
 - **Additional Features**:
   - **Download**: Export resource details as a spreadsheet.
   - **Share**: Share resource data via various platforms.
