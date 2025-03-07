@@ -22,7 +22,8 @@ The Virtual Machine Scheduler feature in CloudPI offers powerful automation for 
 
 - **Optimized Scheduling Suggestions**: Receive schedule recommendations based on usage patterns to reduce resource idling.
 - **Streamlined Implementation**: Apply recommendations with minimal configuration through the Recommendations screen.
-
+  
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/b13520c44f50a355fb20289d8966de3f3c978608/docs/images/Data-Driven%20Recommendations.png)
 ---
 
 ## Setup and Configuration
