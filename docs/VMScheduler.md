@@ -62,6 +62,7 @@ The **View** action allows users to examine the details of a specific schedule w
 
 The **View** feature is particularly useful for verifying schedule configurations or sharing information with team members. Users can close the detailed view by selecting the **Close View** option.
 
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/ea6e6958ceda8a515702920b3c9bdf40100976db/docs/images/View%20feature.png)
 ---
 
 ### Manual Override
