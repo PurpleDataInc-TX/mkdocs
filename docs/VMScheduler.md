@@ -85,6 +85,8 @@ The **Manual Override** feature provides users with the ability to temporarily p
 4. **Closing Manual Override**:
    - Once the desired overrides are set, click **Close Manual Override** to return to the main Schedules view. Overrides take effect immediately but do not alter the underlying schedule configuration.
 
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/759f2c7117b345162e235a2fd7e15bf194bb7896/docs/images/Closing%20Manual%20Override.png)
+
 ---
 
 ### Edit Action
@@ -103,6 +105,8 @@ The **Edit** feature allows users to modify the configuration of an existing sch
 3. **Saving Changes**: Once the updates are complete, click the **Update** button to save the changes. The schedule is updated in real time, and the changes are reflected in the Schedules screen.
 4. **Closing Edit Mode**: If no changes are needed, click **Close Edit** to exit the edit mode without modifying the schedule.
 
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/f3c096fe3c10aa9e5315a636dfa6c44d7aaa8c49/docs/images/How%20It%20Works.png)
+
 ---
 
 ### Schedule Logs
@@ -120,6 +124,8 @@ The **Schedule Logs** feature provides users with detailed insights into the exe
 3. **Troubleshooting Support**: If a schedule action fails, the log entry provides error messages or status details, which can be used to identify and resolve issues.
 4. **Closing Logs**: After reviewing the logs, click **Close Logs** to return to the main Schedules view.
 
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/064177e12742310ffd9afb9672c3db39f5ded950/docs/images/Schedule%20Logs.png)
+
 ---
 
 ### Delete Schedule
@@ -134,6 +140,8 @@ The **Delete Schedule** feature allows users to permanently remove an existing s
    - If confirmed, the schedule is permanently removed from the list, and all associated configurations are erased.
    - If canceled, no changes are made, and the schedule remains in place.
 4. **Impact on Resources**: Deleting a schedule does not impact the current state of associated resources; it only removes the automation tied to the schedule.
+
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/8b632eeaab23c4034ef8a13977f858699a623531/docs/images/Delete%20Schedule.png)
 
 ---
 
@@ -174,6 +182,8 @@ The **Export Instance Details** feature allows users to download a detailed spre
 - **Apply Data-Driven Suggestions**: Select recommendations based on usage analytics to implement optimal start and stop times.
 - **Customize Recommendations**: Adjust suggested schedules before activating them for your resources.
 
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/568252b8567bd5c0b314d36e973db1317ecc8a64/docs/images/Recommendations.png)
+
 ---
 
 ## Resources
@@ -186,6 +196,8 @@ The **Export Instance Details** feature allows users to download a detailed spre
 ## Reviewing Recommendations
 
 The **Recommendations Screen** displays a list of recommended snooze schedules tailored to optimize resource utilization and cost efficiency. These recommendations are generated based on usage analytics, helping users identify optimal start and stop times for cloud resources.
+
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/b52939122702bb4cdbd60e3ce2d64fb20ef81fcb/docs/images/Reviewing%20Recommendations.png)
 
 #### How It Works:
 
@@ -217,6 +229,8 @@ Access recommendation details and analysis by navigating to **Actions -> View**.
     - **Recommendation Type** (e.g., Snooze).
     - **Date Range and Start/Stop Times**.
     - **Average CPU Utilization and Network In/Out metrics**.
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/1d98476eec9aa06dd91447e40da5f507fbce04a3/docs/images/Recommendation%20Details.png)
+
 - **Usage Analysis**:
   - Provides a visual graph of historical metrics (e.g., CPU Utilization) over a configurable lookback period.
   - Users can select metrics like CPU or network usage to assess resource activity trends.
