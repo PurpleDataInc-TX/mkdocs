@@ -66,6 +66,8 @@ Onboarding your AWS account enables centralized management of multiple accounts 
 4. **Status Tracking**:
    - The onboarding progress is displayed on the left panel for Account Type and Access Type.
 
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/d7359e00822c53b2dc5a8b904e936053a60ca2d1/docs/images/status%20tracking.png)
+
 ---
 
 ### Step 2: Features Configuration
@@ -97,6 +99,8 @@ Configure specific AWS features, including billing, automation, and recommendati
 6. **Status Tracking**:
    - The progress for features configuration is displayed on the left panel.
 
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/dc97b9821fc95b451588fc229db99be05c86aeb6/docs/images/6.status%20racking.png)
+
 ---
 
 ### Step 3: Data Collection
@@ -119,7 +123,7 @@ Once features are configured, the system begins collecting billing and resource 
 4. **Redirect to Cost Assignment**:
    - Click **Go to Cost Assignment** to proceed to the cost assignment page.
    - Create projects and configure settings for centralized cost management.
-
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/3da773964aed9abc80768ecd6a0dfa9353a80409/docs/images/redirect%20to.png)
 ---
 
 # Azure Cloud Onboarding
@@ -146,7 +150,7 @@ Streamline your Azure cloud setup by onboarding your Azure account into the syst
 - If you are configuring for the first time:
   - You will see a page with the Azure logo and the **Onboard Your Azure Account** button.
   - Click the button to start the onboarding process, which will guide you through the step-by-step configuration of your Azure subscriptions.
-
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/d35d5de28dba28535128dd19fac88b1aaddf5927/docs/images/onboarding.png)
 ---
 
 ### If Subscriptions Already Exist
@@ -161,7 +165,7 @@ Streamline your Azure cloud setup by onboarding your Azure account into the syst
       - Access Type (e.g., Service Principal)
       - Storage Account Name, Location, Container Name, and Usage Report Version
       - Features Enabled and Status
-
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/dab21441ee4f424d5a38b9305ea8cbc722230eea/docs/images/add%20subscription.png)
 ---
 
 ## Steps to Create a Subscription
@@ -188,6 +192,7 @@ Onboarding your Azure account enables centralized management of multiple subscri
    - Click **Next** to proceed after providing the required details.
 4. **Status Tracking**:
    - The onboarding progress is displayed on the left panel for Subscription Type and Access Type.
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/dad8b1378686e5abdf1a855b253a484567c9a6ef/docs/images/stepsstatustracking.png)
 
 ---
 
@@ -220,6 +225,7 @@ Configure specific Azure features, including billing, automation, and recommenda
    - Once the configuration is complete, click **Next**.
 6. **Status Tracking**:
    - The progress for features configuration is displayed on the left panel.
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/33d375ed1e626246609c530b8b5cbf8cf2a564d5/docs/images/provide%20azure%20credentials.png)
 
 ---
 
@@ -243,7 +249,7 @@ Once features are configured, the system begins collecting billing and resource 
 4. **Redirect to Cost Assignment**:
    - Click **Go to Cost Assignment** to proceed to the cost assignment page.
    - Create projects and configure cost management settings for centralized billing.
-
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/30f80d23b6c67aa39ae3a8dc7e760b9108d6d56b/docs/images/step3.png)
 ---
 
 # Integration in CloudPi
@@ -362,3 +368,85 @@ Set up SMTP to enable email notifications from your environment. Configure the r
    - If SMTP is already configured, click **Edit**, update the fields, and click **Update** to apply changes.
 4. **Confirmation**:
    - A success message confirms the SMTP integration is configured successfully.
+# Error Handling
+
+Error messages will indicate issues such as:
+- **"Unable to connect to SMTP server"**
+- **"Invalid email credentials"**
+
+# Workspace Alerts in CloudPi
+
+## Alert Configuration
+
+- **Email Alerts**:
+  - **Event-Based Notifications**: Set up email alerts for critical events such as budget overruns, cost optimizations, or resource utilization issues.
+- **Ticketing Alerts**:
+  - **Automated Ticket Generation**: Integrate with your ticketing system to automatically create tickets for actionable issues identified within CloudPi.
+- **Custom Notifications**:
+  - **In-App and Frequency Customization**: Customize the type and frequency of in-app notifications to ensure stakeholders are timely informed about significant changes or updates.
+
+---
+
+## Managing Alerts
+
+- **Configure Alerts**: Use the **'Alerts Management'** section to set up and customize alert parameters and notification methods.
+
+---
+
+## Types of Alerts Available
+
+1. **Cost Overrun**: Receive notifications when actual cloud expenses exceed the budgeted or expected costs. This helps in taking timely corrective actions to avoid significant overages.
+2. **Budget Threshold**: Configure alerts to notify you when spending approaches a predefined limit, helping manage cloud expenses effectively without continuous manual monitoring.
+3. **Optimization**: Stay informed about opportunities to optimize cloud spending, ensuring you maximize the value of deployed resources.
+4. **Underutilized Resources**: Receive alerts about resources that are not being fully utilized, which can lead to cost savings by reallocating or terminating such resources.
+5. **Approaching Budget Limit**: Set up alerts to prevent overspending and ensure that your organization stays within allocated budgets.
+6. **Health**: Monitor the overall health and performance of cloud resources, with alerts that can help ensure optimal cost management and resource allocation.
+7. **Cost Anomaly**: Get notified about any unexpected or irregular spending patterns that may indicate issues like misconfigurations or unauthorized usage.
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/c56dc9856fe893855a3ec3d96c737fb77775ed95/docs/images/error%20handling.png)
+---
+
+### Alert Configuration Types
+
+You can set how you wish to be notified for each type of alert by clicking on the toggle button to enable among three alert configuration types:
+- **Email Alert**
+- **Ticketing Alert**
+- **Notifications**
+
+---
+
+# Managing Customer Billing Information in CloudPi
+
+## Billing Management Features
+
+- **Update and Maintain Billing Details**: Keep customer billing information up-to-date, manage payment methods, and ensure that billing records are accurate and reflective of current engagements.
+- **View Billing History**: Access comprehensive billing histories to track transactions and verify charges as part of financial oversight.
+
+---
+
+## Accessing Billing Management
+
+- **Billing Section**: Navigate to the **'Billing Information'** area in CloudPi to update billing details and review historical billing data.
+
+---
+
+## Navigating the Billing Information
+
+### 1. Key Activities in the Subscription Portal
+
+- **Download Invoices**: Access and download your billing invoices for record-keeping or expense management.
+- **Upgrade Your Plan**: Adjust your service plan based on your changing needs. This might involve upgrading to a higher tier to access additional features or increasing the capacity limits of your service.
+- **Cancel Your Subscription**: If necessary, you can cancel your subscription through this portal. Note that terms regarding data retention and service cessation should be reviewed before cancellation.
+- **Manage Payment Details**: Update billing information such as credit card details, billing address, or payment methods to ensure uninterrupted service.
+
+### 2. Active Subscription Details
+
+- View details about your current subscription, including:
+  - Plan type
+  - Start and end date
+  - Subscription ID
+  - Company name
+  - Billing address
+
+This section helps you keep track of your subscription status and ensure that all company and billing information is up-to-date.
+By effectively utilizing the Billing Information features, you can ensure that your cloud cost optimization efforts are well supported by an appropriate and up-to-date subscription plan.
+![Alt Text](https://github.com/PurpleDataInc-TX/mkdocs/blob/e1e9fe24c1fda0b5f80e771308bb57165a9a6a1f/docs/images/navigatethebilling.png)
