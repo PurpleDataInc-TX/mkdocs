@@ -34,7 +34,7 @@ options to update the discussion or modify the task.
 
 ![Task](https://github.com/PurpleDataInc-TX/mkdocs/blob/1e51f229dcdcc9a3fc4311afbbb5d2772e769ac8/docs/images/task%20management.jpg)
 
-![Task](images/edittask1.png)
+![Task](https://github.com/PurpleDataInc-TX/mkdocs/blob/e736762f0c3625ca5d64fd193d417eff834e1085/docs/images/edit%20task%20management.jpg)
 
 ### Ticketing
 
