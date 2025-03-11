@@ -34,7 +34,7 @@ options to update the discussion or modify the task.
 
 ![Task](images/tm1.png)
 
-![Task](images/edittask1.png){: width="500"}
+![Task](images/edittask1.png)
 
 ### Ticketing
 
