@@ -12,7 +12,7 @@ Here's how it works:
 - **Permissions:** These dictate what operations can or cannot be performed—whether it's viewing billing data or managing cloud resources.
 - **Users:** They are assigned roles, and through those roles, users acquire permissions.
 
-![Note](images/note1.png){: width="500" class="no-shadow"}
+![Note](images/note1.png)
 
 ## The Power of RBAC in Cloud Management
 
