@@ -5,7 +5,7 @@ Signing In:
    - Navigate to the CloudPi login page provided by PurpleData Inc. 
    - Enter your credentials (provided by your system administrator). 
 
-![Signing In](images/loginpurple.png){: width="400"}
+![Signing In](images/loginpurple.png)
 
 ## Landing Page 
 Welcome to AWS Workspace! This guide will help you navigate and utilize the various 
@@ -49,7 +49,7 @@ As a logged-in user, depending on your role, you have the ability to:
 
 Initiate a project by detailing specifics like choosing an icon, stating the Project Name, Description, and Project Group (which is optional), selecting a Cloud Provider, then click next to establish the project.
 
-![Creating a Project](images/createproject.png){: width="500"}
+![Creating a Project](images/createproject.png)
 
 Project setup can be done as follows: 
 
