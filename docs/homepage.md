@@ -49,7 +49,7 @@ As a logged-in user, depending on your role, you have the ability to:
 
 Initiate a project by detailing specifics like choosing an icon, stating the Project Name, Description, and Project Group (which is optional), selecting a Cloud Provider, then click next to establish the project.
 
-![Creating a Project](images/createproject.png){: width="500"}
+![Creating a Project](images/createproject.png)
 
 Project setup can be done as follows: 
 
@@ -74,19 +74,19 @@ Project setup can be done as follows:
      - Access key and Secret key
      - Cross account role ARN and External ID
 
-![Cloud Setup](images/setup1.png){: width="500"}
+![Cloud Setup](images/setup1.png)
 
 - ***Step 2: Team Setup***
 
 Invite team members by entering email id and their roles within the project. 
 
-![Team Setup](images/setup2.png){: width="500"}
+![Team Setup](images/setup2.png)
 
 - ***Step 3: Tag Setup*** 
 
 Add project tags by giving tag key and tag value. 
 
-![Tag Setup](images/setup3.png){: width="500"}
+![Tag Setup](images/setup3.png)
 
 ## Project User Management
 
@@ -105,7 +105,7 @@ Add project tags by giving tag key and tag value.
 2. Click "Create New Group," name it, and define its attributes.
 3. Assign users and projects to the group as needed.
 
-![Project Groups](images/grpname.png){: width="400"}
+![Project Groups](images/grpname.png)
 
 ## Navigating the Project Settings
 
@@ -130,7 +130,7 @@ umbrella.
 AWS, Azure and GCP.
 
 
-![Create new project](images/c1.png){: width="500"}
+![Create new project](images/c1.png)
 
 ###  Cloud Settings
 
@@ -150,7 +150,7 @@ AWS, Azure and GCP.
 
 - **Assign Roles to Users:** Manage which team members have access to this project and define their permissions. This includes user and roles management.
 
-![Assign Roles to Users](images/us1.png){: width="600"}
+![Assign Roles to Users](images/us1.png)
 
 
 ###  Other Settings
@@ -159,7 +159,7 @@ AWS, Azure and GCP.
 
 - **List of Tags:** View the list of tags with Tag ID, Key, and Value. Tags can also be edited or deleted.
 
-![Other Settings](images/os1.png){: width="500"}
+![Other Settings](images/os1.png)
 
 ## Project Settings
 
