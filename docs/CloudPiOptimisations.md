@@ -70,7 +70,7 @@ Instances to optimize cloud spending based on Account ID selected.
 Family and Average number of instances used per hour which allows you to review before 
 generating a RI plan.
 
-![Details](images/RI%20Recommendations%20generate.png){: width="300"}
+![Details](images/RI%20Recommendations%20generate.png)
 
 **Graphical View and Estimated Savings**: A graphical view shows your spending trends over 
 the months. The Estimated Savings section compares various plan durations and payment 
