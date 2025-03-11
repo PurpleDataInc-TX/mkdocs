@@ -44,7 +44,7 @@ Savings Plans for optimal coverage based on Account ID selected.
 Current average hourly OnDemand spend which allows you to review and edit based on 
 your business forecast before generating a saving plan.
 
-![Generate](images/gsp1.png){: width="300"}
+![Generate](images/gsp1.png)
 
 **Graphical View and Estimated Savings**: Graphical View provide comparison visual 
 representation of your Savings Plans options. A side panel presents various saving options, 
@@ -58,7 +58,7 @@ savings and upfront payment preference.
 automatically 'Raise Ticket' and view populated fields such as title, Description, Priority, 
 Status. Finally click ‘Create Ticket’ to workflow tool you setup for your organization.
 
-![Details](images/spticket.png){: width="300"}
+![Details](images/spticket.png)
 
 ## RI Recommendations Plan
 The RI Recommendation provides insights and recommendations for purchasing Reserved 
@@ -81,7 +81,7 @@ terms (e.g., 1-year vs. 3-year, all upfront vs. partial upfront).
 **Raising a Ticket**: If you have an issue, you can 'Raise Ticket' and view the fields such as title, 
 Description, Priority, Status and Submit to and click on “Create ticket” button.
 
-![Details](images/raiseticket1.png){: width="300"}
+![Details](images/raiseticket1.png)
 
 ## CloudPi Usage Recommendations
 
