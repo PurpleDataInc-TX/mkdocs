@@ -5,7 +5,7 @@ Signing In:
    - Navigate to the CloudPi login page provided by PurpleData Inc. 
    - Enter your credentials (provided by your system administrator). 
 
-![Signing In](images/loginpurple.png){: width="400"}
+![Signing In](images/loginpurple.png)
 
 ## Landing Page 
 Welcome to AWS Workspace! This guide will help you navigate and utilize the various 
