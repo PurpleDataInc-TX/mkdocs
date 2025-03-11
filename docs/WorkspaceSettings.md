@@ -51,17 +51,17 @@ Permissions are usually toggled on and off for each feature associated with a ro
 granular control, some platforms allow setting permissions for sub-features under main 
 categories like Landing, Workflow, Recommendations, Billing.
 
-![permissions](images/managing%20roles%20in%20roles%20and%20permissions.png){: width="500"}
+![permissions](images/managing%20roles%20in%20roles%20and%20permissions.png)
 
 - **Adding a Role:** Click on "Add Role" button, where you can define the role name, select 
 permissions, and provide a description. 
 
- ![Adding a Role](images/add%20new%20role%20in%20R&P.png){: width="500"}
+ ![Adding a Role](images/add%20new%20role%20in%20R&P.png)
 
 - **Viewing and Editing a Role:** Existing roles can be viewed and edited to modify their 
 description or adjust their permissions.
 
-![Editing a Role](images/edit%20role%20in%20R&P.png){: width="500"}
+![Editing a Role](images/edit%20role%20in%20R&P.png)
 
 ## Workflow Tools Integration in CloudPi
 ## Integration Capabilities
