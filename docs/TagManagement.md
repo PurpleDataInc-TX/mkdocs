@@ -39,14 +39,14 @@ modal, choose between "Auto Tag" and "User Defined Tag":
 as "Department". System suggests tags based on predefined rules or previous 
 tagging patterns.
 
-![tag](images/tag%20management%20auto%20tag.png){: width="300"}
+![tag](images/tag%20management%20auto%20tag.png)
  
 2. User Defined Tag:
 Manually enter tags for the Resource IDs selected. Add key and value for all the Resource 
 IDs selected or you can add for individual Resource ID. Click “Apply Tag” to confirm and 
 apply the tags to the selected resources.
 
-![Adding a Role](images/tag%20management%20user%20defined.png){: width="300"}
+![Adding a Role](images/tag%20management%20user%20defined.png)
 
 ## Removing or Adding Tags
 To modify tags, access the resource list and click on the edit icon next to tagged resource.
@@ -58,5 +58,5 @@ clicking the "+" button or remove existing tags by clicking the "x" next to the 
 changes by clicking “Apply Tag”. Use filters such as "Resource Type" or "Filter by tags" to 
 narrow down the search for specific resources.
 
-![tag](images/tag%20management%20add%20or%20remove%20tag.png){: width="300"}
+![tag](images/tag%20management%20add%20or%20remove%20tag.png)
 
