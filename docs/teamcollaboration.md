@@ -32,9 +32,9 @@ delete. You can also filter the table based on status. The task details panel pr
 detailed view of each task, including its description, status, priority, and due date, with 
 options to update the discussion or modify the task. 
 
-![Task](images/tm1.png)
+![Task](https://github.com/PurpleDataInc-TX/mkdocs/blob/1e51f229dcdcc9a3fc4311afbbb5d2772e769ac8/docs/images/task%20management.jpg)
 
-![Task](images/edittask1.png){: width="500"}
+![Task](images/edittask1.png)
 
 ### Ticketing
 
