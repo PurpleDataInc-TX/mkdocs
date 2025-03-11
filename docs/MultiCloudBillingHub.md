@@ -29,7 +29,7 @@ The billing dashboard provides a comprehensive view of your billing details, inc
 
   ![Billing Views](images/b1.png)
 
-   ![save Billing Views](images/save1.png){: width="400"}
+   ![save Billing Views](images/save1.png)
 
 <!-- ### Choose Billing View: 
  Create a billing view or choose billing view from the dropdown. 
@@ -127,12 +127,12 @@ Customize the level of detail shown on invoices for each customer or cost center
 
  **Auto Invoicing**: To enable auto invoicing for a customer, click on auto invoicing icon under actions. In the pop-up window, select the customer from the dropdown menu. Enter the customer’s email ID, set a schedule for the invoicing, specify delivery details such as email id and end date and click on “Save” to enable auto invoicing. 
 
- ![Auto Invoicing](images/auto1.png){: width="500"}
+ ![Auto Invoicing](images/auto1.png)
 
 <!-- **Creating Customer Details**: click on create icon under actions. A popup appears, choose the Customer and Billing view and then click on “Save” button.  -->
 **Add Customer**: click on add icon under actions. A popup appears, choose the Customer or create customer details and then click on “Save” button.
 
- ![Add costomer](images/choose1.png){: width="500"}
+ ![Add costomer](images/choose1.png)
 
 On clicking create customer details, you will be navigated to the customer details page to enter details such as first name, last name, email, phone number, address, city, state, cost center, project name and department name, then click on “Save” button. 
 
