@@ -40,4 +40,4 @@ options to update the discussion or modify the task.
 
 You will see a list of tickets created for cost optimization activities. Each entry includes details such as title, status, description, and actions such as view and delete. You can also filter the table based on status and submit to, where u can filter based on service now or JIRA. 
 
-![Ticket](images/ticketin1.png)
+![Ticket](https://github.com/PurpleDataInc-TX/mkdocs/blob/0f06f1bf160f5fff4bd1f27dab64619d1ff5256e/docs/images/Ticketing.jpg)
