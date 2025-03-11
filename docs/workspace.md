@@ -91,13 +91,13 @@ Select the "User Management" from workspace settings in the header.
 ### Inviting New Users
  Click on "Invite User" to open a dialog where you can enter the new user’s name, email address, role, and associated project. Fill out the necessary details and click “Save” to send an invitation to the user to join the platform.
 
-![Inviting New User](images/s2.png){: width="500"}
+![Inviting New User](images/s2.png)
 
 <!-- <img src="images/invite_user_in_UM.png" alt="Inviting New User" width="100"> -->
 
 ### Editing Existing Users
 Find the user you wish to edit in the "User List". Click the edit icon next to the user's entry to open the "Edit User" dialog. Modify details such as the username, User ID, Project, Role and Status (Enable/Disable). Click “Save” to apply the changes.
-![Edit user in UM](images/edituser.png){: width="500"}
+![Edit user in UM](images/edituser.png)
 
 
 
@@ -153,21 +153,21 @@ Permissions are usually toggled on and off for each feature associated with a ro
 granular control, some platforms allow setting permissions for sub-features under main 
 categories like Landing, Workflow, Recommendations, Billing.
 
-![permissions](images/managing%20roles%20in%20roles%20and%20permissions.png){: width="500"}
+![permissions](images/managing%20roles%20in%20roles%20and%20permissions.png)
 
 - **Viewing a Role**: : Existing roles can be viewed.
 
-![View Role](images/viewRole.png){: width="500"}
+![View Role](images/viewRole.png)
 
 <!-- - **Adding a Role:** Click on "Add Role" button, where you can define the role name, select 
 permissions, and provide a description. 
 
- ![Adding a Role](images/add%20new%20role%20in%20R&P.png){: width="500"}
+ ![Adding a Role](images/add%20new%20role%20in%20R&P.png)
 
 - **Viewing and Editing a Role:** Existing roles can be viewed and edited to modify their 
 description or adjust their permissions.
 
-![Editing a Role](images/edit%20role%20in%20R&P.png){: width="500"} -->
+![Editing a Role](images/edit%20role%20in%20R&P.png) -->
 
 ## Workflow Tools Integration in CloudPi
 ## Integration Capabilities
