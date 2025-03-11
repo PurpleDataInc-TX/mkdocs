@@ -49,4 +49,4 @@ measures, please do not hesitate to contact our support team. We are here to add
 concerns and ensure that you feel confident in how we manage and protect your cloud 
 data.
 
-![Note2](images/note2.png){: width="500" class="no-shadow"}
+![Note2](images/note2.png)
