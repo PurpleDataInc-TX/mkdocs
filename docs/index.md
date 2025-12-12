@@ -1,89 +1,153 @@
+# CloudPi User Guide
 
-![User Guide](images/grad_logo.png)
+**Version 0.6 | Last Updated: December 2025**
 
-Greetings and welcome to the world of CloudPi! Brought to you by PurpleData Inc., CloudPi 
-is an all-encompassing multi-cloud cost management tool. This guide is specifically curated 
-to aid Cloud Architects, FinOps Analysts, and Cloud Managers.
-## CloudPi: A Brief Overview
-CloudPi serves as a versatile solution tailored for medium and large-scale organizations that 
-aim to efficiently inform, analyze and optimize cloud services costs, usage and governance. 
-We understand that keeping track of cloud expenses across different platforms can be 
-challenging. That's where CloudPi steps in to simplify the process.
-## Who Is This Guide For?
-This guide primarily targets:
+---
 
-- **Cloud Architects**: If you're involved in designing and building an organization's cloud 
-environment, this guide will show you how CloudPi can streamline your work, 
-helping you create more cost-effective designs.
-- **FinOps Analysts**: Those who analyze financial data related to cloud usage will find 
-invaluable insights here on how to use CloudPi for better cost management.
-- **Cloud Managers**: If you oversee a team managing an organization's cloud 
-operations, this guide will demonstrate how CloudPi can help improve your team's 
-efficiency and accountability.
-
-## Features Overview
-- **Projects & groups Management**: Organize your cloud resources with project and 
-project group hierarchy.
-- **Role-Based Access Control (RBAC)**: Securely manage who has access to what with 
-granular permissions.
-- **User Management**: Add or remove users, assign roles, and manage permissions.
-- **Team Collaboration**: Enhance accountability in cloud management with team 
-collaboration features.
-
-- **Tag Management**: Implement tagging strategies for projects to enforce 
-responsibility and policies.
-
-- **Multi-Cloud Billing Hub**: Centralize your billing for chargeback, show back 
-management, and custom invoice generation.
-- **Budget Management**: Set and track budgets at the project and service group levels.
-- **Savings Plans Recommendations**: Get insights on the best savings plans for effective 
-billing management.
-- **Cost Optimizations & Recommendations**: Receive tailored suggestions to reduce 
-expenses.
-- **Workflow Integration & Automation**: Streamline operations with customizable 
-workflows.
-- **Custom Dashboard**: Generate reports based on tags and accounts for detailed 
-insights.
-- **Notifications & Alerts**: Stay informed with real-time updates on your cloud 
-environment.
-- **Multi-Tenancy**: Manage multiple clients or Business Units within a single instance of 
-CloudPi.
-- **Workspace Customization**: Tailor the interface to suit your organization's needs.
-- **Support**: Access professional help whenever you need it.
 ## Welcome to CloudPi
-Once you've successfully logged in, take a moment to get comfortable with the home page 
-interface. This is your landing page, your command center. It's designed to provide a high level overview of all the projects you can access.
-## Understanding Workspaces
-Use workspaces for your organization when you want to structure your teams and entities, 
-encourage team collaboration, and have organization-wide views. Each workspace ensures 
-that data is kept separate and secure. A workspace can represent an entire organization or a 
-specific Line of Business with multiple teams and departments. It can also be a collection of 
-applications or divisions serving different clients.
-In Workspace settings, setup third party workflow tools like Jira and ServiceNow. 
-Workspace Admin can add/delete workspace users and other users, can assign roles.
-Workspace Users get access to Executive level reports or customized reports across the 
-[projects](http://cloudpie.ai:3000/) or [project groups](http://cloudpie.ai:3000/).
 
-### Workspace Settings management 
-## Understanding Projects
-A 'project' in CloudPi is a logical grouping of cloud resources based on the cloud provider 
-account and/or tags. Essentially, project is for a team to focus on analyzing various cloud 
-resources data such as billing data, inventory data, usage and utilization data, savings plans 
-data, optimizations based on resource utilization and much more. Within each project, 
-reports are generated catering to personas including Cloud Ops managers and Engineers.
-When to use Projects?
-A Project is used typically to focus on one cloud Service Provider with an account to 
-generate and make one team responsible for managing cloud billing and optimizations.
-A CloudPi Project is used for one Cloud Service Provider with multiple sub accounts or 
-resource groups to see combined billing reports for different personas.
-A CloudPi Project is configured for managing cloud costs and management per 
-‘Environment’
-A CloudPi Project is used for product resources in one cloud provider.
-A CloudPi Project is used per customer basis.
-[Click here for Creating New Projects](http://cloudpie.ai:3000/)
+CloudPi is a comprehensive multi-cloud cost management platform brought to you by **PurpleData Inc.** This guide provides complete documentation for Cloud Architects, FinOps Analysts, and Cloud Managers to effectively use CloudPi for optimizing cloud costs, usage, and governance across AWS, Azure, and GCP.
 
-## Understanding Project Group
-A 'Project Group' represents a set of projects organized together to mirror a department or 
-business unit within your organization. This feature allows you to introduce your business 
-terminology into CloudPi cost and optimization strategies, making it more intuitive and 
-relevant to your operations.
+---
+
+## What is CloudPi?
+
+CloudPi serves as a versatile solution tailored for medium and large-scale organizations that aim to efficiently inform, analyze, and optimize cloud services costs, usage, and governance. We understand that keeping track of cloud expenses across different platforms can be challenging—that's where CloudPi steps in to simplify the process.
+
+---
+
+## Quick Navigation
+
+### 🚀 **Getting Started**
+- [Introduction](getting-started/introduction.md)
+- [Key Features](getting-started/key-features.md)
+- [System Requirements](getting-started/system-requirements.md)
+- [First Login](getting-started/first-login.md)
+
+### 📚 **Core Concepts**
+- [Workspaces](core-concepts/workspaces.md)
+- [Projects](core-concepts/projects.md)
+- [Project Groups](core-concepts/project-groups.md)
+- [Role-Based Access Control (RBAC)](core-concepts/rbac.md)
+
+### 🔒 **Security & Integrations**
+- [Security Overview](security-integrations/security-overview.md)
+- [SSO Setup](security-integrations/sso-setup.md)
+- [Azure SSO (Detailed Guide)](security-integrations/azure-sso-detailed.md)
+- [Ticket Providers (ADO/Jira/ServiceNow)](security-integrations/ticket-providers.md)
+- [SMTP Integration](security-integrations/smtp-integration.md)
+
+### ☁️ **Cloud Onboarding**
+- [AWS Onboarding](cloud-onboarding/aws-onboarding.md)
+- [Azure Onboarding](cloud-onboarding/azure-onboarding.md)
+- [Azure Billing Setup](cloud-onboarding/azure-billing-setup.md)
+
+### 💰 **Cost Management**
+- [Cost Assignment Overview](cost-management/cost-assignment.md)
+- [Assignment Rules](cost-management/rules.md)
+- [Managing Projects](cost-management/projects.md)
+
+### 🤝 **Team Collaboration**
+- [Task Management](collaboration/task-management.md)
+- [Ticketing System](collaboration/ticketing.md)
+- [Notifications & Alerts](collaboration/notifications.md)
+
+### ⚙️ **Administration**
+- [User Management](administration/user-management.md)
+- [Roles & Permissions](administration/roles-permissions.md)
+- [Workspace Settings](administration/workspace-settings.md)
+
+### 📊 **Dashboards & Reporting**
+- [Dashboard Overview](dashboards/overview.md)
+- [Dashboard Types](dashboards/dashboard-types.md)
+- [Customization](dashboards/customization.md)
+
+### 📈 **Billing Analysis**
+- [Multi-Cloud Billing Analysis](billing-analysis/multi-cloud-billing.md)
+- [Billing Views Management](billing-analysis/billing-views.md)
+- [Shared Costs](billing-analysis/shared-costs.md)
+- [Invoicing](billing-analysis/invoicing.md)
+
+### 💡 **Cost Optimization**
+- [Recommendations](optimization/recommendations.md)
+- [Cost Optimization Strategies](optimization/cost-optimization.md)
+
+### 📅 **Budgets & Forecasting**
+- [Budget Management](budgets-forecasting/budget-management.md)
+- [Forecasting & Approval](budgets-forecasting/forecasting.md)
+
+### 🏷️ **Resource Management**
+- [Tag Management](resource-management/tag-management.md)
+- [VM Scheduler](resource-management/vm-scheduler.md)
+- [Resource Scheduling](resource-management/resource-scheduling.md)
+
+### 🤖 **Automation**
+- [Global Policies](automation/policies.md)
+- [Workflows](automation/workflows.md)
+- [Auto Invoicing](automation/auto-invoicing.md)
+
+---
+
+## Who Should Use This Guide?
+
+This guide is designed for:
+
+- **Cloud Architects** - Design cost-effective cloud environments
+- **FinOps Analysts** - Analyze and optimize cloud spending
+- **Cloud Managers** - Oversee cloud operations and team efficiency
+- **DevOps Engineers** - Implement automation and policies
+- **Finance Teams** - Manage budgets and forecasts
+
+---
+
+## Support & Resources
+
+| Resource | Link |
+|----------|------|
+| **Website** | [https://purpledata.com](https://purpledata.com) |
+| **Support** | [support@purpledata.com](mailto:support@purpledata.com) |
+| **Documentation** | [https://purpledatainc-tx.github.io/mkdocs/](https://purpledatainc-tx.github.io/mkdocs/) |
+| **Sales** | [sales@purpledata.com](mailto:sales@purpledata.com) |
+
+---
+
+## Document Structure
+
+This user guide is organized into progressive sections:
+
+1. **Getting Started** - Initial setup and login
+2. **Core Concepts** - Understanding CloudPi's architecture
+3. **Security & Integrations** - Setting up secure access and integrations
+4. **Cloud Onboarding** - Connecting your cloud accounts
+5. **Cost Management** - Assigning and tracking costs
+6. **Collaboration** - Working with teams
+7. **Administration** - Managing users and settings
+8. **Dashboards** - Viewing and customizing reports
+9. **Billing Analysis** - Deep dive into billing data
+10. **Optimization** - Reducing costs with recommendations
+11. **Budgets & Forecasting** - Financial planning
+12. **Resource Management** - Tags and scheduling
+13. **Automation** - Policies and workflows
+
+---
+
+## Key Features at a Glance
+
+✅ **Multi-Cloud Support** - AWS, Azure, GCP  
+✅ **Cost Optimization** - AI-driven recommendations  
+✅ **Budget Management** - Track and forecast spending  
+✅ **Role-Based Access** - Granular permissions  
+✅ **Team Collaboration** - Tasks and tickets  
+✅ **Automation** - Policies and workflows  
+✅ **Tag Management** - Enforce compliance  
+✅ **VM Scheduling** - Automated start/stop  
+✅ **Custom Dashboards** - Tailored insights  
+✅ **Invoice Generation** - Automated billing  
+
+---
+
+**"With CloudPi - Optimizing Your Cloud, Simplifying Your Costs"**
+
+---
+
+*© 2025 PurpleData Inc. All rights reserved.*

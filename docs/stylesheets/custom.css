@@ -117,9 +117,9 @@
 
 /* to reduce boldness size */
 strong {
-  font-weight: lighter; /* Adjust the font-weight as needed */
+  font-weight: 600; /* Adjust the font-weight as needed */
   /* color: var(--md-primary-fg-color--light);  */
-  color: #6F44A6;
+  color: #2d2d2d;
 }
 
 /* reduce boldness of h4 */
@@ -186,7 +186,7 @@ img {
 }
 .md-content__inner p{
   font-size: 14px;
-  color: rgb(54, 54, 54);
+  color: #333333;
 }
 
 
@@ -213,7 +213,7 @@ img {
 
 .md-typeset li{
   font-size: 14px;
-  color: rgb(69, 69, 69);
+  color: #333333;
 }
 
 /*  */
