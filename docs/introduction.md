@@ -1,7 +1,7 @@
 
 ![User Guide](images/grad_logo.png)
 
-Greetings and welcome to the world of CloudPi! Brought to you by PurpleData Inc., CloudPi 
+Greetings and welcome to the world of **CloudPi**! Brought to you by PurpleData Inc., CloudPi 
 is an all-encompassing multi-cloud cost management tool. This guide is specifically curated 
 to aid Cloud Architects, FinOps Analysts, and Cloud Managers.
 ## CloudPi: A Brief Overview
@@ -64,7 +64,6 @@ Workspace Admin can add/delete workspace users and other users, can assign roles
 Workspace Users get access to Executive level reports or customized reports across the 
 [projects](http://cloudpie.ai:3000/) or [project groups](http://cloudpie.ai:3000/).
 
-### Workspace Settings management 
 ## Understanding Projects
 A 'project' in CloudPi is a logical grouping of cloud resources based on the cloud provider 
 account and/or tags. Essentially, project is for a team to focus on analyzing various cloud 
