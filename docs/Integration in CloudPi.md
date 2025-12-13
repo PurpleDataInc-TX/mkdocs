@@ -24,22 +24,22 @@
 
 2.	Provide Required Details
 
-  	a.	Service URL: Enter the URL of your ServiceNow instance (e.g., https://yourcompany.service-now.com).
+  	a.	**Service URL**: Enter the URL of your ServiceNow instance (e.g., https://yourcompany.service-now.com).
   	
-  	b.	API Client ID: Provide the client ID for authentication.
+  	b.	**API Client ID**: Provide the client ID for authentication.
   	
-  	c.	API Client Secret: Provide the secret key associated with the client ID.
+  	c.	**API Client Secret**: Provide the secret key associated with the client ID.
   	
-  	d.	Username: Enter the username of your ServiceNow account.
+  	d.	**Username**: Enter the username of your ServiceNow account.
   	
-  	e.	Password: Enter the password for the account.
+  	e.	**Password**: Enter the password for the account.
 
 
 3.	Save or Update
 
-    a.	If ServiceNow is not configured, click Save to set up the integration.
+    a.	If ServiceNow is not configured, click **Save** to set up the integration.
   	
-    b.	If ServiceNow is already configured, click Edit, update the fields, and click Update to apply changes.
+    b.	If ServiceNow is already configured, click **Edit**, update the fields, and click **Update** to apply changes.
 
 
 4.	Confirmation
@@ -54,7 +54,90 @@ If any errors occur during configuration, they will be displayed as alerts with 
  
 ## Jira Integration
 Integrate Jira to streamline project workflows, issue tracking, and task automation. This integration supports seamless management of project activities within your environment. 
+
+### Steps to Configure
+1.	Open Jira Integration Dialog
+
+  	a.	Navigate to the integration section in the settings menu.
+  	
+  	b.	Select Jira from the list of integrations.
+
+2.	Provide Required Details
+
+  	a.	**Description**: Enter a brief description of the integration.
+  	
+  	b.	**Service URL**: Provide the URL of your Jira instance (e.g., https://yourcompany.atlassian.net).
+  	
+  	c.	**API Token**: Enter the API token generated in your Jira account settings.
+  	
+  	d.	**User Email**: Enter the email address associated with your Jira account.
+
+
+3.	Save or Update
+
+    a.	If Jira is not configured, click Save to set up the integration.
+
+  	b.	If Jira is already configured, click Edit, update the fields, and click Update to apply changes.
+
+
+4.	Confirmation
+
+
+    a.	A success message will confirm that the integration is configured correctly.
+  	
+
  
+### Error Handling
+Any errors (e.g., "Invalid API Token" or "Unable to connect to the Jira instance") will be displayed in a user-friendly alert.
+
+
+## SSO (Single Sign-On) Integration
+Enable Single Sign-On to allow users to log in to your system using their organization’s identity provider. This supports PKCE (Proof Key for Code Exchange) for enhanced security.
+
+### Steps to Configure
+1.	Open Auth0 Configuration
+
+  	a.	Navigate to the integration section in the settings menu.
+  	
+  	b.	Select SSO from the options.
+
+    c.	Click on the Auth0 tab, you’ll see the configuration form.
+
+2.	Provide Required Details
+
+  	a.	**Client ID**: Enter the client ID provided by the identity provider.
+  	
+  	b.	**Client Secret**: Enter the secret associated with the client ID.
+  	
+  	c.	**SSO Enabled**: Toggle this option to enable SSO.
+
+
+3.	Save or Update
+
+    a.	If Auth0 is not configured, click Save to set up the integration.
+
+  	b.	If Auth0 is already configured, click Edit, update the fields, and click Update to apply changes.
+
+4.	Confirmation
+
+
+    a.	A success message confirms the successful setup of the SSO integration.
+  	
+
+ 
+### Error Handling
+Alerts will display error messages if the configuration is invalid (e.g., "Invalid Client ID" or "Authorization endpoint unreachable").
+ 
+
+
+
+
+
+
+
+
+
+
 ### Benefits 
 - Enhanced Operational Efficiency: Streamline your cloud management processes by 
 integrating CloudPi with your existing workflow tools, reducing manual efforts and 
