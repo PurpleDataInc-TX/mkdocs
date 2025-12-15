@@ -127,47 +127,43 @@ Enable Single Sign-On to allow users to log in to your system using their organi
  
 ### Error Handling
 Alerts will display error messages if the configuration is invalid (e.g., "Invalid Client ID" or "Authorization endpoint unreachable").
+
+## SMTP Integration
+Set up SMTP to enable email notifications from your environment. Configure the required settings to send alerts and notifications to users.
+
+### Steps to Configure
+1.	Open SMTP Integration Dialog
+
+  	a.	Navigate to the integration section in the settings menu
+  	
+  	b.	Select SMTP from the integration options.
+
+2.	Provide Required Details
+
+  	a.	**SMTP Host**: Enter the hostname of your SMTP server (e.g., smtp.gmail.com).
+  	
+  	b.	**SMTP Port**: Specify the port number (e.g., 587 for secure connections).
+  	
+  	c.	**Email Address**: Provide the sender’s email address.
+
+    b. **Password**: Enter the password for the email account.
+
+
+4.	Save or Update
+
+    a.	If SMTP is not configured, click Save to set up the integration.
+
+  	 b.	b.	If SMTP is already configured, click Edit, update the fields, and click Update to apply changes
+
+   
+5.	Confirmation
+
+
+    a.	A success message confirms the SMTP integration is configured successfully.
+  	
+
+ 
+### Error Handling
+Error messages will indicate issues such as "Unable to connect to SMTP server" or "Invalid email credentials."
  
 
-
-
-
-
-
-
-
-
-
-### Benefits 
-- Enhanced Operational Efficiency: Streamline your cloud management processes by 
-integrating CloudPi with your existing workflow tools, reducing manual efforts and 
-improving response times. 
-- Improved Team Collaboration: Facilitate better communication and collaboration among 
-team members by using a unified system for managing tasks and issues related to cloud 
-operations. 
-- Increased Accountability: With clear tracking and assignment of tasks, team members are 
-more accountable for their work, leading to higher productivity and more efficient problem 
-resolution. 
- 
-### Navigating the Integration 
- 
-- Accessing Integration Settings: Log into CloudPi, navigate to the workspace settings, and 
-select the 'Integrations' tab. Here, you can link your CloudPi environment with ServiceNow 
-and Jira. 
-- Configuring the Tools: Follow the prompts to enter the necessary configuration details 
-such as API keys, user credentials, and project or workspace IDs. This setup ensures that 
-CloudPi can communicate effectively with ServiceNow and Jira. 
-- Using the Integration: Once set up, users can start raising tickets directly from within 
-CloudPi. These tickets will automatically populate in the linked ServiceNow or Jira project, 
-where they can be managed according to the usual workflow processes. 
-- Monitoring and Adjustments: Regularly check the integration status and performance 
-within CloudPi. Make adjustments to configurations as needed to adapt to new workflows 
-or changes in team structure. 
- 
- 
-CloudPi’s integration with workflow tools like ServiceNow and Jira empowers organizations 
-to leverage their existing IT service management frameworks to enhance cloud operations, 
-ensuring tasks are handled efficiently and effectively, thus driving better cloud governance 
-and operational agility.
-
-![Adding a Role](images/jikrf.png)
