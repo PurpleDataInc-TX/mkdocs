@@ -132,7 +132,7 @@ Alerts will display error messages if the configuration is invalid (e.g., "Inval
 Set up SMTP to enable email notifications from your environment. Configure the required settings to send alerts and notifications to users.
 
 ### Steps to Configure
-1.	Open SMTP Integration Dialog
+1.	Open SMTP Integration Dialogue
 
   	a.	Navigate to the integration section in the settings menu
   	
@@ -165,5 +165,27 @@ Set up SMTP to enable email notifications from your environment. Configure the r
  
 ### Error Handling
 Error messages will indicate issues such as "Unable to connect to SMTP server" or "Invalid email credentials."
- 
 
+
+
+ 
+## Workspace Alerts in CloudPi
+
+### Alert Configuration
+1.	**Email Alerts**:
+
+  	•	**Event-Based Notifications**: Set up email alerts for critical events such as budget overruns, cost optimisations, or resource utilisation issues.
+
+2.	**Ticketing Alerts**:
+
+  	•	**Automated Ticket Generation**: Integrate with your ticketing system to automatically create tickets for actionable issues identified within CloudPi.
+
+
+### Types of Alerts Available
+1.	**Cost Overrun**:Receive notifications when actual cloud expenses exceed the budgeted or expected costs. This helps in taking timely corrective actions to avoid significant overages.
+2. **Budget Threshold**:Configure alerts to notify you when spending approaches a predefined limit, helping manage cloud expenses effectively without continuous manual monitoring.
+3. **Optimization**:Stay informed about opportunities to optimise cloud spending, ensuring you maximise the value of deployed resources.
+4. **Underutilised Resources**:Receive alerts about resources that are not being fully utilized, which can lead to cost savings by reallocating or terminating such resources.
+5. **Approaching Budget Limit**:Set up alerts to prevent overspending and ensure that your organization stays within allocated budgets.
+6. **Health**:Monitor the overall health and performance of cloud resources, with alerts that can help ensure optimal cost management and resource allocation.
+7. **Cost Anomaly**:Get notified about any unexpected or irregular spending patterns that may indicate issues like misconfigurations or unauthorized usage.
