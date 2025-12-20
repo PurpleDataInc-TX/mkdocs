@@ -62,3 +62,4 @@ ensuring tasks are handled efficiently and effectively, thus driving better clou
 and operational agility.
 
 ![Adding a Role](images/jikrf.png)
+![Adding a Role](images/managing roles in roles and permissions.png)
