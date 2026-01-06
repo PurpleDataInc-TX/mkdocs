@@ -1,144 +1,450 @@
+# Multi Cloud Billing Hub
 
-Welcome to your central billing command center! The CloudPi Multi-Cloud Billing Hub offers a comprehensive solution for managing and analyzing billing data across various Cloud Service Providers (CSPs). This hub allows you to create tailored 'BillingViews' to monitor expenditures based on different dimensions like services, service groups, and user-defined cost tags.  
+Welcome to your central billing command center! The CloudPi Multi-Cloud Billing Hub offers a comprehensive solution for managing and analyzing billing data across various Cloud Service Providers (CSPs). This hub allows you to create tailored billing views to monitor expenditures based on different dimensions like services, service groups, and user-defined cost tags.
 
-## Key Features 
+---
 
-- **Customizable Billing Views**: Easily configure views based on specific dimensions to better understand your cloud expenses. 
+## Key Features
 
-- **Invoice Customization and Delivery**: Customize and automatically generate invoices tailored to your organizational needs and have them delivered seamlessly. 
+**Billing Analysis** - Delivers insights to optimize your cloud spending with multiple analysis types
 
-- **Managed Cloud Services Provider Support**: Receive specialized billing services designed for Managed Cloud Service Providers. 
+**Customizable Billing Views** - Easily configure views based on specific dimensions to better understand your cloud expenses
 
-- **CUDS/Savings Plans Management**: Efficiently manage your commitments and savings plans to optimize financial performance. 
+**Invoice Customization and Delivery** - Customize and automatically generate invoices tailored to your organizational needs
 
-## How to Navigate 
+**Managed Cloud Services Provider Support** - Receive specialized billing services designed for Managed Cloud Service Providers
 
-Upon accessing the Multi-Cloud Billing Hub, you'll find the following options: 
+**Savings Plans Management** - Efficiently manage your commitments and savings plans to optimize financial performance
 
-- **Billing Views Page**: Customize and edit your Billing Views for different analysis perspectives. 
+---
 
-- **Invoice Management**: Access and customize your invoice settings, including setup for auto-generation and delivery. 
+## Billing Analysis
 
-- **CUDS/Discounts Dashboard**: View and manage your existing CUDS/Discounts Plans to ensure you are maximizing your savings. 
+Billing Analysis delivers insights to optimize your cloud spending. It provides powerful visualization and tabular views to help teams understand cost patterns, detect anomalies, and identify optimization opportunities.
 
-This user-friendly hub simplifies your multi-cloud billing management by centralizing and streamlining processes, making it easier to monitor and optimize your cloud investments. 
+### Accessing Billing Analysis
 
-## Navigating Billing Views Page
+1. From the left navigation menu, click on **Billing Hub**
+2. Select **Billing Analysis**
+3. The Billing Analysis page opens with Quick Filters and visualization options
 
-The billing dashboard provides a comprehensive view of your billing details, including billing view, Account ID, Granularity, project, group by and date range. You can select from dropdowns and apply changes, and save the billing view by entering a name. You can toggle between Table View and Graphical View to better understand your billing data. 
+### Quick Filters
 
-  ![Billing Views](images/b1.png)
+Use these key filters to quickly narrow down your billing data view:
 
-   ![save Billing Views](images/save1.png)
+**Analysis Type** - Select the type of analysis (Anomaly Analysis, Trend Analysis, Comparative Analysis, Budget Analysis, Optimization Analysis)
 
-<!-- ### Choose Billing View: 
- Create a billing view or choose billing view from the dropdown. 
+**Cloud Service Provider** - Filter by AWS, Azure, GCP, or All Providers
 
-Create a billing view: you can choose the filters and view the table with the details according to the filters selected. Click on “save the billing view” button, a pop-up will appear, enter a name for your billing view and click on “Save” button. 
+**Projects** - Select specific projects to analyze
 
-  
+**Cost Type** - Choose Billed Cost or other cost types
 
-Choose from the list of billing views: you can view the billing view that was previously created. 
+**Granularity** - Switch between Daily, Weekly, or Monthly views
 
- 
+**Date Range** - Select time period (60D, 90D, or Custom) with max 120 days
 
-### Date Range
-You can select the date range for the billing information you want to display by using the date picker at the top right corner of the page. 
+**Limit** - Choose Top 10 or other limits for data display
 
- 
+**PRIMARY Group By** - Select the main analysis dimension (e.g., Service Name)
 
-### Apply Cost Group
-To apply a cost group to your expenses, click on the “Apply Cost Group” button. A popup will appear where you can enter your Cost Shared Tag and Cost Group Tag. After entering the tags, click “Apply” to assign the cost groups to your selected items. 
+Click **+ Advanced Filters** to access additional filtering options for more granular analysis.
 
- 
+### Analysis Types
 
- 
+The Analysis Type dropdown provides five different views for analyzing your billing data:
 
-### Generate Invoices
-To generate an invoice based on the displayed billing information, Click the “Generate Invoice” button at the bottom right of the billing summary. This will create a downloadable invoice including all the details from the billing summary. 
+#### 1. Anomaly Analysis
 
- 
+Detect unusual spending patterns and cost spikes across your cloud environment.
 
-Switch to Graphical View by toggling the button at the top of the billing page. This view presents your expenses in a bar graph, giving you a visual representation of your spending over the year. 
+**Features:**
 
- ![Edit invoice](images/edit%20invoice%20and%20billing%20landing%20page.png)
+**Cost Trend: Service** - Area chart showing monthly cost breakdown by service (Top 10)
+- Displays Billed Cost over time with color-coded services
+- Interactive legend - click on service names to show/hide specific services
+- Services include: Virtual Machines, Virtual Network, Load Balancer, Azure SQL Database, Azure Private Link, Storage Accounts, etc.
 
-  -->
+**Detailed Data Table:**
 
- 
+Below the chart, a detailed table shows:
 
-## Invoicing 
+**Service** - Name of the cloud service
 
-The Invoicing page in CloudPi centralizes and streamlines the invoicing process, making it easier for users to generate, manage, and review invoices based on comprehensive and customizable billing views. This feature ensures precise financial management across various customers and cost centers, tailored to the unique demands of multi-cloud environments. 
+**Billed Cost (by month)** - Cost for each month
 
-Key Features  
+**Spike** - Indicates if there was a cost spike
 
-Invoicing Based on Billing Views: 
+**Total** - Total billed cost for the service
 
-- Customization: 
-Create invoices that reflect the specific cost structures and categories defined in your billing views, such as services, service groups, or user-defined cost tags. 
+![Anomaly Analysis](images/billing1.png)
 
-- Accuracy: 
-Ensure that each invoice accurately represents the consumption and costs as per the configurations set in the billing views, enhancing transparency and accountability. 
+![Anomaly Analysis - Detailed Data](images/billing2.png)
 
-Invoicing History: 
+#### 2. Trend Analysis
 
-- Comprehensive List: 
-Access a detailed list of all past invoices, which includes vital information such as invoice dates, amounts, and associated customer or cost center details. 
+Monthly cost trends with moving average and cumulative totals to understand spending patterns over time.
 
-- Ease of Management: 
-Track and manage invoicing records effortlessly, with options to search, filter, and retrieve past invoices based on various criteria, facilitating better financial oversight. 
+**Features:**
 
-Invoicing Automation: 
+**Cost Trend Chart** - Line chart showing monthly trend analysis
 
-- Scheduled Billing: 
-Automate the invoicing process based on selected billing views with customizable schedules (e.g., weekly, monthly). This automation helps maintain consistency in billing cycles and reduces manual workload. 
+**Actual Cost** - Real spending for each period
 
-- Reliability: 
-Automate recurring invoices, ensuring they are generated and dispatched at regular intervals without fail, thus improving efficiency and reducing the chances of human error. 
+**Cumulative** - Running total of costs over time
 
-Invoice Customer/Cost Center Details: 
+**Moving Average** - Smoothed trend line to identify patterns
 
-- Detailed Record-Keeping: 
-Maintain and manage detailed records for each customer or cost center, including specific billing information and contact details. This information is critical for ensuring invoices are accurate and are sent to the correct recipients. 
+**Detailed Data Table:**
 
-- Customization and Control: 
-Customize the level of detail shown on invoices for each customer or cost center, allowing for flexibility and specificity in billing practices to meet diverse needs. 
+**Service** - Name of the cloud service
 
- 
+**Actual** - Actual cost for the period
 
-## Navigating Invoicing Page
+**Mov Avg** - Moving average cost
 
-- Access and Setup: Navigate to the invoicing page from the billing page in left navigation menu. Here, you can configure or modify billing views and set up automation for recurring billing cycles.  
+**Cumulative** - Cumulative total cost
 
-- Generate Invoices: Select the appropriate billing view and input any required details to generate an invoice. You can preview the invoice before finalization to ensure all details are correct.  
+![Trend Analysis](images/billing3.png)
 
-- Manage and Review: Use the invoicing history section to monitor previously issued invoices, making use of filters to sort and access specific invoices quickly. This section also allows for the reissuing, editing, or cancellation of invoices if necessary.   
+![Trend Analysis - Detailed Data](images/billing4.png)
 
-**Invoice History**: Here you can view all created billing views.  
+#### 3. Comparative Analysis
 
- ![Invoice History](images/invoice1.png)
+Compare costs across multiple time periods to identify changes and growth patterns.
 
-<!-- **Customer Details**: it shows the relevant information about the customer associated with the billing views. It includes the customer's name, project name, cost center, department name, and the date range for the invoice. 
+**Features:**
 
- ![Customer Details](images/customer%20details.png) -->
+**3-Month Comparison** - Compare costs across three consecutive months (e.g., Nov 2025 → Dec 2025 → Jan 2026)
 
- **View Invoices**: view invoices that have been generated under each billing view. You can resend, edit and download invoices.
+**Comparative Analysis Chart** - Grouped bar chart showing period comparison for top dimensions
 
- **Auto Invoicing**: To enable auto invoicing for a customer, click on auto invoicing icon under actions. In the pop-up window, select the customer from the dropdown menu. Enter the customer’s email ID, set a schedule for the invoicing, specify delivery details such as email id and end date and click on “Save” to enable auto invoicing. 
+**Interactive legend** - Show/hide specific months
 
- ![Auto Invoicing](images/auto1.png)
+**Detailed Data Table:**
 
-<!-- **Creating Customer Details**: click on create icon under actions. A popup appears, choose the Customer and Billing view and then click on “Save” button.  -->
-**Add Customer**: click on add icon under actions. A popup appears, choose the Customer or create customer details and then click on “Save” button.
+**Service** - Name of the cloud service
 
- ![Add costomer](images/choose1.png)
+**Month 1 Cost** - Cost for first comparison month
 
-On clicking create customer details, you will be navigated to the customer details page to enter details such as first name, last name, email, phone number, address, city, state, cost center, project name and department name, then click on “Save” button. 
+**Month 2 Cost** - Cost for second comparison month
 
-![sAve](images/customer1.png)
+**Difference ($)** - Dollar difference between periods
 
- **Editing billing view**: click on the edit icon under the actions to modify billing view . You will be navigated to billing management, where you can edit billing details, including billing view, Account ID, Granularity, project, group by and date range. You can select from dropdowns and apply changes, and save the billing view by entering a name.
+**Change (%)** - Percentage change (highlighted in red for increases, green for decreases)
 
+**Month 3 Cost** - Cost for third comparison month
 
-![Invoice History](images/b1.png)
+The table highlights significant changes:
+- **Red badges** indicate cost increases (e.g., +411.62%)
+- **Green badges** indicate cost decreases (e.g., -85.04%)
+
+![Comparative Analysis](images/billing5.png)
+
+![Comparative Analysis - Detailed Data](images/billing6.png)
+
+#### 4. Budget Analysis
+
+Track budget consumption and compare actual spending against allocated budgets.
+
+**Features:**
+
+- Budget vs. actual cost comparison
+- Budget utilization percentage
+- Forecast vs. actual spending trends
+
+#### 5. Optimization Analysis
+
+Identify cost optimization opportunities and track realized savings.
+
+**Features:**
+
+**Optimization Savings Summary Cards:**
+
+**Potential Savings** - Total opportunity identified for cost reduction
+
+**Realized Savings** - Amount captured through automation (with "Achieved" badge)
+
+**Remaining Opportunity** - Available savings still to capture
+
+**Realization Rate** - Percentage of potential savings achieved (with Fair/Good/Excellent rating)
+
+**Alert Banner:**
+When significant optimization opportunities are available, an alert displays: "You have $X in remaining optimization opportunities. Your current realization rate is X%. Implementing these recommendations could significantly reduce your cloud costs."
+
+**Top Savings Opportunities:**
+- Horizontal bar chart showing top 9 dimensions with highest potential savings
+- Services ranked by potential savings amount
+
+**Optimization Savings Breakdown Table:**
+
+**Service** - Name of the cloud service
+
+**Potential Savings** - Identified savings opportunity
+
+**Achieved Savings** - Savings already realized
+
+**Remaining Opportunity** - Savings still available to capture
+
+![Optimization Analysis](images/billing7.png)
+
+![Optimization Analysis - Breakdown](images/billing8.png)
+
+### Managing Billing Views
+
+#### Save As View
+
+To save your current filter configuration:
+
+1. Configure your desired filters (Analysis Type, Projects, Date Range, etc.)
+2. Click the **+ Save As View** button in the top right
+3. Enter a name for your billing view
+4. Click **Save**
+
+#### Select a Billing View
+
+To load a previously saved view:
+
+1. Click the **Select a billing view...** dropdown in the top right
+2. Choose from your saved billing views
+3. The page updates with the saved filter configuration
+
+### Understanding the Interface
+
+**Chart Interactions:**
+
+**Legend Toggle** - Click on items in the legend to show/hide specific data series
+
+**Hover** - Hover over chart elements to see detailed values
+
+**Pagination** - Use pagination controls in tables (Rows per page, Page navigation)
+
+**Data Export:**
+
+- Click the download icon in the Detailed Data section to export table data
+
+---
+
+## Shared Costs Management
+
+The Shared Costs page allows you to view and manage shared cost allocations between projects. This ensures that expenses related to shared services (e.g., infrastructure, regions) are fairly distributed across relevant projects.
+
+### Create a Shared Cost
+
+Use this flow to create a new shared cost allocation between projects.
+
+**Steps:**
+
+1. Click on **+ Create Shared Cost** - Opens the Add Shared Cost form
+
+2. **Select Billing View** - Choose the billing view you want to apply the shared cost to
+
+3. **Select Time Period** - Choose from available options such as Yearly, Monthly, etc.
+
+4. **Add Target Projects:**
+   - Select the Project that will share the cost
+   - Specify the Percentage (%) of cost to allocate
+   - Click the **+** icon to add multiple projects if needed
+
+5. **Enter Note** - Provide context or reasons for the shared cost (e.g., shared infrastructure, cross-team usage)
+
+6. Click **Save** - Finalize the shared cost entry. The status will be set to **Pending** until accepted
+
+### Key Actions
+
+**Project Filter:**
+- Use the **Select Project** dropdown to filter shared costs related to a specific project
+
+**Shared Cost List:**
+
+View the list of shared cost entries with details such as:
+
+**Billing Name** - The service or resource category being shared (e.g., Service name, Regions)
+
+**Shared Projects** - Shows the allocation direction (e.g., NPDDDev → CPDev)
+
+**Note** - Additional information (e.g., "This resource is part of a shared infrastructure and is utilized by multiple teams")
+
+**Status** - Indicates if the shared cost is **Accepted** (green) or **Pending** (yellow)
+
+**Time Period** - The duration the shared cost is active (start and end dates)
+
+**Actions** - Options to view more details or perform actions like edit or delete
+
+### View Shared Cost Details
+
+Allows users to view specific details of an existing shared cost allocation.
+
+**Steps:**
+
+1. In the Shared Costs Page, locate the shared cost entry
+2. Click on the **Actions menu** (three dots) next to the entry
+3. Select **View** to see detailed information like:
+   - Billing View and Service Name
+   - Allocated Projects and their share percentages
+   - Notes explaining the purpose of sharing
+   - Time Period and Status (Accepted / Pending)
+
+**Additional Action for Pending Status:**
+
+If the status is **Pending**, the user will have the option to:
+- **Accept** the shared cost
+- **Reject** the shared cost
+
+---
+
+## Views and Invoices
+
+The Views and Invoices page in CloudPi centralizes and streamlines the invoicing process, making it easier for users to generate, manage, and review invoices based on comprehensive and customizable billing views.
+
+**Key Features:**
+
+**Invoicing Based on Billing Views** - Create invoices that reflect specific cost structures and categories
+
+**Invoicing History** - Access a detailed list of all past invoices
+
+**Invoicing Automation** - Automate the invoicing process with customizable schedules
+
+**Invoice Customer/Cost Center Details** - Maintain detailed records for each customer or cost center
+
+---
+
+### Navigating Invoicing Page
+
+The main invoicing dashboard provides an overview of all billing views and their associated invoices.
+
+![Invoice Page](images/invoicepage.png)
+
+**Page Components:**
+
+**Invoice Summary** - Displays total invoice count and key metrics
+
+**Billing View List** - Shows all configured billing views with invoice status
+
+**Quick Actions** - Access to view invoices, add customers, and create new invoices
+
+**Filter Options** - Filter by billing view, date range, or invoice status
+
+---
+
+### View Invoices
+
+View invoices that have been generated under each billing view. You can resend, edit, and download invoices.
+
+**Steps to View Invoices:**
+
+1. Locate the desired billing view in the list
+2. Click the **View Invoices** icon in the Actions column
+3. Review all invoices generated for that billing view
+4. Use available actions: Resend, Edit, Download
+
+![Invoice Creation](images/invoicecreation.png)
+
+**Invoice Actions:**
+
+**Resend** - Send the invoice to the customer again via email
+
+**Edit** - Modify invoice details before sending
+
+**Download** - Export invoice as PDF
+
+---
+
+### Add Customer
+
+Click on the add customer icon under actions. A popup appears where you can choose an existing customer or create new customer details.
+
+**Steps to Add Customer:**
+
+1. Navigate to the billing view you want to associate with a customer
+2. Click the **Add Customer** icon in the Actions column
+3. Choose between:
+   - **Select Existing Customer** - Link an already registered customer
+   - **Create New Customer** - Add a new customer profile
+
+---
+
+### Create Customer Details
+
+Enter comprehensive customer information to enable invoice generation and delivery.
+
+![Invoice Customer Details](images/invoicecustomerdetails.png)
+
+**Required Customer Information:**
+
+**First Name** - Customer's first name
+
+**Last Name** - Customer's last name
+
+**Email** - Primary email address for invoice delivery
+
+**Phone Number** - Contact number
+
+**Address** - Street address
+
+**City** - City name
+
+**State** - State or province
+
+**Cost Center** - Associated cost center code
+
+**Project Name** - Linked project identifier
+
+**Department Name** - Department or business unit
+
+Click **Save** to create the customer profile.
+
+---
+
+### Creating and Sending Invoices
+
+Once a customer is associated with a billing view, you can generate and send invoices.
+
+![Create Invoice](images/createinvoice.png)
+
+**Invoice Generation Process:**
+
+1. Ensure customer details are configured for the billing view
+2. Select the billing period for invoice generation
+3. Review the invoice preview showing all costs and line items
+4. Customize invoice details if needed
+5. Click **Send Invoice** to deliver via email
+
+**Invoice Customization Options:**
+
+**Invoice Number** - Auto-generated or manually specified
+
+**Invoice Date** - Date of invoice creation
+
+**Due Date** - Payment deadline
+
+**Notes** - Additional terms or messages
+
+**Line Items** - Detailed cost breakdown by service or category
+
+---
+
+### Auto Invoicing
+
+Automate the invoicing process with scheduled delivery to customers.
+
+**To Enable Auto Invoicing:**
+
+1. Click the **Auto Invoicing** icon under actions
+2. Select the customer from the dropdown menu
+3. Enter the customer's email ID
+4. Set a schedule for the invoicing (Daily, Weekly, Monthly)
+5. Specify delivery details and end date
+6. Click **Save** to enable auto invoicing
+
+**Auto Invoicing Features:**
+
+**Scheduled Delivery** - Automatic invoice generation and sending based on schedule
+
+**Email Notifications** - Customers receive invoices directly in their inbox
+
+**End Date Control** - Set when automated invoicing should stop
+
+**Template Consistency** - Ensures uniform invoice format across all deliveries
+
+---

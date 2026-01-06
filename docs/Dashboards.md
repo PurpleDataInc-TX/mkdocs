@@ -1,65 +1,102 @@
-The CloudPi Dashboard is a powerful tool designed to provide users with a comprehensive view of their cloud management activities. It allows for detailed reporting and data visualization tailored to the needs of the project and the user's role. The dashboard is your go-to resource for insights into cost management, resource optimization, and overall project health. 
+# Dashboards
 
- 
+The CloudPi Dashboard serves as a unified platform for monitoring and managing your cloud environment. It provides rich visualizations and interactive reports that give teams a clear understanding of costs, resources, and project performance across multiple cloud providers.
 
-## Key Features of the Dashboard 
+The dashboard is role-based and project-aware — ensuring every user views insights that are relevant, actionable, and aligned with their responsibilities.
 
-Versatile Reporting Options: Choose from a variety of report types via dropdown menus, tailored to specific needs such as cost, inventory, optimization, budget, shared, and executive reports. 
+## Key Features of the Dashboard
 
-Dynamic Report Selection: After selecting a report type, users can further specify by choosing from a list of reports that best fit their needs. 
+### Centralized Cloud Insights
 
- 
+The CloudPi Dashboard aggregates data across all projects into a single interface, providing:
+
+- **Cost Reports** - Detailed cost analysis and breakdowns
+- **Budget Tracking** - Monitor budget consumption and forecasts
+- **Showback Reports** - Allocate costs to departments and teams
+- **Executive Reports** - High-level summaries for leadership
+
+After choosing the dashboard type, select a specific dashboard name from a list tailored to your project needs.
 
 ### Customizable Data Visualization
 
-Date Filters: Users can filter data visualizations based on specific date ranges to analyze trends over time. 
+**Filters Available:**
 
-Dimension Filters: Dive deeper by filtering data based on services, service groups, or custom tags to gain insights into specific areas of interest. 
+- **Date Range** - Choose time periods (e.g., Last 90 Days, Month to Date, Till Date)
+- **Top N** - Select top items to display (e.g., Top 10 + Others)
+- **Granularity** - Switch between Daily, Monthly, or Quarterly views
+- **Cloud Provider** - Filter by AWS, Azure, GCP, or view combined data (All Providers)
+- **Projects** - Focus on selected projects
+- **Cost Type** - Filter by Billed Cost or other cost types
 
- 
+This allows you to focus on particular areas of interest within your cloud environment.
 
- 
+## Navigating the Dashboard
 
-### Collaboration and Sharing Tools 
+### Accessing the Dashboard
 
-Share Reports: Easily share insights with team members directly from the dashboard. 
+1. Log in to your CloudPi account.
+2. From the left navigation menu, click on the **Dashboard** icon.
+3. The main Dashboard page opens, displaying an overview panel with filters and visual reports.
 
-Download and Email: Download reports for offline analysis or email them to stakeholders within or outside the platform. 
+### Selecting Dashboard Types
 
-Access Shared Reports: View reports shared by other team members, ensuring seamless collaboration and information flow. 
+At the top of the dashboard, you'll find multiple dropdown filters that control what type of data is displayed.
 
-### Navigating the Dashboard 
+Use the **Dashboard Type** dropdown to choose the desired view — for example:
 
-Accessing the Dashboard: 
+- **Executive** - High-level cost overview with key metrics
+- **FinOps** - Financial operations and cost governance reports
+- **Technical** - Resource utilization and performance reports
 
-Log into your CloudPi account and select the 'Dashboard' from the main navigation menu. 
+Dashboard options are dynamically customized based on:
 
- 
+- Your selected project(s)
+- Your user role (e.g., Admin, Executive, FinOps Analyst)
 
-Selecting Report Types
+This ensures that each user views insights that are relevant to their scope and responsibilities.
 
-Use the dropdown menu at the top of the Dashboard to select the desired report type. Options vary based on your project and role, ensuring you see only the most relevant reports. 
+### Choosing Specific Reports
 
- 
+After selecting the Dashboard Type, additional dropdowns appear for further customization:
 
-Choosing Specific Reports
+1. In the **Dashboard Name** dropdown, choose the specific report you want to view — for instance, Executive Report, Cost by Projects, Budget Overview, or Resource Utilization.
 
-Once a report type is selected, another dropdown menu will appear, allowing you to select from specific report names that correspond to the chosen type. 
+2. You can also select:
+   - **Date Range** - Time period for analysis
+   - **Top N** - Number of top items to display
+   - **Granularity** - Daily, Monthly, or Quarterly
+   - **Cloud Provider** - AWS, Azure, GCP, or All Providers
+   - **Projects** - Specific projects to include
 
- 
+The dashboard then updates automatically, showing relevant charts and tables for your selection.
 
-Customizing the Visualization 
+## Dashboard Components
 
-Apply filters such as date periods or dimensions (services, service groups, tags) to refine the data displayed according to your specific needs. 
+### Executive Report View
 
-Sharing and Downloading Reports 
+The Executive Report provides a high-level cost overview with key metrics:
 
-Use the sharing options provided within each report to share via email, download for offline use, or collaborate with other team members by allowing them access to the report. 
+**Summary Cards:**
 
- 
+- **Total Spend** - Total cloud spend across all projects
+- **Avg Daily Cost** - Average daily cloud spend
+- **Top Project Cost** - Cost of highest spending project
+- **Top Service Cost** - Cost of highest spending service
 
-### Viewing Reports from Others
+**Visualizations:**
 
-Access a section of the dashboard dedicated to viewing reports shared by others. This fosters an environment of transparency and collaborative review. 
+- **Cost Trend By Projects** - Line chart showing cost trends over time for each project
+- **Cost Breakdown** - Donut chart displaying cost distribution by service (e.g., Azure SQL Database, Virtual Machines, Virtual Network)
 
-![Viewing Reports](images/dashboard1.png)
+![Executive Report](images/dashboard.png)
+
+![Executive Report](images/dashboard1.png)
+
+## Customizing Data Views
+
+You can refine and personalize your dashboard data using filters located across the top:
+
+- **Date Range Filters** - Analyze cost and usage trends across specific time frames
+- **Granularity Filters** - View your data at daily, monthly, or quarterly levels for trend analysis
+- **Cloud Provider Filters** - Narrow your view to a particular cloud provider or compare across all
+- **Project and Dimension Filters** - Focus on specific projects, services, or custom tags

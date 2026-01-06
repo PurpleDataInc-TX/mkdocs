@@ -1,165 +1,169 @@
+# CloudPi Recommendations
 
-The Cloud Optimization Recommendations feature in CloudPi is a comprehensive toolset 
-designed to help organizations maximize their cloud efficiency and minimize costs. By 
-analyzing usage patterns and infrastructure configurations, CloudPi provides tailored
-recommendations across various aspects of cloud management. These recommendations 
-are categorized into savings plans recommendations, usage optimizations, and cloud-native 
-recommendations, each aimed at enhancing performance and cost-effectiveness. 
+The CloudPi Recommendations Page is designed to streamline the process of identifying and acting on cloud cost optimization recommendations. This comprehensive and interactive feature empowers users to optimize cloud costs through data-driven recommendations.
 
-## PiSavings Recommendations
-The Pi Savings feature of CloudPi offers a sophisticated tool designed to optimize cloud 
-spending through deep analytical insights into users' current cloud usage and existing 
-savings plans. This feature enables users to compare various savings plan options based on 
-their unique usage patterns and financial goals, helping them identify the most cost effective strategies.
+## Overview
 
-### Key capabilities of PiSavings
-Detailed Analysis: Users can view and assess their cloud usage pattern suitable for SP and 
-RI’s in easy to understand way.
+Get insights and suggestions to optimize cloud resources and boost performance. The Recommendations page provides a centralized view of all optimization opportunities across your cloud environment.
 
-Comparison Tool: This tool allows users to input their usage data to compare different 
-savings plans side by side, providing clear recommendations on which plans offer the best 
-savings.
+![Recommendations Overview](images/recommendations1.png)
 
-Automated Processes: Once a suitable savings plan is selected, Pi Savings can automate the 
-creation of tickets within the user’s existing workflow system, facilitating seamless 
-management and implementation of the new plan.
+---
 
-Overall, Pi Savings empowers users to make informed decisions that enhance their financial 
-efficiency and align with their organizational objectives in cloud management.
+## Summary Metrics
 
-## How SP Recommendations work?
+At the top of the page, CloudPi Recommendations provides a high-level summary of the cost-saving potential:
 
-In PiSavings, specifically in SP Recommendations page you find the project resources current 
-usage pattern based on region and account id, CloudPi intelligently develops and presents to 
-you current commitment requirement, current average demand and potential estimated 
-savings. For each opportunity you will have option to generate recommendations in 
-graphical and tabular view for choosing best plan based on your situation and forecast.
+**Total Recommendations** - Overall number of recommendations across all cloud providers
 
-The Savings Plan Recommendation provides insights and recommendations for purchasing 
-Savings Plans for optimal coverage based on Account ID selected. 
+**Potential Savings** - Total possible cost savings if all recommendations are implemented
 
-![SP Recommendations](images/rsp1.png)
+**Realized Savings** - Savings already achieved from completed actions (percentage completed)
 
-**Generate SP Plan**: When clicking on 'Generate', you can view Account ID, Region and 
-Current average hourly OnDemand spend which allows you to review and edit based on 
-your business forecast before generating a saving plan.
+**Not Remediated** - Recommendations still pending action and requiring attention
 
-![Generate](images/gsp1.png)
+**In Progress** - Recommendations currently being addressed
 
-**Graphical View and Estimated Savings**: Graphical View provide comparison visual 
-representation of your Savings Plans options. A side panel presents various saving options, 
-showing the duration (1-year or 3-year) and the cost structure (On Demand, All Upfront, 
-Partial Upfront, No Upfront). Choose the most suitable plan according to the estimated 
-savings and upfront payment preference.
+---
 
-![Details](images/spgraph1.png)
+## Data Filtering
 
-**Auto Ticketing**: Based on analysis you can choose your savings plan and you can 
-automatically 'Raise Ticket' and view populated fields such as title, Description, Priority, 
-Status. Finally click ‘Create Ticket’ to workflow tool you setup for your organization.
+Once the recommendations data is fetched and processed, users can apply several filters to refine and customize the view:
 
-![Details](images/spticket.png)
+**Group By** - Allows grouping of recommendations (e.g., All or Policy) for better organization
 
-## RI Recommendations Plan
-The RI Recommendation provides insights and recommendations for purchasing Reserved 
-Instances to optimize cloud spending based on Account ID selected.
+**Policy Name** - Filter by specific policy name
 
-![Details](images/RI%20Recommendations.png)
+**Category** - Filters by recommendation type such as Optimization, Governance, Performance, or Security
 
-**Generate RI Plan**: When clicking on 'Generate', you can view Account ID, Region, Instance 
-Family and Average number of instances used per hour which allows you to review before 
-generating a RI plan.
+**Account ID** - Filter recommendations by cloud account
 
-![Details](images/RI%20Recommendations%20generate.png)
+**Region** - View recommendations based on the region of the resource
 
-**Graphical View and Estimated Savings**: A graphical view shows your spending trends over 
-the months. The Estimated Savings section compares various plan durations and payment 
-terms (e.g., 1-year vs. 3-year, all upfront vs. partial upfront).
+**Service** - Filter by specific cloud service
 
-![Details](images/RI%20Recommendations%20details.png)
+**Status** - Filter by current status (Initiated, In Progress, Completed, etc.)
 
-**Raising a Ticket**: If you have an issue, you can 'Raise Ticket' and view the fields such as title, 
-Description, Priority, Status and Submit to and click on “Create ticket” button.
+**Priority** - Filter by priority level (High, Medium, Low)
 
-![Details](images/raiseticket1.png)
+**Time Period** - Enable filtering by a defined period (e.g., Past 3 Months – Till Date)
 
-## CloudPi Usage Recommendations
+These filters are applied in real-time, and the displayed recommendations update dynamically.
 
-Resource Right-Sizing: Based on your actual cloud usage, CloudPi advises on scaling your 
-resources up or down. This ensures that you are neither over-provisioning nor under utilizing, optimizing both cost and performance. 
+---
 
-Efficiency Enhancements: Identify underused resources, such as unattached volumes or idle 
-VMs, and receive actionable insights on how to redeploy or decommission them to cut 
-unnecessary expenses. 
+## List of Recommendations
 
-Dashboard Integration: Access these recommendations directly through the CloudPi 
-dashboard, where they are regularly updated based on continuous monitoring of your cloud 
-environment. 
+### Table View
 
-Actionable Insights: Each recommendation includes detailed steps and justifications, 
-allowing IT teams to understand the potential impacts and implement changes confidently. 
+Recommendations are displayed in a clear, scrollable table format for quick review:
 
-Monitoring and Adjustments: After applying recommended changes, CloudPi continues to 
-monitor the environment to ensure that optimizations are effective and aligned with your 
-evolving needs. 
+**Policy Name** - Name of the optimization policy (e.g., Azure Tag Compliance Checker, Azure Untagged Resources)
 
+**Recommendation** - Specific recommendation identifier
 
-## Cloud Native Recommendations
-### Overview 
-CloudPi's Cloud Native Recommendations feature is designed to seamlessly integrate and 
-enhance recommendations generated by leading cloud providers such as AWS (including 
-AWS Trusted Advisor), Google Cloud, and Azure. This feature empowers users by enriching 
-these recommendations with additional context and enabling efficient management and 
-execution through the CloudPi platform. 
- 
-### Key Features 
- 
-Integration with Cloud Provider Tools: 
+**Category** - Type of recommendation (e.g., Governance, Optimization)
 
-- Comprehensive Ingestion: CloudPi ingests recommendations from AWS Trusted Advisor, 
-Google Cloud recommendations, and Azure advisories, providing a unified view of 
-optimizations across your cloud environments.
+**Service** - Cloud service involved (e.g., Azure Load Balancer, Azure Storage Account, Azure SQL Database)
 
-- Enhanced Details: Each recommendation is supplemented with enriched information to 
-provide a clearer understanding of the implications, benefits, and practical steps needed for 
-implementation. 
- 
-Actionable Insights for IT Teams: 
+**Resource Name** - Name of the affected resource
 
-- Ticketing System Integration: Users can easily raise tickets directly from the CloudPi 
-interface for any cloud-native recommendation. These tickets include enriched details 
-necessary for IT teams to evaluate and prioritize actions. 
-- Prioritization and Effort Management: Recommendations are categorized and can be 
-prioritized based on the impact and effort required for implementation. This allows IT teams 
-to effectively allocate resources and address the most critical optimizations first. 
- 
-Benefits 
- 
-- Streamlined Operations: By consolidating recommendations from multiple cloud providers 
-in one platform, CloudPi simplifies the management of cloud optimizations. 
-- Informed Decision-Making: Enhanced information helps clarify the potential impact and 
-necessary steps for each recommendation, aiding in better decision-making processes. 
-- Efficient Resource Allocation: Prioritizing recommendations based on impact and required 
-effort ensures that resources are used efficiently, focusing on changes that offer the 
-greatest benefits. 
+**Cost Savings** - Estimated annual cost savings (or N/A if not applicable)
 
-### Navigating the Feature
-- Accessing Recommendations: Navigate to the Cloud Native Recommendations section on 
-the CloudPi dashboard to view all current recommendations from AWS, Google Cloud, and 
-Azure.
-<!-- - Raising Tickets: When a recommendation aligns with strategic goals or operational needs, 
-users can raise a ticket directly within CloudPi. This ticket will encapsulate all the enriched 
-details, making it ready for review and action by IT teams. -->
-- Managing and Prioritizing Recommendations: IT teams can manage these tickets through 
-CloudPi’s integrated workflow tools, prioritizing them based on the effort required and 
-potential impact. This management helps streamline the implementation process and
-ensures that critical optimizations are deployed promptly.
+**Status** - Current status of the recommendation
 
+**Actions** - Available actions for the recommendation
 
-CloudPi’s Cloud Native Recommendations feature not only simplifies the task of managing 
-recommendations from various cloud platforms but also enhances them with vital 
-information and tools needed for effective implementation. This capability allows 
-organizations to maximize their cloud efficiency, reduce costs, and leverage the full 
-potential of their cloud investments.
+### Recommendation Status Types
 
-![Cloud native](images/native11.png)
+**Initiated** - Recommendation has been identified and logged
+
+**In Progress** - Action is currently being executed
+
+**Completed** - Remediation has been successfully applied
+
+**Ignored** - User has chosen to ignore this recommendation
+
+**Snoozed** - Action has been temporarily postponed
+
+### Expandable Grouping
+
+When grouped by policy, recommendations can be expanded or collapsed for easier management of multiple related insights.
+
+---
+
+## Taking Actions on Recommendations
+
+The page allows users to take actions based on the status of each recommendation.
+
+### Bulk Actions
+
+1. **Selecting Recommendations** - Use checkboxes to select one or more recommendations from the table
+2. **Actions in Table Header** - Once selected, perform bulk actions:
+   - **Ignore** - Marks the selected recommendations as ignored
+   - **Snooze** - Temporarily postpones action on the recommendations
+
+### Individual Actions
+
+Click the **Actions** menu (three dots) on any recommendation row to access:
+
+- **View Details** - Open detailed recommendation information
+- **Execute Action** - Perform the recommended remediation
+
+---
+
+## Recommendation Details
+
+Click on a recommendation to view detailed information in a side panel:
+
+![Recommendation Details](images/recommendations2.png)
+
+### Header Information
+
+**Recommendation Name** - Policy name (e.g., azure-tag-compliance-checker)
+
+**Resource** - Resource identifier (e.g., test-lb-idle-7e6600b4)
+
+**Status Badge** - Current status (e.g., Not Remediated)
+
+**Quick Actions** - Snooze and Ignore buttons
+
+### Metrics Cards
+
+**Savings (Annual)** - Estimated annual cost savings
+
+**Utilization** - Resource utilization percentage
+
+**Priority** - Priority level (High, Medium, Low)
+
+### What is this Recommendation?
+
+This section provides:
+
+**Recommended Action** - Description of the action to take (e.g., "Normalized tag keys to lowercase for consistency")
+
+**View Policy** - Link to view the full policy details
+
+### Resource Details
+
+**Resource Name** - Clickable link to the resource
+
+**Status** - Current status with description (e.g., "In Progress - Action is currently being executed")
+
+### Workflow Status
+
+If no workflow is configured, you'll see:
+
+- **No Workflow Configured** message
+- Option to **Create Workflow For This Policy**
+
+**Benefits of Workflow Automation:**
+
+- Automate remediation actions based on this policy
+- Schedule automated checks and approvals
+- Receive notifications when actions complete
+- Track execution history and audit logs
+- Reduce manual intervention and save time
+
+---
+
