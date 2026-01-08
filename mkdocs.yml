@@ -51,7 +51,7 @@ nav:
     # - '<i class="fa fa-window-maximize"></i> Workspace Settings': workspace.md
     - '<i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings': AdminSetting.md
     - '<i class="fa fa-home" aria-hidden="true"></i> Landing Page': Homepage.md
-    - '<i class="fa fa-users" aria-hidden="true"></i> Team Collaboration': teamcollaboration.md
+    #- '<i class="fa fa-users" aria-hidden="true"></i> Team Collaboration': teamcollaboration.md
     - '<i class="fa fa-th-large" aria-hidden="true"></i> Dashboards' : Dashboards.md
     - '<i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub' : MultiCloudBillingHub.md
     - '<i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding': CloudOnboarding.md

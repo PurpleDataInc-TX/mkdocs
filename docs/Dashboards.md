@@ -63,11 +63,11 @@ After selecting the Dashboard Type, additional dropdowns appear for further cust
 
 2. You can also select:
 
-- Date Range - Time period for analysis
-- Top N - Number of top items to display
-- Granularity - Daily, Monthly, or Quarterly
-- Cloud Provider - AWS, Azure, GCP, or All Providers
-- Projects - Specific projects to include
+- **Date Range** - Time period for analysis
+- **Top N** - Number of top items to display
+- **Granularity** - Daily, Monthly, or Quarterly
+- **Cloud Provider** - AWS, Azure, GCP, or All Providers
+- **Projects** - Specific projects to include
 
 The dashboard then updates automatically, showing relevant charts and tables for your selection.
 
