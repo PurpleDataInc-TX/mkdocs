@@ -21,12 +21,12 @@ After choosing the dashboard type, select a specific dashboard name from a list 
 
 **Filters Available:**
 
-- **Date Range** - Choose time periods (e.g., Last 90 Days, Month to Date, Till Date)
-- **Top N** - Select top items to display (e.g., Top 10 + Others)
-- **Granularity** - Switch between Daily, Monthly, or Quarterly views
-- **Cloud Provider** - Filter by AWS, Azure, GCP, or view combined data (All Providers)
-- **Projects** - Focus on selected projects
-- **Cost Type** - Filter by Billed Cost or other cost types
+- Date Range - Choose time periods (e.g., Last 90 Days, Month to Date, Till Date)
+- Top N - Select top items to display (e.g., Top 10 + Others)
+- Granularity - Switch between Daily, Monthly, or Quarterly views
+- Cloud Provider - Filter by AWS, Azure, GCP, or view combined data (All Providers)
+- Projects - Focus on selected projects
+- Cost Type - Filter by Billed Cost or other cost types
 
 This allows you to focus on particular areas of interest within your cloud environment.
 
@@ -62,11 +62,12 @@ After selecting the Dashboard Type, additional dropdowns appear for further cust
 1. In the **Dashboard Name** dropdown, choose the specific report you want to view — for instance, Executive Report, Cost by Projects, Budget Overview, or Resource Utilization.
 
 2. You can also select:
-   - **Date Range** - Time period for analysis
-   - **Top N** - Number of top items to display
-   - **Granularity** - Daily, Monthly, or Quarterly
-   - **Cloud Provider** - AWS, Azure, GCP, or All Providers
-   - **Projects** - Specific projects to include
+
+- Date Range - Time period for analysis
+- Top N - Number of top items to display
+- Granularity - Daily, Monthly, or Quarterly
+- Cloud Provider - AWS, Azure, GCP, or All Providers
+- Projects - Specific projects to include
 
 The dashboard then updates automatically, showing relevant charts and tables for your selection.
 
@@ -78,15 +79,15 @@ The Executive Report provides a high-level cost overview with key metrics:
 
 **Summary Cards:**
 
-- **Total Spend** - Total cloud spend across all projects
-- **Avg Daily Cost** - Average daily cloud spend
-- **Top Project Cost** - Cost of highest spending project
-- **Top Service Cost** - Cost of highest spending service
+- Total Spend - Total cloud spend across all projects
+- Avg Daily Cost - Average daily cloud spend
+- Top Project Cost - Cost of highest spending project
+- Top Service Cost - Cost of highest spending service
 
 **Visualizations:**
 
-- **Cost Trend By Projects** - Line chart showing cost trends over time for each project
-- **Cost Breakdown** - Donut chart displaying cost distribution by service (e.g., Azure SQL Database, Virtual Machines, Virtual Network)
+- Cost Trend By Projects - Line chart showing cost trends over time for each project
+- Cost Breakdown - Donut chart displaying cost distribution by service (e.g., Azure SQL Database, Virtual Machines, Virtual Network)
 
 ![Executive Report](images/dashboard.png)
 
