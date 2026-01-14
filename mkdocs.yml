@@ -48,9 +48,9 @@ nav:
     - '<i class="fa fa-info-circle"></i>  Introduction': index.md
     - '<i class="fa fa-universal-access"></i> RBAC': rbac.md
     - '<i class="fa fa-lock" aria-hidden="true"></i> Security': security.md
-    # - '<i class="fa fa-window-maximize"></i> Workspace Settings': workspace.md
+    - '<i class="fa fa-wrench"></i> Workspace Settings': workspace.md
     - '<i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings': AdminSetting.md
-    - '<i class="fa fa-home" aria-hidden="true"></i> Landing Page': Homepage.md
+    - '<i class="fa fa-home" aria-hidden="true"></i> Landing Page': homepage.md
     #- '<i class="fa fa-users" aria-hidden="true"></i> Team Collaboration': teamcollaboration.md
     - '<i class="fa fa-th-large" aria-hidden="true"></i> Dashboards' : Dashboards.md
     - '<i class="fa fa-cloud" aria-hidden="true"></i> Multi Cloud Billing Hub' : MultiCloudBillingHub.md
@@ -110,4 +110,4 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 copyright: |
-  &copy; 2023 <a href="https://github.com/james-willett"  target="_blank" rel="noopener">CloudPi Inc</a>
+  &copy; 2023 <a href="https://github.com/PurpleDataInc-TX"  target="_blank" rel="noopener">CloudPi Inc</a>

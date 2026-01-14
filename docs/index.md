@@ -59,10 +59,10 @@ encourage team collaboration, and have organization-wide views. Each workspace e
 that data is kept separate and secure. A workspace can represent an entire organization or a 
 specific Line of Business with multiple teams and departments. It can also be a collection of 
 applications or divisions serving different clients.
-In Workspace settings, setup third party workflow tools like Jira and ServiceNow. 
+In Workspace settings, setup third party workflow tools like Azure Dev Ops, Jira and ServiceNow. 
 Workspace Admin can add/delete workspace users and other users, can assign roles.
 Workspace Users get access to Executive level reports or customized reports across the 
-[projects](http://cloudpie.ai:3000/) or [project groups](http://cloudpie.ai:3000/).
+projects or project groups.
 
 ### Workspace Settings management 
 ## Understanding Projects
@@ -80,7 +80,6 @@ A CloudPi Project is configured for managing cloud costs and management per
 ‘Environment’
 A CloudPi Project is used for product resources in one cloud provider.
 A CloudPi Project is used per customer basis.
-[Click here for Creating New Projects](http://cloudpie.ai:3000/)
 
 ## Understanding Project Group
 A 'Project Group' represents a set of projects organized together to mirror a department or 
