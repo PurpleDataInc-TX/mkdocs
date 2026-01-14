@@ -322,7 +322,7 @@ To manage your subscription, you can login to **subscription portal** where you 
 
 **Subscription Status** - Current status of the subscription (e.g., Active)
 
-**Company Name** - The company name associated with the subscription (e.g., PurpleData Inc)
+**Company Name** - The company name associated with the subscription (e.g., PurpleData Inc DBA Cloudpi)
 
 **Version** - The current CloudPi version (e.g., Beta V1.0.0)
 

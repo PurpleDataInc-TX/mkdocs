@@ -53,7 +53,7 @@ Enable seamless work item management and workflow automation by integrating your
 
 **2. Provide Required Details**
 
-**Organization URL** - Enter the URL of your Azure DevOps organization (e.g., https://dev.azure.com/PurpleData)
+**Organization URL** - Enter the URL of your Azure DevOps organization (e.g., https://dev.azure.com/your-organization)
 
 **Personal Access Token (PAT)** - Provide the personal access token generated from Azure DevOps with appropriate permissions
 

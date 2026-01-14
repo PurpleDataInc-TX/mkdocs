@@ -1,7 +1,7 @@
 ﻿![User Guide](images/grad_logo.png)
 
 # Introduction
-CloudPi is a multi-cloud cost management and governance platform by PurpleData Inc. This user guide introduces the core concepts, explains how to navigate the product, and links to detailed instructions for key workflows.
+CloudPi Ai is a multi-cloud cost management and governance platform by PurpleData Inc DBA Cloudpi. This user guide introduces the core concepts, explains how to navigate the product, and links to detailed instructions for key workflows.
 
 ## Who This Guide Is For
 This guide is written for:
