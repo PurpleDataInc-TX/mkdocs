@@ -92,7 +92,7 @@
 
 /* Hamburger menu */
 .menu-toggle {
-  display: none;
+  display: block;
   cursor: pointer;
   font-size: 24px;
 }
@@ -128,13 +128,13 @@
 }
 
 .slide-menu ul li a {
-  color: white;
+  color: black;
   text-decoration: none;
   display: block;
 }
 
 .slide-menu ul li:hover {
-  background-color: #ffffff;
+  background-color: #f3e5ff;
   color: #AC8AE7;
 }
 
@@ -147,13 +147,6 @@
   color: inherit; /* Inherit color from the list item */
   text-decoration: none;
   display: block;
-}
-
-/* Media query for slide menu on smaller screens */
-@media (max-width: 1200px) {
-  .menu-toggle {
-    display: block;
-  }
 }
 
 /* Adjust content area when slide menu is open */
@@ -173,26 +166,26 @@
 </header>
 
 <div class="custom-header">
-  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
   <div class="logo">
-    <img src="{{ base_url }}/images/Purple Data white 3 1.svg" alt="Logo" class="logo-image">
+    <img src="{{ base_url }}/images/cp-logo.png" alt="Cloudpi AI" class="logo-image">
   </div>
   <nav class="custom-nav">
     <ul>
-      <li><a href="https://www.purpledatainc.com/">HOME</a></li>
-      <li><a href="https://www.purpledatainc.com/">FEATURES</a></li>
-      <li><a href="https://www.purpledatainc.com/about-us">COMPANY</a></li>
+      <li><a href="https://cloudpi.ai/">HOME</a></li>
+      <li><a href="https://cloudpi.ai/">FEATURES</a></li>
+      <li><a href="https://cloudpi.ai/">COMPANY</a></li>
       <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
-      <li><a href="https://www.purpledatainc.com/solutions">SOLUTIONS</a></li>
-      <li><a href="https://www.purpledatainc.com/">SUBSCRIPTIONS</a></li>
-      <li><a href="https://www.purpledatainc.com/blog">BLOG</a></li>
-      <li><a href="https://www.purpledatainc.com/faq">FAQ</a></li>
-      <li><a href="#">USER GUIDE</a></li>
+      <li><a href="https://cloudpi.ai/">SOLUTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">BLOG</a></li>
+      <li><a href="https://cloudpi.ai/">FAQ</a></li>
+      <li><a href="{{ base_url }}/">USER GUIDE</a></li>
     </ul>
   </nav>
   <div class="buttons">
-    <a href="https://www.purpledatainc.com/contact" class="start-trial">START TRIAL</a>
-    <a href="https://www.purpledatainc.com/contact" class="schedule-demo">SCHEDULE DEMO</a>
+    <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
+    <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
   </div>
 </div>
 <div id="slide-menu" class="slide-menu">
@@ -209,13 +202,48 @@ document.addEventListener("DOMContentLoaded", function() {
   var menuToggle = document.getElementById("menu-toggle");
   var slideMenu = document.getElementById("slide-menu");
 
+  if (!menuToggle) return;
+
+  var collapsedKey = "md-primary-sidebar-collapsed";
+  var isDesktop = function() {
+    return window.matchMedia && window.matchMedia("(min-width: 76.25em)").matches;
+  };
+
+  var setCollapsed = function(collapsed) {
+    document.body.classList.toggle("md-primary-sidebar-collapsed", collapsed);
+    try {
+      localStorage.setItem(collapsedKey, collapsed ? "1" : "0");
+    } catch (e) {}
+  };
+
+  var initialCollapsed = false;
+  try {
+    initialCollapsed = localStorage.getItem(collapsedKey) === "1";
+  } catch (e) {}
+
+  if (isDesktop()) setCollapsed(initialCollapsed);
+
   menuToggle.addEventListener("click", function(e) {
-    e.stopPropagation(); // Prevent the click event from bubbling up
-    slideMenu.classList.toggle("open");
+    e.stopPropagation();
+
+    if (isDesktop()) {
+      setCollapsed(!document.body.classList.contains("md-primary-sidebar-collapsed"));
+      return;
+    }
+
+    var drawer = document.getElementById("__drawer");
+    if (drawer && drawer.type === "checkbox") {
+      drawer.checked = !drawer.checked;
+      return;
+    }
+
+    if (slideMenu) slideMenu.classList.toggle("open");
   });
 
-  // Close the slide menu when clicking outside of it
+  // Close the slide menu when clicking outside of it (mobile only)
   document.addEventListener("click", function(e) {
+    if (isDesktop() || !slideMenu) return;
+
     var target = e.target;
     var isMenuOpen = slideMenu.classList.contains("open");
     var isClickInsideMenu = slideMenu.contains(target);
@@ -226,11 +254,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // Close the slide menu when an item is selected
-  slideMenu.querySelectorAll("a").forEach(function(item) {
-    item.addEventListener("click", function() {
-      slideMenu.classList.remove("open");
+  // Close the slide menu when an item is selected (mobile only)
+  if (slideMenu) {
+    slideMenu.querySelectorAll("a").forEach(function(item) {
+      item.addEventListener("click", function() {
+        slideMenu.classList.remove("open");
+      });
     });
-  });
+  }
 });
 </script>
