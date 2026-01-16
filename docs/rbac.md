@@ -1,33 +1,91 @@
-# Role-Based Access Control (RBAC): Accountability and Responsibility
+# Role-Based Access Control (RBAC)
 
-The meticulous organization of cloud resources into project-based groupings lays the groundwork for implementing Role-Based Access Control (RBAC), a vital component to effective cloud management. RBAC is an integral part of maintaining accountability, assigning responsibility, and ensuring proficient management, utilization, and governance of cloud resources.
+CloudPi uses role-based access control (RBAC) to manage user access to workspaces and projects. Roles determine what users can view and what actions they can perform. This page explains the available roles, their permissions, and how to manage user access.
 
----
+## CloudPi Roles
 
-## Understanding RBAC
+CloudPi provides four predefined roles that control access at the workspace and project levels:
 
-At its core, RBAC is a policy-neutral access control mechanism. It's based on the roles that users have within your system and the permissions those roles carry. Users are only allowed access to the information they need to perform their assigned tasks.
+### Workspace Admin
+Workspace Admin has full CRUD (Create, Read, Update, Delete) access across all projects within the workspace. They can manage project groups, integrations, budgeting, workflows, and more with complete administrative control.
 
-Here's how it works:
+**Key capabilities:**
+- Full access to all workspace features and settings
+- Manage users and assign roles
+- Configure integrations, workflows, and alerts
+- Create and delete projects and project groups
+- Access Admin Settings
 
-**Roles** - These are defined according to job competency, authority, and responsibility within your organization
+**Typical users:** Cloud platform managers, FinOps leads
 
-**Permissions** - These dictate what operations can or cannot be performed—whether it's viewing billing data or managing cloud resources
+### Workspace User
+Workspace User has CRUD access limited to the project groups they are assigned to. They can manage resources and settings within those assigned projects, but do not have visibility or control over other project groups.
 
-**Users** - They are assigned roles, and through those roles, users acquire permissions
+**Key capabilities:**
+- View and manage assigned project groups only
+- No access to workspace-level settings
+- No Admin Settings access
+- Cannot create or delete projects outside assigned scope
 
----
+**Typical users:** Team leads, department managers with specific cost centers
 
-## The Power of RBAC in Cloud Management
+### Project Admin
+Project Admin has write access (create and update) for all projects assigned to them. However, they do not have delete permissions. Their responsibilities include managing optimization settings, budgeting, and tags at the project level.
 
-Implementing RBAC in your cloud management strategy offers several compelling benefits:
+**Key capabilities:**
+- Create and update project settings
+- Manage budgets, tags, and optimization configurations
+- No delete permissions
+- Limited to assigned projects only
 
-**Improved operational efficiency** - By assigning specific roles and responsibilities, you expedite decision-making processes and reduce administrative overhead
+**Typical users:** Cloud architects, project managers
 
-**Enhanced security** - Limiting access to sensitive information based on role reduces risk of inadvertent or intentional misuse of data
+### Project User
+Project User has read-only access to all the projects assigned to them. They can view dashboards, recommendations, and budgeting data without making changes.
 
-**Clear accountability** - With specific roles tied to specific actions, it's easier to track who did what—essential audits and compliance checks
+**Key capabilities:**
+- View-only access to assigned projects
+- Access dashboards and reports
+- View recommendations and cost data
+- Cannot modify any settings or resources
 
-**Scalability** - As your organization grows, so does the complexity of managing access rights. RBAC allows for easy adjustments as users join, move within or leave your team
+**Typical users:** Developers, analysts, stakeholders needing visibility
 
-RBAC is not just about control; it's about empowering the right people with the right access at the right time. It ensures that every individual has a clearly defined role with corresponding responsibilities and access levels, thereby fostering a more secure, efficient, and accountable cloud environment.
+## Role Permissions
+
+All roles have access to the following CloudPi features (with varying permission levels):
+
+- Home
+- Dashboard
+- Cost Assignments
+- Task Management
+- Ticketing
+- Financials
+- Project
+- Billing Hub
+- Recommendations
+- Tag Management
+- Automations
+
+**Note:** Only Workspace Admin has access to Admin Settings.
+
+## Managing Roles and Permissions
+
+To view or manage roles and permissions:
+
+1. Navigate to **Admin Settings > Roles & Permissions**
+2. The Roles & Permissions page displays a list of all user roles and their associated permissions
+3. Click on any role to view the **Roles Details** panel, which shows:
+   - Role Name
+   - Description
+   - Complete list of permissions
+
+**Note:** Role definitions are predefined and cannot be customized. Access control is managed by assigning users to appropriate roles and scoping them to specific workspaces or projects.
+
+## Best Practices
+
+- Assign the minimum role necessary for users to perform their job functions
+- Use Project User for stakeholders who need visibility without making changes
+- Limit Workspace Admin roles to platform administrators only
+- Regularly review user assignments to ensure access remains appropriate
+- Use project and project group assignments to implement least-privilege access
