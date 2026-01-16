@@ -24,11 +24,11 @@ Use this guide to:
 
 Related pages:
 
-- Landing page and Home Page: [Landing Page](homepage.md)
-- Access model: [RBAC](rbac.md)
-- Security posture and access requirements: [Security](security.md)
-- Workspace administration: [Workspace Settings](workspace.md)
-- Admin configuration: [Admin Settings](AdminSetting.md)
+- Landing page and Home Page: [Landing Page](homepage.md) – learn how to navigate tiles, shortcuts, and workspace dashboards.
+- Access model overview: [RBAC](rbac.md) – understand roles and permissions before inviting new users.
+- Security posture and access requirements: [Security](security.md) – review compliance, MFA, and credential expectations.
+- Workspace administration: [Workspace Settings](workspace.md) – manage alerts, integrations, and workspace-level governance.
+- Admin configuration: [Admin Settings](AdminSetting.md) – configure tenant-level policies, integrations, and audit controls.
 
 ## Key Concepts
 ### Workspaces
