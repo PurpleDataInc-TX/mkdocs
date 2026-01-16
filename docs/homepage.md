@@ -5,6 +5,7 @@ The landing page is your starting point after you sign in. It acts as a workspac
 
 ## Landing Page User Stories
 Use the landing page to:
+
 - Open the **workspace Home Page** for an at-a-glance view of KPIs, trends, and alerts
 - Jump directly to **My Reports**, **Onboarding**, **Cost Assignment**, or **Admin Settings**
 - Access help content such as the **User Guide**, **Videos**, and **Blogs**
@@ -67,5 +68,8 @@ Common charts and widgets include:
 
 ### Recommendations and Health Signals
 When reviewing recommendations and health widgets:
+
 - Select a recommendation to open details and next steps.
 - Use the widget menu (three-line/ellipsis menu) for available actions such as filtering or viewing more detail.
+
+

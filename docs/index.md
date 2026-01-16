@@ -12,6 +12,7 @@ This guide is written for:
 
 ## What You Will Learn
 Use this guide to:
+
 - Understand CloudPi's organizational model (workspaces, projects, and project groups)
 - Navigate the product (landing page, dashboards, and common workflows)
 - Manage access using role-based access control (RBAC)
@@ -26,7 +27,7 @@ Related pages:
 
 - Landing page and Home Page: [Landing Page](homepage.md) – learn how to navigate tiles, shortcuts, and workspace dashboards.
 - Access model overview: [RBAC](rbac.md) – understand roles and permissions before inviting new users.
-- Security posture and access requirements: [Security](security.md) – review compliance, MFA, and credential expectations.
+- Security posture and access requirements: [Security](security.md) – review compliance and credential expectations.
 - Workspace administration: [Workspace Settings](workspace.md) – manage alerts, integrations, and workspace-level governance.
 - Admin configuration: [Admin Settings](AdminSetting.md) – configure tenant-level policies, integrations, and audit controls.
 
@@ -38,6 +39,7 @@ Workspaces separate data and access for an organization, business unit, or clien
 A project is a logical grouping of cloud resources based on a cloud provider account and/or tags. Projects are the primary unit for analyzing costs, usage, inventory, utilization, and optimization recommendations.
 
 Use projects when you want to:
+
 - Make a team accountable for cloud spend and optimization for a specific scope
 - Combine reporting across multiple subscriptions/accounts/resource groups under one initiative
 - Separate reporting by environment (for example, `dev`, `test`, `prod`) or by product/customer
