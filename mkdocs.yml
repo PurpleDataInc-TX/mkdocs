@@ -61,6 +61,7 @@ nav:
     - '<i class="fa fa-cogs" aria-hidden="true"></i> Integrations': Integrations.md
     - '<i class="fa fa-magic" aria-hidden="true"></i> Automation': Automations.md
     - '<i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts': ServiceAccounts.md
+    - '<i class="fa fa-users" aria-hidden="true"></i> User Management': UserManagement.md
     - '<i class="fa fa-tasks" aria-hidden="true"></i> Task Management': TaskManagement.md
     - '<i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing': Ticketing.md
 
