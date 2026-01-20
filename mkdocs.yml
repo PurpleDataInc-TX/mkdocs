@@ -39,8 +39,11 @@ theme:
   palette:
         primary: 'white'
         # primary: Dark moderate violet
-        accent: deep purple 
-         
+        accent: deep purple
+
+plugins:
+  - glightbox
+
 nav:
     - '<i class="fa fa-info-circle"></i>  Introduction': index.md
     - '<i class="fa fa-home" aria-hidden="true"></i> Landing Page': homepage.md
@@ -48,6 +51,7 @@ nav:
     - '<i class="fa fa-lock" aria-hidden="true"></i> Security': security.md
     - '<i class="fa fa-wrench"></i> Workspace Settings': workspace.md
     - '<i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings': AdminSetting.md
+    - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings': GlobalPolicies.md
     #- '<i class="fa fa-users" aria-hidden="true"></i> Team Collaboration': teamcollaboration.md
     - '<i class="fa fa-th-large" aria-hidden="true"></i> Dashboards' : Dashboards.md
     - '<i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub' : MultiCloudBillingHub.md
@@ -59,7 +63,9 @@ nav:
     - '<i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment': CostAssignment.md
     - '<i class="fa fa-tag" aria-hidden="true"></i> Tag Management' : TagManagement.md
     - '<i class="fa fa-cogs" aria-hidden="true"></i> Integrations': Integrations.md
-    - '<i class="fa fa-magic" aria-hidden="true"></i> Automation': Automations.md
+    - '<i class="fa fa-magic" aria-hidden="true"></i> Automation Overview': AutomationOverview.md
+    - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies & Workflows': AutomationPolicies.md
+    - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler': AutomationVMScheduler.md
     - '<i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts': ServiceAccounts.md
     - '<i class="fa fa-users" aria-hidden="true"></i> User Management': UserManagement.md
     - '<i class="fa fa-tasks" aria-hidden="true"></i> Task Management': TaskManagement.md
