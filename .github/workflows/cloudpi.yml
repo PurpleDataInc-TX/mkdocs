@@ -66,6 +66,7 @@ jobs:
         run: |
           pip install mkdocs-material
           pip install pillow cairosvg
+          pip install mkdocs-glightbox
 
       - name: Configure custom domain
         run: echo "doc.cloudpi.ai" > ./docs/CNAME
