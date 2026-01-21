@@ -69,7 +69,10 @@ Related pages:
 - Getting started: [Getting Started](GettingStarted.md) – first login, provider setup, and validation steps.
 - Provider connections: [Connect AWS](ConnectAWS.md), [Connect Azure](ConnectAzure.md), [Connect GCP](ConnectGCP.md).
 - Billing exports and ingestion: [Billing Exports](BillingExports.md).
+- Data refresh and dimensions: [Data Refresh & Dimensions](DataRefreshAndDimensions.md).
 - Cost definitions: [Cost Types](CostTypes.md).
+- Integrations catalog and SSO: [Integrations Catalog](IntegrationsCatalog.md), [SSO Setup](SSOSetup.md).
+- Alerts and notifications: [Alerts & Notifications](AlertsNotifications.md).
 - Help and terms: [Troubleshooting](Troubleshooting.md), [Glossary](Glossary.md).
 
 ## Key Concepts

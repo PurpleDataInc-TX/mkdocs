@@ -46,23 +46,34 @@ plugins:
 
 nav:
     - '<i class="fa fa-info-circle"></i>  Introduction': index.md
+    - '<i class="fa fa-rocket" aria-hidden="true"></i> Getting Started': GettingStarted.md
     - '<i class="fa fa-home" aria-hidden="true"></i> Landing Page': homepage.md
     - '<i class="fa fa-universal-access"></i> RBAC': rbac.md
     - '<i class="fa fa-lock" aria-hidden="true"></i> Security': security.md
     - '<i class="fa fa-wrench"></i> Workspace Settings': workspace.md
+    - '<i class="fa fa-bell" aria-hidden="true"></i> Alerts & Notifications': AlertsNotifications.md
     - '<i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings': AdminSetting.md
     - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings': GlobalPolicies.md
     #- '<i class="fa fa-users" aria-hidden="true"></i> Team Collaboration': teamcollaboration.md
     - '<i class="fa fa-th-large" aria-hidden="true"></i> Dashboards' : Dashboards.md
     - '<i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub' : MultiCloudBillingHub.md
     - '<i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding': CloudOnboarding.md
+    - '<i class="fa fa-plug" aria-hidden="true"></i> Provider Connections':
+        - AWS: ConnectAWS.md
+        - Azure: ConnectAzure.md
+        - GCP: ConnectGCP.md
+    - '<i class="fa fa-database" aria-hidden="true"></i> Billing Exports': BillingExports.md
+    - '<i class="fa fa-sync-alt" aria-hidden="true"></i> Data Refresh & Dimensions': DataRefreshAndDimensions.md
     #
     - '<i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations': CloudPiOptimisations.md
     #
     - '<i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials': Financials.md
+    - '<i class="fa fa-coins" aria-hidden="true"></i> Cost Types': CostTypes.md
     - '<i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment': CostAssignment.md
     - '<i class="fa fa-tag" aria-hidden="true"></i> Tag Management' : TagManagement.md
     - '<i class="fa fa-cogs" aria-hidden="true"></i> Integrations': Integrations.md
+    - '<i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog': IntegrationsCatalog.md
+    - '<i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup': SSOSetup.md
     - '<i class="fa fa-magic" aria-hidden="true"></i> Automation Overview': AutomationOverview.md
     - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies & Workflows': AutomationPolicies.md
     - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler': AutomationVMScheduler.md
@@ -70,6 +81,8 @@ nav:
     - '<i class="fa fa-users" aria-hidden="true"></i> User Management': UserManagement.md
     - '<i class="fa fa-tasks" aria-hidden="true"></i> Task Management': TaskManagement.md
     - '<i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing': Ticketing.md
+    - '<i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting': Troubleshooting.md
+    - '<i class="fa fa-book" aria-hidden="true"></i> Glossary': Glossary.md
 
 
 extra:
