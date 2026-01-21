@@ -1,6 +1,6 @@
 # Automation
 
-CloudPi provides powerful automation capabilities to optimize cloud operations, enforce governance, and reduce manual effort. Automation features help you define policies, schedule resource operations, and respond automatically to cloud events.
+CloudPi provides powerful automation capabilities to optimize cloud operations, enforce governance, and reduce manual effort. Using the automation features you will be able to define policies, schedule resource operations, and respond automatically to cloud events.
 
 ## Automation Features
 
@@ -10,6 +10,7 @@ CloudPi offers two primary automation capabilities:
 Define governance rules and automated responses to cloud events. Policies monitor your environment for specific conditions (cost optimization, security compliance, resource utilization), and workflows execute automated actions when those conditions are met.
 
 **Common use cases:**
+
 - Detect and remediate idle or untagged resources
 - Send alerts when cost thresholds are exceeded
 - Automatically create backups or snapshots
@@ -22,6 +23,7 @@ Define governance rules and automated responses to cloud events. Policies monito
 Automate virtual machine start and stop operations based on schedules. Optimize costs by ensuring resources run only when needed, with support for custom schedules, vacation periods, and usage-based recommendations.
 
 **Common use cases:**
+
 - Stop development VMs during nights and weekends
 - Schedule resources for business hours only
 - Create vacation schedules for holiday periods

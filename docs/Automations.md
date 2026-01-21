@@ -1,4 +1,4 @@
-# Automations
+# Automation
 
 ## 1. Policy Management and Workflows
 

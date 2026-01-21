@@ -42,6 +42,7 @@ theme:
         accent: deep purple
 
 plugins:
+  - search
   - glightbox
 
 nav:

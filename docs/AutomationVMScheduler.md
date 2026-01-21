@@ -1,10 +1,27 @@
 # Virtual Machine Scheduler
 
-The Virtual Machine Scheduler feature in CloudPi offers powerful automation for managing the start and stop operations of virtual machines. By configuring schedules, organizations can optimize resource utilization, reduce cloud costs, and ensure efficient cloud infrastructure management.
+The Virtual Machine Scheduler feature in CloudPi offers powerful automation for managing the start and stop operations of virtual machines. By scheduling VMs to run only when needed, organizations can **dramatically reduce cloud costs**—often achieving **40-70% savings** on compute resources, especially in non-production environments like development, testing, and staging.
 
 ## Overview
 
-The VM Scheduler provides a streamlined approach to managing resource availability based on predefined schedules or real-time needs. You can create custom schedules, vacation periods, and leverage usage-based recommendations to optimize when your virtual machines run.
+Running virtual machines 24/7 when they're only needed during business hours results in significant wasted spend. The VM Scheduler eliminates this waste by automatically starting and stopping VMs based on predefined schedules.
+
+### Cost Savings Potential
+
+**Development and Test Environments** - Non-production VMs typically run only during business hours (8-10 hours per day, 5 days per week). Scheduling these resources can reduce runtime from 168 hours/week to 50 hours/week, **saving up to 70% on compute costs**.
+
+**Staging and QA Environments** - Pre-production environments often sit idle outside of testing windows. Scheduling these VMs to stop during nights, weekends, and holidays can **reduce costs by 50-60%**.
+
+**Training and Demo Systems** - Resources used for training, demonstrations, or sporadic testing can be scheduled to run on-demand only, **eliminating 80-90% of unnecessary runtime**.
+
+### How VM Scheduling Works
+
+The VM Scheduler provides a streamlined approach to managing resource availability:
+
+- **Custom Schedules** - Define specific start and stop times for weekdays and weekends
+- **Vacation Schedules** - Configure extended shutdown periods for holidays and planned downtime
+- **Multi-Region Support** - Manage schedules across different cloud regions with timezone awareness
+- **Manual Overrides** - Temporarily pause or activate schedules for individual instances without modifying the schedule
 
 ## Key Features
 
@@ -15,22 +32,6 @@ The VM Scheduler provides a streamlined approach to managing resource availabili
 **Vacation and Custom Schedules** - Create schedules tailored for holidays, weekends, or specific organizational needs
 
 **Multi-Region Support** - Manage schedules for resources across different cloud regions seamlessly
-
-### Centralized Schedule Overview
-
-**Detailed Schedule View** - Access all active schedules, including their type (Snooze, Start, or Stop), associated resources, and timing details
-
-**Actionable Controls** - Modify, delete, or manually override schedules directly from the Schedules screen
-
-**Execution Logs** - Monitor schedule activities and execution statuses for accountability and troubleshooting
-
-### Data-Driven Recommendations
-
-**Optimized Scheduling Suggestions** - Receive schedule recommendations based on usage patterns to reduce resource idling
-
-**Streamlined Implementation** - Apply recommendations with minimal configuration through the Recommendations screen
-
-![Schedule Details](images/Picture1.png)
 
 ## Accessing the Scheduler
 
@@ -280,59 +281,12 @@ Export a detailed spreadsheet (.csv) of all active schedules, instances, and con
    - Weekdays, Weekends, Action Type
    - Description, Start/End Dates, Time zone
    - Weekday/Weekend Start/Stop Times
-   - Is Recommended (Yes/No), Tag
+   - Tag
 
 3. **Uses:**
    - Monitor schedule execution for each instance
    - Identify instances and schedules based on region, type, or tags
    - Audit or analyze resource utilization and scheduling effectiveness
-
-## Recommendations
-
-The Recommendations Screen displays recommended snooze schedules based on usage analytics to optimize resource utilization and cost efficiency.
-
-![Recommendations Screen](images/Picture10.png)
-
-### Reviewing Recommendations
-
-1. **Recommendations Column:**
-   - Lists recommended snooze schedules for each resource
-   - Includes Instance ID and Snooze Schedule (e.g., Snooze_10 PM_5 AM)
-
-2. **Reviewing Suggested Schedules:**
-   - Browse recommendations to understand proposed snooze schedules
-   - Recommendations align resource schedules with real-world usage patterns
-
-3. **Taking Action:**
-   - Check boxes next to recommendations to activate the **Create Schedule** button
-   - Customize and apply recommendations
-
-4. **Additional Actions:**
-   - **Download** - Export the recommendations list
-   - **Share** - Share recommendations via social media, email, or link
-   - **Add Columns** - Customize visible columns
-
-### View Recommendation Details
-
-Access detailed recommendation analysis by navigating to **Actions → View**.
-
-**Recommendation Details:**
-
-- Resource ID, Name, and Region
-- Recommendation Type (e.g., Snooze)
-- Date Range and Start/Stop Times
-- Average CPU Utilization and Network In/Out metrics
-
-**Usage Analysis:**
-
-- Visual graph of historical metrics (e.g., CPU Utilization) over a configurable lookback period
-- Select metrics like CPU or network usage to assess resource activity trends
-
-This feature allows users to validate recommendations before creating schedules, ensuring they align with usage patterns.
-
-![Usage Analysis](images/Picture11.png)
-
-![Resources](images/Picture7.png)
 
 ## Instances
 

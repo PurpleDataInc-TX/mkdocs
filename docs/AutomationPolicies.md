@@ -33,12 +33,14 @@ By combining Policies and Workflows, CloudPi enables proactive monitoring and au
 
 ### Mandatory Policies
 Mandatory policies are set at the organization level by Workspace Admins and automatically apply to all projects. These policies:
+
 - Cannot be disabled at the project level
 - Appear with an Active status that cannot be toggled off
 - Require workflows to be configured for automated actions
 
 ### Optional Policies
 Optional policies can be enabled or disabled by Project Admins for their specific projects. These policies:
+
 - Are inactive by default
 - Can be toggled on/off based on project needs
 - Allow project-level customization of governance rules
@@ -213,9 +215,9 @@ After saving the workflow, go to the Workflow list and click on the Workflow Nam
 
 This section provides real-world examples of commonly used policies and workflows to help you get started quickly.
 
-### Auto Invoicing Policy
+### Billing View Report Delivery Policy
 
-Auto Invoicing is a built-in policy that automates the process of generating invoices every month based on data usage. This ensures timely billing and reduces the need for manual intervention.
+Billing view delivery policy is a built-in policy that automates the process of generating invoices every month based on data usage. This ensures timely billing and reduces the need for manual intervention.
 
 **Use case:** Managed service providers or IT departments that need to bill customers or internal teams monthly based on cloud usage.
 
