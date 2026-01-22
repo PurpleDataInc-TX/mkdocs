@@ -4,9 +4,23 @@
 Connect Google Cloud to CloudPi to ingest BigQuery billing exports and enable cost analysis and reporting.
 
 ## Prerequisites
-- GCP billing export to BigQuery enabled.
-- Permission to grant IAM roles on the billing project and dataset.
-- Access to a CloudPi-provided service account (or your project service account).
+
+**BigQuery Billing Export Enabled**
+
+GCP billing export must be enabled to a BigQuery dataset containing detailed billing data.
+
+**IAM Permissions to Configure Access**
+
+Permissions to:
+
+- Create a service account
+- Assign IAM roles on the billing project
+- Grant access to the BigQuery billing dataset
+
+**GCP Service Account with Credentials**
+
+- A customer-created GCP service account with the required IAM roles assigned
+- A service account key file (credentials.json) generated from this account, which will be provided to CloudPi for authentication
 
 ## Configuration Workflow
 1. Enable BigQuery billing export.

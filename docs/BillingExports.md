@@ -4,7 +4,9 @@
 CloudPi relies on cloud billing exports to provide detailed cost visibility, filtering, and allocation. This page outlines the export types and common requirements.
 
 ## AWS - Cost and Usage Report (CUR)
+
 Recommended settings:
+
 - Include resource IDs
 - Hourly granularity
 - Parquet format
@@ -13,13 +15,17 @@ Recommended settings:
 CUR data enables deep filtering and grouping in CloudPi.
 
 ## Azure - Cost Management Export
+
 Recommended settings:
+
 - Export to a dedicated storage account
 - Recurring export schedule
 - Read-only access for the CloudPi service principal
 
 ## GCP - BigQuery Billing Export
+
 Recommended settings:
+
 - Detailed billing export to BigQuery
 - CloudPi service account granted BigQuery Job User and Data Viewer
 
