@@ -1,6 +1,6 @@
 # Policy Management YAML Sync
 
-Manage CloudPi policy configurations through YAML files stored in cloud storage. Edit policies externally, version control with Git, and copy policies between projects by updating the project name in the YAML file.
+Manage CloudPi policy configurations through YAML files stored in cloud storage. Sync policies from cloud storage and download policy YAML files for review.
 
 ---
 
@@ -9,15 +9,15 @@ Manage CloudPi policy configurations through YAML files stored in cloud storage.
 This guide is for users who need to:
 
 - **Workspace Admins** - Configure cloud storage integration and manage workspace-wide policy sync settings
-- **Project Admins** - Sync, export, and download policy YAML files for their projects
+- **Project Admins** - Sync and download policy YAML files for their projects
 - **Project Users** - View sync status and understand validation errors
 
 ### Required Permissions
 
 | Role | Capabilities |
 |------|-------------|
-| Workspace Admin | Configure cloud integration, export all workspace policies |
-| Project Admin | Sync policies, download YAML, view errors, edit policy conditions |
+| Workspace Admin | Configure cloud integration, manage workspace policies |
+| Project Admin | Sync policies, download YAML, view errors |
 | Project User | View sync status, view validation errors |
 
 ---
@@ -45,10 +45,8 @@ Before using Policy Management YAML Sync, ensure:
 
 Policy Management YAML Sync enables you to manage CloudPi policies as code. Each project has **one YAML file** containing all its workflows, rules, and actions. You can:
 
-- **Edit policies externally** - Modify YAML files using your preferred editor or IDE
-- **Version control** - Store YAML files in Git for change tracking and review
-- **Copy policies between projects** - Change the `project_id` in the YAML file and sync to the target project
-- **Bulk updates** - Update or delete multiple rules by editing the YAML file
+- **Sync policies from cloud** - Import policy configurations from cloud storage
+- **Download policies** - Get a local copy of your policy YAML file for review
 
 ```
 +-------------------+                      +-------------------+
@@ -65,11 +63,9 @@ Policy Management YAML Sync enables you to manage CloudPi policies as code. Each
 ### Key Capabilities
 
 - **Cloud-to-Database Sync** - Import YAML policy files from cloud storage into CloudPi
-- **Database-to-Cloud Export** - Export current policies to versioned YAML files
 - **7-Layer Validation** - Comprehensive validation before any sync operation
-- **Automatic Sync** - Rule changes automatically sync to cloud storage
 - **Multi-Cloud Support** - Works with AWS S3, Azure Blob Storage, and GCP Cloud Storage
-- **Copy to New Projects** - Update `project_id` in YAML and sync to apply policies to another project
+- **Download Policies** - Download policy YAML files for local review or backup
 
 ---
 
@@ -105,10 +101,7 @@ Set up the connection between CloudPi and your cloud storage provider.
 
 ![Policy Management Configuration](images/policy-yaml-config.png)
 
-**Expected Outcome**: A green checkmark appears with "Policy Management is connected and active." All existing policies are automatically exported to the new storage location.
-
-!!! note "Auto-Export on Configuration"
-    When you save the configuration or change the storage location, CloudPi automatically exports all workspace project policies to the new location.
+**Expected Outcome**: A green checkmark appears with "Policy Management is connected and active."
 
 ---
 
@@ -124,13 +117,9 @@ Import policy changes from your YAML files in cloud storage.
 
 2. Click the **Sync** button in the toolbar
 
-3. Select **Cloud to Database** direction
+3. Click **Sync policies from cloud storage**
 
-4. Review the sync preview (if available)
-
-5. Click **Sync Now**
-
-![Sync Policies](images/policy-yaml-sync.png)
+![Policy and Workflow](images/policy-yaml-sync.png)
 
 **Expected Outcome**: The sync status updates to show "Last synced: [timestamp]" with a green checkmark. Database workflows, rules, and actions reflect the YAML file contents.
 
@@ -145,28 +134,6 @@ Import policy changes from your YAML files in cloud storage.
 4. Rules are synchronized (created/updated/deleted)
 5. Actions are linked to rules
 6. If new rules were created, the YAML is auto-updated with assigned IDs
-
----
-
-### Export Policies to Cloud Storage
-
-Export current database policies to a versioned YAML file.
-
-**Goal**: Back up policies or prepare for external review.
-
-#### Steps
-
-1. Navigate to **Automation** > **Policy and Workflow**
-
-2. Click the **Export** button
-
-3. Wait for the export to complete
-
-4. A success message confirms the upload with the filename
-
-![Export Policies](images/policy-yaml-export.png)
-
-**Expected Outcome**: A new YAML file appears in your cloud storage with an incremented version number (e.g., `project_123_myproject_v4.yaml`).
 
 ---
 
@@ -188,95 +155,6 @@ Download the current YAML file for local review or sharing.
 
 ---
 
-### Copy Policies to Another Project
-
-Use the YAML file to copy all policies from one project to another.
-
-**Goal**: Set up a new project with the same policy configuration as an existing project.
-
-#### Steps
-
-1. **Export** the source project's policies or **Download** the YAML file
-
-2. Open the YAML file in a text editor
-
-3. Update the `metadata` section:
-
-    ```yaml
-    metadata:
-      project_id: pid_456        # Change to target project ID
-      project_name: "new-project"  # Update project name
-      version: 1             # Reset version for new project
-    ```
-
-4. Optionally update workflow names if needed:
-
-    ```yaml
-    workflows:
-      - workflow_id: null    # Set to null for new workflows
-        name: "idle-ec2-policy-newproject"
-        # ... rest of workflow config
-    ```
-
-5. Upload the modified YAML file to cloud storage
-
-6. Navigate to the **target project** in CloudPi
-
-7. Click **Sync** > **Cloud to Database**
-
-**Expected Outcome**: All policies from the source project are created in the target project.
-
-!!! note "Reset IDs for New Projects"
-    Set `workflow_id` and `rule_id` to `null` when copying to a new project. CloudPi will assign new IDs during sync and auto-update the YAML file.
-
----
-
-### Update Policies via YAML
-
-Edit policy configurations directly in the YAML file for bulk updates.
-
-**Goal**: Modify multiple rules or delete policies without using the UI.
-
-#### Steps
-
-1. **Download** the current YAML file
-
-2. Edit the file:
-
-    **To modify a rule:**
-
-    ```yaml
-    rules:
-      - rule_id: 123
-        rule_json:
-          event:
-            params:
-              action:
-                - actionId: 5
-                  ordernum: 1
-                  instance_values:
-                    lookback_days: 30  # Changed from 14
-    ```
-
-    **To delete a rule:** Remove the entire rule block from the `rules` array.
-
-    **To add a rule:** Add a new rule with `rule_id: null`:
-
-    ```yaml
-    rules:
-      - rule_id: null  # New rule
-        rule_json:
-          # ... rule configuration
-    ```
-
-3. Upload the modified file to cloud storage
-
-4. Click **Sync** > **Cloud to Database**
-
-**Expected Outcome**: Database reflects all changes from the YAML file.
-
----
-
 ### View Sync Status
 
 Monitor the current state of policy synchronization.
@@ -291,39 +169,11 @@ Monitor the current state of policy synchronization.
 | Orange warning | Partial Success | Sync completed with warnings |
 | Red error | Failed | Sync failed due to validation errors |
 
-![Sync Status Viewer](images/policy-yaml-status.png)
-
 #### View Error Details
 
 1. Click **View Details** on an error or warning status
 
 2. The error modal displays: Error category, Specific field with issue, Human-readable error message, Suggested fix
-
----
-
-### Edit Policy Conditions in UI
-
-Make quick changes to policy filter conditions directly in CloudPi.
-
-**Goal**: Adjust policy criteria without editing YAML files.
-
-#### Steps
-
-1. Navigate to **Automation** > **Policy and Workflow**
-
-2. Click on a policy row to expand the details
-
-3. Select the **Criteria** tab
-
-4. Click **Edit**
-
-5. Modify condition values: For numeric values, enter the new number. For boolean conditions, select from the dropdown. For date conditions, set the value and unit (days/months).
-
-6. Click **Save Changes**
-
-![Edit Policy Conditions](images/policy-yaml-edit.png)
-
-**Expected Outcome**: The policy is updated and automatically synced to cloud storage.
 
 ---
 
@@ -377,23 +227,10 @@ workflows:
 | FAILED | `policy_sync_msg.status = 'failed'` | Sync blocked by validation errors | Fix errors and retry |
 | UNKNOWN | `policy_sync_msg = null` | No sync has occurred | Configure integration |
 
-### Automatic Sync Triggers
-
-The system automatically syncs to cloud storage when:
-
-| Event | Sync Direction | Blocking |
-|-------|----------------|----------|
-| Workflow rule created | Database to Cloud | No (background) |
-| Workflow rule updated | Database to Cloud | No (background) |
-| Workflow rule deleted | Database to Cloud | No (background) |
-| Policy attached to project | Database to Cloud | Yes (waits for completion) |
-| Storage location changed | Database to Cloud | Yes (exports all projects) |
-
 ### Version Management
 
-- Each export creates a new file with incremented version: `project_123_name_v1.yaml`, `v2`, `v3`...
+- YAML files use versioned naming: `project_123_name_v1.yaml`, `v2`, `v3`...
 - Cloud-to-database sync reads the highest version number
-- Auto-sync after new rule creation uses overwrite mode (preserves version)
 
 ---
 
@@ -490,7 +327,7 @@ Access audit logs through **Admin Settings** > **Activity Log**.
 ### Ownership Validation
 
 - Users can only sync policies for projects they have access to
-- Workspace admins can export all workspace policies
+- Workspace admins can manage all workspace policies
 - Cross-tenant access is prevented by design
 
 ### Validation Guarantees
@@ -511,7 +348,7 @@ The 7-layer validation pipeline ensures:
 | Policy | A set of conditions that CloudPi monitors, such as idle resources or cost thresholds |
 | Workflow | Automated actions triggered when policy conditions are met |
 | Rule | A specific condition within a workflow, including service scope and actions |
-| YAML Sync | Bidirectional synchronization between CloudPi database and cloud-stored YAML files |
+| YAML Sync | Synchronization from cloud-stored YAML files to CloudPi database |
 | Validation Pipeline | 7-layer check that ensures YAML files are valid before sync |
 
 ---

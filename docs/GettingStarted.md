@@ -20,10 +20,7 @@ For existing customer support, contact **support@cloudpi.ai**.
 - Review RBAC permissions in [RBAC](rbac.md).
 
 ## Step 4 - Connect Cloud Providers
-Choose the provider guide that matches your environment:
-- AWS: [Connect AWS](ConnectAWS.md)
-- Azure: [Connect Azure](ConnectAzure.md)
-- GCP: [Connect GCP](ConnectGCP.md)
+Choose the provider guide that matches your environment.
 
 If you are onboarding via the CloudPi UI, see [Cloud Onboarding](CloudOnboarding.md).
 
