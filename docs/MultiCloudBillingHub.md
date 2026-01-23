@@ -14,6 +14,8 @@ Welcome to your central billing command center! The CloudPi Multi-Cloud Billing 
 
 **Managed Cloud Services Provider Support** - Receive specialized billing services designed for Managed Cloud Service Providers
 
+**Savings Plans Management** - Efficiently manage your commitments and savings plans to optimize financial performance
+
 ---
 
 ## Billing Analysis
