@@ -485,3 +485,21 @@ img {
   margin: 0 0.5rem;
   opacity: 0.6;
 }
+
+/* Purple/Lavender styling for note admonitions */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #9370DB;
+  background-color: rgba(147, 112, 219, 0.08);
+}
+
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+  background-color: rgba(147, 112, 219, 0.15);
+  border-color: #9370DB;
+}
+
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before {
+  background-color: #9370DB;
+}

@@ -29,15 +29,11 @@ The Task Management feature provides a centralized platform for:
 
 The task list displays all tasks with the following details:
 
-**Title** - Name/description of the task
-
-**Description** - Brief summary of what needs to be done
-
-**Priority** - Urgency level (High, Medium, Low)
-
-**Status** - Current state (Initiated, In Progress, Completed, Closed)
-
-**Actions** - View, Edit, Delete options
+- **Title** – Name/description of the task
+- **Description** – Brief summary of what needs to be done
+- **Priority** – Urgency level (High, Medium, Low)
+- **Status** – Current state (Initiated, In Progress, Completed, Closed)
+- **Actions** – View, Edit, Delete options
 
 ---
 
@@ -45,11 +41,9 @@ The task list displays all tasks with the following details:
 
 Use filters at the top of the page to find specific tasks:
 
-**Select Status** - Filter by task status (Initiated, In Progress, Completed)
-
-**Select Priority** - Filter by priority level (High, Medium, Low)
-
-**Project Filter** - Filter tasks by associated project
+- **Select Status** – Filter by task status (Initiated, In Progress, Completed)
+- **Select Priority** – Filter by priority level (High, Medium, Low)
+- **Project Filter** – Filter tasks by associated project
 
 ---
 
@@ -59,17 +53,12 @@ To create a new task, click the **+ Create Task** button.
 
 ![Create Task](images/createtasks.png)
 
-**Title** - Enter a clear, concise task name
-
-**Description** - Provide detailed task description
-
-**Project** - Select the associated project from dropdown
-
-**Assign to** - Choose the team member responsible for the task
-
-**Priority** - Select urgency level (Low, Medium, High)
-
-**Due date** - Set the target completion date (MM/DD/YYYY format)
+- **Title** – Enter a clear, concise task name
+- **Description** – Provide detailed task description
+- **Project** – Select the associated project from dropdown
+- **Assign to** – Choose the team member responsible for the task
+- **Priority** – Select urgency level (Low, Medium, High)
+- **Due date** – Set the target completion date (MM/DD/YYYY format)
 
 Click **Save** to create the task.
 
@@ -81,13 +70,10 @@ Click on a task row to expand and view comprehensive information:
 
 **Task Details Tab:**
 
-**Title** - The task name
-
-**Status** - Current task status
-
-**Description** - Full task description
-
-**Due Date** - Deadline for completion
+- **Title** – The task name
+- **Status** – Current task status
+- **Description** – Full task description
+- **Due Date** – Deadline for completion
 
 **Discussion Details Tab:**
 
@@ -101,17 +87,12 @@ Click the edit icon or select a task to modify:
 
 ![Edit Task](images/edittask.png)
 
-**Title** - Update the task name
-
-**Description** - Modify task details
-
-**Priority** - Change priority level (Low, Medium, High)
-
-**Due date** - Adjust the deadline
-
-**Update discussion** - Add notes about changes or progress
-
-**Status** - Update task status (Initiated, In Progress, Completed)
+- **Title** – Update the task name
+- **Description** – Modify task details
+- **Priority** – Change priority level (Low, Medium, High)
+- **Due date** – Adjust the deadline
+- **Update discussion** – Add notes about changes or progress
+- **Status** – Update task status (Initiated, In Progress, Completed)
 
 Click **Update** to save changes or **Cancel** to discard.
 
@@ -121,23 +102,18 @@ Click **Update** to save changes or **Cancel** to discard.
 
 Tasks progress through the following statuses:
 
-**Initiated** - Newly created task, not yet started
-
-**In Progress** - Task is actively being worked on
-
-**Completed** - Task finished and ready for review
-
-**Closed** - Task archived after completion
+- **Initiated** – Newly created task, not yet started
+- **In Progress** – Task is actively being worked on
+- **Completed** – Task finished and ready for review
+- **Closed** – Task archived after completion
 
 ---
 
 ## Task Priorities
 
-**High Priority** - Urgent tasks requiring immediate attention
-
-**Medium Priority** - Important tasks with reasonable deadlines
-
-**Low Priority** - Tasks that can be completed when time allows
+- **High Priority** – Urgent tasks requiring immediate attention
+- **Medium Priority** – Important tasks with reasonable deadlines
+- **Low Priority** – Tasks that can be completed when time allows
 
 ---
 
@@ -164,17 +140,12 @@ Tasks progress through the following statuses:
 
 Users receive notifications for:
 
-**Task Assignment** - When assigned a new task
-
-**Status Changes** - When task status is updated
-
-**@Mentions** - When mentioned in task comments
-
-**Due Date Reminders** - 24 hours before due date
-
-**Overdue Alerts** - When tasks pass their due date
-
-**Task Updates** - When task details are modified
+- **Task Assignment** – When assigned a new task
+- **Status Changes** – When task status is updated
+- **@Mentions** – When mentioned in task comments
+- **Due Date Reminders** – 24 hours before due date
+- **Overdue Alerts** – When tasks pass their due date
+- **Task Updates** – When task details are modified
 
 Notifications are sent via:
 - In-app notifications (bell icon)

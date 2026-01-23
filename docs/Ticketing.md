@@ -29,17 +29,12 @@ The Ticketing feature allows teams to:
 
 The ticket list displays all tickets with the following details:
 
-**Title** - Brief description of the issue or request
-
-**Description** - Detailed ticket information
-
-**Status** - Current state (Pending, Approved, New, In Progress)
-
-**External Ticket** - Link to the external work item (with Azure DevOps icon and ticket number)
-
-**Priority** - Urgency level (High, Medium, Low)
-
-**Actions** - View, Edit, Delete options
+- **Title** – Brief description of the issue or request
+- **Description** – Detailed ticket information
+- **Status** – Current state (Pending, Approved, New, In Progress)
+- **External Ticket** – Link to the external work item (with Azure DevOps icon and ticket number)
+- **Priority** – Urgency level (High, Medium, Low)
+- **Actions** – View, Edit, Delete options
 
 ---
 
@@ -47,11 +42,9 @@ The ticket list displays all tickets with the following details:
 
 Use filters at the top of the page to find specific tickets:
 
-**Select Status** - Filter by ticket status (Pending, Approved, New, In Progress)
-
-**Select Priority** - Filter by priority level (High, Medium, Low)
-
-**Project Filter** - Filter tickets by associated project (e.g., Policytesting)
+- **Select Status** – Filter by ticket status (Pending, Approved, New, In Progress)
+- **Select Priority** – Filter by priority level (High, Medium, Low)
+- **Project Filter** – Filter tickets by associated project (e.g., Policytesting)
 
 ---
 
@@ -61,15 +54,11 @@ To create a new ticket, click the **+ Create Ticket** button.
 
 ![Create Ticket](images/createticket.png)
 
-**Provider** - The integrated workflow tool (e.g., Azure DevOps)
-
-**Title** - Enter a clear, concise issue summary
-
-**Description** - Provide detailed issue description
-
-**Priority** - Select urgency level (Low, Medium, High)
-
-**Project** - Select the associated project from dropdown
+- **Provider** – The integrated workflow tool (e.g., Azure DevOps)
+- **Title** – Enter a clear, concise issue summary
+- **Description** – Provide detailed issue description
+- **Priority** – Select urgency level (Low, Medium, High)
+- **Project** – Select the associated project from dropdown
 
 Click **Create Ticket** to submit.
 
@@ -83,45 +72,32 @@ Click the view icon in the Actions column to see comprehensive ticket informatio
 
 **Ticket Details Panel includes:**
 
-**Title** - The ticket subject
-
-**Status** - Current ticket status (e.g., Pending)
-
-**Priority** - Urgency level badge (e.g., High in red badge)
-
-**Project** - Associated project name
-
-**External Ticket** - Link to external work item with ticket number
-
-**Workflow Tool** - The integrated system (e.g., ado for Azure DevOps)
-
-**Description** - Full ticket description
-
-**Created** - Timestamp when ticket was created (e.g., 12/2/2025, 4:44:32 PM)
-
-**Updated** - Timestamp of last update (e.g., 1/6/2026, 3:58:04 PM)
+- **Title** – The ticket subject
+- **Status** – Current ticket status (e.g., Pending)
+- **Priority** – Urgency level badge (e.g., High in red badge)
+- **Project** – Associated project name
+- **External Ticket** – Link to external work item with ticket number
+- **Workflow Tool** – The integrated system (e.g., ado for Azure DevOps)
+- **Description** – Full ticket description
+- **Created** – Timestamp when ticket was created (e.g., 12/2/2025, 4:44:32 PM)
+- **Updated** – Timestamp of last update (e.g., 1/6/2026, 3:58:04 PM)
 
 ---
 
 ## Ticket Status
 
-**New** - Freshly created ticket (blue badge with "New" label)
-
-**Pending** - Awaiting action or review (yellow badge)
-
-**Approved** - Ticket has been approved (green badge)
-
-**In Progress** - Actively being worked on (orange badge)
+- **New** – Freshly created ticket (blue badge with "New" label)
+- **Pending** – Awaiting action or review (yellow badge)
+- **Approved** – Ticket has been approved (green badge)
+- **In Progress** – Actively being worked on (orange badge)
 
 ---
 
 ## Ticket Priority Levels
 
-**High Priority** - Critical issues requiring immediate attention (red badge)
-
-**Medium Priority** - Important issues with reasonable timelines
-
-**Low Priority** - Non-urgent issues that can be addressed later
+- **High Priority** – Critical issues requiring immediate attention (red badge)
+- **Medium Priority** – Important issues with reasonable timelines
+- **Low Priority** – Non-urgent issues that can be addressed later
 
 ---
 

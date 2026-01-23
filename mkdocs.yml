@@ -61,8 +61,6 @@ nav:
   
     - '<i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding': CloudOnboarding.md
     
-    - '<i class="fa fa-database" aria-hidden="true"></i> Billing Exports': BillingExports.md
-    - '<i class="fa fa-sync-alt" aria-hidden="true"></i> Data Refresh & Dimensions': DataRefreshAndDimensions.md
     #
     - '<i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations': CloudPiOptimisations.md
     #

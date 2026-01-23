@@ -8,15 +8,11 @@ The Cost Assignment module in CloudPi enables users to allocate cloud expenses a
 
 Cost Assignment helps organizations:
 
-**Allocate Costs Accurately** - Assign cloud spending to the right teams, departments, or projects
-
-**Enable Chargeback/Showback** - Provide transparent cost visibility for internal billing
-
-**Track Cost by Dimensions** - Monitor spending by tags, accounts, regions, or services
-
-**Identify Unassigned Costs** - Find and address cost leaks in your cloud environment
-
-**Enforce Accountability** - Make teams responsible for their cloud consumption
+- **Allocate Costs Accurately** – Assign cloud spending to the right teams, departments, or projects
+- **Enable Chargeback/Showback** – Provide transparent cost visibility for internal billing
+- **Track Cost by Dimensions** – Monitor spending by tags, accounts, regions, or services
+- **Identify Unassigned Costs** – Find and address cost leaks in your cloud environment
+- **Enforce Accountability** – Make teams responsible for their cloud consumption
 
 ---
 
@@ -89,26 +85,11 @@ If the setup is valid and doesn't conflict with existing rules, the user can pro
 
 This section displays key cost metrics to help you understand the cost distribution:
 
-**Total Cost:**
-- All cloud spends for selected filters
-- Displayed in a summary card at the top
-
-**Assigned Cost:**
-- Portion already assigned by other rules
-- Shows what percentage of total cost is allocated
-
-**Unassigned Cost:**
-- Portion not assigned by any rule
-- Highlights cost leaks that need attention
-
-**Visual Representation:**
-- A pie chart visually displays the percentage of assigned vs unassigned cost
-- Color-coded segments for easy identification
-
-**Unassigned Cost Breakdown:**
-- Below the pie chart, the **Unassigned Cost Breakdown by subaccounts** helps identify where costs are leaking
-- Shows which accounts have unallocated spending
-- Provides dollar amounts and percentages
+- **Total Cost** – All cloud spends for selected filters, displayed in a summary card at the top
+- **Assigned Cost** – Portion already assigned by other rules, shows what percentage of total cost is allocated
+- **Unassigned Cost** – Portion not assigned by any rule, highlights cost leaks that need attention
+- **Visual Representation** – A pie chart displays the percentage of assigned vs unassigned cost with color-coded segments
+- **Unassigned Cost Breakdown** – Shows which subaccounts have unallocated spending with dollar amounts and percentages
 
 ![Cost Assignment Rules](images/costassignment_rules1.png)
 
@@ -120,15 +101,11 @@ When creating a cost allocation rule, the type of rule generated depends on the 
 
 ### Rule Type Matrix
 
-**Account only (A)** - Account-based allocation. Use case: Simple project with single account
-
-**Account + Region (AR)** - Account and region-based allocation. Use case: Multi-region deployments
-
-**Account + Tags (AT)** - Account and tag-based allocation. Use case: Tagged resources within account
-
-**Account + Region + Tags (ART)** - Full dimensional allocation. Use case: Complex multi-region, tagged environments
-
-**Tags only (T)** - Tag-based allocation. Use case: Cross-account tag-based allocation
+- **Account only (A)** – Account-based allocation. Use case: Simple project with single account
+- **Account + Region (AR)** – Account and region-based allocation. Use case: Multi-region deployments
+- **Account + Tags (AT)** – Account and tag-based allocation. Use case: Tagged resources within account
+- **Account + Region + Tags (ART)** – Full dimensional allocation. Use case: Complex multi-region, tagged environments
+- **Tags only (T)** – Tag-based allocation. Use case: Cross-account tag-based allocation
 
 **Examples:**
 
@@ -146,19 +123,13 @@ Once you create rules, they are listed in a table at the bottom of the Rules pag
 
 **For each rule, you'll see:**
 
-**Rule ID** - A unique identifier for the rule
-
-**Rule Type** - The type (A, AR, AT, ART, or T) based on the filter combination
-
-**Organization** - The organization the rule is assigned to
-
-**Filters** - The specific filters used in the rule (like subaccount, region, or tag key-values)
-
-**Allocated Cost** - Total cost assigned by this rule
-
-**Status** - Active, Inactive, or Conflict
-
-**Actions** - Edit, Delete, or View buttons
+- **Rule ID** – A unique identifier for the rule
+- **Rule Type** – The type (A, AR, AT, ART, or T) based on the filter combination
+- **Organization** – The organization the rule is assigned to
+- **Filters** – The specific filters used in the rule (like subaccount, region, or tag key-values)
+- **Allocated Cost** – Total cost assigned by this rule
+- **Status** – Active, Inactive, or Conflict
+- **Actions** – Edit, Delete, or View buttons
 
 ### Managing Rules
 
@@ -220,19 +191,13 @@ When you navigate to the Projects page, you'll see a list of all existing **proj
 
 **The following details will be shown for each project:**
 
-**Project ID** - Unique project identifier
-
-**Project Name** - Name of the project
-
-**Description** - Brief project description
-
-**Project Owner** - Team or person responsible
-
-**Cost** - Total allocated cost for current month
-
-**Status** - Active, Inactive, or Archived
-
-**Actions** - View, Edit, Delete options
+- **Project ID** – Unique project identifier
+- **Project Name** – Name of the project
+- **Description** – Brief project description
+- **Project Owner** – Team or person responsible
+- **Cost** – Total allocated cost for current month
+- **Status** – Active, Inactive, or Archived
+- **Actions** – View, Edit, Delete options
 
 This table provides an overview of all active projects and their configurations.
 
@@ -244,21 +209,14 @@ Upon clicking, a form modal will open where the user needs to fill in the requir
 
 **The form includes the following fields:**
 
-**Project Name** (Required) - A unique name to identify the project
-
-**Project Group** (Required) - Used to group related projects together
-
-**Description** (Required) - A summary explaining the purpose of the project
-
-**Cloud Service Provider (CSP)** (Required) - Choose between AWS, Azure, or GCP
-
-**Organization Name** (Required) - The organizational unit the project belongs to
-
-**Rules** (Required) - Select one or more existing cost assignment rules to link to this project
-
-**Project Icon** (Optional) - Optionally, choose an icon to visually represent the project
-
-**Enable Self Tag** (Optional) - If enabled, all resources with a tag matching the project ID will be automatically associated with this project
+- **Project Name** (Required) – A unique name to identify the project
+- **Project Group** (Required) – Used to group related projects together
+- **Description** (Required) – A summary explaining the purpose of the project
+- **Cloud Service Provider (CSP)** (Required) – Choose between AWS, Azure, or GCP
+- **Organization Name** (Required) – The organizational unit the project belongs to
+- **Rules** (Required) – Select one or more existing cost assignment rules to link to this project
+- **Project Icon** (Optional) – Optionally, choose an icon to visually represent the project
+- **Enable Self Tag** (Optional) – If enabled, all resources with a tag matching the project ID will be automatically associated with this project
 
 ![Create Project](images/createproject1.png)
 

@@ -64,8 +64,6 @@ Common charts and widgets include:
 - **Recommendations Summary** list to review optimization opportunities
 - **Health Status** indicators (for example, infrastructure health and compliance)
 
-![Workspace Home Page (widgets)](images/landing1.png)
-
 ### Recommendations and Health Signals
 When reviewing recommendations and health widgets:
 

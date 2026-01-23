@@ -21,15 +21,12 @@ Connect your AWS organization to CloudPi for comprehensive cloud management and 
 
 ![AWS Onboarding](images/awsonboarding.png)
 
-### Prerequisites
+!!! note "Prerequisites"
+    - **AWS Billing Access** – Permission to create IAM roles and manage CUR exports
+    - **CUR Configuration** – Cost and Usage Report enabled with resource IDs (Parquet recommended)
+    - **Cost Allocation Tags** – Tags activated in AWS for cost categorization
 
-Before starting AWS onboarding, ensure you have the following:
-
-- **AWS Billing Access** - Permission to create IAM roles and manage CUR exports
-- **CUR Configuration** - Cost and Usage Report enabled with resource IDs and a supported format (Parquet recommended)
-- **Cost Allocation Tags** - Tags activated in AWS for proper cost categorization
-
-For detailed setup instructions, see [Provider Connections - AWS](ProviderConnections.md#connect-aws).
+    For detailed setup, see [Provider Connections - AWS](ProviderConnections.md#connect-aws).
 
 ### Step 1: Account Type
 
@@ -140,15 +137,12 @@ Connect your Azure subscriptions to CloudPi for unified cloud management across 
 
 ![Azure Organization](images/azureorganization.png)
 
-### Prerequisites
+!!! note "Prerequisites"
+    - **Azure Billing Access** – Permission to create app registrations and service principals
+    - **Cost Management Exports** – Ability to create or manage exports and storage access
+    - **Billing Account Type** – Identify your billing type (CSP, EA, MCA, or standard)
 
-Before starting Azure onboarding, ensure you have the following:
-
-- **Azure Billing Access** - Permission to create app registrations and service principals
-- **Cost Management Exports** - Ability to create or manage Cost Management exports and storage access
-- **Billing Account Type** - Identify your billing account type (CSP, EA, MCA, or standard)
-
-For detailed setup instructions, see [Provider Connections - Azure](ProviderConnections.md#connect-azure).
+    For detailed setup, see [Provider Connections - Azure](ProviderConnections.md#connect-azure).
 
 ### Step 1: Account Type
 
@@ -263,28 +257,12 @@ Connect your Google Cloud Platform projects to CloudPi for comprehensive GCP man
 
 ![GCP Organization](images/gcporganization.png)
 
-### Prerequisites
+!!! note "Prerequisites"
+    - **BigQuery Billing Export** – Billing export enabled to a BigQuery dataset
+    - **IAM Permissions** – Ability to create service accounts, assign IAM roles, and grant BigQuery access
+    - **GCP Service Account** – Service account with required roles and credentials.json key file
 
-Before starting GCP onboarding, ensure you have the following:
-
-**BigQuery Billing Export Enabled**
-
-GCP billing export must be enabled to a BigQuery dataset containing detailed billing data.
-
-**IAM Permissions to Configure Access**
-
-Permissions to:
-
-- Create a service account
-- Assign IAM roles on the billing project
-- Grant access to the BigQuery billing dataset
-
-**GCP Service Account with Credentials**
-
-- A customer-created GCP service account with the required IAM roles assigned
-- A service account key file (credentials.json) generated from this account, which will be provided to CloudPi for authentication
-
-For detailed setup instructions, see [Provider Connections - GCP](ProviderConnections.md#connect-gcp).
+    For detailed setup, see [Provider Connections - GCP](ProviderConnections.md#connect-gcp).
 
 ### Step 1: Onboarding Cloud
 
