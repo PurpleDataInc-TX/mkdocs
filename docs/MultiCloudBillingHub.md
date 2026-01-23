@@ -61,6 +61,7 @@ Detect unusual spending patterns and cost spikes across your cloud environment.
 **Features:**
 
 **Cost Trend: Service** - Area chart showing monthly cost breakdown by service (Top 10)
+
 - Displays Billed Cost over time with color-coded services
 - Interactive legend - click on service names to show/hide specific services
 - Services include: Virtual Machines, Virtual Network, Load Balancer, Azure SQL Database, Azure Private Link, Storage Accounts, etc.
