@@ -170,6 +170,7 @@ Shows the list of compute instances associated with this schedule:
 - **Status** - Current status (e.g., Active)
 
 Additional actions available in the Resource Details tab:
+
 - **Download** - Export resource details
 - **Share** - Share resource information
 - **Add Columns** - Customize visible columns
