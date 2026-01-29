@@ -292,158 +292,171 @@ If the status is **Pending**, the user will have the option to:
 
 ---
 
-## Views and Invoices
+## Views and Reports
 
-The Views and Invoices page in CloudPi centralizes and streamlines the invoicing process, making it easier for users to generate, manage, and review invoices based on comprehensive and customizable billing views.
+The Views and Reports page allows you to create and manage billing view reports based on your configured billing views. Generate reports for specific time periods to analyze costs across projects and services.
 
 **Key Features:**
 
-**Invoicing Based on Billing Views** - Create invoices that reflect specific cost structures and categories
+**Report Generation** - Create reports for specific billing views and time periods
 
-**Invoicing History** - Access a detailed list of all past invoices
+**Report Management** - View, edit, download, and share billing view reports
 
-**Invoicing Automation** - Automate the invoicing process with customizable schedules
-
-**Invoice Customer/Cost Center Details** - Maintain detailed records for each customer or cost center
+**Project Filtering** - Filter billing views by project for easier navigation
 
 ---
 
-### Navigating Invoicing Page
+### Navigating the Views and Reports Page
 
-The main invoicing dashboard provides an overview of all billing views and their associated invoices.
-
-![Invoice Page](images/invoicepage.png)
+The Views and Reports page displays all your billing views and provides tools to create and manage reports.
 
 **Page Components:**
 
-**Invoice Summary** - Displays total invoice count and key metrics
+**Page Header** - "Views and Billing View Reports" with description "Create and manage billing view reports for billing views."
 
-**Billing View List** - Shows all configured billing views with invoice status
+**Project Filter** - Dropdown in the top right to filter billing views by project (e.g., HRApplication)
 
-**Quick Actions** - Access to view invoices, add customers, and create new invoices
+**Billing View Table** - Main table displaying:
 
-**Filter Options** - Filter by billing view, date range, or invoice status
-
----
-
-### View Invoices
-
-View invoices that have been generated under each billing view. You can resend, edit, and download invoices.
-
-**Steps to View Invoices:**
-
-1. Locate the desired billing view in the list
-2. Click the **View Invoices** icon in the Actions column
-3. Review all invoices generated for that billing view
-4. Use available actions: Resend, Edit, Download
-
-![Invoice Creation](images/invoicecreation.png)
-
-**Invoice Actions:**
-
-**Resend** - Send the invoice to the customer again via email
-
-**Edit** - Modify invoice details before sending
-
-**Download** - Export invoice as PDF
+- **Billing View name** - Name of the billing view
+- **Project Name** - Associated project(s), with badge showing multiple projects (e.g., "3 projects")
+- **Status** - Current status (Active shown in green badge)
+- **Actions** - Icons for viewing reports, creating reports, and deleting billing views
 
 ---
 
-### Add Customer
+### Billing View Reports
 
-Click on the add customer icon under actions. A popup appears where you can choose an existing customer or create new customer details.
+View all reports that have been generated for a specific billing view.
 
-**Steps to Add Customer:**
+**Steps to View Reports:**
 
-1. Navigate to the billing view you want to associate with a customer
-2. Click the **Add Customer** icon in the Actions column
-3. Choose between:
-   - **Select Existing Customer** - Link an already registered customer
-   - **Create New Customer** - Add a new customer profile
+1. Locate the billing view in the table
+2. Click the **Eye icon** in the Actions column
+3. The **Billing View Reports** panel opens showing all reports for that billing view
+4. Click the **View Report icon** (eye icon) next to the report you want to view
+5. The report details page opens with full billing information
 
----
+**Billing View Reports Panel:**
 
-### Create Customer Details
+The panel displays a table with the following information for each report:
 
-Enter comprehensive customer information to enable invoice generation and delivery.
+- **Report Number** (e.g., BR-00008)
+- **Reporting Period** (date range, e.g., 2025-11-30 - 2025-12-30)
+- **Created By** (username, e.g., CloudPi Admin)
+- **Date Created** (timestamp)
+- **Status** (Active in green badge)
+- **Actions** (View Report, Edit Notes icons)
 
-![Invoice Customer Details](images/invoicecustomerdetails.png)
+**Panel Actions:**
 
-**Required Customer Information:**
-
-**First Name** - Customer's first name
-
-**Last Name** - Customer's last name
-
-**Email** - Primary email address for invoice delivery
-
-**Phone Number** - Contact number
-
-**Address** - Street address
-
-**City** - City name
-
-**State** - State or province
-
-**Cost Center** - Associated cost center code
-
-**Project Name** - Linked project identifier
-
-**Department Name** - Department or business unit
-
-Click **Save** to create the customer profile.
+- **Download** - Download icon in top right to export reports
+- **Share** - Share icon in top right to share reports with others
+- **Plus (+)** - Create a new report from within the panel
+- **Close** - Close the Billing View Reports panel
 
 ---
 
-### Creating and Sending Invoices
+### Create Billing View Report
 
-Once a customer is associated with a billing view, you can generate and send invoices.
+Generate a new report for a billing view by specifying the reporting period.
 
-![Create Invoice](images/createinvoice.png)
+**Steps to Create Report:**
 
-**Invoice Generation Process:**
+1. Locate the billing view in the table
+2. Click the **Plus (+) icon** in the Actions column
+3. The **Create Billing View Report** dialog opens showing:
+   - **Billing View** - Name and associated projects
+   - **Reporting Period** - Date range selector with Start date and End date fields
+4. Select the start date and end date for your report
+5. Click **Continue** to generate the report, or **Cancel** to abort
 
-1. Ensure customer details are configured for the billing view
-2. Select the billing period for invoice generation
-3. Review the invoice preview showing all costs and line items
-4. Customize invoice details if needed
-5. Click **Send Invoice** to deliver via email
-
-**Invoice Customization Options:**
-
-**Invoice Number** - Auto-generated or manually specified
-
-**Invoice Date** - Date of invoice creation
-
-**Due Date** - Payment deadline
-
-**Notes** - Additional terms or messages
-
-**Line Items** - Detailed cost breakdown by service or category
+The system generates a report containing all billing data for the selected billing view within the specified time period.
 
 ---
 
-### Auto Invoicing
+### View Report Details
 
-Automate the invoicing process with scheduled delivery to customers.
+Access the full details of a generated report including costs, notes, and export options.
 
-**To Enable Auto Invoicing:**
+**Steps to View Report:**
 
-1. Click the **Auto Invoicing** icon under actions
-2. Select the customer from the dropdown menu
-3. Enter the customer's email ID
-4. Set a schedule for the invoicing (Daily, Weekly, Monthly)
-5. Specify delivery details and end date
-6. Click **Save** to enable auto invoicing
+1. Open the Billing View Reports panel (Eye icon)
+2. Click the **Eye icon** next to the report you want to view
+3. The report details page opens with:
 
-**Auto Invoicing Features:**
+**Report Header:**
 
-**Scheduled Delivery** - Automatic invoice generation and sending based on schedule
+- Report number (e.g., BR-00008)
+- Status badge (Active in green)
+- Billing View name and associated projects
 
-**Email Notifications** - Customers receive invoices directly in their inbox
+**Reporting Period Card:**
 
-**End Date Control** - Set when automated invoicing should stop
+- Start Date
+- End Date
 
-**Template Consistency** - Ensures uniform invoice format across all deliveries
+**Report Details Card:**
+
+- Created At (timestamp)
+- Created By (username)
+
+**Billing View Summary Table:**
+
+- **Project Name** - Project associated with the costs
+- **Service Name** - Cloud services used (e.g., Virtual Machines, Storage Accounts)
+- **Billed Cost** - Cost for each service
+- **Sub Total** - Sum of all line items
+- **Grand Total** - Final total cost
+
+**Additional Options:**
+
+- **Notes** - Text field to add context or comments (max 500 characters)
+- **Set Currency** - Dropdown to select currency (e.g., United States Dollar)
+- **Preview & Download** - Blue button to preview and download the report
+- **Cancel** - Return to previous view
+
+**Report Actions (Top Right):**
+
+- **Download** - Export the report
+- **Share** - Share the report with others
+- **Plus (+)** - Create a new report
+
+---
+
+### Edit Report Notes
+
+Add or modify notes on a report to provide additional context or documentation.
+
+**Steps to Edit Notes:**
+
+1. Open the Billing View Reports panel
+2. Click the **Pencil (Edit) icon** next to the report
+3. The report details page opens with the Notes field active
+4. Enter or update notes (up to 500 characters)
+5. Select currency if needed
+6. Click **Preview & Download** to save changes
+
+Notes are useful for documenting:
+
+- Reason for the report
+- Special circumstances during the reporting period
+- Budget allocations or approvals
+- Internal tracking information
+
+---
+
+### Delete Billing View
+
+Remove a billing view when it's no longer needed. This action affects the billing view itself, not individual reports.
+
+**Steps to Delete:**
+
+1. Locate the billing view in the table
+2. Click the **Trash icon** in the Actions column
+3. A confirmation dialog appears
+4. Confirm deletion to remove the billing view
+
+**Note:** Deleting a billing view may affect associated reports. Ensure you've downloaded any needed reports before deletion.
 
 ---
