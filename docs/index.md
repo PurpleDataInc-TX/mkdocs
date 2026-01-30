@@ -19,11 +19,7 @@ Use this guide to:
 - Configure workspace and admin settings
 
 ## Supported Cloud Providers
-CloudPi currently supports:
-
-- AWS
-- Azure
-- GCP
+CloudPi currently supports AWS, Azure, and GCP.
 
 ## Supported Integrations
 CloudPi integrates with:
@@ -68,8 +64,9 @@ Related pages:
 - Admin configuration: [Admin Settings](AdminSetting.md) – configure tenant-level policies, integrations, and audit controls.
 - Getting started: [Getting Started](GettingStarted.md) – first login, provider setup, and validation steps.
 - Provider connections: [Connect AWS](ConnectAWS.md), [Connect Azure](ConnectAzure.md), [Connect GCP](ConnectGCP.md).
-- Billing exports and ingestion: [Billing Exports](BillingExports.md).
 - Cost definitions: [Cost Types](CostTypes.md).
+- Integrations catalog and SSO: [Integrations Catalog](IntegrationsCatalog.md), [SSO Setup](SSOSetup.md).
+- Alerts and notifications: [Alerts & Notifications](AlertsNotifications.md).
 - Help and terms: [Troubleshooting](Troubleshooting.md), [Glossary](Glossary.md).
 
 ## Key Concepts

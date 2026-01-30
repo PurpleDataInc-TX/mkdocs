@@ -8,13 +8,10 @@ Tag Management is one of the features offered by CloudPi. It allows you to add l
 
 Tagging is an important activity as it brings integrity and dimension to your cloud resources/services data. It helps you:
 
-**Organize** - Group similar resources together for easy identification and management
-
-**Track Costs** - Monitor expenses associated with specific projects or departments
-
-**Control Access** - Set permissions and access levels based on resource tags
-
-**Optimize Usage** - Identify underutilized or unused resources for potential cost savings
+- **Organize** – Group similar resources together for easy identification and management
+- **Track Costs** – Monitor expenses associated with specific projects or departments
+- **Control Access** – Set permissions and access levels based on resource tags
+- **Optimize Usage** – Identify underutilized or unused resources for potential cost savings
 
 ---
 
@@ -38,13 +35,10 @@ At the top-right corner, choose one or more projects from the dropdown list. Thi
 
 You can create and manage different types of tags by selecting the **Add** button under each category:
 
-**Mandatory Tags** - Tags that must be applied to every resource
-
-**Conditional Tags** - Tags applied only when certain conditions are met
-
-**Optional Tags** - Tags that are not required but help in better categorization
-
-**Automation Tags** - Tags used for automating workflows and actions within CloudPi
+- **Mandatory Tags** – Tags that must be applied to every resource
+- **Conditional Tags** – Tags applied only when certain conditions are met
+- **Optional Tags** – Tags that are not required but help in better categorization
+- **Automation Tags** – Tags used for automating workflows and actions within CloudPi
 
 ![Add Tag Rules](images/tag2.png)
 
@@ -78,13 +72,10 @@ Project Name will be automatically displayed. Enter details for tags such as "De
 
 **Benefits of Auto Tagging:**
 
-**Consistency** - Ensures consistency across resources
-
-**Error Reduction** - Reduces manual errors
-
-**Speed** - Speeds up the tagging process
-
-**Inheritance** - Automatically inherits project-level tags
+- **Consistency** – Ensures consistency across resources
+- **Error Reduction** – Reduces manual errors
+- **Speed** – Speeds up the tagging process
+- **Inheritance** – Automatically inherits project-level tags
 
 ---
 
@@ -98,11 +89,9 @@ For example, if one tag has a particular value, another related tag must also be
 
 **Use Cases:**
 
-**Compliance Enforcement** - If Environment=Production, then Backup=Enabled must be present
-
-**Cost Allocation** - If Department=Engineering, then CostCenter must be specified
-
-**Security Policy** - If DataClassification=Sensitive, then Encryption=Required must be applied
+- **Compliance Enforcement** – If Environment=Production, then Backup=Enabled must be present
+- **Cost Allocation** – If Department=Engineering, then CostCenter must be specified
+- **Security Policy** – If DataClassification=Sensitive, then Encryption=Required must be applied
 
 ---
 
@@ -115,15 +104,11 @@ Optional tags are recommended but not strictly enforced. These tags are useful f
 
 **Common Optional Tags:**
 
-**Owner** - Resource owner or responsible team
-
-**Application** - Application name or identifier
-
-**Version** - Software or configuration version
-
-**CreatedBy** - User or system that created the resource
-
-**LastModified** - Timestamp of last modification
+- **Owner** – Resource owner or responsible team
+- **Application** – Application name or identifier
+- **Version** – Software or configuration version
+- **CreatedBy** – User or system that created the resource
+- **LastModified** – Timestamp of last modification
 
 ---
 
@@ -133,15 +118,11 @@ Automation tags are used to identify and manage resources that are controlled or
 
 **Automation Tag Examples:**
 
-**AutoShutdown** - Indicates resources eligible for automated shutdown (e.g., AutoShutdown=Weekends)
-
-**BackupSchedule** - Defines backup frequency (e.g., BackupSchedule=Daily)
-
-**ScalingPolicy** - Specifies auto-scaling behavior (e.g., ScalingPolicy=Enabled)
-
-**MonitoringLevel** - Sets monitoring granularity (e.g., MonitoringLevel=Detailed)
-
-**PatchGroup** - Groups resources for patching schedules (e.g., PatchGroup=WeekendPatch)
+- **AutoShutdown** – Indicates resources eligible for automated shutdown (e.g., AutoShutdown=Weekends)
+- **BackupSchedule** – Defines backup frequency (e.g., BackupSchedule=Daily)
+- **ScalingPolicy** – Specifies auto-scaling behavior (e.g., ScalingPolicy=Enabled)
+- **MonitoringLevel** – Sets monitoring granularity (e.g., MonitoringLevel=Detailed)
+- **PatchGroup** – Groups resources for patching schedules (e.g., PatchGroup=WeekendPatch)
 
 ![Optional Tags](images/tag5.png)
 ---
@@ -152,13 +133,10 @@ Automation tags are used to identify and manage resources that are controlled or
 
 **Tag Violations Dashboard:**
 
-**Total Violations** - Count of resources missing required tags
-
-**Violation Type** - Mandatory, Conditional, or Automation tag violations
-
-**Resource Details** - Resource ID, Type, Provider, Project
-
-**Missing Tags** - List of tags that need to be applied
+- **Total Violations** – Count of resources missing required tags
+- **Violation Type** – Mandatory, Conditional, or Automation tag violations
+- **Resource Details** – Resource ID, Type, Provider, Project
+- **Missing Tags** – List of tags that need to be applied
 
 ### Resolving Violations
 
