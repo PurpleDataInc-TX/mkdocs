@@ -59,7 +59,10 @@ nav:
     - '<i class="fa fa-th-large" aria-hidden="true"></i> Dashboards' : Dashboards.md
     - '<i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub' : MultiCloudBillingHub.md
     - '<i class="fa fa-plug" aria-hidden="true"></i> Provider Connections': ProviderConnections.md
-  
+    - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS': ConnectAWS.md
+    - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure': ConnectAzure.md
+    - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP': ConnectGCP.md
+
     - '<i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding': CloudOnboarding.md
     
     #
@@ -74,6 +77,7 @@ nav:
     - '<i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup': SSOSetup.md
     - '<i class="fa fa-magic" aria-hidden="true"></i> Automation Overview': AutomationOverview.md
     - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies & Workflows': AutomationPolicies.md
+    - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync': PolicyYAMLSync.md
     - '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler': AutomationVMScheduler.md
     - '<i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts': ServiceAccounts.md
     - '<i class="fa fa-users" aria-hidden="true"></i> User Management': UserManagement.md
