@@ -1,0 +1,2537 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://doc.cloudpi.ai/MultiCloudBillingHub/">
+      
+      
+        <link rel="prev" href="../Dashboards/">
+      
+      
+        <link rel="next" href="../ProviderConnections/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Billing Hub - Cloudpi AI User Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multi-cloud-billing-hub" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #f3e5ff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+<!-- Hidden element required by Material theme JS -->
+<header class="md-header" data-md-component="header" style="display:none;">
+  <div data-md-component="header-title"></div>
+</header>
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/cp-logo.png" alt="CloudPi AI" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://cloudpi.ai/">HOME</a></li>
+      <li><a href="https://cloudpi.ai/">FEATURES</a></li>
+      <li><a href="https://cloudpi.ai/">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://cloudpi.ai/">SOLUTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">BLOG</a></li>
+      <li><a href="https://cloudpi.ai/">FAQ</a></li>
+      <li><a href="../">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
+    <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="GettingStarted/"><i class="fa fa-rocket" aria-hidden="true"></i> Getting Started</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="AlertsNotifications/"><i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications</a></li>
+    
+    <li><a href="AdminSetting/"><i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings</a></li>
+    
+    <li><a href="GlobalPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub</a></li>
+    
+    <li><a href="ProviderConnections/"><i class="fa fa-plug" aria-hidden="true"></i> Provider Connections</a></li>
+    
+    <li><a href="ConnectAWS/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS</a></li>
+    
+    <li><a href="ConnectAzure/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure</a></li>
+    
+    <li><a href="ConnectGCP/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP</a></li>
+    
+    <li><a href="CloudOnboarding/"><i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="Financials/"><i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials</a></li>
+    
+    <li><a href="CostTypes/"><i class="fa fa-coins" aria-hidden="true"></i> Cost Types</a></li>
+    
+    <li><a href="CostAssignment/"><i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="IntegrationsCatalog/"><i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog</a></li>
+    
+    <li><a href="SSOSetup/"><i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup</a></li>
+    
+    <li><a href="AutomationOverview/"><i class="fa fa-magic" aria-hidden="true"></i> Automation Overview</a></li>
+    
+    <li><a href="AutomationPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows</a></li>
+    
+    <li><a href="PolicyYAMLSync/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync</a></li>
+    
+    <li><a href="AutomationVMScheduler/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler</a></li>
+    
+    <li><a href="ServiceAccounts/"><i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts</a></li>
+    
+    <li><a href="UserManagement/"><i class="fa fa-users" aria-hidden="true"></i> User Management</a></li>
+    
+    <li><a href="TaskManagement/"><i class="fa fa-tasks" aria-hidden="true"></i> Task Management</a></li>
+    
+    <li><a href="Ticketing/"><i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing</a></li>
+    
+    <li><a href="Troubleshooting/"><i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting</a></li>
+    
+    <li><a href="Glossary/"><i class="fa fa-book" aria-hidden="true"></i> Glossary</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  if (!menuToggle) return;
+
+  var collapsedKey = "md-primary-sidebar-collapsed";
+  var isDesktop = function() {
+    return window.matchMedia && window.matchMedia("(min-width: 76.25em)").matches;
+  };
+
+  var setCollapsed = function(collapsed) {
+    document.body.classList.toggle("md-primary-sidebar-collapsed", collapsed);
+    try {
+      localStorage.setItem(collapsedKey, collapsed ? "1" : "0");
+    } catch (e) {}
+  };
+
+  var initialCollapsed = false;
+  try {
+    initialCollapsed = localStorage.getItem(collapsedKey) === "1";
+  } catch (e) {}
+
+  if (isDesktop()) setCollapsed(initialCollapsed);
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+
+    if (isDesktop()) {
+      setCollapsed(!document.body.classList.contains("md-primary-sidebar-collapsed"));
+      return;
+    }
+
+    var drawer = document.getElementById("__drawer");
+    if (drawer && drawer.type === "checkbox") {
+      drawer.checked = !drawer.checked;
+      return;
+    }
+
+    if (slideMenu) slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it (mobile only)
+  document.addEventListener("click", function(e) {
+    if (isDesktop() || !slideMenu) return;
+
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected (mobile only)
+  if (slideMenu) {
+    slideMenu.querySelectorAll("a").forEach(function(item) {
+      item.addEventListener("click", function() {
+        slideMenu.classList.remove("open");
+      });
+    });
+  }
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloudpi AI User Guide" class="md-nav__button md-logo" aria-label="Cloudpi AI User Guide" data-md-component="logo">
+      
+  <img src="../images/cp-logo.png" alt="logo">
+
+    </a>
+    Cloudpi AI User Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-info-circle"></i>  Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-rocket" aria-hidden="true"></i> Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-universal-access"></i> RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-wrench"></i> Workspace Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlertsNotifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AdminSetting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlobalPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#billing-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billing Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Billing Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accessing-billing-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Billing Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-anomaly-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Anomaly Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trend-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trend Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-comparative-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comparative Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-budget-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Budget Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-optimization-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Optimization Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-billing-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing Billing Views
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Billing Views">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-as-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save As View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-a-billing-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select a Billing View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-costs-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Costs Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shared Costs Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-shared-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a Shared Cost
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-shared-cost-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Shared Cost Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views-and-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Views and Reports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Views and Reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigating-the-views-and-reports-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigating the Views and Reports Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billing-view-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billing View Reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-billing-view-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Billing View Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-report-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Report Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-report-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Report Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-billing-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Billing View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProviderConnections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-plug" aria-hidden="true"></i> Provider Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAzure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectGCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudOnboarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Financials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-coins" aria-hidden="true"></i> Cost Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostAssignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntegrationsCatalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSOSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationOverview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PolicyYAMLSync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationVMScheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ServiceAccounts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-users" aria-hidden="true"></i> User Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TaskManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tasks" aria-hidden="true"></i> Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-book" aria-hidden="true"></i> Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#billing-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billing Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Billing Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accessing-billing-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Billing Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-anomaly-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Anomaly Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trend-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trend Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-comparative-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comparative Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-budget-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Budget Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-optimization-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Optimization Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-billing-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing Billing Views
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Billing Views">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-as-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save As View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-a-billing-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select a Billing View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-costs-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Costs Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shared Costs Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-shared-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a Shared Cost
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-shared-cost-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Shared Cost Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views-and-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Views and Reports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Views and Reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigating-the-views-and-reports-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigating the Views and Reports Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billing-view-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billing View Reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-billing-view-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Billing View Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-report-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Report Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-report-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Report Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-billing-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Billing View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+
+<h1 id="multi-cloud-billing-hub">Multi Cloud Billing Hub</h1>
+<p>Welcome to your central billing command center! The CloudPi Multi-Cloud Billing Hub offers a comprehensive solution for managing and analyzing billing data across various Cloud Service Providers (CSPs). This hub allows you to create tailored billing views to monitor expenditures based on different dimensions like services, service groups, and user-defined cost tags.</p>
+<hr>
+<h2 id="key-features">Key Features</h2>
+<p><strong>Billing Analysis</strong> - Delivers insights to optimize your cloud spending with multiple analysis types</p>
+<p><strong>Customizable Billing Views</strong> - Easily configure views based on specific dimensions to better understand your cloud expenses</p>
+<p><strong>Invoice Customization and Delivery</strong> - Customize and automatically generate invoices tailored to your organizational needs</p>
+<p><strong>Managed Cloud Services Provider Support</strong> - Receive specialized billing services designed for Managed Cloud Service Providers</p>
+<hr>
+<h2 id="billing-analysis">Billing Analysis</h2>
+<p>Billing Analysis delivers insights to optimize your cloud spending. It provides powerful visualization and tabular views to help teams understand cost patterns, detect anomalies, and identify optimization opportunities.</p>
+<h3 id="accessing-billing-analysis">Accessing Billing Analysis</h3>
+<ol>
+<li>From the left navigation menu, click on <strong>Billing Hub</strong></li>
+<li>Select <strong>Billing Analysis</strong></li>
+<li>The Billing Analysis page opens with Quick Filters and visualization options</li>
+</ol>
+<h3 id="quick-filters">Quick Filters</h3>
+<p>Use these key filters to quickly narrow down your billing data view:</p>
+<p><strong>Analysis Type</strong> - Select the type of analysis (Anomaly Analysis, Trend Analysis, Comparative Analysis, Budget Analysis, Optimization Analysis)</p>
+<p><strong>Cloud Service Provider</strong> - Filter by AWS, Azure, GCP, or All Providers</p>
+<p><strong>Projects</strong> - Select specific projects to analyze</p>
+<p><strong>Cost Type</strong> - Choose Billed Cost or other cost types</p>
+<p><strong>Granularity</strong> - Switch between Daily, Weekly, or Monthly views</p>
+<p><strong>Date Range</strong> - Select time period (60D, 90D, or Custom) with max 120 days</p>
+<p><strong>Limit</strong> - Choose Top 10 or other limits for data display</p>
+<p><strong>PRIMARY Group By</strong> - Select the main analysis dimension (e.g., Service Name)</p>
+<p>Click <strong>+ Advanced Filters</strong> to access additional filtering options for more granular analysis.</p>
+<h3 id="analysis-types">Analysis Types</h3>
+<p>The Analysis Type dropdown provides five different views for analyzing your billing data:</p>
+<h4 id="1-anomaly-analysis">1. Anomaly Analysis</h4>
+<p>Detect unusual spending patterns and cost spikes across your cloud environment.</p>
+<p><strong>Features:</strong></p>
+<p><strong>Cost Trend: Service</strong> - Area chart showing monthly cost breakdown by service (Top 10) </p>
+<ul>
+<li>Displays Billed Cost over time with color-coded services</li>
+<li>Interactive legend - click on service names to show/hide specific services</li>
+<li>Services include: Virtual Machines, Virtual Network, Load Balancer, Azure SQL Database, Azure Private Link, Storage Accounts, etc.</li>
+</ul>
+<p><strong>Detailed Data Table:</strong></p>
+<p>Below the chart, a detailed table shows:</p>
+<p><strong>Service</strong> - Name of the cloud service</p>
+<p><strong>Billed Cost (by month)</strong> - Cost for each month</p>
+<p><strong>Spike</strong> - Indicates if there was a cost spike</p>
+<p><strong>Total</strong> - Total billed cost for the service</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/billing1.png" data-desc-position="bottom"><img alt="Anomaly Analysis" src="../images/billing1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/billing2.png" data-desc-position="bottom"><img alt="Anomaly Analysis - Detailed Data" src="../images/billing2.png"></a></p>
+<h4 id="2-trend-analysis">2. Trend Analysis</h4>
+<p>Monthly cost trends with moving average and cumulative totals to understand spending patterns over time.</p>
+<p><strong>Features:</strong></p>
+<p><strong>Cost Trend Chart</strong> - Line chart showing monthly trend analysis</p>
+<p><strong>Actual Cost</strong> - Real spending for each period</p>
+<p><strong>Cumulative</strong> - Running total of costs over time</p>
+<p><strong>Moving Average</strong> - Smoothed trend line to identify patterns</p>
+<p><strong>Detailed Data Table:</strong></p>
+<p><strong>Service</strong> - Name of the cloud service</p>
+<p><strong>Actual</strong> - Actual cost for the period</p>
+<p><strong>Mov Avg</strong> - Moving average cost</p>
+<p><strong>Cumulative</strong> - Cumulative total cost</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/billing3.png" data-desc-position="bottom"><img alt="Trend Analysis" src="../images/billing3.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/billing4.png" data-desc-position="bottom"><img alt="Trend Analysis - Detailed Data" src="../images/billing4.png"></a></p>
+<h4 id="3-comparative-analysis">3. Comparative Analysis</h4>
+<p>Compare costs across multiple time periods to identify changes and growth patterns.</p>
+<p><strong>Features:</strong></p>
+<p><strong>3-Month Comparison</strong> - Compare costs across three consecutive months (e.g., Nov 2025 → Dec 2025 → Jan 2026)</p>
+<p><strong>Comparative Analysis Chart</strong> - Grouped bar chart showing period comparison for top dimensions</p>
+<p><strong>Interactive legend</strong> - Show/hide specific months</p>
+<p><strong>Detailed Data Table:</strong></p>
+<p><strong>Service</strong> - Name of the cloud service</p>
+<p><strong>Month 1 Cost</strong> - Cost for first comparison month</p>
+<p><strong>Month 2 Cost</strong> - Cost for second comparison month</p>
+<p><strong>Difference ($)</strong> - Dollar difference between periods</p>
+<p><strong>Change (%)</strong> - Percentage change (highlighted in red for increases, green for decreases)</p>
+<p><strong>Month 3 Cost</strong> - Cost for third comparison month</p>
+<p>The table highlights significant changes:
+- <strong>Red badges</strong> indicate cost increases (e.g., +411.62%)
+- <strong>Green badges</strong> indicate cost decreases (e.g., -85.04%)</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/billing5.png" data-desc-position="bottom"><img alt="Comparative Analysis" src="../images/billing5.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/billing6.png" data-desc-position="bottom"><img alt="Comparative Analysis - Detailed Data" src="../images/billing6.png"></a></p>
+<h4 id="4-budget-analysis">4. Budget Analysis</h4>
+<p>Track budget consumption and compare actual spending against allocated budgets.</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Budget vs. actual cost comparison</li>
+<li>Budget utilization percentage</li>
+<li>Forecast vs. actual spending trends</li>
+</ul>
+<h4 id="5-optimization-analysis">5. Optimization Analysis</h4>
+<p>Identify cost optimization opportunities and track realized savings.</p>
+<p><strong>Features:</strong></p>
+<p><strong>Optimization Savings Summary Cards:</strong></p>
+<p><strong>Potential Savings</strong> - Total opportunity identified for cost reduction</p>
+<p><strong>Realized Savings</strong> - Amount captured through automation (with "Achieved" badge)</p>
+<p><strong>Remaining Opportunity</strong> - Available savings still to capture</p>
+<p><strong>Realization Rate</strong> - Percentage of potential savings achieved (with Fair/Good/Excellent rating)</p>
+<p><strong>Alert Banner:</strong>
+When significant optimization opportunities are available, an alert displays: "You have $X in remaining optimization opportunities. Your current realization rate is X%. Implementing these recommendations could significantly reduce your cloud costs."</p>
+<p><strong>Top Savings Opportunities:</strong>
+- Horizontal bar chart showing top 9 dimensions with highest potential savings
+- Services ranked by potential savings amount</p>
+<p><strong>Optimization Savings Breakdown Table:</strong></p>
+<p><strong>Service</strong> - Name of the cloud service</p>
+<p><strong>Potential Savings</strong> - Identified savings opportunity</p>
+<p><strong>Achieved Savings</strong> - Savings already realized</p>
+<p><strong>Remaining Opportunity</strong> - Savings still available to capture</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/billing7.png" data-desc-position="bottom"><img alt="Optimization Analysis" src="../images/billing7.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/billing8.png" data-desc-position="bottom"><img alt="Optimization Analysis - Breakdown" src="../images/billing8.png"></a></p>
+<h3 id="managing-billing-views">Managing Billing Views</h3>
+<h4 id="save-as-view">Save As View</h4>
+<p>To save your current filter configuration:</p>
+<ol>
+<li>Configure your desired filters (Analysis Type, Projects, Date Range, etc.)</li>
+<li>Click the <strong>+ Save As View</strong> button in the top right</li>
+<li>Enter a name for your billing view</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<h4 id="select-a-billing-view">Select a Billing View</h4>
+<p>To load a previously saved view:</p>
+<ol>
+<li>Click the <strong>Select a billing view...</strong> dropdown in the top right</li>
+<li>Choose from your saved billing views</li>
+<li>The page updates with the saved filter configuration</li>
+</ol>
+<h3 id="understanding-the-interface">Understanding the Interface</h3>
+<p><strong>Chart Interactions:</strong></p>
+<p><strong>Legend Toggle</strong> - Click on items in the legend to show/hide specific data series</p>
+<p><strong>Hover</strong> - Hover over chart elements to see detailed values</p>
+<p><strong>Pagination</strong> - Use pagination controls in tables (Rows per page, Page navigation)</p>
+<p><strong>Data Export:</strong></p>
+<ul>
+<li>Click the download icon in the Detailed Data section to export table data</li>
+</ul>
+<hr>
+<h2 id="shared-costs-management">Shared Costs Management</h2>
+<p>The Shared Costs page allows you to view and manage shared cost allocations between projects. This ensures that expenses related to shared services (e.g., infrastructure, regions) are fairly distributed across relevant projects.</p>
+<h3 id="create-a-shared-cost">Create a Shared Cost</h3>
+<p>Use this flow to create a new shared cost allocation between projects.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p>Click on <strong>+ Create Shared Cost</strong> - Opens the Add Shared Cost form</p>
+</li>
+<li>
+<p><strong>Select Billing View</strong> - Choose the billing view you want to apply the shared cost to</p>
+</li>
+<li>
+<p><strong>Select Time Period</strong> - Choose from available options such as Yearly, Monthly, etc.</p>
+</li>
+<li>
+<p><strong>Add Target Projects:</strong></p>
+</li>
+<li>Select the Project that will share the cost</li>
+<li>Specify the Percentage (%) of cost to allocate</li>
+<li>
+<p>Click the <strong>+</strong> icon to add multiple projects if needed</p>
+</li>
+<li>
+<p><strong>Enter Note</strong> - Provide context or reasons for the shared cost (e.g., shared infrastructure, cross-team usage)</p>
+</li>
+<li>
+<p>Click <strong>Save</strong> - Finalize the shared cost entry. The status will be set to <strong>Pending</strong> until accepted</p>
+</li>
+</ol>
+<h3 id="key-actions">Key Actions</h3>
+<p><strong>Project Filter:</strong>
+- Use the <strong>Select Project</strong> dropdown to filter shared costs related to a specific project</p>
+<p><strong>Shared Cost List:</strong></p>
+<p>View the list of shared cost entries with details such as:</p>
+<p><strong>Billing Name</strong> - The service or resource category being shared (e.g., Service name, Regions)</p>
+<p><strong>Shared Projects</strong> - Shows the allocation direction (e.g., NPDDDev → CPDev)</p>
+<p><strong>Note</strong> - Additional information (e.g., "This resource is part of a shared infrastructure and is utilized by multiple teams")</p>
+<p><strong>Status</strong> - Indicates if the shared cost is <strong>Accepted</strong> (green) or <strong>Pending</strong> (yellow)</p>
+<p><strong>Time Period</strong> - The duration the shared cost is active (start and end dates)</p>
+<p><strong>Actions</strong> - Options to view more details or perform actions like edit or delete</p>
+<h3 id="view-shared-cost-details">View Shared Cost Details</h3>
+<p>Allows users to view specific details of an existing shared cost allocation.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>In the Shared Costs Page, locate the shared cost entry</li>
+<li>Click on the <strong>Actions menu</strong> (three dots) next to the entry</li>
+<li>Select <strong>View</strong> to see detailed information like:</li>
+<li>Billing View and Service Name</li>
+<li>Allocated Projects and their share percentages</li>
+<li>Notes explaining the purpose of sharing</li>
+<li>Time Period and Status (Accepted / Pending)</li>
+</ol>
+<p><strong>Additional Action for Pending Status:</strong></p>
+<p>If the status is <strong>Pending</strong>, the user will have the option to:
+- <strong>Accept</strong> the shared cost
+- <strong>Reject</strong> the shared cost</p>
+<hr>
+<h2 id="views-and-reports">Views and Reports</h2>
+<p>The Views and Reports page allows you to create and manage billing view reports based on your configured billing views. Generate reports for specific time periods to analyze costs across projects and services.</p>
+<p><strong>Key Features:</strong></p>
+<p><strong>Report Generation</strong> - Create reports for specific billing views and time periods</p>
+<p><strong>Report Management</strong> - View, edit, download, and share billing view reports</p>
+<p><strong>Project Filtering</strong> - Filter billing views by project for easier navigation</p>
+<hr>
+<h3 id="navigating-the-views-and-reports-page">Navigating the Views and Reports Page</h3>
+<p>The Views and Reports page displays all your billing views and provides tools to create and manage reports.</p>
+<p><strong>Page Components:</strong></p>
+<p><strong>Page Header</strong> - "Views and Billing View Reports" with description "Create and manage billing view reports for billing views."</p>
+<p><strong>Project Filter</strong> - Dropdown in the top right to filter billing views by project (e.g., HRApplication)</p>
+<p><strong>Billing View Table</strong> - Main table displaying:</p>
+<ul>
+<li><strong>Billing View name</strong> - Name of the billing view</li>
+<li><strong>Project Name</strong> - Associated project(s), with badge showing multiple projects (e.g., "3 projects")</li>
+<li><strong>Status</strong> - Current status (Active shown in green badge)</li>
+<li><strong>Actions</strong> - Icons for viewing reports, creating reports, and deleting billing views</li>
+</ul>
+<hr>
+<h3 id="billing-view-reports">Billing View Reports</h3>
+<p>View all reports that have been generated for a specific billing view.</p>
+<p><strong>Steps to View Reports:</strong></p>
+<ol>
+<li>Locate the billing view in the table</li>
+<li>Click the <strong>Eye icon</strong> in the Actions column</li>
+<li>The <strong>Billing View Reports</strong> panel opens showing all reports for that billing view</li>
+<li>Click the <strong>View Report icon</strong> (eye icon) next to the report you want to view</li>
+<li>The report details page opens with full billing information</li>
+</ol>
+<p><strong>Billing View Reports Panel:</strong></p>
+<p>The panel displays a table with the following information for each report:</p>
+<ul>
+<li><strong>Report Number</strong> (e.g., BR-00008)</li>
+<li><strong>Reporting Period</strong> (date range, e.g., 2025-11-30 - 2025-12-30)</li>
+<li><strong>Created By</strong> (username, e.g., CloudPi Admin)</li>
+<li><strong>Date Created</strong> (timestamp)</li>
+<li><strong>Status</strong> (Active in green badge)</li>
+<li><strong>Actions</strong> (View Report, Edit Notes icons)</li>
+</ul>
+<p><strong>Panel Actions:</strong></p>
+<ul>
+<li><strong>Download</strong> - Download icon in top right to export reports</li>
+<li><strong>Share</strong> - Share icon in top right to share reports with others</li>
+<li><strong>Plus (+)</strong> - Create a new report from within the panel</li>
+<li><strong>Close</strong> - Close the Billing View Reports panel</li>
+</ul>
+<hr>
+<h3 id="create-billing-view-report">Create Billing View Report</h3>
+<p>Generate a new report for a billing view by specifying the reporting period.</p>
+<p><strong>Steps to Create Report:</strong></p>
+<ol>
+<li>Locate the billing view in the table</li>
+<li>Click the <strong>Plus (+) icon</strong> in the Actions column</li>
+<li>The <strong>Create Billing View Report</strong> dialog opens showing:</li>
+<li><strong>Billing View</strong> - Name and associated projects</li>
+<li><strong>Reporting Period</strong> - Date range selector with Start date and End date fields</li>
+<li>Select the start date and end date for your report</li>
+<li>Click <strong>Continue</strong> to generate the report, or <strong>Cancel</strong> to abort</li>
+</ol>
+<p>The system generates a report containing all billing data for the selected billing view within the specified time period.</p>
+<hr>
+<h3 id="view-report-details">View Report Details</h3>
+<p>Access the full details of a generated report including costs, notes, and export options.</p>
+<p><strong>Steps to View Report:</strong></p>
+<ol>
+<li>Open the Billing View Reports panel (Eye icon)</li>
+<li>Click the <strong>Eye icon</strong> next to the report you want to view</li>
+<li>The report details page opens with:</li>
+</ol>
+<p><strong>Report Header:</strong></p>
+<ul>
+<li>Report number (e.g., BR-00008)</li>
+<li>Status badge (Active in green)</li>
+<li>Billing View name and associated projects</li>
+</ul>
+<p><strong>Reporting Period Card:</strong></p>
+<ul>
+<li>Start Date</li>
+<li>End Date</li>
+</ul>
+<p><strong>Report Details Card:</strong></p>
+<ul>
+<li>Created At (timestamp)</li>
+<li>Created By (username)</li>
+</ul>
+<p><strong>Billing View Summary Table:</strong></p>
+<ul>
+<li><strong>Project Name</strong> - Project associated with the costs</li>
+<li><strong>Service Name</strong> - Cloud services used (e.g., Virtual Machines, Storage Accounts)</li>
+<li><strong>Billed Cost</strong> - Cost for each service</li>
+<li><strong>Sub Total</strong> - Sum of all line items</li>
+<li><strong>Grand Total</strong> - Final total cost</li>
+</ul>
+<p><strong>Additional Options:</strong></p>
+<ul>
+<li><strong>Notes</strong> - Text field to add context or comments (max 500 characters)</li>
+<li><strong>Set Currency</strong> - Dropdown to select currency (e.g., United States Dollar)</li>
+<li><strong>Preview &amp; Download</strong> - Blue button to preview and download the report</li>
+<li><strong>Cancel</strong> - Return to previous view</li>
+</ul>
+<p><strong>Report Actions (Top Right):</strong></p>
+<ul>
+<li><strong>Download</strong> - Export the report</li>
+<li><strong>Share</strong> - Share the report with others</li>
+<li><strong>Plus (+)</strong> - Create a new report</li>
+</ul>
+<hr>
+<h3 id="edit-report-notes">Edit Report Notes</h3>
+<p>Add or modify notes on a report to provide additional context or documentation.</p>
+<p><strong>Steps to Edit Notes:</strong></p>
+<ol>
+<li>Open the Billing View Reports panel</li>
+<li>Click the <strong>Pencil (Edit) icon</strong> next to the report</li>
+<li>The report details page opens with the Notes field active</li>
+<li>Enter or update notes (up to 500 characters)</li>
+<li>Select currency if needed</li>
+<li>Click <strong>Preview &amp; Download</strong> to save changes</li>
+</ol>
+<p>Notes are useful for documenting:</p>
+<ul>
+<li>Reason for the report</li>
+<li>Special circumstances during the reporting period</li>
+<li>Budget allocations or approvals</li>
+<li>Internal tracking information</li>
+</ul>
+<hr>
+<h3 id="delete-billing-view">Delete Billing View</h3>
+<p>Remove a billing view when it's no longer needed. This action affects the billing view itself, not individual reports.</p>
+<p><strong>Steps to Delete:</strong></p>
+<ol>
+<li>Locate the billing view in the table</li>
+<li>Click the <strong>Trash icon</strong> in the Actions column</li>
+<li>A confirmation dialog appears</li>
+<li>Confirm deletion to remove the billing view</li>
+</ol>
+<p><strong>Note:</strong> Deleting a billing view may affect associated reports. Ensure you've downloaded any needed reports before deletion.</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <footer class="md-footer cp-footer" role="contentinfo">
+  <div class="cp-footer__inner">
+    <div class="cp-footer__brand">
+      <p class="cp-footer__tagline">Multi Cloud Cost Governance Platform.</p>
+
+      <div class="cp-footer__cta">
+        <a class="cp-footer__button" href="https://cloudpi.ai/" target="_blank" rel="noopener">Schedule Demo</a>
+      </div>
+
+      <p class="cp-footer__email"><a href="mailto:contact@cloudpi.ai">contact@cloudpi.ai</a></p>
+
+      <div class="cp-footer__social">
+        <a href="https://www.youtube.com/@purpledatainc." target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech" target="_blank" rel="noopener" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <p class="cp-footer__copyright">© 2026 CloudPi. All rights reserved.</p>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Product</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Features</a>
+      <a class="cp-footer__link" href="../Integrations/">Integrations</a>
+      <a class="cp-footer__link" href="../TaskManagement/">Workflow</a>
+      <a class="cp-footer__link" href="../security/">Security</a>
+      <a class="cp-footer__link" href="../Automations/">Automation</a>
+      <a class="cp-footer__link" href="../CloudPiOptimisations/">Gen AI</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Resources</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Solutions</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Case Studies</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Blogs</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Faq</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Videos</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Company</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">About Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">News &amp; Updates</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Careers</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Contact Us</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Demo</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Trail</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/?heading=Register+Now" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+
+  <div class="cp-footer__bottom">
+    <div class="cp-footer__bottom-inner">
+      <div class="cp-footer__bottom-links">
+        <a href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <span class="cp-footer__sep">|</span>
+        <a href="https://cloudpi.ai/" target="_blank" rel="noopener">cloudpi.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

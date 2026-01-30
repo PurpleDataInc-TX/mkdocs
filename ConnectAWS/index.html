@@ -1,0 +1,1906 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://doc.cloudpi.ai/ConnectAWS/">
+      
+      
+        <link rel="prev" href="../ProviderConnections/">
+      
+      
+        <link rel="next" href="../ConnectAzure/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>&nbsp;&nbsp;&nbsp;&nbsp; Connect AWS - Cloudpi AI User Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connect-aws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #f3e5ff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+<!-- Hidden element required by Material theme JS -->
+<header class="md-header" data-md-component="header" style="display:none;">
+  <div data-md-component="header-title"></div>
+</header>
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/cp-logo.png" alt="CloudPi AI" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://cloudpi.ai/">HOME</a></li>
+      <li><a href="https://cloudpi.ai/">FEATURES</a></li>
+      <li><a href="https://cloudpi.ai/">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://cloudpi.ai/">SOLUTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">BLOG</a></li>
+      <li><a href="https://cloudpi.ai/">FAQ</a></li>
+      <li><a href="../">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
+    <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="GettingStarted/"><i class="fa fa-rocket" aria-hidden="true"></i> Getting Started</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="AlertsNotifications/"><i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications</a></li>
+    
+    <li><a href="AdminSetting/"><i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings</a></li>
+    
+    <li><a href="GlobalPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub</a></li>
+    
+    <li><a href="ProviderConnections/"><i class="fa fa-plug" aria-hidden="true"></i> Provider Connections</a></li>
+    
+    <li><a href="ConnectAWS/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS</a></li>
+    
+    <li><a href="ConnectAzure/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure</a></li>
+    
+    <li><a href="ConnectGCP/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP</a></li>
+    
+    <li><a href="CloudOnboarding/"><i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="Financials/"><i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials</a></li>
+    
+    <li><a href="CostTypes/"><i class="fa fa-coins" aria-hidden="true"></i> Cost Types</a></li>
+    
+    <li><a href="CostAssignment/"><i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="IntegrationsCatalog/"><i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog</a></li>
+    
+    <li><a href="SSOSetup/"><i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup</a></li>
+    
+    <li><a href="AutomationOverview/"><i class="fa fa-magic" aria-hidden="true"></i> Automation Overview</a></li>
+    
+    <li><a href="AutomationPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows</a></li>
+    
+    <li><a href="PolicyYAMLSync/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync</a></li>
+    
+    <li><a href="AutomationVMScheduler/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler</a></li>
+    
+    <li><a href="ServiceAccounts/"><i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts</a></li>
+    
+    <li><a href="UserManagement/"><i class="fa fa-users" aria-hidden="true"></i> User Management</a></li>
+    
+    <li><a href="TaskManagement/"><i class="fa fa-tasks" aria-hidden="true"></i> Task Management</a></li>
+    
+    <li><a href="Ticketing/"><i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing</a></li>
+    
+    <li><a href="Troubleshooting/"><i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting</a></li>
+    
+    <li><a href="Glossary/"><i class="fa fa-book" aria-hidden="true"></i> Glossary</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  if (!menuToggle) return;
+
+  var collapsedKey = "md-primary-sidebar-collapsed";
+  var isDesktop = function() {
+    return window.matchMedia && window.matchMedia("(min-width: 76.25em)").matches;
+  };
+
+  var setCollapsed = function(collapsed) {
+    document.body.classList.toggle("md-primary-sidebar-collapsed", collapsed);
+    try {
+      localStorage.setItem(collapsedKey, collapsed ? "1" : "0");
+    } catch (e) {}
+  };
+
+  var initialCollapsed = false;
+  try {
+    initialCollapsed = localStorage.getItem(collapsedKey) === "1";
+  } catch (e) {}
+
+  if (isDesktop()) setCollapsed(initialCollapsed);
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+
+    if (isDesktop()) {
+      setCollapsed(!document.body.classList.contains("md-primary-sidebar-collapsed"));
+      return;
+    }
+
+    var drawer = document.getElementById("__drawer");
+    if (drawer && drawer.type === "checkbox") {
+      drawer.checked = !drawer.checked;
+      return;
+    }
+
+    if (slideMenu) slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it (mobile only)
+  document.addEventListener("click", function(e) {
+    if (isDesktop() || !slideMenu) return;
+
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected (mobile only)
+  if (slideMenu) {
+    slideMenu.querySelectorAll("a").forEach(function(item) {
+      item.addEventListener("click", function() {
+        slideMenu.classList.remove("open");
+      });
+    });
+  }
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloudpi AI User Guide" class="md-nav__button md-logo" aria-label="Cloudpi AI User Guide" data-md-component="logo">
+      
+  <img src="../images/cp-logo.png" alt="logo">
+
+    </a>
+    Cloudpi AI User Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-info-circle"></i>  Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-rocket" aria-hidden="true"></i> Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-universal-access"></i> RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-wrench"></i> Workspace Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlertsNotifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AdminSetting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlobalPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiCloudBillingHub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProviderConnections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-plug" aria-hidden="true"></i> Provider Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-configure-the-aws-cur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 - Configure the AWS CUR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-activate-cost-allocation-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 - Activate Cost Allocation Tags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-a-cross-account-iam-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 - Create a Cross-Account IAM Role
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-grant-cloudpi-access-to-the-cur-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 - Grant CloudPi Access to the CUR Bucket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-connect-in-cloudpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 - Connect in CloudPi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-validate-and-backfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 - Validate and Backfill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-account-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Account Guidance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAzure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectGCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudOnboarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Financials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-coins" aria-hidden="true"></i> Cost Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostAssignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntegrationsCatalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSOSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationOverview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PolicyYAMLSync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationVMScheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ServiceAccounts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-users" aria-hidden="true"></i> User Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TaskManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tasks" aria-hidden="true"></i> Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-book" aria-hidden="true"></i> Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-configure-the-aws-cur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 - Configure the AWS CUR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-activate-cost-allocation-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 - Activate Cost Allocation Tags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-a-cross-account-iam-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 - Create a Cross-Account IAM Role
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-grant-cloudpi-access-to-the-cur-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 - Grant CloudPi Access to the CUR Bucket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-connect-in-cloudpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 - Connect in CloudPi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-validate-and-backfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 - Validate and Backfill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-account-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Account Guidance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+
+<h1 id="connect-aws">Connect AWS</h1>
+<h2 id="overview">Overview</h2>
+<p>Connect AWS to CloudPi to ingest Cost and Usage Report (CUR) data and enable detailed cost reporting, allocation, and optimization.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>AWS billing access and permission to create IAM roles and manage CUR exports.</li>
+<li>CUR enabled with resource IDs and a supported format (Parquet recommended).</li>
+<li>Cost allocation tags activated in AWS.</li>
+</ul>
+<h2 id="configuration-workflow">Configuration Workflow</h2>
+<ol>
+<li>Configure the AWS Cost and Usage Report (CUR).</li>
+<li>Activate cost allocation tags.</li>
+<li>Create a cross-account IAM role for CloudPi.</li>
+<li>Grant CloudPi access to the CUR S3 bucket.</li>
+<li>Add AWS details in CloudPi.</li>
+<li>Validate ingestion and backfill historical data if needed.</li>
+</ol>
+<h2 id="step-1-configure-the-aws-cur">Step 1 - Configure the AWS CUR</h2>
+<ol>
+<li>Open <strong>Billing and Cost Management</strong> in AWS.</li>
+<li>Create a new <strong>Cost and Usage Report</strong>.</li>
+<li>Enable <strong>Include resource IDs</strong>.</li>
+<li>Set <strong>Time granularity</strong> to <strong>Hourly</strong>.</li>
+<li>Enable <strong>Refresh automatically</strong>.</li>
+<li>Choose <strong>Parquet</strong> format and deliver to an S3 bucket.</li>
+</ol>
+<h2 id="step-2-activate-cost-allocation-tags">Step 2 - Activate Cost Allocation Tags</h2>
+<ol>
+<li>In AWS, navigate to <strong>Cost Allocation Tags</strong>.</li>
+<li>Activate the tags required for reporting and cost assignment.</li>
+</ol>
+<h2 id="step-3-create-a-cross-account-iam-role">Step 3 - Create a Cross-Account IAM Role</h2>
+<ol>
+<li>Use the CloudPi-provided template or IAM instructions.</li>
+<li>Use the <strong>External ID</strong> provided by CloudPi.</li>
+<li>Apply least-privilege permissions required for CUR access.</li>
+</ol>
+<h2 id="step-4-grant-cloudpi-access-to-the-cur-bucket">Step 4 - Grant CloudPi Access to the CUR Bucket</h2>
+<ol>
+<li>Update the S3 bucket policy to allow the CloudPi role to read CUR files.</li>
+<li>Ensure the role has permission to list and read report objects.</li>
+</ol>
+<h2 id="step-5-connect-in-cloudpi">Step 5 - Connect in CloudPi</h2>
+<ol>
+<li>Go to <strong>Integrations</strong> or <strong>Cloud Onboarding</strong>.</li>
+<li>Select <strong>AWS</strong> and enter:</li>
+<li>Account ID</li>
+<li>Role ARN</li>
+<li>External ID</li>
+<li>CUR bucket name and report prefix</li>
+</ol>
+<h2 id="step-6-validate-and-backfill">Step 6 - Validate and Backfill</h2>
+<ul>
+<li>Confirm the integration status is <strong>Connected</strong>.</li>
+<li>Validate data in <strong>Billing Hub</strong> and <strong>Cost Assignment</strong>.</li>
+<li>If historical filtering is required, backfill prior CUR data.</li>
+</ul>
+<h2 id="multi-account-guidance">Multi-Account Guidance</h2>
+<p>Connect the AWS management account first to capture organization-wide costs. Add member accounts only if needed for specific scopes.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If data does not appear:
+- Verify CUR delivery to S3.
+- Confirm tag activation.
+- Recheck IAM role trust and bucket policies.</p>
+<p>For assistance, contact <strong>support@cloudpi.ai</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <footer class="md-footer cp-footer" role="contentinfo">
+  <div class="cp-footer__inner">
+    <div class="cp-footer__brand">
+      <p class="cp-footer__tagline">Multi Cloud Cost Governance Platform.</p>
+
+      <div class="cp-footer__cta">
+        <a class="cp-footer__button" href="https://cloudpi.ai/" target="_blank" rel="noopener">Schedule Demo</a>
+      </div>
+
+      <p class="cp-footer__email"><a href="mailto:contact@cloudpi.ai">contact@cloudpi.ai</a></p>
+
+      <div class="cp-footer__social">
+        <a href="https://www.youtube.com/@purpledatainc." target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech" target="_blank" rel="noopener" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <p class="cp-footer__copyright">© 2026 CloudPi. All rights reserved.</p>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Product</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Features</a>
+      <a class="cp-footer__link" href="../Integrations/">Integrations</a>
+      <a class="cp-footer__link" href="../TaskManagement/">Workflow</a>
+      <a class="cp-footer__link" href="../security/">Security</a>
+      <a class="cp-footer__link" href="../Automations/">Automation</a>
+      <a class="cp-footer__link" href="../CloudPiOptimisations/">Gen AI</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Resources</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Solutions</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Case Studies</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Blogs</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Faq</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Videos</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Company</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">About Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">News &amp; Updates</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Careers</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Contact Us</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Demo</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Trail</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/?heading=Register+Now" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+
+  <div class="cp-footer__bottom">
+    <div class="cp-footer__bottom-inner">
+      <div class="cp-footer__bottom-links">
+        <a href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <span class="cp-footer__sep">|</span>
+        <a href="https://cloudpi.ai/" target="_blank" rel="noopener">cloudpi.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

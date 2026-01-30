@@ -1,0 +1,505 @@
+/* .md-header img{
+  display: none !important;
+} */
+.md-header {
+  display: none;
+}
+
+:root {
+  /* --md-primary-fg-color:        #EE0F0F; */
+  --md-primary-fg-color:        #6F44A6;
+  --md-primary-fg-color--light: #AC8AE7;
+  /* --md-primary-fg-color--dark:  #90030C; */
+}
+
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* Ensure sidebar is opaque so content doesn't show through while scrolling */
+.md-sidebar--primary,
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  background-color: #ffffff;
+}
+
+/* Sidebar divider */
+.md-sidebar--primary {
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Allow collapsing the primary sidebar on desktop */
+@media screen and (min-width: 76.25em) {
+  body.md-primary-sidebar-collapsed .md-sidebar--primary {
+    display: none;
+  }
+
+  /* Expand content when sidebar is collapsed */
+  body.md-primary-sidebar-collapsed .md-grid {
+    max-width: 100rem;
+  }
+}
+
+/* Push content when drawer is open on smaller screens (instead of overlaying) */
+@media screen and (max-width: 76.234375em) {
+  .md-content {
+    transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      margin-right 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  [dir=ltr] [data-md-toggle=drawer]:checked ~ .md-container .md-content {
+    margin-left: 12.1rem;
+  }
+
+  [dir=rtl] [data-md-toggle=drawer]:checked ~ .md-container .md-content {
+    margin-right: 12.1rem;
+  }
+}
+
+/* reduce font size */
+
+/* Styling for the navigation menu */
+.md-nav--primary .md-nav__list {
+    background-color: #ffffff;
+     /* Background color for the menu section */
+    /* border-right: 2px solid #ddd;  */
+    /* Border on the right side of the menu section */
+    padding-left: 0px;
+  }
+
+  .md-nav--primary .md-nav__item:first-child {
+    margin-top: 5px;
+  } 
+  .md-nav--secondary .md-nav__list{
+    top: 0;
+    max-height: calc(100vh - 85px); 
+  }
+
+  /* .md-sidebar__scrollwrap{
+    background-color: #363636;
+  } */
+  /* .md-sidebar--secondary {
+    background-color: red;
+  } */
+  .md-nav--primary .md-ellipsis i{
+    margin-right: 5px;
+  }
+  
+
+  .md-nav--primary .md-nav__item{
+    background-color: #ffffff;
+    /* background-image: linear-gradient(to bottom right, #C47BF4, #F08753); */
+
+  }
+  .md-nav--primary .md-nav__link{
+
+    margin: 0;
+  }
+
+  /* Styling for the menu items */
+  .md-nav--primary .md-nav__list a {
+    padding: 15px 20px; 
+    display: block; 
+    text-decoration: none; 
+  }
+  
+  /* Highlight effect on hover */
+  .md-nav--primary .md-nav__list a:hover{
+    background-color: #ffffff;
+    /* color: #51308B; */
+    color: black;
+  }
+
+  .md-nav--primary .md-nav__list a:active,
+  .md-nav--primary .md-nav__list a:focus,
+  .md-nav--primary .md-nav__list a.selected 
+    {
+        background-color: #a6a6a6 ; 
+        color: #8C5ECA;
+        font-weight: bold;
+    }
+
+  .md-nav--primary .main-heading {
+    display: none; 
+}
+
+.md-nav--secondary .md-nav__list a:hover,
+.md-nav--secondary .md-nav__list a:active {
+    font-size: calc(1em + 0.1pt);
+    font-weight: bold;
+  
+}
+
+.md-nav--secondary .md-nav__list ul{
+  list-style-type: disc; /* Add bullets */
+}
+
+.md-nav--secondary .md-nav__list ul ul{
+  list-style-type: disc; /* Add bullets */
+}
+
+/* Improve readability of emphasized text in content */
+.md-typeset {
+  font-weight: 400;
+}
+
+.md-typeset strong {
+  font-weight: 600;
+  color: inherit;
+}
+
+/* reduce boldness of h4 */
+h4 {
+  font-weight: 500; /* Adjust the font-weight as needed */
+  /* color: var(--md-primary-fg-color--light); */
+}
+
+/* hiding footer */
+.md-footer-meta__inner.md-grid {
+  display: none;
+}
+
+/* reduce primary menu padding */
+/* @media screen and (min-width: 76.25em) {
+  [dir=ltr] .md-nav--primary .md-nav__list {
+      padding-left: 0;
+  }
+} */
+
+@media screen and (min-width: 76.25em) {
+  [dir=ltr] .md-nav--primary .md-nav__item>.md-nav__link {
+      margin-right: 1px;
+  }
+}
+
+.md-nav--secondary .md-nav {
+  /* Adjust the margin-right value as needed to move the secondary menu items to the right */
+  margin-left: 15px;
+}
+
+/* shadows for the images */
+img {
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* reduce icon size in main page */
+.md-content i {
+  font-size: 0.75em; /* Adjust the size as needed */
+}
+
+@media screen and (min-width: 76.25em) {
+  [dir=ltr] .md-nav--primary .md-nav__list {
+      padding-left: .1rem;
+  }
+}  
+
+.md-sidebar__scrollwrap{
+  margin: 0;
+  scrollbar-color: #eecbe90f;
+}
+
+.md-content__inner h1{
+  font-size: 20px;
+  color: black;  
+  
+}
+
+.md-content__inner h2{
+  font-size: 18px;
+}
+.md-content__inner p{
+  font-size: 14px;
+  color: #1f1f1f;
+}
+
+
+
+/* Custom CSS to change bullet points to arrow marks */
+.md-typeset ul li {
+  list-style: none; /* Remove default bullet points */
+  position: relative; /* Establish a positioning context for the pseudo-element */
+}
+
+.md-typeset ul li::before {
+  content: "\f0da"; /* Unicode for fa-caret-right */
+  font-family: "Font Awesome 5 Free"; /* Use Font Awesome font family */
+  position: absolute; /* Position the pseudo-element relative to the list item */
+  font-weight: 900; /* Ensure the correct weight (solid style) */
+  left: -20px; /* Adjust position to place the arrow in the desired location */
+  color: inherit; /* Use the same color as the text */
+}
+
+/* remove shadow from first image in intro section */
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.md-typeset li{
+  font-size: 14px;
+  color: #1f1f1f;
+}
+
+/*  */
+.md-nav__item .md-nav__link--active, .md-nav__item .md-nav__link--active code {
+  color: inherit;
+}
+.md-nav__link--passed {
+  color: black;
+}
+
+/* gradient for top left menu heading */
+@keyframes gradient-animation {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}
+
+.md-nav--primary .md-nav__title {
+  background: linear-gradient(to right, #815ccc, #016cff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: gradient-animation 0.5 linear infinite;
+  margin: 0px;
+  z-index: 1;
+
+  position: relative;
+}
+
+/* underline for table of content */
+.md-nav__title{
+  text-decoration: underline;
+}
+
+/* extra padding for md nav item */
+.md-sidebar .md-sidebar--secondary .md-nav__list .md-nav__item{
+  margin-top: 5px;
+}
+
+/* ################################################################################## */
+/* .md-main__inner .md-grid */
+/* dynamically change width of content */
+.md-grid {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 61rem;
+}
+
+/* Cloudpi footer */
+.cp-footer.md-footer {
+  background-image: url('../images/footer-bg.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #110718;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.cp-footer__inner {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 50px 4rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 20px 40px;
+}
+
+@media screen and (max-width: 60em) {
+  .cp-footer__inner {
+    grid-template-columns: 1fr 1fr;
+    padding: 40px 2rem;
+  }
+}
+
+@media screen and (max-width: 35em) {
+  .cp-footer__inner {
+    grid-template-columns: 1fr;
+    padding: 30px 1.5rem;
+  }
+}
+
+
+.cp-footer__tagline {
+  margin: 0 0 0.5rem;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.86);
+  white-space: nowrap;
+}
+
+.cp-footer__company {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.cp-footer__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.cp-footer__col,
+.cp-footer__brand {
+  min-width: 0;
+}
+
+.cp-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cp-footer__link {
+  display: block;
+  padding: 0.35rem 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+
+.cp-footer__link:hover {
+  color: #CF9BF2;
+  text-decoration: none;
+}
+
+.cp-footer__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.cp-footer__email {
+  margin: 0 0 0.5rem;
+  font-size: 15px;
+}
+
+.cp-footer__email a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+
+.cp-footer__email a:hover {
+  color: #CF9BF2;
+}
+
+.cp-footer__copyright {
+  margin: 0.5rem 0 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cp-footer__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 3rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #9F69A6 0%, #645DE5 100%);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.cp-footer__button--outline {
+  background: transparent;
+  border: 1px solid #CF9BF2;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.cp-footer__button--outline:hover {
+  background: rgba(207, 155, 242, 0.2);
+  border-color: #F59292;
+}
+
+.cp-footer__button:hover {
+  filter: brightness(1.05);
+}
+
+.cp-footer__social {
+  display: flex;
+  gap: 20px;
+  margin: 0.75rem 0;
+}
+
+.cp-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cp-footer__social a i {
+  font-size: 25px;
+  width: 25px;
+  height: 25px;
+}
+
+.cp-footer__social a:hover {
+  color: #CF9BF2;
+  transform: translateY(-2px);
+}
+
+.cp-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(17, 7, 24, 0.6);
+}
+
+.cp-footer__bottom-inner {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cp-footer__bottom-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cp-footer__bottom-links a:hover {
+  color: #CF9BF2;
+  text-decoration: none;
+}
+
+.cp-footer__sep {
+  margin: 0 0.5rem;
+  opacity: 0.6;
+}
+
+/* Purple/Lavender styling for note admonitions */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #9370DB;
+  background-color: rgba(147, 112, 219, 0.08);
+}
+
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+  background-color: rgba(147, 112, 219, 0.15);
+  border-color: #9370DB;
+}
+
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before {
+  background-color: #9370DB;
+}

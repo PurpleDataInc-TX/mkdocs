@@ -1,0 +1,2251 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://doc.cloudpi.ai/Financials/">
+      
+      
+        <link rel="prev" href="../CloudPiOptimisations/">
+      
+      
+        <link rel="next" href="../CostTypes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Financials - Cloudpi AI User Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#budget-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #f3e5ff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+<!-- Hidden element required by Material theme JS -->
+<header class="md-header" data-md-component="header" style="display:none;">
+  <div data-md-component="header-title"></div>
+</header>
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/cp-logo.png" alt="CloudPi AI" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://cloudpi.ai/">HOME</a></li>
+      <li><a href="https://cloudpi.ai/">FEATURES</a></li>
+      <li><a href="https://cloudpi.ai/">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://cloudpi.ai/">SOLUTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">BLOG</a></li>
+      <li><a href="https://cloudpi.ai/">FAQ</a></li>
+      <li><a href="../">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
+    <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="GettingStarted/"><i class="fa fa-rocket" aria-hidden="true"></i> Getting Started</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="AlertsNotifications/"><i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications</a></li>
+    
+    <li><a href="AdminSetting/"><i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings</a></li>
+    
+    <li><a href="GlobalPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub</a></li>
+    
+    <li><a href="ProviderConnections/"><i class="fa fa-plug" aria-hidden="true"></i> Provider Connections</a></li>
+    
+    <li><a href="ConnectAWS/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS</a></li>
+    
+    <li><a href="ConnectAzure/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure</a></li>
+    
+    <li><a href="ConnectGCP/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP</a></li>
+    
+    <li><a href="CloudOnboarding/"><i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="Financials/"><i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials</a></li>
+    
+    <li><a href="CostTypes/"><i class="fa fa-coins" aria-hidden="true"></i> Cost Types</a></li>
+    
+    <li><a href="CostAssignment/"><i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="IntegrationsCatalog/"><i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog</a></li>
+    
+    <li><a href="SSOSetup/"><i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup</a></li>
+    
+    <li><a href="AutomationOverview/"><i class="fa fa-magic" aria-hidden="true"></i> Automation Overview</a></li>
+    
+    <li><a href="AutomationPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows</a></li>
+    
+    <li><a href="PolicyYAMLSync/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync</a></li>
+    
+    <li><a href="AutomationVMScheduler/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler</a></li>
+    
+    <li><a href="ServiceAccounts/"><i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts</a></li>
+    
+    <li><a href="UserManagement/"><i class="fa fa-users" aria-hidden="true"></i> User Management</a></li>
+    
+    <li><a href="TaskManagement/"><i class="fa fa-tasks" aria-hidden="true"></i> Task Management</a></li>
+    
+    <li><a href="Ticketing/"><i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing</a></li>
+    
+    <li><a href="Troubleshooting/"><i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting</a></li>
+    
+    <li><a href="Glossary/"><i class="fa fa-book" aria-hidden="true"></i> Glossary</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  if (!menuToggle) return;
+
+  var collapsedKey = "md-primary-sidebar-collapsed";
+  var isDesktop = function() {
+    return window.matchMedia && window.matchMedia("(min-width: 76.25em)").matches;
+  };
+
+  var setCollapsed = function(collapsed) {
+    document.body.classList.toggle("md-primary-sidebar-collapsed", collapsed);
+    try {
+      localStorage.setItem(collapsedKey, collapsed ? "1" : "0");
+    } catch (e) {}
+  };
+
+  var initialCollapsed = false;
+  try {
+    initialCollapsed = localStorage.getItem(collapsedKey) === "1";
+  } catch (e) {}
+
+  if (isDesktop()) setCollapsed(initialCollapsed);
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+
+    if (isDesktop()) {
+      setCollapsed(!document.body.classList.contains("md-primary-sidebar-collapsed"));
+      return;
+    }
+
+    var drawer = document.getElementById("__drawer");
+    if (drawer && drawer.type === "checkbox") {
+      drawer.checked = !drawer.checked;
+      return;
+    }
+
+    if (slideMenu) slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it (mobile only)
+  document.addEventListener("click", function(e) {
+    if (isDesktop() || !slideMenu) return;
+
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected (mobile only)
+  if (slideMenu) {
+    slideMenu.querySelectorAll("a").forEach(function(item) {
+      item.addEventListener("click", function() {
+        slideMenu.classList.remove("open");
+      });
+    });
+  }
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloudpi AI User Guide" class="md-nav__button md-logo" aria-label="Cloudpi AI User Guide" data-md-component="logo">
+      
+  <img src="../images/cp-logo.png" alt="logo">
+
+    </a>
+    Cloudpi AI User Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-info-circle"></i>  Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-rocket" aria-hidden="true"></i> Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-universal-access"></i> RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-wrench"></i> Workspace Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlertsNotifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AdminSetting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlobalPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiCloudBillingHub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProviderConnections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-plug" aria-hidden="true"></i> Provider Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAzure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectGCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudOnboarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-menu-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Menu Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budgets-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budgets Menu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Budgets Menu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-cards-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Cards Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budget-summary-line-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget Summary Line Chart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budget-management-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget Management Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-new-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a New Budget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a New Budget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#form-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Form Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-a-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing a Budget
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lockunlock-budgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lock/Unlock Budgets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forecast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forecast
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forecast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forecast-summary-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forecast Summary Cards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forecast-table-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forecast Table Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-forecast-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing Forecast Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-forecasts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing Forecasts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forecast-approval-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forecast Approval Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-logs-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change Logs Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-coins" aria-hidden="true"></i> Cost Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostAssignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntegrationsCatalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSOSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationOverview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PolicyYAMLSync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationVMScheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ServiceAccounts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-users" aria-hidden="true"></i> User Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TaskManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tasks" aria-hidden="true"></i> Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-book" aria-hidden="true"></i> Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-menu-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Menu Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budgets-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budgets Menu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Budgets Menu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-cards-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Cards Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budget-summary-line-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget Summary Line Chart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budget-management-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget Management Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-new-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a New Budget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a New Budget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#form-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Form Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-a-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing a Budget
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lockunlock-budgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lock/Unlock Budgets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forecast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forecast
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forecast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forecast-summary-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forecast Summary Cards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forecast-table-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forecast Table Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-forecast-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing Forecast Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-forecasts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing Forecasts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forecast-approval-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forecast Approval Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-logs-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change Logs Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+
+<h1 id="budget-management">Budget Management</h1>
+<h2 id="overview">Overview</h2>
+<p>The Budget Management module allows users to manage cloud budgets effectively, monitor spending, set forecast projections, and adjust budgets and forecasts as necessary. This module integrates multiple levels of data, such as projects, subaccounts, and tags, and provides granular control over budget thresholds, alerts, and forecast requests.</p>
+<h3 id="key-features">Key Features</h3>
+<ol>
+<li>Create and Manage Cloud Budgets</li>
+<li>Scope Budgets by Project, Subaccounts, and Tags</li>
+<li>Monitor Actual vs. Budgeted Spend vs. Forecast vs. Projected</li>
+<li>Forecast Support at Project Level</li>
+<li>Alert and Notification System for Threshold Breaches</li>
+<li>Lock and Unlock Budgets</li>
+<li>Request and Approve for forecast</li>
+</ol>
+<hr>
+<h2 id="main-menu-structure">Main Menu Structure</h2>
+<p>The Financials section is the main menu for budget management, with two submenus: Budgets and Forecasts.</p>
+<hr>
+<h2 id="budgets-menu">Budgets Menu</h2>
+<p>The Budgets page provides an overview of all budget details across various projects.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Budget1.png" data-desc-position="bottom"><img alt="Budgets Overview" src="../images/Budget1.png"></a></p>
+<h3 id="top-cards-overview">Top Cards Overview</h3>
+<p>At the top of the page, four key cards provide quick insights into the overall financial status:</p>
+<p><strong>Total Budget</strong> - Displays the total budget across all projects</p>
+<p><strong>Total Spend</strong> - Displays the total spending for the selected period</p>
+<p><strong>Total Forecast</strong> - Shows the total forecasted budget across all projects</p>
+<p><strong>Total Projected Cost</strong> - Displays the total projected cost for the budget</p>
+<h3 id="budget-summary-line-chart">Budget Summary Line Chart</h3>
+<p>Below the cards, a line chart displays the following data across fiscal months:</p>
+<p><strong>Spend (Green Line)</strong> - Represents actual spend data</p>
+<p><strong>Forecast (Yellow Line)</strong> - Represents the forecasted spend data</p>
+<p><strong>Budget (Blue Line)</strong> - Displays the allocated budget</p>
+<p>This chart gives a visual comparison of the actual spend, forecasted spend, and the total allocated budget for the entire year across all projects.</p>
+<h3 id="filtering-options">Filtering Options</h3>
+<p>You can filter the budget details by selecting:</p>
+<p><strong>Projects</strong> - Filter by one or more projects</p>
+<p><strong>Organizations</strong> - Filter based on different organizations</p>
+<p><strong>Project Groups</strong> - Filter based on specific project groups</p>
+<p>These filters enable users to view budget data at different levels, making it easier to analyze spending patterns for multiple projects or organizations.</p>
+<h3 id="budget-management-table">Budget Management Table</h3>
+<p>Below the chart, there is a table that displays detailed budget information for each project:</p>
+<p><strong>Project Name</strong> - Name of the project</p>
+<p><strong>Budget Name</strong> - Identifier for the budget</p>
+<p><strong>Budget Period</strong> - Annual or Quarterly</p>
+<p><strong>Allocated Budget</strong> - Total budget amount allocated</p>
+<p><strong>Threshold</strong> - The percentage threshold set for budget alerts</p>
+<p><strong>Actions</strong> - Options to View, Lock, or Unlock the budget</p>
+<hr>
+<h2 id="actions">Actions</h2>
+<p>The Actions column provides options for interacting with the budget details. Based on user permissions, the following actions will be available:</p>
+<h3 id="view">View</h3>
+<p>Clicking the <strong>View</strong> icon expands the row to display detailed information about the budget. This view includes:</p>
+<p><strong>Allocated Budget</strong> - The total budget allocated for the project, broken down by month or period</p>
+<p><strong>Used Budget</strong> - The amount that has been spent so far within the budgeted period</p>
+<p><strong>Forecast</strong> - The forecasted spend for the project, including any adjustments made for future periods</p>
+<p><strong>Threshold</strong> - The alert threshold percentage, indicating the point at which an alert is triggered based on actual spend</p>
+<p><strong>Alert Notifications</strong> - The email addresses set to receive alerts when the budget threshold is reached</p>
+<p>After clicking View, you will see a detailed breakdown of the project's budget, showing both used budget and forecasted spend over the course of the budget period. This view allows users to track how close the project is to exceeding its allocated budget.</p>
+<hr>
+<h2 id="creating-a-new-budget">Creating a New Budget</h2>
+<p>To create a new budget, click the <strong>Create</strong> icon. This will open the Create Budget form, where you must provide the following details:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/CreateBudget.png" data-desc-position="bottom"><img alt="Create Budget" src="../images/CreateBudget.png"></a></p>
+<h3 id="form-fields">Form Fields</h3>
+<p><strong>Budget Name</strong> - Enter a unique and identifiable name for your budget (e.g., Budget_Beta, Project_Alpha_Budget)</p>
+<p><strong>Project</strong> - Select the project this budget will be associated with from the dropdown list (e.g., TestProject_Demo, Project_Data)</p>
+<p><strong>Period</strong> - Choose the budget cycle – either Annually or Quarterly</p>
+<p><strong>Start Date</strong> - Select the month and year when the budget period should begin (e.g., June 2025)</p>
+<p><strong>Allocated Budget ($)</strong> - Input the total amount allocated for the selected period (e.g., $120,000)</p>
+<p><strong>Escalation Type</strong> - The Escalation Type allows defining how forecast approvals should be automatically escalated — either based on a percentage of the total forecast or an absolute amount</p>
+<p><strong>Escalation Value ($ or %)</strong> - The Escalation Value represents the threshold limit up to which the forecast request can be auto-approved without requiring manual intervention</p>
+<p>For example:
+- A 70% escalation value means requests within 70% of the approved forecast will be auto-approved
+- A $50,000 escalation value means any request within this amount will not require manual escalation</p>
+<p>This mechanism helps streamline approvals, reduce delays, and ensure faster processing of routine forecast changes within acceptable risk limits.</p>
+<p>Once all fields are filled, click the <strong>Create Budget</strong> button. The new budget will be added to the system and made available for tracking and management.</p>
+<hr>
+<h2 id="editing-a-budget">Editing a Budget</h2>
+<p>After creating a budget, you can update it by clicking the <strong>Edit</strong> icon. The form will open pre-filled with existing values, allowing you to modify:</p>
+<p><strong>Budget Name</strong> - Change the budget identifier (e.g., Change Budget_Beta to Updated_Budget_Beta)</p>
+<p><strong>Period</strong> - Change the budget cycle (e.g., Change from Annual to Quarterly)</p>
+<p><strong>Escalation Type and Value</strong> - Update escalation settings (e.g., Change to Amount, set value to $100,000)</p>
+<p>Click the <strong>Update</strong> button to save the changes.</p>
+<hr>
+<h2 id="lockunlock-budgets">Lock/Unlock Budgets</h2>
+<p>The lock/unlock feature ensures budget integrity:</p>
+<p><strong>Locking</strong> - Prevents any changes to the budget or forecast. Ideal for finalized budgets.</p>
+<p><strong>Unlocking</strong> - Allows editing if required by authorized users.</p>
+<hr>
+<h2 id="forecast">Forecast</h2>
+<p>The Forecast module helps organizations proactively manage cloud budgets by tracking allocated budgets, forecasts, and actual spend across projects. It provides a detailed, month-wise breakdown and allows users to request and approve forecast changes.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Forecast.png" data-desc-position="bottom"><img alt="Forecast Summary" src="../images/Forecast.png"></a></p>
+<h3 id="forecast-summary-cards">Forecast Summary Cards</h3>
+<p>At the top of the Forecast page, you'll see high-level budget metrics:</p>
+<p><strong>Total Allocated Budget</strong> - Total budget assigned across all projects</p>
+<p><strong>Total Budget Spend</strong> - Actual cloud spend till date</p>
+<p><strong>Total Forecast</strong> - Sum of forecasted costs for all projects</p>
+<p><strong>Total Projected</strong> - Placeholder for projected spend (currently $0)</p>
+<p><strong>Requested Forecast Change</strong> - Total forecast change currently under review</p>
+<p><strong>Variance</strong> - Difference between budget and actual spend (negative values indicate overspending)</p>
+<p>These indicators give you instant visibility into how well your organization is tracking against budget.</p>
+<h3 id="forecast-table-overview">Forecast Table Overview</h3>
+<p>Below the summary cards is a table listing all active projects. For each project, the following fields are displayed:</p>
+<p><strong>Project Name</strong> - Name of the cloud project (e.g., CPDev, NPDDev)</p>
+<p><strong>Budget (Yr)</strong> - Total yearly budget allocated</p>
+<p><strong>Forecast (Yr)</strong> - Total forecast amount for the year</p>
+<p><strong>Forecast Change</strong> - Status showing if any forecast modifications were requested</p>
+<p><strong>Start Date</strong> - When the budget period begins</p>
+<p><strong>Actions</strong> - Options to view detailed monthly forecast data and submit change requests</p>
+<p>You can also use filters and pagination to search for specific projects.</p>
+<h3 id="viewing-forecast-details">Viewing Forecast Details</h3>
+<p>Click the ellipsis icon (···) under Actions for a project and select <strong>View Forecast</strong>. This expands the row and displays detailed forecast data for each month.</p>
+<p>The detailed forecast section shows:</p>
+<p><strong>Budget</strong> - Monthly allocation based on the total annual budget</p>
+<p><strong>Spend</strong> - Actual cloud spend for each month</p>
+<p><strong>Forecast</strong> - Current monthly forecast values</p>
+<p><strong>Variance</strong> - The difference between forecast and spend. Positive variance is shown in green, while overspending is shown in red.</p>
+<p><strong>Requested Change</strong> - Any pending forecast change requests</p>
+<p><strong>New Forecast ($)</strong> - Updated forecast values that will apply once the change is approved</p>
+<p>At the far right, the <strong>Total</strong> column aggregates each row's data for the year.</p>
+<h3 id="editing-forecasts">Editing Forecasts</h3>
+<p>Project Admin can submit a forecast change by editing the "New Forecast ($)" field and providing a reason. After clicking <strong>Save Forecast</strong>, the change request is sent for approval.</p>
+<h3 id="forecast-approval-workflow">Forecast Approval Workflow</h3>
+<p>Once a forecast change is submitted:</p>
+<ol>
+<li>Workspace Admins/Users receive a notification to review the request</li>
+<li>They can either <strong>Approve</strong> or <strong>Reject</strong> the change</li>
+<li>A comment or reason is required for any approval or rejection</li>
+<li>Once approved, the forecast is updated and reflected in both the table and summary metrics</li>
+</ol>
+<h3 id="change-logs-tab">Change Logs Tab</h3>
+<p>Alongside the Forecast Changes tab, you will find the <strong>Change Logs</strong> tab. This section records the entire history of forecast changes.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Forecast1.png" data-desc-position="bottom"><img alt="Forecast Change Logs" src="../images/Forecast1.png"></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <footer class="md-footer cp-footer" role="contentinfo">
+  <div class="cp-footer__inner">
+    <div class="cp-footer__brand">
+      <p class="cp-footer__tagline">Multi Cloud Cost Governance Platform.</p>
+
+      <div class="cp-footer__cta">
+        <a class="cp-footer__button" href="https://cloudpi.ai/" target="_blank" rel="noopener">Schedule Demo</a>
+      </div>
+
+      <p class="cp-footer__email"><a href="mailto:contact@cloudpi.ai">contact@cloudpi.ai</a></p>
+
+      <div class="cp-footer__social">
+        <a href="https://www.youtube.com/@purpledatainc." target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech" target="_blank" rel="noopener" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <p class="cp-footer__copyright">© 2026 CloudPi. All rights reserved.</p>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Product</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Features</a>
+      <a class="cp-footer__link" href="../Integrations/">Integrations</a>
+      <a class="cp-footer__link" href="../TaskManagement/">Workflow</a>
+      <a class="cp-footer__link" href="../security/">Security</a>
+      <a class="cp-footer__link" href="../Automations/">Automation</a>
+      <a class="cp-footer__link" href="../CloudPiOptimisations/">Gen AI</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Resources</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Solutions</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Case Studies</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Blogs</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Faq</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Videos</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Company</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">About Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">News &amp; Updates</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Careers</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Contact Us</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Demo</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Trail</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/?heading=Register+Now" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+
+  <div class="cp-footer__bottom">
+    <div class="cp-footer__bottom-inner">
+      <div class="cp-footer__bottom-links">
+        <a href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <span class="cp-footer__sep">|</span>
+        <a href="https://cloudpi.ai/" target="_blank" rel="noopener">cloudpi.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

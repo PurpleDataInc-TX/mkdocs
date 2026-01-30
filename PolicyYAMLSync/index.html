@@ -1,0 +1,3003 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://doc.cloudpi.ai/PolicyYAMLSync/">
+      
+      
+        <link rel="prev" href="../AutomationPolicies/">
+      
+      
+        <link rel="next" href="../AutomationVMScheduler/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>&nbsp;&nbsp;&nbsp;&nbsp; Policy YAML Sync - Cloudpi AI User Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#policy-management-yaml-sync" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #f3e5ff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+<!-- Hidden element required by Material theme JS -->
+<header class="md-header" data-md-component="header" style="display:none;">
+  <div data-md-component="header-title"></div>
+</header>
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/cp-logo.png" alt="CloudPi AI" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://cloudpi.ai/">HOME</a></li>
+      <li><a href="https://cloudpi.ai/">FEATURES</a></li>
+      <li><a href="https://cloudpi.ai/">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://cloudpi.ai/">SOLUTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">BLOG</a></li>
+      <li><a href="https://cloudpi.ai/">FAQ</a></li>
+      <li><a href="../">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
+    <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="GettingStarted/"><i class="fa fa-rocket" aria-hidden="true"></i> Getting Started</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="AlertsNotifications/"><i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications</a></li>
+    
+    <li><a href="AdminSetting/"><i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings</a></li>
+    
+    <li><a href="GlobalPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub</a></li>
+    
+    <li><a href="ProviderConnections/"><i class="fa fa-plug" aria-hidden="true"></i> Provider Connections</a></li>
+    
+    <li><a href="ConnectAWS/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS</a></li>
+    
+    <li><a href="ConnectAzure/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure</a></li>
+    
+    <li><a href="ConnectGCP/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP</a></li>
+    
+    <li><a href="CloudOnboarding/"><i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="Financials/"><i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials</a></li>
+    
+    <li><a href="CostTypes/"><i class="fa fa-coins" aria-hidden="true"></i> Cost Types</a></li>
+    
+    <li><a href="CostAssignment/"><i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="IntegrationsCatalog/"><i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog</a></li>
+    
+    <li><a href="SSOSetup/"><i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup</a></li>
+    
+    <li><a href="AutomationOverview/"><i class="fa fa-magic" aria-hidden="true"></i> Automation Overview</a></li>
+    
+    <li><a href="AutomationPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows</a></li>
+    
+    <li><a href="PolicyYAMLSync/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync</a></li>
+    
+    <li><a href="AutomationVMScheduler/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler</a></li>
+    
+    <li><a href="ServiceAccounts/"><i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts</a></li>
+    
+    <li><a href="UserManagement/"><i class="fa fa-users" aria-hidden="true"></i> User Management</a></li>
+    
+    <li><a href="TaskManagement/"><i class="fa fa-tasks" aria-hidden="true"></i> Task Management</a></li>
+    
+    <li><a href="Ticketing/"><i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing</a></li>
+    
+    <li><a href="Troubleshooting/"><i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting</a></li>
+    
+    <li><a href="Glossary/"><i class="fa fa-book" aria-hidden="true"></i> Glossary</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  if (!menuToggle) return;
+
+  var collapsedKey = "md-primary-sidebar-collapsed";
+  var isDesktop = function() {
+    return window.matchMedia && window.matchMedia("(min-width: 76.25em)").matches;
+  };
+
+  var setCollapsed = function(collapsed) {
+    document.body.classList.toggle("md-primary-sidebar-collapsed", collapsed);
+    try {
+      localStorage.setItem(collapsedKey, collapsed ? "1" : "0");
+    } catch (e) {}
+  };
+
+  var initialCollapsed = false;
+  try {
+    initialCollapsed = localStorage.getItem(collapsedKey) === "1";
+  } catch (e) {}
+
+  if (isDesktop()) setCollapsed(initialCollapsed);
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+
+    if (isDesktop()) {
+      setCollapsed(!document.body.classList.contains("md-primary-sidebar-collapsed"));
+      return;
+    }
+
+    var drawer = document.getElementById("__drawer");
+    if (drawer && drawer.type === "checkbox") {
+      drawer.checked = !drawer.checked;
+      return;
+    }
+
+    if (slideMenu) slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it (mobile only)
+  document.addEventListener("click", function(e) {
+    if (isDesktop() || !slideMenu) return;
+
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected (mobile only)
+  if (slideMenu) {
+    slideMenu.querySelectorAll("a").forEach(function(item) {
+      item.addEventListener("click", function() {
+        slideMenu.classList.remove("open");
+      });
+    });
+  }
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloudpi AI User Guide" class="md-nav__button md-logo" aria-label="Cloudpi AI User Guide" data-md-component="logo">
+      
+  <img src="../images/cp-logo.png" alt="logo">
+
+    </a>
+    Cloudpi AI User Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-info-circle"></i>  Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-rocket" aria-hidden="true"></i> Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-universal-access"></i> RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-wrench"></i> Workspace Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlertsNotifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AdminSetting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlobalPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiCloudBillingHub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProviderConnections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-plug" aria-hidden="true"></i> Provider Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAzure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectGCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudOnboarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Financials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-coins" aria-hidden="true"></i> Cost Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostAssignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntegrationsCatalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSOSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationOverview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#who-is-this-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Is This For?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Who Is This For?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Begin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before You Begin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-provider-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Provider Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Feature Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Guides
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-cloud-storage-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure Cloud Storage Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure Cloud Storage Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-policies-from-cloud-to-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Policies from Cloud to Database
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sync Policies from Cloud to Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-during-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Happens During Sync
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-policy-yaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download Policy YAML File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Download Policy YAML File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-sync-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Sync Status
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="View Sync Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Indicators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-error-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Error Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#behavior-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Behavior Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Behavior Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yaml-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAML File Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-status-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Status States
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-faqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting &amp; FAQs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting &amp; FAQs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sync-fails-with-validation-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Fails with Validation Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-management-not-configured-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Policy Management not configured" Message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credentials-test-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credentials Test Fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAML File Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-not-appearing-after-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules Not Appearing After Sync
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-revert-to-a-previous-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I revert to a previous version?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-multiple-users-sync-simultaneously" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can multiple users sync simultaneously?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-if-sync-fails-mid-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens if sync fails mid-operation?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-delete-a-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I delete a policy?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-security-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release &amp; Security Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Release &amp; Security Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audit-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credential-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credential Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownership-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ownership Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-guarantees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Guarantees
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationVMScheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ServiceAccounts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-users" aria-hidden="true"></i> User Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TaskManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tasks" aria-hidden="true"></i> Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-book" aria-hidden="true"></i> Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#who-is-this-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Is This For?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Who Is This For?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Begin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before You Begin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-provider-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Provider Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Feature Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Guides
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-cloud-storage-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure Cloud Storage Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure Cloud Storage Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-policies-from-cloud-to-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Policies from Cloud to Database
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sync Policies from Cloud to Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-during-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Happens During Sync
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-policy-yaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download Policy YAML File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Download Policy YAML File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-sync-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Sync Status
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="View Sync Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Indicators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-error-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Error Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#behavior-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Behavior Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Behavior Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yaml-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAML File Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-status-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Status States
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-faqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting &amp; FAQs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting &amp; FAQs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sync-fails-with-validation-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Fails with Validation Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-management-not-configured-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Policy Management not configured" Message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credentials-test-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credentials Test Fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAML File Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-not-appearing-after-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules Not Appearing After Sync
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-revert-to-a-previous-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I revert to a previous version?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-multiple-users-sync-simultaneously" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can multiple users sync simultaneously?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-if-sync-fails-mid-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens if sync fails mid-operation?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-delete-a-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I delete a policy?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-security-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release &amp; Security Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Release &amp; Security Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audit-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credential-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credential Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownership-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ownership Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-guarantees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Guarantees
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+
+<h1 id="policy-management-yaml-sync">Policy Management YAML Sync</h1>
+<p>Manage CloudPi policy configurations through YAML files stored in cloud storage. Sync policies from cloud storage and download policy YAML files for review.</p>
+<hr>
+<h2 id="who-is-this-for">Who Is This For?</h2>
+<p>This guide is for users who need to:</p>
+<ul>
+<li><strong>Workspace Admins</strong> - Configure cloud storage integration and manage workspace-wide policy sync settings</li>
+<li><strong>Project Admins</strong> - Sync and download policy YAML files for their projects</li>
+<li><strong>Project Users</strong> - View sync status and understand validation errors</li>
+</ul>
+<h3 id="required-permissions">Required Permissions</h3>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspace Admin</td>
+<td>Configure cloud integration, manage workspace policies</td>
+</tr>
+<tr>
+<td>Project Admin</td>
+<td>Sync policies, download YAML, view errors</td>
+</tr>
+<tr>
+<td>Project User</td>
+<td>View sync status, view validation errors</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="before-you-begin">Before You Begin</h2>
+<p>Before using Policy Management YAML Sync, ensure:</p>
+<ul>
+<li>[ ] <strong>Cloud storage is ready</strong> - You have an AWS S3 bucket, Azure Blob container, or GCP Cloud Storage bucket created</li>
+<li>[ ] <strong>Credentials are available</strong> - You have access keys, connection strings, or service account JSON for your cloud provider</li>
+<li>[ ] <strong>Appropriate permissions granted</strong> - Your cloud credentials have read/write access to the storage location</li>
+<li>[ ] <strong>Policies exist</strong> - At least one policy is attached to your project</li>
+</ul>
+<h3 id="cloud-provider-requirements">Cloud Provider Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Required Credentials</th>
+<th>Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS S3</td>
+<td>Access Key ID, Secret Access Key, Region, Bucket Name</td>
+<td>Folder Path, Role ARN (cross-account)</td>
+</tr>
+<tr>
+<td>Azure Blob</td>
+<td>Tenant ID, Client ID, Client Secret, Storage Account, Container</td>
+<td>Folder Path</td>
+</tr>
+<tr>
+<td>GCP Storage</td>
+<td>Service Account JSON, Bucket Name</td>
+<td>Folder Path</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="feature-overview">Feature Overview</h2>
+<p>Policy Management YAML Sync enables you to manage CloudPi policies as code. Each project has <strong>one YAML file</strong> containing all its workflows, rules, and actions. You can:</p>
+<ul>
+<li><strong>Sync policies from cloud</strong> - Import policy configurations from cloud storage</li>
+<li><strong>Download policies</strong> - Get a local copy of your policy YAML file for review</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>+-------------------+                      +-------------------+
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|     CloudPi       |  &lt;---- Sync ----&gt;    |   Cloud Storage   |
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>|     Database      |                      |   (YAML Files)    |
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+-------------------+                      +-------------------+
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>         |                                          |
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>         |  - Workflows                             |  - One file per project
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>         |  - Rules                                 |  - Version control
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         |  - Actions                               |  - External editing
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>         +------------------------------------------+
+</code></pre></div>
+<h3 id="key-capabilities">Key Capabilities</h3>
+<ul>
+<li><strong>Cloud-to-Database Sync</strong> - Import YAML policy files from cloud storage into CloudPi</li>
+<li><strong>7-Layer Validation</strong> - Comprehensive validation before any sync operation</li>
+<li><strong>Multi-Cloud Support</strong> - Works with AWS S3, Azure Blob Storage, and GCP Cloud Storage</li>
+<li><strong>Download Policies</strong> - Download policy YAML files for local review or backup</li>
+</ul>
+<hr>
+<h2 id="step-by-step-guides">Step-by-Step Guides</h2>
+<h3 id="configure-cloud-storage-integration">Configure Cloud Storage Integration</h3>
+<p>Set up the connection between CloudPi and your cloud storage provider.</p>
+<p><strong>Goal</strong>: Enable YAML sync for your workspace by configuring cloud storage credentials.</p>
+<h4 id="steps">Steps</h4>
+<ol>
+<li>
+<p>Navigate to <strong>Admin Settings</strong> &gt; <strong>Integration</strong></p>
+</li>
+<li>
+<p>Locate the <strong>Policy Management</strong> card</p>
+</li>
+<li>
+<p>Click <strong>Configure</strong></p>
+</li>
+<li>
+<p>Select your cloud provider (AWS, Azure, or GCP)</p>
+</li>
+<li>
+<p>Enter your credentials:</p>
+<p><strong>For AWS S3:</strong> Access Key ID, Secret Access Key, Region, Bucket Name, Folder Path (optional)</p>
+<p><strong>For Azure Blob:</strong> Tenant ID, Client ID, Client Secret, Storage Account Name, Container Name, Folder Path (optional)</p>
+<p><strong>For GCP Storage:</strong> Upload Service Account JSON file OR paste manually, Bucket Name, Folder Path (optional)</p>
+</li>
+<li>
+<p>Click <strong>Test Connection</strong> to verify access</p>
+</li>
+<li>
+<p>Click <strong>Save</strong> to complete configuration</p>
+</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/policy-yaml-config.png" data-desc-position="bottom"><img alt="Policy Management Configuration" src="../images/policy-yaml-config.png"></a></p>
+<p><strong>Expected Outcome</strong>: A green checkmark appears with "Policy Management is connected and active."</p>
+<hr>
+<h3 id="sync-policies-from-cloud-to-database">Sync Policies from Cloud to Database</h3>
+<p>Import policy changes from your YAML files in cloud storage.</p>
+<p><strong>Goal</strong>: Apply external YAML changes to CloudPi's database.</p>
+<h4 id="steps_1">Steps</h4>
+<ol>
+<li>
+<p>Navigate to <strong>Automation</strong> &gt; <strong>Policy and Workflow</strong></p>
+</li>
+<li>
+<p>Click the <strong>Sync</strong> button in the toolbar</p>
+</li>
+<li>
+<p>Click <strong>Sync policies from cloud storage</strong></p>
+</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/policy-yaml-sync.png" data-desc-position="bottom"><img alt="Policy and Workflow" src="../images/policy-yaml-sync.png"></a></p>
+<p><strong>Expected Outcome</strong>: The sync status updates to show "Last synced: [timestamp]" with a green checkmark. Database workflows, rules, and actions reflect the YAML file contents.</p>
+<div class="admonition warning">
+<p class="admonition-title">Validation Required</p>
+<p>If the YAML file contains validation errors, the sync will fail. Review the error details and fix the YAML file before retrying.</p>
+</div>
+<h4 id="what-happens-during-sync">What Happens During Sync</h4>
+<ol>
+<li>CloudPi downloads the highest-version YAML file from cloud storage</li>
+<li>The 7-layer validation pipeline checks the file</li>
+<li>Workflows are created or updated in the database</li>
+<li>Rules are synchronized (created/updated/deleted)</li>
+<li>Actions are linked to rules</li>
+<li>If new rules were created, the YAML is auto-updated with assigned IDs</li>
+</ol>
+<hr>
+<h3 id="download-policy-yaml-file">Download Policy YAML File</h3>
+<p>Download the current YAML file for local review or sharing.</p>
+<p><strong>Goal</strong>: Get a local copy of your policy configuration.</p>
+<h4 id="steps_2">Steps</h4>
+<ol>
+<li>
+<p>Navigate to <strong>Automation</strong> &gt; <strong>Policy and Workflow</strong></p>
+</li>
+<li>
+<p>Click the <strong>Download</strong> button</p>
+</li>
+<li>
+<p>The browser downloads the YAML file</p>
+</li>
+</ol>
+<p><strong>Expected Outcome</strong>: A file named <code>project_{id}_{name}.yaml</code> is downloaded to your local machine.</p>
+<hr>
+<h3 id="view-sync-status">View Sync Status</h3>
+<p>Monitor the current state of policy synchronization.</p>
+<p><strong>Goal</strong>: Understand whether policies are up-to-date.</p>
+<h4 id="status-indicators">Status Indicators</h4>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Green checkmark</td>
+<td>Success</td>
+<td>Policies synced successfully</td>
+</tr>
+<tr>
+<td>Orange warning</td>
+<td>Partial Success</td>
+<td>Sync completed with warnings</td>
+</tr>
+<tr>
+<td>Red error</td>
+<td>Failed</td>
+<td>Sync failed due to validation errors</td>
+</tr>
+</tbody>
+</table>
+<h4 id="view-error-details">View Error Details</h4>
+<ol>
+<li>
+<p>Click <strong>View Details</strong> on an error or warning status</p>
+</li>
+<li>
+<p>The error modal displays: Error category, Specific field with issue, Human-readable error message, Suggested fix</p>
+</li>
+</ol>
+<hr>
+<h2 id="behavior-reference">Behavior Reference</h2>
+<h3 id="yaml-file-structure">YAML File Structure</h3>
+<p>Each project has one YAML file with all its policies:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">project_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">123</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">project_name</span><span class="p">:</span><span class="w"> </span><span class="s">"production-aws"</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">workspace_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">timestamp</span><span class="p">:</span><span class="w"> </span><span class="s">"2025-01-15T10:30:00Z"</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nt">workflows</span><span class="p">:</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">workflow_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">456</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"idle-ec2-policy"</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"Monitor</span><span class="nv"> </span><span class="s">idle</span><span class="nv"> </span><span class="s">EC2</span><span class="nv"> </span><span class="s">instances"</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="s">"APRV"</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nt">policy_json</span><span class="p">:</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"idle-instances-ec2"</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="s">"aws"</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="nt">service_name</span><span class="p">:</span><span class="w"> </span><span class="s">"ec2"</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="nt">classification</span><span class="p">:</span><span class="w"> </span><span class="s">"optimization"</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="nt">filter</span><span class="p">:</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="nt">and</span><span class="p">:</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">field</span><span class="p">:</span><span class="w"> </span><span class="s">"cpu_utilization_avg"</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">            </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="s">"lessThan"</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">            </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="nt">rules</span><span class="p">:</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">rule_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">789</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="nt">rule_json</span><span class="p">:</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">          </span><span class="nt">event</span><span class="p">:</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">            </span><span class="nt">params</span><span class="p">:</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">              </span><span class="nt">action</span><span class="p">:</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">actionId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">                  </span><span class="nt">ordernum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">                  </span><span class="nt">instance_values</span><span class="p">:</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">                    </span><span class="nt">emailId</span><span class="p">:</span><span class="w"> </span><span class="s">"team@company.com"</span>
+</code></pre></div>
+<h3 id="sync-status-states">Sync Status States</h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Database Field</th>
+<th>Description</th>
+<th>User Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUCCESS</td>
+<td><code>policy_sync_msg.status = 'success'</code></td>
+<td>Sync completed without issues</td>
+<td>None required</td>
+</tr>
+<tr>
+<td>PARTIAL_SUCCESS</td>
+<td><code>policy_sync_msg.status = 'partial_success'</code></td>
+<td>Sync completed with warnings</td>
+<td>Review warnings</td>
+</tr>
+<tr>
+<td>FAILED</td>
+<td><code>policy_sync_msg.status = 'failed'</code></td>
+<td>Sync blocked by validation errors</td>
+<td>Fix errors and retry</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td><code>policy_sync_msg = null</code></td>
+<td>No sync has occurred</td>
+<td>Configure integration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="version-management">Version Management</h3>
+<ul>
+<li>YAML files use versioned naming: <code>project_123_name_v1.yaml</code>, <code>v2</code>, <code>v3</code>...</li>
+<li>Cloud-to-database sync reads the highest version number</li>
+</ul>
+<hr>
+<h2 id="troubleshooting-faqs">Troubleshooting &amp; FAQs</h2>
+<h3 id="sync-fails-with-validation-errors">Sync Fails with Validation Errors</h3>
+<p><strong>Problem</strong>: The sync button shows red error status.</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Click <strong>View Details</strong> to see specific errors</li>
+<li>Common issues: Invalid YAML syntax (check indentation), Missing required fields (<code>name</code>, <code>provider</code>, <code>filter</code>), Invalid action references (actionId doesn't exist)</li>
+<li>Fix the errors in your YAML file</li>
+<li>Upload the corrected file to cloud storage</li>
+<li>Retry the sync</li>
+</ol>
+<h3 id="policy-management-not-configured-message">"Policy Management not configured" Message</h3>
+<p><strong>Problem</strong>: Sync operations are unavailable.</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Navigate to <strong>Admin Settings</strong> &gt; <strong>Integration</strong></li>
+<li>Configure Policy Management with your cloud credentials</li>
+<li>Test the connection before saving</li>
+</ol>
+<h3 id="credentials-test-fails">Credentials Test Fails</h3>
+<p><strong>Problem</strong>: "Test Connection" returns an error.</p>
+<p><strong>Common Causes</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access Denied</td>
+<td>Insufficient permissions</td>
+<td>Grant read/write access to bucket/container</td>
+</tr>
+<tr>
+<td>Bucket Not Found</td>
+<td>Wrong bucket name or region</td>
+<td>Verify bucket name and region</td>
+</tr>
+<tr>
+<td>Authentication Failed</td>
+<td>Invalid credentials</td>
+<td>Regenerate access keys or service account</td>
+</tr>
+<tr>
+<td>Network Error</td>
+<td>Firewall blocking</td>
+<td>Allow outbound HTTPS to cloud provider</td>
+</tr>
+</tbody>
+</table>
+<h3 id="yaml-file-not-found">YAML File Not Found</h3>
+<p><strong>Problem</strong>: Cloud-to-database sync reports no file.</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Verify the file exists in the correct bucket/container</li>
+<li>Check the folder path configuration matches the file location</li>
+<li>Ensure the file follows the naming pattern: <code>project_{id}_*.yaml</code></li>
+</ol>
+<h3 id="rules-not-appearing-after-sync">Rules Not Appearing After Sync</h3>
+<p><strong>Problem</strong>: Database shows fewer rules than the YAML file.</p>
+<p><strong>Possible Causes</strong>:</p>
+<ol>
+<li>Rules failed validation and were skipped</li>
+<li>Check the sync status for warnings</li>
+<li>Review the YAML for duplicate rule_id values</li>
+<li>Ensure each action has a valid actionId</li>
+</ol>
+<h3 id="how-do-i-revert-to-a-previous-version">How do I revert to a previous version?</h3>
+<p>Download the desired version from cloud storage, then sync from cloud to database. The system always reads the highest version, so you may need to delete newer versions or rename files.</p>
+<h3 id="can-multiple-users-sync-simultaneously">Can multiple users sync simultaneously?</h3>
+<p>Yes, but the last sync wins. CloudPi does not lock during sync operations. Coordinate with your team to avoid conflicting changes.</p>
+<h3 id="what-happens-if-sync-fails-mid-operation">What happens if sync fails mid-operation?</h3>
+<p>The database transaction rolls back. No partial changes are applied. The original state is preserved.</p>
+<h3 id="how-do-i-delete-a-policy">How do I delete a policy?</h3>
+<p>Remove the workflow block from the YAML file and sync. The system identifies workflows in the database but not in the YAML and reports them in the comparison report. Note: CloudPi does not auto-delete to prevent accidental data loss.</p>
+<hr>
+<h2 id="release-security-notes">Release &amp; Security Notes</h2>
+<h3 id="audit-logging">Audit Logging</h3>
+<p>All sync operations are logged with: User who initiated the sync, Timestamp, Sync direction, Success/failure status, Validation errors (if any).</p>
+<p>Access audit logs through <strong>Admin Settings</strong> &gt; <strong>Activity Log</strong>.</p>
+<h3 id="credential-security">Credential Security</h3>
+<ul>
+<li>Cloud credentials are encrypted at rest</li>
+<li>Credentials are never logged or exposed in error messages</li>
+<li>Use service accounts with minimal required permissions</li>
+</ul>
+<h3 id="ownership-validation">Ownership Validation</h3>
+<ul>
+<li>Users can only sync policies for projects they have access to</li>
+<li>Workspace admins can manage all workspace policies</li>
+<li>Cross-tenant access is prevented by design</li>
+</ul>
+<h3 id="validation-guarantees">Validation Guarantees</h3>
+<p>The 7-layer validation pipeline ensures:</p>
+<ul>
+<li>Invalid YAML syntax is rejected before database changes</li>
+<li>Malformed policies cannot corrupt the database</li>
+<li>Missing references (invalid actionId) are caught</li>
+<li>SQL injection in filter parameters is blocked</li>
+</ul>
+<hr>
+<h2 id="glossary">Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Policy</td>
+<td>A set of conditions that CloudPi monitors, such as idle resources or cost thresholds</td>
+</tr>
+<tr>
+<td>Workflow</td>
+<td>Automated actions triggered when policy conditions are met</td>
+</tr>
+<tr>
+<td>Rule</td>
+<td>A specific condition within a workflow, including service scope and actions</td>
+</tr>
+<tr>
+<td>YAML Sync</td>
+<td>Synchronization from cloud-stored YAML files to CloudPi database</td>
+</tr>
+<tr>
+<td>Validation Pipeline</td>
+<td>7-layer check that ensures YAML files are valid before sync</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="related-documentation">Related Documentation</h2>
+<ul>
+<li><a href="../Automations/">Automations</a> - Policy and workflow management overview</li>
+<li><a href="../workspace/">Workspace Settings</a> - User and integration management</li>
+<li><a href="../Integrations/">Integrations</a> - Cloud provider integration setup</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <footer class="md-footer cp-footer" role="contentinfo">
+  <div class="cp-footer__inner">
+    <div class="cp-footer__brand">
+      <p class="cp-footer__tagline">Multi Cloud Cost Governance Platform.</p>
+
+      <div class="cp-footer__cta">
+        <a class="cp-footer__button" href="https://cloudpi.ai/" target="_blank" rel="noopener">Schedule Demo</a>
+      </div>
+
+      <p class="cp-footer__email"><a href="mailto:contact@cloudpi.ai">contact@cloudpi.ai</a></p>
+
+      <div class="cp-footer__social">
+        <a href="https://www.youtube.com/@purpledatainc." target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech" target="_blank" rel="noopener" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <p class="cp-footer__copyright">© 2026 CloudPi. All rights reserved.</p>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Product</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Features</a>
+      <a class="cp-footer__link" href="../Integrations/">Integrations</a>
+      <a class="cp-footer__link" href="../TaskManagement/">Workflow</a>
+      <a class="cp-footer__link" href="../security/">Security</a>
+      <a class="cp-footer__link" href="../Automations/">Automation</a>
+      <a class="cp-footer__link" href="../CloudPiOptimisations/">Gen AI</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Resources</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Solutions</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Case Studies</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Blogs</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Faq</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Videos</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Company</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">About Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">News &amp; Updates</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Careers</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Contact Us</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Demo</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Trail</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/?heading=Register+Now" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+
+  <div class="cp-footer__bottom">
+    <div class="cp-footer__bottom-inner">
+      <div class="cp-footer__bottom-links">
+        <a href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <span class="cp-footer__sep">|</span>
+        <a href="https://cloudpi.ai/" target="_blank" rel="noopener">cloudpi.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

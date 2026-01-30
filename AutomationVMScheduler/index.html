@@ -1,0 +1,2501 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://doc.cloudpi.ai/AutomationVMScheduler/">
+      
+      
+        <link rel="prev" href="../PolicyYAMLSync/">
+      
+      
+        <link rel="next" href="../ServiceAccounts/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>&nbsp;&nbsp;&nbsp;&nbsp; VM Scheduler - Cloudpi AI User Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#virtual-machine-scheduler" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #f3e5ff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+<!-- Hidden element required by Material theme JS -->
+<header class="md-header" data-md-component="header" style="display:none;">
+  <div data-md-component="header-title"></div>
+</header>
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/cp-logo.png" alt="CloudPi AI" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://cloudpi.ai/">HOME</a></li>
+      <li><a href="https://cloudpi.ai/">FEATURES</a></li>
+      <li><a href="https://cloudpi.ai/">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://cloudpi.ai/">SOLUTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">BLOG</a></li>
+      <li><a href="https://cloudpi.ai/">FAQ</a></li>
+      <li><a href="../">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
+    <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="GettingStarted/"><i class="fa fa-rocket" aria-hidden="true"></i> Getting Started</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="AlertsNotifications/"><i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications</a></li>
+    
+    <li><a href="AdminSetting/"><i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings</a></li>
+    
+    <li><a href="GlobalPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub</a></li>
+    
+    <li><a href="ProviderConnections/"><i class="fa fa-plug" aria-hidden="true"></i> Provider Connections</a></li>
+    
+    <li><a href="ConnectAWS/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS</a></li>
+    
+    <li><a href="ConnectAzure/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure</a></li>
+    
+    <li><a href="ConnectGCP/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP</a></li>
+    
+    <li><a href="CloudOnboarding/"><i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="Financials/"><i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials</a></li>
+    
+    <li><a href="CostTypes/"><i class="fa fa-coins" aria-hidden="true"></i> Cost Types</a></li>
+    
+    <li><a href="CostAssignment/"><i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="IntegrationsCatalog/"><i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog</a></li>
+    
+    <li><a href="SSOSetup/"><i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup</a></li>
+    
+    <li><a href="AutomationOverview/"><i class="fa fa-magic" aria-hidden="true"></i> Automation Overview</a></li>
+    
+    <li><a href="AutomationPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows</a></li>
+    
+    <li><a href="PolicyYAMLSync/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync</a></li>
+    
+    <li><a href="AutomationVMScheduler/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler</a></li>
+    
+    <li><a href="ServiceAccounts/"><i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts</a></li>
+    
+    <li><a href="UserManagement/"><i class="fa fa-users" aria-hidden="true"></i> User Management</a></li>
+    
+    <li><a href="TaskManagement/"><i class="fa fa-tasks" aria-hidden="true"></i> Task Management</a></li>
+    
+    <li><a href="Ticketing/"><i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing</a></li>
+    
+    <li><a href="Troubleshooting/"><i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting</a></li>
+    
+    <li><a href="Glossary/"><i class="fa fa-book" aria-hidden="true"></i> Glossary</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  if (!menuToggle) return;
+
+  var collapsedKey = "md-primary-sidebar-collapsed";
+  var isDesktop = function() {
+    return window.matchMedia && window.matchMedia("(min-width: 76.25em)").matches;
+  };
+
+  var setCollapsed = function(collapsed) {
+    document.body.classList.toggle("md-primary-sidebar-collapsed", collapsed);
+    try {
+      localStorage.setItem(collapsedKey, collapsed ? "1" : "0");
+    } catch (e) {}
+  };
+
+  var initialCollapsed = false;
+  try {
+    initialCollapsed = localStorage.getItem(collapsedKey) === "1";
+  } catch (e) {}
+
+  if (isDesktop()) setCollapsed(initialCollapsed);
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+
+    if (isDesktop()) {
+      setCollapsed(!document.body.classList.contains("md-primary-sidebar-collapsed"));
+      return;
+    }
+
+    var drawer = document.getElementById("__drawer");
+    if (drawer && drawer.type === "checkbox") {
+      drawer.checked = !drawer.checked;
+      return;
+    }
+
+    if (slideMenu) slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it (mobile only)
+  document.addEventListener("click", function(e) {
+    if (isDesktop() || !slideMenu) return;
+
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected (mobile only)
+  if (slideMenu) {
+    slideMenu.querySelectorAll("a").forEach(function(item) {
+      item.addEventListener("click", function() {
+        slideMenu.classList.remove("open");
+      });
+    });
+  }
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloudpi AI User Guide" class="md-nav__button md-logo" aria-label="Cloudpi AI User Guide" data-md-component="logo">
+      
+  <img src="../images/cp-logo.png" alt="logo">
+
+    </a>
+    Cloudpi AI User Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-info-circle"></i>  Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-rocket" aria-hidden="true"></i> Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-universal-access"></i> RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-wrench"></i> Workspace Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlertsNotifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AdminSetting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlobalPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiCloudBillingHub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProviderConnections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-plug" aria-hidden="true"></i> Provider Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAzure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectGCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudOnboarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Financials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-coins" aria-hidden="true"></i> Cost Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostAssignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntegrationsCatalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSOSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationOverview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PolicyYAMLSync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost-savings-potential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Savings Potential
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-vm-scheduling-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How VM Scheduling Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-schedule-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Schedule Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-the-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing the Scheduler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduler-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduler Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scheduler Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#projectgroup-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project/Group Selector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-scheduling-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Scheduling Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-schedules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing Schedules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Schedules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schedules-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedules Screen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schedules Screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#screen-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screen Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-list-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule List Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schedule Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-schedule-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Schedule Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Schedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Schedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-instance-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Instance Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instances
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-schedules-from-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Schedules from Instances
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ServiceAccounts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-users" aria-hidden="true"></i> User Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TaskManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tasks" aria-hidden="true"></i> Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-book" aria-hidden="true"></i> Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost-savings-potential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Savings Potential
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-vm-scheduling-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How VM Scheduling Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-schedule-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Schedule Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-the-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing the Scheduler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduler-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduler Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scheduler Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#projectgroup-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project/Group Selector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-scheduling-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Scheduling Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-schedules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing Schedules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Schedules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schedules-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedules Screen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schedules Screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#screen-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screen Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-list-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule List Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schedule Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-schedule-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Schedule Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Schedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Schedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-instance-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Instance Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instances
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-schedules-from-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Schedules from Instances
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+
+<h1 id="virtual-machine-scheduler">Virtual Machine Scheduler</h1>
+<p>The Virtual Machine Scheduler feature in CloudPi offers powerful automation for managing the start and stop operations of virtual machines. By scheduling VMs to run only when needed, organizations can <strong>dramatically reduce cloud costs</strong>—often achieving <strong>40-70% savings</strong> on compute resources, especially in non-production environments like development, testing, and staging.</p>
+<h2 id="overview">Overview</h2>
+<p>Running virtual machines 24/7 when they're only needed during business hours results in significant wasted spend. The VM Scheduler eliminates this waste by automatically starting and stopping VMs based on predefined schedules.</p>
+<h3 id="cost-savings-potential">Cost Savings Potential</h3>
+<p><strong>Development and Test Environments</strong> - Non-production VMs typically run only during business hours (8-10 hours per day, 5 days per week). Scheduling these resources can reduce runtime from 168 hours/week to 50 hours/week, <strong>saving up to 70% on compute costs</strong>.</p>
+<p><strong>Staging and QA Environments</strong> - Pre-production environments often sit idle outside of testing windows. Scheduling these VMs to stop during nights, weekends, and holidays can <strong>reduce costs by 50-60%</strong>.</p>
+<p><strong>Training and Demo Systems</strong> - Resources used for training, demonstrations, or sporadic testing can be scheduled to run on-demand only, <strong>eliminating 80-90% of unnecessary runtime</strong>.</p>
+<h3 id="how-vm-scheduling-works">How VM Scheduling Works</h3>
+<p>The VM Scheduler provides a streamlined approach to managing resource availability:</p>
+<ul>
+<li><strong>Custom Schedules</strong> - Define specific start and stop times for weekdays and weekends</li>
+<li><strong>Vacation Schedules</strong> - Configure extended shutdown periods for holidays and planned downtime</li>
+<li><strong>Multi-Region Support</strong> - Manage schedules across different cloud regions with timezone awareness</li>
+<li><strong>Manual Overrides</strong> - Temporarily pause or activate schedules for individual instances without modifying the schedule</li>
+</ul>
+<h2 id="key-features">Key Features</h2>
+<h3 id="comprehensive-schedule-management">Comprehensive Schedule Management</h3>
+<p><strong>Automated Operations</strong> - Enable automatic start and stop of virtual machines during specified time periods, optimizing resource availability and cost-efficiency</p>
+<p><strong>Vacation and Custom Schedules</strong> - Create schedules tailored for holidays, weekends, or specific organizational needs</p>
+<p><strong>Multi-Region Support</strong> - Manage schedules for resources across different cloud regions seamlessly</p>
+<h2 id="accessing-the-scheduler">Accessing the Scheduler</h2>
+<ol>
+<li>Navigate to <strong>Automation</strong> from the main menu</li>
+<li>Select <strong>Scheduler</strong></li>
+<li>Explore the main screens:</li>
+<li><strong>Dashboard</strong> - Overview of scheduling compliance and performance metrics</li>
+<li><strong>Schedules</strong> - Manage and review all active schedules</li>
+<li><strong>Instances</strong> - View and manage compute instances and their scheduling status</li>
+</ol>
+<h2 id="scheduler-dashboard">Scheduler Dashboard</h2>
+<p>The Scheduler Dashboard provides a comprehensive overview of scheduling compliance and performance metrics across all projects, helping you monitor resource utilization and cost optimization at a glance.</p>
+<h3 id="projectgroup-selector">Project/Group Selector</h3>
+<p>Use the dropdown selector in the top-right corner to filter the dashboard view:</p>
+<p><strong>View Toggle</strong> - Switch between <strong>Groups</strong> and <strong>Projects</strong> views using the radio buttons</p>
+<p><strong>Hierarchical Selection</strong> - Navigate through your organizational structure:</p>
+<ul>
+<li><strong>Groups</strong> - Select organizational groups to view aggregated metrics across multiple projects</li>
+<li><strong>Projects</strong> - Select individual projects to view project-specific scheduling metrics</li>
+</ul>
+<p>The selected project or group name appears in the dropdown, and all dashboard metrics update to reflect the selection. This allows you to focus on specific areas of your infrastructure or view scheduling performance at different organizational levels.</p>
+<h3 id="key-metrics">Key Metrics</h3>
+<p>The dashboard displays four primary metric cards:</p>
+<p><strong>Total Scheduled</strong></p>
+<ul>
+<li>Shows the percentage and count of instances with active schedules</li>
+<li>Format: Percentage (e.g., 50%) with count breakdown (e.g., 1 of 2 instances)</li>
+<li>Helps identify scheduling coverage across your infrastructure</li>
+</ul>
+<p><strong>Hours Off-Duty</strong></p>
+<ul>
+<li>Displays total hours that scheduled instances are powered off</li>
+<li>Measured on a weekly basis</li>
+<li>Indicates the extent of automated resource optimization</li>
+</ul>
+<p><strong>Estimated Savings</strong></p>
+<ul>
+<li>Shows projected cost savings from scheduled resource optimization</li>
+<li>Default view: 3 months</li>
+<li>Helps quantify the financial impact of VM scheduling</li>
+</ul>
+<p><strong>Optimization Gaps</strong></p>
+<ul>
+<li>Identifies running instances without schedules</li>
+<li>Count of unscheduled instances</li>
+<li>Alerts you to resources that could benefit from scheduling</li>
+</ul>
+<h3 id="project-scheduling-performance">Project Scheduling Performance</h3>
+<p>The Project Scheduling Performance table provides detailed metrics for each project:</p>
+<p><strong>Project Name</strong> - Name of the project</p>
+<p><strong>Scheduled / Total</strong> - Visual progress bar showing the ratio of scheduled instances to total instances (e.g., 1 of 2)</p>
+<p><strong>Weekly Off-Hours</strong> - Total hours per week that instances are scheduled to be off</p>
+<p><strong>Monthly Savings</strong> - Projected monthly cost savings for the project</p>
+<p><strong>Compliance</strong> - Percentage indicating scheduling compliance rate (e.g., 50%)</p>
+<p>This dashboard helps you quickly identify projects with low scheduling compliance or optimization opportunities, enabling data-driven decisions about resource management.</p>
+<h2 id="managing-schedules">Managing Schedules</h2>
+<h3 id="schedules-screen">Schedules Screen</h3>
+<p>The Schedules screen provides a central location to manage all VM schedules.</p>
+<h4 id="screen-controls">Screen Controls</h4>
+<p><strong>Project Selector</strong> - Dropdown in the top-right corner to select the project or group view</p>
+<p><strong>Select Region</strong> - Filter schedules by cloud region</p>
+<p><strong>Select Schedule Type</strong> - Filter by schedule type (e.g., Snooze, Start, Stop)</p>
+<p><strong>Resource ID</strong> - Search field to find schedules by entering a specific resource ID</p>
+<p><strong>Create Schedule</strong> - Button to create a new schedule</p>
+<h4 id="schedule-list-table">Schedule List Table</h4>
+<p>The table displays all schedules with the following columns:</p>
+<p><strong>Schedule name</strong> - Name of the schedule</p>
+<p><strong>Description</strong> - Brief description of the schedule purpose</p>
+<p><strong>Type</strong> - Schedule type (e.g., Snooze)</p>
+<p><strong>Date range</strong> - Start and end dates for the schedule</p>
+<p><strong>Resources</strong> - Count of resources assigned to this schedule</p>
+<p><strong>Status</strong> - Current status (Active in orange, Running in green)</p>
+<p><strong>Actions</strong> - Action menu with icons for View, Edit, Logs, Manual Override, and Delete</p>
+<h3 id="schedule-actions">Schedule Actions</h3>
+<h4 id="view-schedule-details">View Schedule Details</h4>
+<p>The View action allows users to examine the details of a specific schedule without making changes.</p>
+<ol>
+<li>Click the <strong>View icon (eye)</strong> from the Actions column</li>
+<li>An inline panel expands below the selected schedule with two tabs: <strong>Schedule Details</strong> and <strong>Resource Details</strong></li>
+<li>Action icons remain available in the panel header for quick access to Edit, Logs, Manual Override, and Delete</li>
+</ol>
+<p><strong>Schedule Details Tab:</strong></p>
+<p>Displays comprehensive schedule configuration:</p>
+<ul>
+<li><strong>Name</strong> - Schedule identifier (e.g., CUSTOMONE_SNOOZE_REG)</li>
+<li><strong>Description</strong> - Purpose or usage</li>
+<li><strong>Schedule Type</strong> - Type of schedule (e.g., Snooze (Stop and Start))</li>
+<li><strong>Date Range</strong> - Period when the schedule is active (e.g., January 8, 2026 - January 17, 2026)</li>
+<li><strong>Weekday Timings</strong> - Days and specific times for weekday operations with timezone (e.g., Monday-Friday 08:00 - 20:00)</li>
+<li><strong>Weekend Timings</strong> - Days and times for weekend operations with timezone (e.g., Saturday-Sunday 11:00 - 10:00)</li>
+</ul>
+<p><strong>Resource Details Tab:</strong></p>
+<p>Shows the list of compute instances associated with this schedule:</p>
+<ul>
+<li><strong>Name</strong> - Resource name</li>
+<li><strong>Resource ID</strong> - Full resource identifier path</li>
+<li><strong>Region</strong> - Cloud region (e.g., eastus2)</li>
+<li><strong>Status</strong> - Current status (e.g., Active)</li>
+</ul>
+<p>Additional actions available in the Resource Details tab:</p>
+<ul>
+<li><strong>Download</strong> - Export resource details</li>
+<li><strong>Share</strong> - Share resource information</li>
+<li><strong>Add Columns</strong> - Customize visible columns</li>
+</ul>
+<p>Click <strong>Close View</strong> to collapse the panel and return to the schedule list.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture2.png" data-desc-position="bottom"><img alt="Resource Details" src="../images/Picture2.png"></a></p>
+<h4 id="manual-override">Manual Override</h4>
+<p>The Manual Override feature provides temporary control over individual instances without modifying the schedule.</p>
+<ol>
+<li><strong>Accessing Manual Override:</strong></li>
+<li>Click the <strong>Manual Override</strong> icon in the Actions menu for a specific schedule</li>
+<li>
+<p>This opens a detailed list of instances associated with the schedule</p>
+</li>
+<li>
+<p><strong>Pausing or Activating an Instance:</strong></p>
+</li>
+<li><strong>Paused</strong> - Use the toggle switch to pause an instance, preventing it from being affected by the VM Snooze schedule. This ensures the resource remains operational, regardless of the scheduled start and stop times</li>
+<li>
+<p><strong>Active</strong> - Use the toggle switch to activate an instance, ensuring it adheres to the VM Snooze schedule</p>
+</li>
+<li>
+<p><strong>Instance Details:</strong></p>
+</li>
+<li><strong>Resource Name</strong> - Name of the instance</li>
+<li><strong>Instance ID</strong> - Unique identifier for the instance</li>
+<li><strong>Region</strong> - The cloud region where the resource is deployed</li>
+<li>
+<p><strong>Status</strong> - Reflects whether the instance is currently subject to the schedule (Active) or excluded (Paused)</p>
+</li>
+<li>
+<p><strong>Closing Manual Override:</strong></p>
+</li>
+<li>Click <strong>Close Manual Override</strong> to return to the main Schedules view</li>
+<li>Overrides take effect immediately but do not alter the underlying schedule configuration</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture3.png" data-desc-position="bottom"><img alt="Update Schedule" src="../images/Picture3.png"></a></p>
+<h4 id="edit-schedule">Edit Schedule</h4>
+<p>The Edit feature allows users to modify an existing schedule configuration.</p>
+<ol>
+<li><strong>Accessing Edit Mode:</strong></li>
+<li>Click the <strong>Edit</strong> icon from the Actions menu</li>
+<li>
+<p>The schedule opens in an editable form</p>
+</li>
+<li>
+<p><strong>Editable Fields:</strong></p>
+</li>
+<li><strong>Schedule Name</strong> - Update the schedule identifier</li>
+<li><strong>Description</strong> - Modify the description to better reflect the schedule's purpose</li>
+<li><strong>Start Date</strong> - Update the start date</li>
+<li><strong>Start Time</strong> - Change when the schedule activates</li>
+<li><strong>Stop Time</strong> - Change when the schedule deactivates</li>
+<li>
+<p><strong>Time Zone</strong> - Select the appropriate time zone (e.g., Asia/Kolkata (GMT+05:30))</p>
+</li>
+<li>
+<p><strong>Saving Changes:</strong></p>
+</li>
+<li>Click <strong>Update</strong> to save changes</li>
+<li>
+<p>The schedule is updated in real time and reflected in the Schedules screen</p>
+</li>
+<li>
+<p><strong>Closing Edit Mode:</strong></p>
+</li>
+<li>Click <strong>Close Edit</strong> to exit without modifying the schedule</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture4.png" data-desc-position="bottom"><img alt="Schedule Logs" src="../images/Picture4.png"></a></p>
+<h4 id="schedule-logs">Schedule Logs</h4>
+<p>The Schedule Logs feature provides detailed insights into the execution history of a schedule.</p>
+<ol>
+<li><strong>Accessing Schedule Logs:</strong></li>
+<li>Click the <strong>Schedule Logs</strong> icon in the Actions menu</li>
+<li>
+<p>A log view displays the execution history</p>
+</li>
+<li>
+<p><strong>Log Details:</strong></p>
+</li>
+<li><strong>Started At</strong> - The timestamp when the schedule action began</li>
+<li><strong>Completed At</strong> - The timestamp when the action finished</li>
+<li><strong>Status</strong> - Indicates success or failure of the action (green "Success" label)</li>
+<li>
+<p><strong>Message</strong> - Details about the action performed (e.g., instance IDs started/stopped)</p>
+</li>
+<li>
+<p><strong>Troubleshooting Support:</strong></p>
+</li>
+<li>Failed actions include error messages or status details</li>
+<li>
+<p>Use these to identify and resolve issues</p>
+</li>
+<li>
+<p><strong>Closing Logs:</strong></p>
+</li>
+<li>Click <strong>Close Logs</strong> to return to the main Schedules view</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture5.png" data-desc-position="bottom"><img alt="Delete Schedule" src="../images/Picture5.png"></a></p>
+<h4 id="delete-schedule">Delete Schedule</h4>
+<p>The Delete Schedule feature permanently removes a schedule from the system.</p>
+<ol>
+<li><strong>Accessing Delete Option:</strong></li>
+<li>Click the <strong>Delete</strong> icon in the Actions menu</li>
+<li>
+<p>This initiates the schedule deletion process</p>
+</li>
+<li>
+<p><strong>Confirmation Prompt:</strong></p>
+</li>
+<li>A confirmation dialog appears to prevent accidental deletions</li>
+<li>
+<p>Confirm or cancel the deletion</p>
+</li>
+<li>
+<p><strong>Impact on Resources:</strong></p>
+</li>
+<li>Deleting a schedule does not impact the current state of associated resources</li>
+<li>It only removes the automation tied to the schedule</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture6.png" data-desc-position="bottom"><img alt="Recommendations" src="../images/Picture6.png"></a></p>
+<h4 id="export-instance-details">Export Instance Details</h4>
+<p>Export a detailed spreadsheet (.csv) of all active schedules, instances, and configurations.</p>
+<ol>
+<li><strong>Accessing the Export Feature:</strong></li>
+<li>
+<p>Click the <strong>Export Instance Details</strong> button in the top-right corner</p>
+</li>
+<li>
+<p><strong>Spreadsheet Contents:</strong></p>
+</li>
+<li>Instance ID, Region, Instance Status</li>
+<li>Schedule Name, Status, Type</li>
+<li>Weekdays, Weekends, Action Type</li>
+<li>Description, Start/End Dates, Time zone</li>
+<li>Weekday/Weekend Start/Stop Times</li>
+<li>
+<p>Tag</p>
+</li>
+<li>
+<p><strong>Uses:</strong></p>
+</li>
+<li>Monitor schedule execution for each instance</li>
+<li>Identify instances and schedules based on region, type, or tags</li>
+<li>Audit or analyze resource utilization and scheduling effectiveness</li>
+</ol>
+<h2 id="instances">Instances</h2>
+<p>The Instances screen allows you to view and manage compute instances across your projects. You can identify unscheduled instances and create or attach schedules to optimize resource utilization.</p>
+<h3 id="creating-schedules-from-instances">Creating Schedules from Instances</h3>
+<ol>
+<li><strong>Select Resources:</strong></li>
+<li>
+<p>Check the box for one or more resources to enable the <strong>Create Schedule</strong> button</p>
+</li>
+<li>
+<p><strong>Create Schedule:</strong></p>
+</li>
+<li>Click <strong>Create Schedule</strong> to define scheduling parameters</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture12.png" data-desc-position="bottom"><img alt="Select Resources" src="../images/Picture12.png"></a></p>
+<p><strong>Schedule Configuration:</strong></p>
+<ul>
+<li><strong>Select Schedule Type</strong> - Choose between Vacation or Custom</li>
+<li><strong>Schedule Name</strong> - Enter a name (5-10 letters)</li>
+<li><strong>Description</strong> - Provide schedule purpose</li>
+<li><strong>End Date Option</strong> - Choose "No End Date" or set an end date</li>
+<li><strong>Start Date</strong> - Select when the schedule begins</li>
+<li><strong>Start Time</strong> - Set the activation time</li>
+<li><strong>Stop Time</strong> - Set the deactivation time</li>
+<li><strong>Time Zone</strong> - Select appropriate time zone (e.g., Asia/Kolkata)</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture8.png" data-desc-position="bottom"><img alt="Create Schedule" src="../images/Picture8.png"></a></p>
+<ol>
+<li><strong>View Resource Details:</strong></li>
+<li>Use the <strong>View</strong> action in the Actions column to see specific details about a resource</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture9.png" data-desc-position="bottom"><img alt="Resource Details" src="../images/Picture9.png"></a></p>
+<p><strong>Resource Details View:</strong></p>
+<p>Shows comprehensive information including:</p>
+<ul>
+<li>Resource ID</li>
+<li>Region</li>
+<li>Environment</li>
+<li>Tags (Name, project, department, etc.)</li>
+</ul>
+<p><strong>Additional Features:</strong></p>
+<ul>
+<li><strong>Download</strong> - Export resource details as a spreadsheet</li>
+<li><strong>Share</strong> - Share resource data via various platforms</li>
+<li><strong>Add Columns</strong> - Customize the displayed columns for a tailored view of resource data</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture13.png" data-desc-position="bottom"><img alt="Additional Features" src="../images/Picture13.png"></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <footer class="md-footer cp-footer" role="contentinfo">
+  <div class="cp-footer__inner">
+    <div class="cp-footer__brand">
+      <p class="cp-footer__tagline">Multi Cloud Cost Governance Platform.</p>
+
+      <div class="cp-footer__cta">
+        <a class="cp-footer__button" href="https://cloudpi.ai/" target="_blank" rel="noopener">Schedule Demo</a>
+      </div>
+
+      <p class="cp-footer__email"><a href="mailto:contact@cloudpi.ai">contact@cloudpi.ai</a></p>
+
+      <div class="cp-footer__social">
+        <a href="https://www.youtube.com/@purpledatainc." target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech" target="_blank" rel="noopener" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <p class="cp-footer__copyright">© 2026 CloudPi. All rights reserved.</p>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Product</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Features</a>
+      <a class="cp-footer__link" href="../Integrations/">Integrations</a>
+      <a class="cp-footer__link" href="../TaskManagement/">Workflow</a>
+      <a class="cp-footer__link" href="../security/">Security</a>
+      <a class="cp-footer__link" href="../Automations/">Automation</a>
+      <a class="cp-footer__link" href="../CloudPiOptimisations/">Gen AI</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Resources</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Solutions</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Case Studies</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Blogs</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Faq</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Videos</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Company</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">About Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">News &amp; Updates</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Careers</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Contact Us</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Demo</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Trail</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/?heading=Register+Now" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+
+  <div class="cp-footer__bottom">
+    <div class="cp-footer__bottom-inner">
+      <div class="cp-footer__bottom-links">
+        <a href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <span class="cp-footer__sep">|</span>
+        <a href="https://cloudpi.ai/" target="_blank" rel="noopener">cloudpi.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

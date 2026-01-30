@@ -1,0 +1,2688 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://doc.cloudpi.ai/Automations/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Automation - Cloudpi AI User Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#automation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+.custom-header {
+  display: flex;
+  align-items: center;
+  /* align-items: left; */
+  background-color: white; 
+  padding: 6px;
+  padding-right: 0;
+  font-family: 'Poppins', sans-serif; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  /* justify-content: space-between; */
+  float: 'left';
+  z-index: 1000;
+  font-size: 11px;
+}
+
+.custom-nav {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  /* float: 'left'; */
+  align-items: center;
+  /* align-items: right; */
+  text-align: center;
+}
+
+.logo {
+  box-shadow: none; 
+}
+
+.logo-image {
+  height: 40px; 
+  width: auto; 
+  box-shadow: none;
+}
+
+
+
+.custom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px; 
+}
+
+.custom-nav li {
+  margin-left: 20px;
+}
+
+.custom-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal; /* Default font weight to normal */
+}
+
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  margin: -10px;
+
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.start-trial, .schedule-demo {
+  padding: 18px 35px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
+  float: 'right';
+  box-sizing: border-box;
+  /* font-size: 11px; */
+}
+
+
+
+.start-trial {
+  background-color: #f3e5ff; /* Light purple color */
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+.schedule-demo {
+  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
+  color: #000; /* Black text */
+  float: 'right';
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slide menu */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially hide the menu */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  padding-top: 60px;
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  transition: left 0.3s; /* Add transition for smooth sliding */
+  font-size: 14px;
+}
+
+.menu-heading {
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.slide-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.slide-menu ul li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.slide-menu ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.slide-menu ul li:hover {
+  background-color: #f3e5ff;
+  color: #AC8AE7;
+}
+
+.slide-menu ul li:hover,
+.slide-menu ul li.selected {
+  color: #AC8AE7;
+}
+
+.slide-menu ul li a {
+  color: inherit; /* Inherit color from the list item */
+  text-decoration: none;
+  display: block;
+}
+
+/* Adjust content area when slide menu is open */
+.slide-menu.open {
+  left: 0;
+}
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+<!-- Hidden element required by Material theme JS -->
+<header class="md-header" data-md-component="header" style="display:none;">
+  <div data-md-component="header-title"></div>
+</header>
+
+<div class="custom-header">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">
+    <img src="../images/cp-logo.png" alt="CloudPi AI" class="logo-image">
+  </div>
+  <nav class="custom-nav">
+    <ul>
+      <li><a href="https://cloudpi.ai/">HOME</a></li>
+      <li><a href="https://cloudpi.ai/">FEATURES</a></li>
+      <li><a href="https://cloudpi.ai/">COMPANY</a></li>
+      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
+      <li><a href="https://cloudpi.ai/">SOLUTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">SUBSCRIPTIONS</a></li>
+      <li><a href="https://cloudpi.ai/">BLOG</a></li>
+      <li><a href="https://cloudpi.ai/">FAQ</a></li>
+      <li><a href="../">USER GUIDE</a></li>
+    </ul>
+  </nav>
+  <div class="buttons">
+    <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
+    <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
+  </div>
+</div>
+<div id="slide-menu" class="slide-menu">
+  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+  <ul>
+    
+    <li><a href=""><i class="fa fa-info-circle"></i>  Introduction</a></li>
+    
+    <li><a href="GettingStarted/"><i class="fa fa-rocket" aria-hidden="true"></i> Getting Started</a></li>
+    
+    <li><a href="homepage/"><i class="fa fa-home" aria-hidden="true"></i> Landing Page</a></li>
+    
+    <li><a href="rbac/"><i class="fa fa-universal-access"></i> RBAC</a></li>
+    
+    <li><a href="security/"><i class="fa fa-lock" aria-hidden="true"></i> Security</a></li>
+    
+    <li><a href="workspace/"><i class="fa fa-wrench"></i> Workspace Settings</a></li>
+    
+    <li><a href="AlertsNotifications/"><i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications</a></li>
+    
+    <li><a href="AdminSetting/"><i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings</a></li>
+    
+    <li><a href="GlobalPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings</a></li>
+    
+    <li><a href="Dashboards/"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboards</a></li>
+    
+    <li><a href="MultiCloudBillingHub/"><i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub</a></li>
+    
+    <li><a href="ProviderConnections/"><i class="fa fa-plug" aria-hidden="true"></i> Provider Connections</a></li>
+    
+    <li><a href="ConnectAWS/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS</a></li>
+    
+    <li><a href="ConnectAzure/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure</a></li>
+    
+    <li><a href="ConnectGCP/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP</a></li>
+    
+    <li><a href="CloudOnboarding/"><i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding</a></li>
+    
+    <li><a href="CloudPiOptimisations/"><i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations</a></li>
+    
+    <li><a href="Financials/"><i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials</a></li>
+    
+    <li><a href="CostTypes/"><i class="fa fa-coins" aria-hidden="true"></i> Cost Types</a></li>
+    
+    <li><a href="CostAssignment/"><i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment</a></li>
+    
+    <li><a href="TagManagement/"><i class="fa fa-tag" aria-hidden="true"></i> Tag Management</a></li>
+    
+    <li><a href="Integrations/"><i class="fa fa-cogs" aria-hidden="true"></i> Integrations</a></li>
+    
+    <li><a href="IntegrationsCatalog/"><i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog</a></li>
+    
+    <li><a href="SSOSetup/"><i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup</a></li>
+    
+    <li><a href="AutomationOverview/"><i class="fa fa-magic" aria-hidden="true"></i> Automation Overview</a></li>
+    
+    <li><a href="AutomationPolicies/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows</a></li>
+    
+    <li><a href="PolicyYAMLSync/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync</a></li>
+    
+    <li><a href="AutomationVMScheduler/">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler</a></li>
+    
+    <li><a href="ServiceAccounts/"><i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts</a></li>
+    
+    <li><a href="UserManagement/"><i class="fa fa-users" aria-hidden="true"></i> User Management</a></li>
+    
+    <li><a href="TaskManagement/"><i class="fa fa-tasks" aria-hidden="true"></i> Task Management</a></li>
+    
+    <li><a href="Ticketing/"><i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing</a></li>
+    
+    <li><a href="Troubleshooting/"><i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting</a></li>
+    
+    <li><a href="Glossary/"><i class="fa fa-book" aria-hidden="true"></i> Glossary</a></li>
+    
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var menuToggle = document.getElementById("menu-toggle");
+  var slideMenu = document.getElementById("slide-menu");
+
+  if (!menuToggle) return;
+
+  var collapsedKey = "md-primary-sidebar-collapsed";
+  var isDesktop = function() {
+    return window.matchMedia && window.matchMedia("(min-width: 76.25em)").matches;
+  };
+
+  var setCollapsed = function(collapsed) {
+    document.body.classList.toggle("md-primary-sidebar-collapsed", collapsed);
+    try {
+      localStorage.setItem(collapsedKey, collapsed ? "1" : "0");
+    } catch (e) {}
+  };
+
+  var initialCollapsed = false;
+  try {
+    initialCollapsed = localStorage.getItem(collapsedKey) === "1";
+  } catch (e) {}
+
+  if (isDesktop()) setCollapsed(initialCollapsed);
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+
+    if (isDesktop()) {
+      setCollapsed(!document.body.classList.contains("md-primary-sidebar-collapsed"));
+      return;
+    }
+
+    var drawer = document.getElementById("__drawer");
+    if (drawer && drawer.type === "checkbox") {
+      drawer.checked = !drawer.checked;
+      return;
+    }
+
+    if (slideMenu) slideMenu.classList.toggle("open");
+  });
+
+  // Close the slide menu when clicking outside of it (mobile only)
+  document.addEventListener("click", function(e) {
+    if (isDesktop() || !slideMenu) return;
+
+    var target = e.target;
+    var isMenuOpen = slideMenu.classList.contains("open");
+    var isClickInsideMenu = slideMenu.contains(target);
+    var isClickInsideMenuToggle = menuToggle.contains(target);
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
+      slideMenu.classList.remove("open");
+    }
+  });
+
+  // Close the slide menu when an item is selected (mobile only)
+  if (slideMenu) {
+    slideMenu.querySelectorAll("a").forEach(function(item) {
+      item.addEventListener("click", function() {
+        slideMenu.classList.remove("open");
+      });
+    });
+  }
+});
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloudpi AI User Guide" class="md-nav__button md-logo" aria-label="Cloudpi AI User Guide" data-md-component="logo">
+      
+  <img src="../images/cp-logo.png" alt="logo">
+
+    </a>
+    Cloudpi AI User Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-info-circle"></i>  Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-rocket" aria-hidden="true"></i> Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-home" aria-hidden="true"></i> Landing Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-universal-access"></i> RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-lock" aria-hidden="true"></i> Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-wrench"></i> Workspace Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlertsNotifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-bell" aria-hidden="true"></i> Alerts &amp; Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AdminSetting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlobalPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-th-large" aria-hidden="true"></i> Dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiCloudBillingHub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud" aria-hidden="true"></i>  Billing Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProviderConnections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-plug" aria-hidden="true"></i> Provider Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-aws" aria-hidden="true"></i> Connect AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectAzure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-microsoft" aria-hidden="true"></i> Connect Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConnectGCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google" aria-hidden="true"></i> Connect GCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudOnboarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CloudPiOptimisations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Financials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-coins" aria-hidden="true"></i> Cost Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CostAssignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tag" aria-hidden="true"></i> Tag Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-cogs" aria-hidden="true"></i> Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntegrationsCatalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSOSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationOverview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-magic" aria-hidden="true"></i> Automation Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationPolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies &amp; Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PolicyYAMLSync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AutomationVMScheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ServiceAccounts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-users" aria-hidden="true"></i> User Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TaskManagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-tasks" aria-hidden="true"></i> Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <i class="fa fa-book" aria-hidden="true"></i> Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-policy-management-and-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Policy Management and Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Policy Management and Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Policies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-list-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy List Columns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-youll-find-on-the-global-policies-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You'll Find on the Global Policies Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlling-policy-behavior-mandatory-vs-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlling Policy Behavior: Mandatory vs. Optional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-management-and-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Management and Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigate-to-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigate to Policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-page-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Page Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-list-columns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy List Columns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-policy-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing Policy Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing Policy Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-details-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Details Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criteria-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Criteria Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-json-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. JSON Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloning-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloning Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-a-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure a Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-workflow-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define Workflow Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-workflow-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Up Workflow Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-more-rules-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add More Rules (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save the Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-workflow-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Workflow Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-invoicing-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Invoicing Policy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auto Invoicing Policy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-set-up-a-time-based-workflow-for-auto-invoicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Set Up a Time-Based Workflow for Auto Invoicing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-virtual-machine-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Virtual Machine Scheduler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Virtual Machine Scheduler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-schedule-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Schedule Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#centralized-schedule-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Centralized Schedule Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-driven-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data-Driven Recommendations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup and Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup and Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accessing-the-scheduler-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing the Scheduler Feature
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigating-schedules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigating Schedules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigating Schedules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schedules-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedules Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Action
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Schedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-instance-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Instance Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reviewing-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing Recommendations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Scheduling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+<div>
+  
+                  
+
+
+
+<h1 id="automation">Automation</h1>
+<h2 id="1-policy-management-and-workflows">1. Policy Management and Workflows</h2>
+<h3 id="overview">Overview</h3>
+<p>Manage policies and workflows to ensure compliance and streamlined cloud governance. The Policy and Workflow page provides a centralized location to monitor, configure, and automate responses to cloud events.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/policy.png" data-desc-position="bottom"><img alt="Policy and Workflow" src="../images/policy.png"></a></p>
+<h3 id="global-policies">Global Policies</h3>
+<p>The Global Policies section provides a centralized location where all predefined policies across multiple cloud providers—AWS, Azure, and GCP—are listed and managed. This page helps organizations apply standardized governance rules across their cloud environments, ensuring compliance, cost efficiency, and operational consistency.</p>
+<p><strong>Policy Settings</strong> - View and manage cloud governance policies. You can mark policies as Mandatory or Optional.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/policysettings.png" data-desc-position="bottom"><img alt="Policy Settings" src="../images/policysettings.png"></a></p>
+<h4 id="filters">Filters</h4>
+<p><strong>Filter By Cloud Providers</strong> - Filter policies by cloud provider (AWS, Azure, GCP)</p>
+<p><strong>Filter By Policy Groups</strong> - Filter by policy group category</p>
+<p><strong>Filter By Resources</strong> - Filter by specific resource types</p>
+<h4 id="policy-list-columns">Policy List Columns</h4>
+<p><strong>Name</strong> - Policy identifier (e.g., idle-instances-ec2, untagged-instances-ec2, unattached-volumes-ebs)</p>
+<p><strong>Description</strong> - Brief description of what the policy monitors or enforces</p>
+<p><strong>Cloud Provider</strong> - The cloud platform (AWS, Azure, GCP)</p>
+<p><strong>Status</strong> - Policy enforcement status:
+- <strong>Mandatory</strong> (green badge with toggle ON) - Policy is enforced across all projects
+- <strong>Optional</strong> (grey badge with toggle OFF) - Policy can be enabled at project level</p>
+<p><strong>Actions</strong> - Menu for additional policy options</p>
+<h4 id="what-youll-find-on-the-global-policies-page">What You'll Find on the Global Policies Page</h4>
+<ul>
+<li>A comprehensive list of built-in policies, categorized by cloud provider (AWS, Azure, GCP)</li>
+<li>Each policy includes metadata like name, classification (e.g., cost, security), and a description of what it enforces</li>
+</ul>
+<h3 id="controlling-policy-behavior-mandatory-vs-optional">Controlling Policy Behavior: Mandatory vs. Optional</h3>
+<p>From the Global Policies page, users can decide how each policy should behave across the organization:</p>
+<p><strong>Mandatory</strong> - These policies are enforced by default and cannot be overridden at the project level. They apply to all relevant resources without exception.</p>
+<p><strong>Optional</strong> - These policies are available for project-level users to adopt but are not enforced unless explicitly enabled for a given project.</p>
+<p>This flexibility allows teams to strike a balance between organization-wide controls and project-level customization.</p>
+<h3 id="policy-management-and-workflow">Policy Management and Workflow</h3>
+<p>In CloudPi, Policies and Workflows work together to help you monitor your cloud environment and automate responses to events.</p>
+<p><strong>Policy</strong> - A Policy defines the conditions and thresholds you want to monitor, such as resource usage, cost limits, security compliance, or specific service-level events.</p>
+<p><strong>Workflow</strong> - When a Policy condition is met, a Workflow is automatically triggered. A Workflow is a set of automated actions configured to respond to the policy event. These actions can include sending email alerts, creating backups, generating snapshots, or executing other predefined tasks to manage the situation.</p>
+<p>By combining Policies and Workflows, CloudPi enables proactive monitoring and automation, helping you maintain complete control over your cloud infrastructure with minimal manual intervention.</p>
+<hr>
+<h3 id="policy-management">Policy Management</h3>
+<h4 id="navigate-to-policies">Navigate to Policies</h4>
+<ol>
+<li>In the Project menu, click on the <strong>Automation</strong> tab</li>
+<li>Select <strong>Policy and Workflow</strong></li>
+<li>Here, you will see a list of all existing policies associated with the selected project</li>
+</ol>
+<h4 id="policy-page-features">Policy Page Features</h4>
+<p><strong>Total No of policies</strong> - Displays the count of all policies in the project</p>
+<p><strong>Search</strong> - Search by name or type to find specific policies</p>
+<p><strong>All Categories</strong> - Filter policies by category (Optimization, Billing, Backup, Financial, Security, Governance)</p>
+<p><strong>All Policies</strong> - Filter to show all policies or specific subsets</p>
+<p><strong>Sync</strong> - Synchronize policy data</p>
+<p><strong>Download</strong> - Export policy list</p>
+<h4 id="policy-list-columns_1">Policy List Columns</h4>
+<p><strong>Name</strong> - Policy identifier (e.g., idle-instances-vm, unused-public-ips, unused-unattached-disks, auto-invoicing, auto-backups)</p>
+<p><strong>Description</strong> - Brief description of what the policy detects or enforces (e.g., "Detects virtual machines running...", "Identifies Azure Public IP resource...", "Identifies orphaned Azure manag...")</p>
+<p><strong>Type</strong> - Category of policy (Optimization, Billing, Backup, Financial, Security, Governance)</p>
+<p><strong>Status</strong> - Shows if policy is Active (green badge) with toggle switch to enable/disable</p>
+<p><strong>Workflow Status</strong> - Indicates if a workflow is configured (Active in green or No Workflow)</p>
+<p><strong>Actions</strong> - Menu to view/edit policy details and configure workflows</p>
+<h4 id="available-actions">Available Actions</h4>
+<p>Hover over a policy row to see available actions:</p>
+<ul>
+<li><strong>Policy</strong> - View details &amp; edit criteria</li>
+<li><strong>Workflow</strong> - Create new workflow</li>
+<li><strong>Workflow (green)</strong> - View workflow summary</li>
+</ul>
+<hr>
+<h3 id="viewing-policy-details">Viewing Policy Details</h3>
+<p>Click on a policy row or the settings icon to open a sidebar with three tabs:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/policy1.png" data-desc-position="bottom"><img alt="Policy Details" src="../images/policy1.png"></a></p>
+<h4 id="1-details-tab">1. Details Tab</h4>
+<p><strong>Name</strong> - Policy name (e.g., Unused Public Ips)</p>
+<p><strong>Cloud Provider</strong> - Cloud platform (e.g., Azure)</p>
+<p><strong>Description</strong> - Full description of the policy's purpose (e.g., "Identifies Azure Public IP resources that are unassociated and have had no activity in the last X days. Scans for orphaned resources from incomplete cleanup operations that incur unnecessary charges.")</p>
+<p><strong>Allowed Actions</strong> - List of actions available for this policy:
+- Send Email
+- Create Ticket
+- Create Task
+- Delete IP
+- Attach Tag
+- Detach Tag
+- Trigger Webhook
+- Create PR</p>
+<h4 id="2-criteria-tab">2. Criteria Tab</h4>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/policy2.png" data-desc-position="bottom"><img alt="Policy Criteria" src="../images/policy2.png"></a></p>
+<p>Shows the policy criteria with editable conditions. Click the <strong>Edit</strong> button to modify criteria.</p>
+<p><strong>Policy Criteria:</strong></p>
+<p><strong>Condition 1</strong>
+- <strong>Parameter</strong> - The field being evaluated (e.g., association_id)
+- <strong>Operator</strong> - The comparison type (e.g., Equal)
+- <strong>Value</strong> - The comparison value (e.g., null)</p>
+<p><strong>Condition 2</strong>
+- <strong>Parameter</strong> - The field being evaluated (e.g., lookback_days)
+- <strong>Operator</strong> - The comparison type (e.g., Equal)
+- <strong>Value</strong> - The comparison value with unit (e.g., 30 days)</p>
+<h4 id="3-json-tab">3. JSON Tab</h4>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/policy3.png" data-desc-position="bottom"><img alt="Policy JSON" src="../images/policy3.png"></a></p>
+<p>Displays the complete policy configuration in JSON format, including:</p>
+<ul>
+<li><strong>name</strong> - Policy identifier</li>
+<li><strong>action</strong> - Default action type</li>
+<li><strong>active</strong> - Policy status</li>
+<li><strong>filter</strong> - Conditions with "and" logic</li>
+<li><strong>trigger</strong> - Event-based or scheduled</li>
+<li><strong>cloud_id</strong> - Cloud provider identifier</li>
+<li><strong>eventType</strong> - Type of event monitored</li>
+<li><strong>description</strong> - Full policy description</li>
+<li><strong>service_name</strong> - Target cloud service</li>
+<li><strong>classification</strong> - Policy category</li>
+<li><strong>recommendation_format</strong> - Template for recommendation messages</li>
+</ul>
+<hr>
+<h3 id="workflows">Workflows</h3>
+<h4 id="cloning-workflows">Cloning Workflows</h4>
+<p>You can clone existing workflows to quickly create new policies with similar automation steps. This helps you avoid repetitive setup and ensures consistency across policies.</p>
+<h4 id="configure-a-workflow">Configure a Workflow</h4>
+<p>After configuring your policy, you can create or edit workflows:</p>
+<ol>
+<li>Click the <strong>Workflow icon</strong> (next to the Settings icon) for a specific policy</li>
+<li>A sidebar opens showing the workflow configuration options</li>
+</ol>
+<h4 id="workflow-logs">Workflow Logs</h4>
+<p>Workflow Logs are captured during the execution of a policy. These logs help you:</p>
+<ul>
+<li>Track the execution status of each workflow</li>
+<li>Monitor actions performed</li>
+<li>Identify any errors or failures during automated processes</li>
+</ul>
+<h4 id="define-workflow-details">Define Workflow Details</h4>
+<p>When creating a workflow, you need to provide:</p>
+<p><strong>Workflow Name</strong> - Enter a name for your workflow (e.g., untagged-instances-ec2)</p>
+<p><strong>Description</strong> - Provide a clear description of the workflow's purpose</p>
+<h4 id="set-up-workflow-rules">Set Up Workflow Rules</h4>
+<p>Each workflow contains rules that define how and when the actions are executed:</p>
+<p><strong>Select Services</strong> - Choose the cloud service this rule applies to (e.g., EC2, S3, etc.)</p>
+<p><strong>Inclusions (Optional)</strong> - Click <strong>+ Add Inclusion</strong> to specify any resources or conditions that should be explicitly included in this rule</p>
+<p><strong>Exclusions (Optional)</strong> - Click <strong>+ Add Exclusion</strong> to define any resources or conditions that should be excluded from this rule</p>
+<h4 id="configure-actions">Configure Actions</h4>
+<p>Actions define what CloudPi should do when the policy conditions are met:</p>
+<ol>
+<li>
+<p><strong>Select Action</strong> - Choose the action from the dropdown (e.g., Send Email, Create Snapshot, etc.)</p>
+</li>
+<li>
+<p><strong>Action Parameters:</strong></p>
+</li>
+<li>For actions like Send Email, enter the recipient's email address</li>
+<li>
+<p>For actions like Create Snapshot, select the target resource</p>
+</li>
+<li>
+<p><strong>Add Additional Actions</strong> - Click <strong>+ Add Action</strong> to define multiple actions within the same rule</p>
+</li>
+<li>
+<p><strong>Set Delay (Optional)</strong> - You can optionally specify a delay in days or hours before the action is executed</p>
+</li>
+</ol>
+<h4 id="add-more-rules-optional">Add More Rules (Optional)</h4>
+<p>To add multiple rules within the same workflow, click <strong>+ Add Rule</strong>.</p>
+<h4 id="save-the-workflow">Save the Workflow</h4>
+<p>Once all rules and actions are configured:</p>
+<ul>
+<li>Click <strong>Save Changes</strong> to finalize the workflow</li>
+<li>Click <strong>Cancel</strong> if you want to discard the changes</li>
+</ul>
+<h4 id="view-workflow-details">View Workflow Details</h4>
+<p>After saving the workflow, go to the Workflow list and click on the Workflow Name to view its full configuration, including all rules and actions.</p>
+<hr>
+<h3 id="auto-invoicing-policy">Auto Invoicing Policy</h3>
+<p>Auto Invoicing is a built-in policy that automates the process of generating invoices every month based on data usage. This ensures timely billing and reduces the need for manual intervention.</p>
+<h4 id="how-to-set-up-a-time-based-workflow-for-auto-invoicing">How to Set Up a Time-Based Workflow for Auto Invoicing</h4>
+<p>To automate invoice generation, users can create a Time-Based Workflow by following these steps:</p>
+<ol>
+<li>
+<p><strong>Workflow Name</strong> - Give your workflow a name that clearly indicates its purpose, such as <code>auto-invoicing</code></p>
+</li>
+<li>
+<p><strong>Description (Optional)</strong> - Add a short description to explain what the workflow does—e.g., "Automatically generates invoices based on usage every month"</p>
+</li>
+<li>
+<p><strong>Schedule:</strong></p>
+</li>
+<li><strong>Start Date</strong> - Select the date when the workflow should begin</li>
+<li>
+<p><strong>Frequency</strong> - Choose how often the workflow runs (e.g., Monthly)</p>
+</li>
+<li>
+<p><strong>Billing Details:</strong></p>
+</li>
+<li><strong>Billing View</strong> - Select the billing view that contains usage data</li>
+<li><strong>Customer</strong> - Choose the customer who should be billed</li>
+<li>
+<p>You can add multiple billing configurations using the <strong>Add Billing</strong> option if needed</p>
+</li>
+<li>
+<p><strong>Actions:</strong></p>
+</li>
+<li>In the Actions section, select the action <strong>Schedule Auto Invoicing</strong> from the dropdown menu</li>
+<li>
+<p>You can add additional actions if your workflow needs to perform multiple tasks</p>
+</li>
+<li>
+<p><strong>Save Workflow</strong> - Once all the information is filled out, click on the <strong>Create Workflow</strong> button to activate it</p>
+</li>
+</ol>
+<hr>
+<h2 id="2-virtual-machine-scheduler">2. Virtual Machine Scheduler</h2>
+<h3 id="overview_1">Overview</h3>
+<p>The Virtual Machine Scheduler feature in CloudPi offers powerful automation for managing the start and stop operations of virtual machines. By configuring schedules, organizations can optimize resource utilization, reduce cloud costs, and ensure efficient cloud infrastructure management. This feature provides a streamlined approach to managing resource availability based on predefined schedules or real-time needs.</p>
+<h3 id="key-features">Key Features</h3>
+<h4 id="comprehensive-schedule-management">Comprehensive Schedule Management</h4>
+<p><strong>Automated Operations</strong> - Enable automatic start and stop of virtual machines during specified time periods, optimizing resource availability and cost-efficiency</p>
+<p><strong>Vacation and Custom Schedules</strong> - Create schedules tailored for holidays, weekends, or specific organizational needs</p>
+<p><strong>Multi-Region Support</strong> - Manage schedules for resources across different cloud regions seamlessly</p>
+<h4 id="centralized-schedule-overview">Centralized Schedule Overview</h4>
+<p><strong>Detailed Schedule View</strong> - Access all active schedules, including their type (Snooze, Start, or Stop), associated resources, and timing details</p>
+<p><strong>Actionable Controls</strong> - Modify, delete, or manually override schedules directly from the Schedules screen</p>
+<p><strong>Execution Logs</strong> - Monitor schedule activities and execution statuses for accountability and troubleshooting</p>
+<h4 id="data-driven-recommendations">Data-Driven Recommendations</h4>
+<p><strong>Optimized Scheduling Suggestions</strong> - Receive schedule recommendations based on usage patterns to reduce resource idling</p>
+<p><strong>Streamlined Implementation</strong> - Apply recommendations with minimal configuration through the Recommendations screen</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/Picture1.png" data-desc-position="bottom"><img alt="Schedule Details" src="images/Picture1.png"></a></p>
+<hr>
+<h3 id="setup-and-configuration">Setup and Configuration</h3>
+<h4 id="accessing-the-scheduler-feature">Accessing the Scheduler Feature</h4>
+<ol>
+<li>Navigate to <strong>Automation</strong> - Log into CloudPi and access the Scheduler feature under the Automation section in the main menu</li>
+<li>Explore the Three Main Screens:</li>
+<li><strong>Schedules</strong> - Manage and review all active schedules</li>
+<li><strong>Recommendations</strong> - View and apply usage-based schedule suggestions</li>
+<li><strong>Resources</strong> - Identify eligible resources and create custom schedules</li>
+</ol>
+<hr>
+<h3 id="navigating-schedules">Navigating Schedules</h3>
+<h4 id="schedules-screen">Schedules Screen</h4>
+<p><strong>View All Schedules</strong> - Review the list of schedules with details such as schedule name, type, description, and associated resources</p>
+<p><strong>Edit and Delete</strong> - Modify schedules or remove outdated configurations directly from the Actions menu</p>
+<p><strong>Manual Override</strong> - Enable or disable specific resources for temporary overrides without altering the main schedule</p>
+<hr>
+<h3 id="actions">Actions</h3>
+<h4 id="view">View</h4>
+<p>The View action allows users to examine the details of a specific schedule without making changes. By selecting this option from the Actions Menu, the system displays a detailed breakdown of the schedule, including key information such as:</p>
+<p><strong>Name</strong> - Schedule identifier (e.g., ACCOUNT_SNOOZE_REG)</p>
+<p><strong>Description</strong> - Purpose or usage (e.g., "account testing for scheduler")</p>
+<p><strong>Schedule Type</strong> - Type of schedule (e.g., Snooze (Stop and Start))</p>
+<p><strong>Date Range</strong> - Period when the schedule is active</p>
+<p><strong>Weekday Timings</strong> - Days and times for weekday operations</p>
+<p><strong>Weekend Timings</strong> - Days and times for weekend operations</p>
+<p>The View feature is particularly useful for verifying schedule configurations or sharing information with team members. Users can close the detailed view by selecting the <strong>Close View</strong> option.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture2.png" data-desc-position="bottom"><img alt="Resource Details" src="../images/Picture2.png"></a></p>
+<p><strong>Resource Details Tab:</strong></p>
+<p>Shows the list of resources associated with this schedule:</p>
+<p><strong>NAME</strong> - Resource name</p>
+<p><strong>INSTANCE ID</strong> - Unique resource identifier</p>
+<p><strong>REGION</strong> - Cloud region</p>
+<p><strong>STATUS</strong> - Active/Paused status with toggle</p>
+<p><strong>ACTIONS</strong> - Additional options menu</p>
+<h4 id="manual-override">Manual Override</h4>
+<p>The Manual Override feature provides users with the ability to temporarily pause or activate the application of the VM Snooze schedule for individual instances. This allows for greater flexibility in managing resources without permanently modifying the primary schedule.</p>
+<p><strong>How It Works:</strong></p>
+<ol>
+<li><strong>Accessing Manual Override:</strong></li>
+<li>Click the <strong>Manual Override</strong> icon in the Actions menu for a specific schedule</li>
+<li>
+<p>This will open a detailed list of instances associated with the schedule</p>
+</li>
+<li>
+<p><strong>Pausing or Activating an Instance:</strong></p>
+</li>
+<li><strong>Paused</strong> - Use the toggle switch to pause an instance, preventing it from being affected by the VM Snooze schedule. This ensures the resource remains operational, regardless of the scheduled start and stop times</li>
+<li>
+<p><strong>Active</strong> - Use the toggle switch to activate an instance, ensuring it adheres to the VM Snooze schedule</p>
+</li>
+<li>
+<p><strong>Instance Details:</strong></p>
+</li>
+<li>
+<p>The manual override panel displays key details for each instance:</p>
+<ul>
+<li><strong>Resource Name</strong> - Name of the instance</li>
+<li><strong>Instance ID</strong> - Unique identifier for the instance</li>
+<li><strong>Region</strong> - The cloud region where the resource is deployed</li>
+<li><strong>Status</strong> - Reflects whether the instance is currently subject to the schedule (Active) or excluded (Paused)</li>
+</ul>
+</li>
+<li>
+<p><strong>Closing Manual Override:</strong></p>
+</li>
+<li>Once the desired overrides are set, click <strong>Close Manual Override</strong> to return to the main Schedules view</li>
+<li>Overrides take effect immediately but do not alter the underlying schedule configuration</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture3.png" data-desc-position="bottom"><img alt="Update Schedule" src="../images/Picture3.png"></a></p>
+<h4 id="edit-action">Edit Action</h4>
+<p>The Edit feature allows users to modify the configuration of an existing schedule. This ensures flexibility for adapting schedules to changing requirements without the need to create a new schedule from scratch.</p>
+<p><strong>How It Works:</strong></p>
+<ol>
+<li><strong>Accessing Edit Mode:</strong></li>
+<li>Click the <strong>Edit</strong> icon from the Actions menu of the selected schedule</li>
+<li>
+<p>This opens the schedule in an editable form</p>
+</li>
+<li>
+<p><strong>Editable Fields:</strong></p>
+</li>
+</ol>
+<p>Users can update the following details:</p>
+<p><strong>Schedule Name</strong> - Update the schedule identifier</p>
+<p><strong>Description</strong> - Modify the description to better reflect the schedule's purpose</p>
+<p><strong>Start Date</strong> - Update the start date</p>
+<p><strong>Start Time</strong> - Change when the schedule activates</p>
+<p><strong>Stop Time</strong> - Change when the schedule deactivates</p>
+<p><strong>Time Zone</strong> - Select the appropriate time zone (e.g., Asia/Kolkata (GMT+05:30))</p>
+<ol>
+<li><strong>Saving Changes:</strong></li>
+<li>Once the updates are complete, click the <strong>Update</strong> button to save the changes</li>
+<li>
+<p>The schedule is updated in real time, and the changes are reflected in the Schedules screen</p>
+</li>
+<li>
+<p><strong>Closing Edit Mode:</strong></p>
+</li>
+<li>If no changes are needed, click <strong>Close Edit</strong> to exit the edit mode without modifying the schedule</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture4.png" data-desc-position="bottom"><img alt="Schedule Logs" src="../images/Picture4.png"></a></p>
+<h4 id="schedule-logs">Schedule Logs</h4>
+<p>The Schedule Logs feature provides users with detailed insights into the execution history of a schedule. It helps track the status of scheduled actions, ensuring transparency and simplifying troubleshooting when needed.</p>
+<p><strong>How It Works:</strong></p>
+<ol>
+<li><strong>Accessing Schedule Logs:</strong></li>
+<li>Click the <strong>Schedule Logs</strong> icon in the Actions menu of a specific schedule</li>
+<li>
+<p>This opens a log view displaying the execution history</p>
+</li>
+<li>
+<p><strong>Log Details:</strong></p>
+</li>
+</ol>
+<p>Each log entry includes:</p>
+<p><strong>Started At</strong> - The timestamp when the schedule action began</p>
+<p><strong>Completed At</strong> - The timestamp when the action finished</p>
+<p><strong>Status</strong> - Indicates the success or failure of the action (green "Success" label)</p>
+<p><strong>Message</strong> - Details about the action performed (e.g., instance IDs started/stopped)</p>
+<ol>
+<li><strong>Troubleshooting Support:</strong></li>
+<li>If a schedule action fails, the log entry provides error messages or status details</li>
+<li>
+<p>These can be used to identify and resolve issues</p>
+</li>
+<li>
+<p><strong>Closing Logs:</strong></p>
+</li>
+<li>After reviewing the logs, click <strong>Close Logs</strong> to return to the main Schedules view</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture5.png" data-desc-position="bottom"><img alt="Delete Schedule" src="../images/Picture5.png"></a></p>
+<h4 id="delete-schedule">Delete Schedule</h4>
+<p>The Delete Schedule feature allows users to permanently remove an existing schedule from the system. This is useful for eliminating outdated or unused schedules, ensuring that only relevant configurations are maintained.</p>
+<p><strong>How It Works:</strong></p>
+<ol>
+<li><strong>Accessing Delete Option:</strong></li>
+<li>Click the <strong>Delete</strong> icon in the Actions menu of the selected schedule</li>
+<li>
+<p>This action initiates the schedule deletion process</p>
+</li>
+<li>
+<p><strong>Confirmation Prompt:</strong></p>
+</li>
+<li>A confirmation dialog appears to prevent accidental deletions</li>
+<li>Users must confirm their intent to delete the schedule</li>
+<li>
+<p><strong>Deletion Outcome:</strong></p>
+<ul>
+<li>If confirmed, the schedule is permanently removed from the list, and all associated configurations are erased</li>
+<li>If canceled, no changes are made, and the schedule remains in place</li>
+</ul>
+</li>
+<li>
+<p><strong>Impact on Resources:</strong></p>
+</li>
+<li>Deleting a schedule does not impact the current state of associated resources</li>
+<li>It only removes the automation tied to the schedule</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture6.png" data-desc-position="bottom"><img alt="Recommendations" src="../images/Picture6.png"></a></p>
+<h4 id="export-instance-details">Export Instance Details</h4>
+<p>The Export Instance Details feature allows users to download a detailed spreadsheet (.csv) of all active schedules, instances, and their associated configurations. This enables efficient tracking, reporting, and analysis of virtual machine schedules and their statuses.</p>
+<p><strong>How It Works:</strong></p>
+<ol>
+<li><strong>Accessing the Export Feature:</strong></li>
+<li>
+<p>Click the <strong>Export Instance Details</strong> button located in the top-right corner of the Schedules screen</p>
+</li>
+<li>
+<p><strong>Downloading the Spreadsheet:</strong></p>
+</li>
+<li>When clicked, the system generates a spreadsheet and prompts you to download it</li>
+<li>
+<p>The file contains detailed information for each schedule and associated instance, including:</p>
+<ul>
+<li>Instance ID</li>
+<li>Region</li>
+<li>Instance Status</li>
+<li>Schedule Name</li>
+<li>Schedule Status</li>
+<li>Schedule Type</li>
+<li>Weekdays</li>
+<li>Weekends</li>
+<li>Action Type</li>
+<li>Description</li>
+<li>Start Date and End Date</li>
+<li>Time zone</li>
+<li>Weekday Start Time and End Time</li>
+<li>Weekend Start Time and End Time</li>
+<li>Is Recommended (Yes/No)</li>
+<li>Tag</li>
+</ul>
+</li>
+<li>
+<p><strong>Spreadsheet Output:</strong></p>
+</li>
+</ol>
+<p>The spreadsheet provides a comprehensive, instance-level view of schedules, enabling users to:
+- Monitor schedule execution for each instance
+- Identify instances and schedules based on region, type, or tags
+- Audit or analyze resource utilization and scheduling effectiveness</p>
+<hr>
+<h3 id="recommendations">Recommendations</h3>
+<h4 id="reviewing-recommendations">Reviewing Recommendations</h4>
+<p>The Recommendations Screen displays a list of recommended snooze schedules tailored to optimize resource utilization and cost efficiency. These recommendations are generated based on usage analytics, helping users identify optimal start and stop times for cloud resources.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture10.png" data-desc-position="bottom"><img alt="Recommendations Screen" src="../images/Picture10.png"></a></p>
+<p><strong>How It Works:</strong></p>
+<ol>
+<li><strong>Recommendations Column:</strong></li>
+<li>The Recommendation column lists the recommended snooze schedules for each resource</li>
+<li>
+<p>Each entry includes:</p>
+<ul>
+<li><strong>Instance ID</strong> - Identifies the resource</li>
+<li><strong>Snooze Schedule</strong> - Indicates the suggested start and stop times (e.g., Snooze_10 PM_5 AM)</li>
+</ul>
+</li>
+<li>
+<p><strong>Reviewing Suggested Schedules:</strong></p>
+</li>
+<li>Users can browse the recommendations to understand the proposed snooze schedules</li>
+<li>
+<p>The recommendations provide actionable insights for aligning resource schedules with real-world usage patterns</p>
+</li>
+<li>
+<p><strong>Taking Action:</strong></p>
+</li>
+<li>Check the boxes next to one or more recommendations to activate the <strong>Create Schedule</strong> button</li>
+<li>
+<p>Use the Create Schedule feature to customize and apply these recommendations</p>
+</li>
+<li>
+<p><strong>Additional Actions:</strong></p>
+</li>
+<li><strong>Download</strong> - Click the Download icon to export the recommendations list</li>
+<li><strong>Share</strong> - Click the Share icon to share recommendations via social media, email, or by copying a link</li>
+<li><strong>Add Columns</strong> - Click the Add Columns (+) icon to customize visible columns</li>
+</ol>
+<h4 id="actions_1">Actions</h4>
+<p><strong>View Recommendation Details and Usage Analysis:</strong></p>
+<p>Access recommendation details and analysis by navigating to <strong>Actions → View</strong>. This feature helps users evaluate a recommendation by providing detailed insights and usage analysis, enabling informed decisions about adopting a snooze schedule.</p>
+<p><strong>Recommendation Details:</strong></p>
+<p>Displays key information about the recommendation:
+- Resource ID, Name, and Region
+- Recommendation Type (e.g., Snooze)
+- Date Range and Start/Stop Times
+- Average CPU Utilization and Network In/Out metrics</p>
+<p><strong>Usage Analysis:</strong></p>
+<ul>
+<li>Provides a visual graph of historical metrics (e.g., CPU Utilization) over a configurable lookback period</li>
+<li>Users can select metrics like CPU or network usage to assess resource activity trends</li>
+</ul>
+<p>This feature allows users to validate recommendations before creating schedules, ensuring they align with usage patterns.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture11.png" data-desc-position="bottom"><img alt="Usage Analysis" src="../images/Picture11.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture7.png" data-desc-position="bottom"><img alt="Resources" src="../images/Picture7.png"></a></p>
+<hr>
+<h3 id="resource-scheduling">Resource Scheduling</h3>
+<p>The Resources section allows you to view and manage resources eligible for scheduling actions.</p>
+<p><strong>Features:</strong></p>
+<ol>
+<li><strong>Select Resources:</strong></li>
+<li>
+<p>Check the box in the row for one or more resources to enable the <strong>Create Schedule</strong> button</p>
+</li>
+<li>
+<p><strong>Create Schedule:</strong></p>
+</li>
+<li>After selecting resources, click the <strong>Create Schedule</strong> button to define scheduling parameters</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture12.png" data-desc-position="bottom"><img alt="Select Resources" src="../images/Picture12.png"></a></p>
+<p><strong>Schedule Configuration:</strong></p>
+<p><strong>Select Schedule Type</strong> - Choose between Vacation or Custom</p>
+<p><strong>Schedule Name</strong> - Enter a name (5-10 letters)</p>
+<p><strong>Description</strong> - Provide schedule purpose</p>
+<p><strong>End Date Option</strong> - Choose "No End Date" or set an end date</p>
+<p><strong>Start Date</strong> - Select when the schedule begins</p>
+<p><strong>Start Time</strong> - Set the activation time</p>
+<p><strong>Stop Time</strong> - Set the deactivation time</p>
+<p><strong>Time Zone</strong> - Select appropriate time zone (e.g., Asia/Kolkata)</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture8.png" data-desc-position="bottom"><img alt="Create Schedule" src="../images/Picture8.png"></a></p>
+<ol>
+<li><strong>View Resource Details:</strong></li>
+<li>Use the <strong>View</strong> action in the Actions column to see specific details about a resource</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture9.png" data-desc-position="bottom"><img alt="Resource Details" src="../images/Picture9.png"></a></p>
+<p><strong>Resource Details View:</strong></p>
+<p>Shows comprehensive information including:
+- Resource ID
+- Region
+- Environment
+- Tags (Name, project, department, etc.)</p>
+<p><strong>Additional Features:</strong></p>
+<ul>
+<li><strong>Download</strong> - Export resource details as a spreadsheet</li>
+<li><strong>Share</strong> - Share resource data via various platforms</li>
+<li><strong>Add Columns</strong> - Customize the displayed columns for a tailored view of resource data</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Picture13.png" data-desc-position="bottom"><img alt="Additional Features" src="../images/Picture13.png"></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <footer class="md-footer cp-footer" role="contentinfo">
+  <div class="cp-footer__inner">
+    <div class="cp-footer__brand">
+      <p class="cp-footer__tagline">Multi Cloud Cost Governance Platform.</p>
+
+      <div class="cp-footer__cta">
+        <a class="cp-footer__button" href="https://cloudpi.ai/" target="_blank" rel="noopener">Schedule Demo</a>
+      </div>
+
+      <p class="cp-footer__email"><a href="mailto:contact@cloudpi.ai">contact@cloudpi.ai</a></p>
+
+      <div class="cp-footer__social">
+        <a href="https://www.youtube.com/@purpledatainc." target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/purpledatainc/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/purpledata_inc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/PurpleDataTech" target="_blank" rel="noopener" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <p class="cp-footer__copyright">© 2026 CloudPi. All rights reserved.</p>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Product</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Features</a>
+      <a class="cp-footer__link" href="../Integrations/">Integrations</a>
+      <a class="cp-footer__link" href="../TaskManagement/">Workflow</a>
+      <a class="cp-footer__link" href="../security/">Security</a>
+      <a class="cp-footer__link" href="../Automations/">Automation</a>
+      <a class="cp-footer__link" href="../CloudPiOptimisations/">Gen AI</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Resources</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Solutions</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Case Studies</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Blogs</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Faq</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Videos</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Company</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">About Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">News &amp; Updates</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/" target="_blank" rel="noopener">Careers</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+
+    <div class="cp-footer__col">
+      <div class="cp-footer__title">Contact Us</div>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact Us</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Demo</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/" target="_blank" rel="noopener">Contact for Trail</a>
+      <a class="cp-footer__link" href="https://cloudpi.ai/contact-us/?heading=Register+Now" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+
+  <div class="cp-footer__bottom">
+    <div class="cp-footer__bottom-inner">
+      <div class="cp-footer__bottom-links">
+        <a href="https://cloudpi.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <span class="cp-footer__sep">|</span>
+        <a href="https://cloudpi.ai/" target="_blank" rel="noopener">cloudpi.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.sidebar.main", "navigation.sidebar.collapse", "navigation.top", "navigation.sections", "navigation.instant", "icons", "icon_links", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "toc.follow", "content.tabs.link", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
