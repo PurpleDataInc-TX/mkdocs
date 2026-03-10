@@ -1,0 +1,70 @@
+/* Additional custom styles for CloudPi documentation */
+
+/* Improve table styling */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--md-default-fg-color--lightest);
+  font-weight: 600;
+}
+
+/* Enhance admonition styling */
+.md-typeset .admonition {
+  border-radius: 0.3rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+/* Code block improvements */
+.md-typeset code {
+  border-radius: 0.2rem;
+}
+
+/* Improve navigation sections */
+.md-nav__item--nested > .md-nav__link {
+  font-weight: 600;
+}
+
+/* Better tag styling */
+.md-tag {
+  border-radius: 0.2rem;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.4rem;
+}
+
+/* Enhance search results */
+.md-search-result__article {
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+}
+
+/* Improve footer links */
+.md-footer-nav__link {
+  padding: 1rem;
+}
+
+/* Better header styling */
+.md-header {
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  .md-header,
+  .md-sidebar,
+  .md-footer {
+    display: none;
+  }
+
+  .md-content {
+    margin: 0;
+  }
+}
