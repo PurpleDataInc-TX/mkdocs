@@ -154,14 +154,53 @@
   left: 0;
 }
 
+/* Search button styling */
+.md-header__option {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.md-search__icon {
+  cursor: pointer;
+  color: #000;
+}
+
+.md-search__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #000;
+}
+
+.md-search__form {
+  background-color: white;
+}
+
+/* Make search overlay work properly */
+.md-search__overlay {
+  z-index: 2000;
+}
+
+.md-search__inner {
+  z-index: 2001;
+}
 
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Hidden element required by Material theme JS -->
-<header class="md-header" data-md-component="header" style="display:none;">
+<!-- Material header: inner bar hidden, tabs row visible for doc navigation -->
+<style>
+  .md-header__inner { display: none !important; }
+  .md-header { background: white; box-shadow: none; min-height: 0; position: relative; }
+  .md-tabs { background-color: #6F44A6; }
+  .md-tabs__link { color: rgba(255,255,255,0.8); }
+  .md-tabs__link--active, .md-tabs__link:hover { color: white; }
+  .md-tabs__item { height: 2.4rem; }
+</style>
+<header class="md-header" data-md-component="header">
   <div data-md-component="header-title"></div>
 </header>
 
@@ -183,6 +222,35 @@
       <li><a href="{{ base_url }}/">USER GUIDE</a></li>
     </ul>
   </nav>
+  <div class="md-header__option">
+    <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-search__overlay" for="__search"></label>
+      <div class="md-search__inner" role="search">
+        <form class="md-search__form" name="search">
+          <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+          <label class="md-search__icon md-icon" for="__search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </label>
+          <nav class="md-search__options" aria-label="Search">
+            <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+            </button>
+          </nav>
+        </form>
+        <div class="md-search__output">
+          <div class="md-search__scrollwrap" data-md-scrollfix>
+            <div class="md-search-result" data-md-component="search-result">
+              <div class="md-search-result__meta">
+                Initializing search
+              </div>
+              <ol class="md-search-result__list"></ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="buttons">
     <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
     <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
