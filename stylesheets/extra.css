@@ -1,5 +1,43 @@
 /* Additional custom styles for CloudPi documentation */
 
+/* Enhanced Search Bar Styling */
+.md-search__input {
+  background-color: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.3rem;
+  padding: 0.5rem 2.2rem 0.5rem 2.6rem;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.md-search__input:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.1);
+}
+
+.md-search__input:focus {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.2);
+}
+
+.md-search__input::placeholder {
+  color: var(--md-default-fg-color--light);
+  opacity: 0.7;
+}
+
+/* Make search icon more visible */
+.md-search__icon {
+  color: var(--md-primary-fg-color);
+}
+
+/* Enhanced search results */
+.md-search-result__meta {
+  background-color: var(--md-accent-fg-color);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.2rem;
+}
+
 /* Improve table styling */
 .md-typeset table:not([class]) {
   border: 1px solid var(--md-default-fg-color--lightest);
