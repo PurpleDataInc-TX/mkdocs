@@ -303,8 +303,6 @@ The Virtual Machine Scheduler feature in CloudPi offers powerful automation for 
 **Streamlined Implementation** - Apply recommendations with minimal configuration through the Recommendations screen
 
 
-![Schedule Details](images/Picture1.png)
-
 ---
 
 ### Setup and Configuration

@@ -1,39 +1,77 @@
 # Getting Started
 
-## Overview
-This guide helps you get access to CloudPi, connect your first cloud provider, and validate data ingestion.
+Use this guide to get access to CloudPi, connect your first cloud provider, and confirm that data is flowing correctly.
 
-## Step 1 - Get Access and Licensing
-- Request access from your CloudPi administrator.
-- Confirm your workspace and role (viewer, manager, admin).
-- Ensure licensing is assigned to your user and workspace.
+## Before You Begin
 
-For new installations and licensing, contact **contact@cloudpi.ai**.  
-For existing customer support, contact **support@cloudpi.ai**.
+Make sure you have:
 
-## Step 2 - First Login
-- Sign in to CloudPi.
-- If you have access to multiple workspaces, select the correct workspace.
+- A CloudPi user account
+- Access to the correct workspace
+- The right role for onboarding or administration
+- Cloud provider credentials or connection details
 
-## Step 3 - Select Your Scope
-- Verify the workspace, project groups, and projects you should see.
-- Review RBAC permissions in [RBAC](rbac.md).
+For licensing or onboarding support, contact **contact@cloudpi.ai**. For support on an existing deployment, contact **support@cloudpi.ai**.
 
-## Step 4 - Connect Cloud Providers
-Choose the provider guide that matches your environment.
+## Step 1: Sign In and Select the Right Workspace
 
-If you are onboarding via the CloudPi UI, see [Cloud Onboarding](CloudOnboarding.md).
+1. Sign in to CloudPi.
+2. If you can access multiple workspaces, choose the correct one.
+3. Confirm that the projects and project groups visible to you are correct.
 
-## Step 5 - Validate Ingestion
-- Confirm integration status in the CloudPi console.
-- Check that billing data appears in [Billing Hub](MultiCloudBillingHub.md).
-- Verify billing data correctness in [Cost Assignment](CostAssignment.md) and validate tags in [Tag Management](TagManagement.md).
+If access looks incorrect, review [RBAC](rbac.md) and [User Management](UserManagement.md).
 
-## Step 6 - Configure Integrations and Alerts
-- Configure ticketing and SSO in [Integrations](Integrations.md).
-- Set up alerts and notifications in [Workspace Settings](workspace.md).
+## Step 2: Connect a Cloud Provider
+
+Choose the path that matches your environment:
+
+- [Connect AWS](ConnectAWS.md)
+- [Connect Azure](ConnectAzure.md)
+- [Connect GCP](ConnectGCP.md)
+
+If you are onboarding through the guided UI flow, start with [Cloud Onboarding](CloudOnboarding.md).
+
+## Step 3: Validate Billing and Resource Ingestion
+
+After onboarding, confirm the platform is collecting and showing data correctly.
+
+Check:
+
+- [Billing Hub](MultiCloudBillingHub.md) for ingested billing data
+- [Cost Assignment](CostAssignment.md) for attribution and allocation behavior
+- [Tag Management](TagManagement.md) for tag visibility and governance controls
+
+## Step 4: Review the Workspace Experience
+
+Once ingestion is complete, review the main product areas you will use most often:
+
+- [Landing Page](homepage.md)
+- [Dashboards](Dashboards.md)
+- [Financials](Financials.md)
+- [Task Management](TaskManagement.md)
+
+## Step 5: Configure Core Administration
+
+Depending on your role, continue with:
+
+- [Workspace Settings](workspace.md)
+- [Admin Settings](AdminSetting.md)
+- [Integrations](Integrations.md)
+- [SSO Setup](SSOSetup.md)
+- [Alerts & Notifications](AlertsNotifications.md)
+
+## Validation Checklist
+
+You are ready to move on when:
+
+- You can sign in successfully
+- You can access the correct workspace
+- At least one cloud provider is connected
+- Billing data appears in CloudPi
+- Projects, tags, and core dashboards are visible
 
 ## Next Steps
-- Explore dashboards in [Dashboards](Dashboards.md).
-- Review budgets and forecasts in [Financials](Financials.md).
-- Configure policies and workflows in [Automations](Automations.md).
+
+- For budgets and forecasting, see [Budgeting](Budgeting.md) and [Forecast](Forecast.md)
+- For policies and workflows, see [Automation Overview](AutomationOverview.md) and [Automation](Automations.md)
+- For scheduler setup, see [Scheduler](Scheduler.md) and [VM Scheduler](AutomationVMScheduler.md)

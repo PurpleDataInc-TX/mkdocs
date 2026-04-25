@@ -1,334 +1,251 @@
 <style>
-.custom-header {
-  display: flex;
-  align-items: center;
-  /* align-items: left; */
-  background-color: white; 
-  padding: 6px;
-  padding-right: 0;
-  font-family: 'Poppins', sans-serif; 
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
-  /* justify-content: space-between; */
-  float: 'left';
-  z-index: 1000;
-  font-size: 11px;
-}
-
-.custom-nav {
-  flex: 1; 
-  display: flex;
-  justify-content: center; 
-  /* float: 'left'; */
-  align-items: center;
-  /* align-items: right; */
-  text-align: center;
-}
-
-.logo {
-  box-shadow: none; 
-}
-
-.logo-image {
-  height: 40px; 
-  width: auto; 
+/* Reset Material default header styles to fit our design */
+.md-header {
+  background-color: #fff;
+  color: #111827;
   box-shadow: none;
-}
-
-
-
-.custom-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 5px; 
-}
-
-.custom-nav li {
-  margin-left: 20px;
-}
-
-.custom-nav a {
-  color: black;
-  text-decoration: none;
-  font-weight: normal; /* Default font weight to normal */
-}
-
-.custom-nav a:hover {
-  text-decoration: underline;
-}
-
-.buttons {
-  display: flex;
-  margin: -10px;
-
-  /* justify-content: center;
-  align-items: center; */
-}
-
-.start-trial, .schedule-demo {
-  padding: 18px 35px;
-  padding-top: 18px;
-  text-decoration: none;
-  color: white;
-  float: 'right';
-  box-sizing: border-box;
-  /* font-size: 11px; */
-}
-
-
-
-.start-trial {
-  background-color: #f3e5ff; /* Light purple color */
-  color: #000; /* Black text */
-  float: 'right';
-}
-
-.schedule-demo {
-  background-image: linear-gradient(to bottom right, #C47BF4, #F08753);
-  color: #000; /* Black text */
-  float: 'right';
-}
-
-/* Hamburger menu */
-.menu-toggle {
-  display: block;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-/* Slide menu */
-.slide-menu {
-  position: fixed;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  position: sticky;
   top: 0;
-  left: -500px; /* Initially hide the menu */
-  width: 250px;
-  height: 100%;
-  background-color: white;
-  padding-top: 60px;
-  /* z-index: 1000; */
-  overflow-x: hidden;
-  transition: left 0.3s; /* Add transition for smooth sliding */
-  font-size: 14px;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
 }
 
-.menu-heading {
-  color: #ffffff;
-  padding: 10px 20px;
-}
-
-.slide-menu ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.slide-menu ul li {
-  padding: 10px 20px;
-  text-align: left;
-}
-
-.slide-menu ul li a {
-  color: black;
-  text-decoration: none;
-  display: block;
-}
-
-.slide-menu ul li:hover {
-  background-color: #f3e5ff;
-  color: #AC8AE7;
-}
-
-.slide-menu ul li:hover,
-.slide-menu ul li.selected {
-  color: #AC8AE7;
-}
-
-.slide-menu ul li a {
-  color: inherit; /* Inherit color from the list item */
-  text-decoration: none;
-  display: block;
-}
-
-/* Adjust content area when slide menu is open */
-.slide-menu.open {
-  left: 0;
-}
-
-/* Search button styling */
-.md-header__option {
+.md-header__inner {
   display: flex;
   align-items: center;
-  margin-left: auto;
-  margin-right: 10px;
+  padding: 0 1.5rem;
+  height: 72px;
+  gap: 1.5rem;
 }
 
-.md-search__icon {
-  cursor: pointer;
-  color: #000;
+/* Hide bits of Material header we don't want */
+.md-header__button.md-logo,
+.md-header__title {
+  display: none !important;
 }
 
-.md-search__icon svg {
+.cp-topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.cp-topbar__logo {
+  height: 36px;
+  width: auto;
+}
+
+.cp-topbar__name {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #111827;
+  letter-spacing: -0.01em;
+}
+
+.cp-topbar__search {
+  flex: 1;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Ensure search console is visible and styled */
+.cp-topbar__search .md-search {
+  display: block;
+}
+
+.cp-topbar__search .md-search__inner {
+  width: 100%;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 4px;
+  position: static;
+  visibility: visible;
+  opacity: 1;
+  border: 1px solid #e5e7eb;
+}
+
+.cp-topbar__search .md-search__inner:hover,
+.cp-topbar__search .md-search__inner:focus-within {
+  background: #fff;
+  border-color: #d1d5db;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cp-topbar__search .md-search__form {
+  background: transparent;
+}
+
+.cp-topbar__search .md-search__input {
+  background: transparent;
+  color: #111827;
+  font-size: 0.95rem;
+  height: 44px;
+}
+
+.cp-topbar__search .md-search__icon {
+  color: #6b7280;
   width: 24px;
   height: 24px;
-  fill: #000;
 }
 
-.md-search__form {
-  background-color: white;
-}
-
-/* Make search overlay work properly */
-.md-search__overlay {
+.cp-topbar__search .md-search__output {
+  position: absolute;
+  top: 60px;
+  width: 560px;
   z-index: 2000;
 }
 
-.md-search__inner {
-  z-index: 2001;
+@media screen and (max-width: 76.25em) {
+  .cp-topbar__search .md-search__output {
+    width: calc(100vw - 3rem);
+  }
 }
 
+.cp-topbar__nav {
+  margin-left: auto;
+}
+
+/* Mobile toggle adjustments */
+.cp-topbar__menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #374151;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+@media screen and (max-width: 76.25em) {
+  .cp-topbar__menu-toggle { display: block; }
+  .cp-topbar__search { display: none; }
+  .cp-topbar__nav { display: none; }
+}
+
+.cp-slide-menu {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  padding-top: 64px;
+  z-index: 1100;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cp-slide-menu.open { left: 0; }
+.cp-slide-menu ul { list-style: none; padding: 1rem; margin: 0; }
+.cp-slide-menu li { margin-bottom: 0.25rem; }
+.cp-slide-menu a {
+  display: block;
+  padding: 0.65rem 1rem;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.cp-slide-menu a:hover { background: #f3f4f6; color: #6f44a6; }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Material header: inner bar hidden, tabs row visible for doc navigation -->
-<style>
-  .md-header__inner { display: none !important; }
-  .md-header { background: white; box-shadow: none; min-height: 0; position: relative; }
-  .md-tabs { background-color: #6F44A6; }
-  .md-tabs__link { color: rgba(255,255,255,0.8); }
-  .md-tabs__link--active, .md-tabs__link:hover { color: white; }
-  .md-tabs__item { height: 2.4rem; }
-</style>
 <header class="md-header" data-md-component="header">
-  <div data-md-component="header-title"></div>
-</header>
+  <div class="md-header__inner md-grid">
+    <button class="cp-topbar__menu-toggle" id="cp-menu-toggle">&#9776;</button>
 
-<div class="custom-header">
-  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-  <div class="logo">
-    <img src="{{ base_url }}/images/cp-logo.png" alt="CloudPi AI" class="logo-image">
-  </div>
-  <nav class="custom-nav">
-    <ul>
-      <li><a href="https://cloudpi.ai/">HOME</a></li>
-      <li><a href="https://cloudpi.ai/">FEATURES</a></li>
-      <li><a href="https://cloudpi.ai/">COMPANY</a></li>
-      <!-- <li><a href="https://www.purpledatainc.com/technology-partners">TECHNOLOGY PARTNERS</a></li> -->
-      <li><a href="https://cloudpi.ai/">SOLUTIONS</a></li>
-      <li><a href="https://cloudpi.ai/">SUBSCRIPTIONS</a></li>
-      <li><a href="https://cloudpi.ai/">BLOG</a></li>
-      <li><a href="https://cloudpi.ai/">FAQ</a></li>
-      <li><a href="{{ base_url }}/">USER GUIDE</a></li>
-    </ul>
-  </nav>
-  <div class="md-header__option">
-    <div class="md-search" data-md-component="search" role="dialog">
-      <label class="md-search__overlay" for="__search"></label>
-      <div class="md-search__inner" role="search">
-        <form class="md-search__form" name="search">
-          <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-          <label class="md-search__icon md-icon" for="__search">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </label>
-          <nav class="md-search__options" aria-label="Search">
-            <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
-            </button>
-          </nav>
-        </form>
-        <div class="md-search__output">
-          <div class="md-search__scrollwrap" data-md-scrollfix>
-            <div class="md-search-result" data-md-component="search-result">
-              <div class="md-search-result__meta">
-                Initializing search
+    <div class="cp-topbar__brand">
+      <a href="https://cloudpi.ai/" style="display: flex; align-items: center;">
+        <img src="{{ base_url }}/images/cp-logo.png" alt="CloudPi" class="cp-topbar__logo">
+      </a>
+      <a href="{{ base_url }}/" style="text-decoration: none; color: inherit;">
+        <span class="cp-topbar__name">CloudPi Docs</span>
+      </a>
+    </div>
+
+    <div class="cp-topbar__search">
+      <div class="md-search" data-md-component="search" role="dialog">
+        <label class="md-search__overlay" for="__search"></label>
+        <div class="md-search__inner" role="search">
+          <form class="md-search__form" name="search">
+            <input type="text" class="md-search__input" name="query" aria-label="Search"
+              placeholder="Search docs..." autocapitalize="off" autocorrect="off"
+              autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+            <label class="md-search__icon md-icon" for="__search">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+              </svg>
+            </label>
+            <nav class="md-search__options" aria-label="Search">
+              <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+                </svg>
+              </button>
+            </nav>
+          </form>
+          <div class="md-search__output">
+            <div class="md-search__scrollwrap" data-md-scrollfix>
+              <div class="md-search-result" data-md-component="search-result">
+                <div class="md-search-result__meta">Initializing search</div>
+                <ol class="md-search-result__list"></ol>
               </div>
-              <ol class="md-search-result__list"></ol>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <nav class="cp-topbar__nav">
+      <ul style="list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; align-items: center;">
+        <li><a href="{{ base_url }}/" style="text-decoration: none; color: #4b5563; font-weight: 500; font-size: 1rem;">Product Docs</a></li>
+        <li><a href="{{ base_url }}/changelog/" style="text-decoration: none; color: #4b5563; font-weight: 500; font-size: 1rem;">Changelog</a></li>
+      </ul>
+    </nav>
+
+    <div class="cp-topbar__actions">
+      {% if config.theme.palette %}
+      <label class="md-header__button md-icon" for="__palette" title="Toggle theme">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:20px;height:20px;fill:#6b7280;">
+          <path d="M12,18V6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,15.31L23.31,12L20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31Z"/>
+        </svg>
+      </label>
+      {% endif %}
+    </div>
   </div>
-  <div class="buttons">
-    <a href="https://cloudpi.ai/" class="start-trial">START TRIAL</a>
-    <a href="https://cloudpi.ai/" class="schedule-demo">SCHEDULE DEMO</a>
-  </div>
-</div>
-<div id="slide-menu" class="slide-menu">
-  <!-- <h2 class="menu-heading">Table of Contents</h2> -->
+</header>
+
+<div id="cp-slide-menu" class="cp-slide-menu">
   <ul>
-    {% for item in nav %}
-    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+    <li><a href="{{ base_url }}/">Product Docs</a></li>
+    <li><a href="{{ base_url }}/changelog/">Changelog</a></li>
+    <hr style="margin:1rem 0;border:none;border-top:1px solid #eee;">
+    {% for nav_item in nav.items %}
+    <li><a href="{{ nav_item.url }}">{{ nav_item.title }}</a></li>
     {% endfor %}
   </ul>
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  var menuToggle = document.getElementById("menu-toggle");
-  var slideMenu = document.getElementById("slide-menu");
-
-  if (!menuToggle) return;
-
-  var collapsedKey = "md-primary-sidebar-collapsed";
-  var isDesktop = function() {
-    return window.matchMedia && window.matchMedia("(min-width: 76.25em)").matches;
-  };
-
-  var setCollapsed = function(collapsed) {
-    document.body.classList.toggle("md-primary-sidebar-collapsed", collapsed);
-    try {
-      localStorage.setItem(collapsedKey, collapsed ? "1" : "0");
-    } catch (e) {}
-  };
-
-  var initialCollapsed = false;
-  try {
-    initialCollapsed = localStorage.getItem(collapsedKey) === "1";
-  } catch (e) {}
-
-  if (isDesktop()) setCollapsed(initialCollapsed);
-
-  menuToggle.addEventListener("click", function(e) {
+document.addEventListener("DOMContentLoaded", function () {
+  var toggle = document.getElementById("cp-menu-toggle");
+  var menu = document.getElementById("cp-slide-menu");
+  if (!toggle) return;
+  toggle.addEventListener("click", function (e) {
     e.stopPropagation();
-
-    if (isDesktop()) {
-      setCollapsed(!document.body.classList.contains("md-primary-sidebar-collapsed"));
-      return;
-    }
-
-    var drawer = document.getElementById("__drawer");
-    if (drawer && drawer.type === "checkbox") {
-      drawer.checked = !drawer.checked;
-      return;
-    }
-
-    if (slideMenu) slideMenu.classList.toggle("open");
+    menu.classList.toggle("open");
   });
-
-  // Close the slide menu when clicking outside of it (mobile only)
-  document.addEventListener("click", function(e) {
-    if (isDesktop() || !slideMenu) return;
-
-    var target = e.target;
-    var isMenuOpen = slideMenu.classList.contains("open");
-    var isClickInsideMenu = slideMenu.contains(target);
-    var isClickInsideMenuToggle = menuToggle.contains(target);
-
-    if (isMenuOpen && !isClickInsideMenu && !isClickInsideMenuToggle) {
-      slideMenu.classList.remove("open");
+  document.addEventListener("click", function (e) {
+    if (menu.classList.contains("open") && !menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.remove("open");
     }
   });
-
-  // Close the slide menu when an item is selected (mobile only)
-  if (slideMenu) {
-    slideMenu.querySelectorAll("a").forEach(function(item) {
-      item.addEventListener("click", function() {
-        slideMenu.classList.remove("open");
-      });
-    });
-  }
 });
 </script>

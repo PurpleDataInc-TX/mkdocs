@@ -1,4 +1,4 @@
-﻿# Landing Page
+# Landing Page
 The landing page is your starting point after you sign in. It acts as a workspace launcher and a quick way to jump into the CloudPi areas you use most. From anywhere in CloudPi you can click the logo in the upper-left (or use **Workspace Selector > Landing Page**) to return to this screen instantly.
 
 ![Landing page tiles](images/welcome1.png)
@@ -69,5 +69,3 @@ When reviewing recommendations and health widgets:
 
 - Select a recommendation to open details and next steps.
 - Use the widget menu (three-line/ellipsis menu) for available actions such as filtering or viewing more detail.
-
-

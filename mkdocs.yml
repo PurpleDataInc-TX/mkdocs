@@ -1,10 +1,10 @@
-site_name: Cloudpi AI User Guide 1.0
+site_name: CloudPi Docs
 site_url: https://doc.cloudpi.ai
 theme:
   name: material
+  custom_dir: custom_theme
   logo: images/cp-logo.png
   favicon: images/favicon.png
-  custom_dir: custom_theme
 
   font:
     text: Poppins
@@ -13,20 +13,14 @@ theme:
   features:
     # Navigation
     - navigation.instant
-    - navigation.instant.prefetch
     - navigation.instant.progress
     - navigation.tracking
-    - navigation.tabs
     - navigation.sections
-    - navigation.expand
-    - navigation.path
-    - navigation.indexes
     - navigation.top
     - navigation.footer
 
     # Table of Contents
     - toc.follow
-    - toc.integrate
 
     # Search
     - search.suggest
@@ -41,32 +35,10 @@ theme:
     - content.action.edit
     - content.action.view
 
-    # Header
-    - header.autohide
-
     # Announce
     - announce.dismiss
 
   language: en
-
-  palette:
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: white
-      accent: deep purple
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: deep purple
-      accent: purple
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
 
   icon:
     repo: fontawesome/brands/github
@@ -131,74 +103,64 @@ plugins:
   #       color: "#ffffff"
 
 nav:
-  - '<i class="fa fa-info-circle"></i> Introduction': index.md
-  - '<i class="fa fa-rocket" aria-hidden="true"></i> Getting Started': GettingStarted.md
-  - '<i class="fa fa-home" aria-hidden="true"></i> Landing Page': homepage.md
-
-  - '<i class="fa fa-th-large" aria-hidden="true"></i> Dashboards': Dashboards.md
-
-  - '<i class="fa fa-plug" aria-hidden="true"></i> Cloud Integration':
-      - '<i class="fa fa-plug" aria-hidden="true"></i> Provider Connections': ProviderConnections.md
-      - '<i class="fa fa-cloud-upload-alt" aria-hidden="true"></i> Cloud Onboarding': CloudOnboarding.md
-      - '<i class="fa fa-cloud" aria-hidden="true"></i> Connect Cloud Providers':
-          - '<i class="fa fa-brands fa-aws" aria-hidden="true"></i> Connect AWS': ConnectAWS.md
-          - '<i class="fa fa-brands fa-microsoft" aria-hidden="true"></i> Connect Azure': ConnectAzure.md
-          - '<i class="fa fa-brands fa-google" aria-hidden="true"></i> Connect GCP': ConnectGCP.md
-
-  - '<i class="fa fa-dollar-sign" aria-hidden="true"></i> Cost Management':
-      - '<i class="fa fa-cloud" aria-hidden="true"></i> Billing Hub': MultiCloudBillingHub.md
-      - '<i class="fa fa-dollar-sign" aria-hidden="true"></i> Financials': Financials.md
-      - '<i class="fa fa-wallet" aria-hidden="true"></i> Budgeting': Budgeting.md
-      - '<i class="fa fa-chart-line" aria-hidden="true"></i> Forecast': Forecast.md
-      - '<i class="fa fa-coins" aria-hidden="true"></i> Cost Types': CostTypes.md
-      - '<i class="fa fa-sitemap" aria-hidden="true"></i> Cost Assignment': CostAssignment.md
-      - '<i class="fa fa-tag" aria-hidden="true"></i> Tag Management': TagManagement.md
-      - '<i class="fa fa-tags" aria-hidden="true"></i> Tag Governance': TagGovernance.md
-
-  - '<i class="fa fa-arrow-up" aria-hidden="true"></i> Optimizations':
-      - '<i class="fa fa-arrow-up" aria-hidden="true"></i> CloudPi Optimizations': CloudPiOptimisations.md
-
-  - '<i class="fa fa-magic" aria-hidden="true"></i> Automation':
-      - '<i class="fa fa-magic" aria-hidden="true"></i> Automation Overview': AutomationOverview.md
-      - '<i class="fa fa-cog" aria-hidden="true"></i> Automation': Automations.md
-      - '<i class="fa fa-clipboard-list" aria-hidden="true"></i> Policies & Workflows': AutomationPolicies.md
-      - '<i class="fa fa-sync-alt" aria-hidden="true"></i> Policy YAML Sync': PolicyYAMLSync.md
-      - '<i class="fa fa-clock" aria-hidden="true"></i> VM Scheduler': AutomationVMScheduler.md
-      - '<i class="fa fa-calendar-alt" aria-hidden="true"></i> Scheduler': Scheduler.md
-      - '<i class="fa fa-brain" aria-hidden="true"></i> Intelligence Automation': IntelligenceAutomation.md
-
-  - '<i class="fa fa-cogs" aria-hidden="true"></i> Integrations':
-      - '<i class="fa fa-cogs" aria-hidden="true"></i> Integrations': Integrations.md
-      - '<i class="fa fa-link" aria-hidden="true"></i> Integrations Catalog': IntegrationsCatalog.md
-      - '<i class="fa fa-shield-alt" aria-hidden="true"></i> SSO Setup': SSOSetup.md
-
-  - '<i class="fa fa-users" aria-hidden="true"></i> Access & Security':
-      - '<i class="fa fa-universal-access"></i> RBAC': rbac.md
-      - '<i class="fa fa-lock" aria-hidden="true"></i> Security': security.md
-      - '<i class="fa fa-users" aria-hidden="true"></i> User Management': UserManagement.md
-      - '<i class="fa fa-user-shield" aria-hidden="true"></i> Service Accounts': ServiceAccounts.md
-      - '<i class="fa fa-clipboard-check" aria-hidden="true"></i> Audit Logging': AuditLogging.md
-
-  - '<i class="fa fa-wrench"></i> Settings & Configuration':
-      - '<i class="fa fa-wrench"></i> Workspace Settings': workspace.md
-      - '<i class="fa fa-user-cog" aria-hidden="true"></i> Admin Settings': AdminSetting.md
-      - '<i class="fa fa-shield-alt" aria-hidden="true"></i> Global Policy Settings': GlobalPolicies.md
-      - '<i class="fa fa-bell" aria-hidden="true"></i> Alerts & Notifications': AlertsNotifications.md
-
-  - '<i class="fa fa-tasks" aria-hidden="true"></i> Operations':
-      - '<i class="fa fa-tasks" aria-hidden="true"></i> Task Management': TaskManagement.md
-      - '<i class="fa fa-ticket-alt" aria-hidden="true"></i> Ticketing': Ticketing.md
-
-  - '<i class="fa fa-life-ring" aria-hidden="true"></i> Help & Reference':
-      - '<i class="fa fa-life-ring" aria-hidden="true"></i> Troubleshooting': Troubleshooting.md
-      - '<i class="fa fa-book" aria-hidden="true"></i> Glossary': Glossary.md
+  - Get Started:
+      - Overview: index.md
+      - Introduction: Introduction.md
+      - Getting Started: GettingStarted.md
+      - Landing Page: homepage.md
+      - Dashboards: Dashboards.md
+      - Navigation Guide: navigation-guide.md
+  - Cloud Integration:
+      - Provider Connections: ProviderConnections.md
+      - Cloud Onboarding: CloudOnboarding.md
+      - Connect Cloud Providers:
+          - Connect AWS: ConnectAWS.md
+          - Connect Azure: ConnectAzure.md
+          - Connect GCP: ConnectGCP.md
+  - Cost Management:
+      - Billing Hub: MultiCloudBillingHub.md
+      - Financials: Financials.md
+      - Budgeting: Budgeting.md
+      - Forecast: Forecast.md
+      - Cost Types: CostTypes.md
+      - Cost Assignment: CostAssignment.md
+      - Tag Management: TagManagement.md
+      - Tag Governance: TagGovernance.md
+  - Optimizations:
+      - CloudPi Optimizations: CloudPiOptimisations.md
+  - Automation:
+      - Automation Overview: AutomationOverview.md
+      - Automation: Automations.md
+      - Policies & Workflows: AutomationPolicies.md
+      - Policy YAML Sync: PolicyYAMLSync.md
+      - VM Scheduler: AutomationVMScheduler.md
+      - Scheduler: Scheduler.md
+      - Intelligence Automation: IntelligenceAutomation.md
+  - Integrations:
+      - Integrations: Integrations.md
+      - Integrations Catalog: IntegrationsCatalog.md
+      - SSO Setup: SSOSetup.md
+  - Admin & Security:
+      - RBAC: rbac.md
+      - Security: security.md
+      - User Management: UserManagement.md
+      - Service Accounts: ServiceAccounts.md
+      - Audit Logging: AuditLogging.md
+      - Workspace Settings: workspace.md
+      - Admin Settings: AdminSetting.md
+      - Global Policy Settings: GlobalPolicies.md
+      - Alerts & Notifications: AlertsNotifications.md
+  - Operations:
+      - Task Management: TaskManagement.md
+      - Ticketing: Ticketing.md
+  - Reference:
+      - Troubleshooting: Troubleshooting.md
+      - Glossary: Glossary.md
+      - Tags: tags.md
+  - Changelog: Changelog.md
 
 
 extra:
-  version:
-    provider: mike
-    default: latest
-
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/cloudpi-ai

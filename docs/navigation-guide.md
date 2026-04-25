@@ -1,64 +1,50 @@
 # Navigation Guide
 
-## How to Access the Full Menu
+CloudPi Docs uses a standard docs layout:
 
-The CloudPi AI User Guide uses a **collapsible sidebar navigation** to give you more reading space.
+- **Top navigation tabs** for major product areas
+- **Left sidebar** for page navigation inside the current section
+- **Right table of contents** for headings on the current page
+- **Search** in the header for direct page lookup
 
-### Opening the Navigation Menu
+## How to Use the Docs
 
-1. **Look at the top-left corner** of any page
-2. **Find the hamburger menu icon** (☰ - three horizontal lines)
-3. **Click the hamburger icon** to toggle the navigation sidebar
+### Browse by Section
 
-### What You'll See in the Navigation Menu
+Use the top tabs and left sidebar to move through the product by area:
 
-Once opened, the left sidebar will display all documentation sections with icons:
+- Getting Started
+- Cloud Integration
+- Cost Management
+- Automation
+- Integrations
+- Access & Security
+- Settings & Configuration
+- Operations
+- Help & Reference
 
-- **Introduction**
-- **Getting Started**
-- **Landing Page**
-- **Dashboards**
-- **Cloud Integration** (with sub-items)
-  - Provider Connections
-  - Cloud Onboarding
-  - Connect Cloud Providers (AWS, Azure, GCP)
-- **Cost Management** (with sub-items including)
-  - Billing Hub
-  - Financials
-  - **Budgeting** ← You're looking for this
-  - **Forecast** ← And this
-  - Cost Types
-  - Cost Assignment
-  - Tag Management
-  - Tag Governance
-- **Optimizations**
-- **Automation** (with sub-items)
-  - Automation Overview
-  - Automation
-  - Policies & Workflows
-  - Policy YAML Sync
-  - VM Scheduler
-  - **Scheduler**
-  - **Intelligence Automation**
-- **Integrations**
-- **Access & Security**
-- **Settings & Configuration**
-- **Operations**
-- **Help & Reference**
+### Search for a Topic
 
-### Desktop vs Mobile
+Use search when you already know the feature or task you need. Search works best for:
 
-- **Desktop**: Hamburger icon toggles sidebar visibility (collapsed/expanded)
-- **Mobile**: Hamburger icon opens a slide-out menu overlay
+- product area names
+- page titles
+- provider names such as AWS, Azure, or GCP
+- terms like RBAC, scheduler, budget, or SSO
 
-### Not Seeing the Hamburger Icon?
+### Follow the Page Flow
 
-If you don't see the hamburger menu icon (☰):
+Most pages are written to support a simple reading pattern:
 
-1. **Refresh your browser** (Ctrl+R or Cmd+R)
-2. **Clear browser cache**: Ctrl+Shift+Delete (Windows) or Cmd+Shift+Delete (Mac)
-3. **Try a hard refresh**: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+1. understand the purpose of the page
+2. complete the setup or task
+3. validate the result
+4. continue to the next related page
 
----
+## If Navigation Feels Off
 
-**Need help?** Contact CloudPi support at support@cloudpi.ai
+- Refresh the page
+- Use search to jump directly to the page you need
+- Return to [CloudPi Docs](index.md) and start from the main section list
+
+If you still cannot find the right page, see [Troubleshooting](Troubleshooting.md).
