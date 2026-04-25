@@ -1,9 +1,7 @@
 /* .md-header img{
   display: none !important;
 } */
-.md-header {
-  display: none;
-}
+/* Removed header hiding to allow custom restyled header to show */
 
 :root {
   /* --md-primary-fg-color:        #EE0F0F; */
