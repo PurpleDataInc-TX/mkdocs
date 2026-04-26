@@ -11,10 +11,10 @@ hide:
 <p class="cp-hero__lead">Connect cloud accounts, validate billing, manage access, and automate cost controls from one documentation hub built for operators, FinOps teams, and administrators.</p>
 
 <div class="cp-hero__actions">
-  <a class="md-button md-button--primary" href="GettingStarted/">Get Started</a>
-  <a class="md-button" href="CloudOnboarding/">Connect a Provider</a>
-  <a class="md-button" href="AutomationOverview/">Explore Automation</a>
   <a class="md-button" href="Introduction/">Introduction</a>
+  <a class="md-button md-button--primary" href="GettingStarted/">Get Started</a>
+  <a class="md-button" href="AutomationPolicies/">Explore Policies</a>
+  <a class="md-button" href="AutomationOverview/">Explore Automation</a>
 </div>
 </section>
 
@@ -86,6 +86,14 @@ hide:
 
     [Billing hub](MultiCloudBillingHub.md)
 
+-   __Cost Assignment__
+
+    ---
+
+    Cost assignment, tag management, and tag governance rules.
+
+    [Cost assignment](CostAssignment.md)
+
 -   __Automation__
 
     ---
@@ -93,6 +101,14 @@ hide:
     Policies, workflows, scheduler, and intelligence-driven actions.
 
     [Automation overview](AutomationOverview.md)
+
+-   __Policies & Workflows__
+
+    ---
+
+    Standardize compliance, drive best practices, and automate remediation.
+
+    [Policies and workflows](AutomationPolicies.md)
 
 -   __Integrations__
 
@@ -145,4 +161,6 @@ hide:
 
 <div class="cp-note" markdown>
 **Need definitions first?** Open [Glossary](Glossary.md) for key CloudPi terms such as workspace, project, policy, workflow, and billing view.
+</div>
+pace, project, policy, workflow, and billing view.
 </div>

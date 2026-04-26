@@ -1,274 +1,363 @@
 # Cost Assignment
 
-The Cost Assignment module in CloudPi enables users to allocate cloud expenses accurately by applying rules and grouping resources into projects. This ensures each cloud cost is traceable to a specific department, team, or function.
+Cloud billing data arrives as a single undivided total. Without Cost Assignment, you cannot tell which team, product, or client is responsible for which part of that spend — making chargeback, budgeting, and accountability impossible.
+
+CloudPi Cost Assignment solves this through a three-layer model:
+
+- **Rules** capture cloud costs by matching resources against criteria you define (account, tags, or attributes)
+- **Projects** own those costs — each rule is linked to exactly one project, and a project rolls its rule costs into a single total
+- **Groups** organize projects for visibility — a group's cost is the sum of all projects inside it
+
+This hierarchy gives you a clean path from raw cloud spend all the way up to a client organization total.
+
+```text
+Cloud Billing Data (AWS / Azure / GCP)
+         │
+         ▼
+    [ Rules ]  ←── match by account, tag, or attribute
+         │
+         ▼
+   [ Projects ]  ←── own the matched costs; linked to a Client Org
+         │
+         ▼
+  [ Project Groups ]  ←── organize projects; sum child costs for display
+         │
+         ▼
+  [ Client Organization ]  ←── top-level billing entity
+```
+
+## Understanding Key Concepts
+
+### Rules
+
+A rule is a filter definition that tells CloudPi which cloud resources belong to a project. Every cost that gets assigned starts with a rule.
+
+Rules have three types:
+
+| Type | Name | Matches By |
+|------|------|------------|
+| **A** | Account-Based | Subaccount, subscription, or GCP project — optionally narrowed by region, resource group, or tags |
+| **T** | Tag-Based | Cloud resource tags (key:value pairs) |
+| **B** | Attribute-Based | Service name, charge category, resource type, service category, usage type, or commitment discount type |
+
+Each rule also has:
+
+- **Priority** (1–100): when two EXCLUSIVE rules match the same cost, the higher priority wins
+- **Exclusivity**: EXCLUSIVE means a cost can only be counted once; SHARED means a cost can appear in multiple rules simultaneously
+
+A rule is always linked to exactly one project. You cannot share a rule across projects.
+
+### Projects
+
+A project is the unit of cost ownership in CloudPi. It represents a logical workload, team, or product line. All costs matched by a project's rules roll up into a single project total.
+
+Key project properties:
+
+| Property | Description |
+|----------|-------------|
+| Project Name | Unique label within your workspace |
+| Project ID | Auto-generated reference (e.g., CP00008) or a custom ID in `cp-xxxxx` format — locked after creation |
+| Cloud Provider | AWS, Azure, or GCP — locked after creation |
+| Organization | The Client Org this project belongs to — locked after creation |
+| Project Group | The group this project is organized under |
+| Status | Active (APRV), In Progress (INPR), or Decommissioned |
+| Recommendations | Toggle on/off cost optimization recommendations |
+| Remediation | Toggle on/off automated remediation actions |
+
+A project's cost = the sum of all costs matched by all rules attached to that project.
+
+Costs not matched by any rule appear as **Unassigned** at the organization level.
+
+### Project Groups
+
+A project group is an organizational container for projects. It has no cost logic of its own — its total is simply the sum of costs from all projects inside it.
+
+Groups exist to let you mirror your internal org structure. For example, you might have a group called `Platform` containing projects for your infrastructure, monitoring, and shared services.
+
+Key group properties:
+
+| Property | Description |
+|----------|-------------|
+| Group Name | Unique within workspace; alphanumeric and underscores only |
+| Projects | One or more projects assigned to this group |
+| Group Cost | Automatically calculated as the sum of all child project costs |
+
+Every project must belong to a group. If no group is specified during project creation, a default group is used.
+
+### Client Organization
+
+A client organization is the top-level billing entity — the AWS billing account, Azure tenant, or GCP organization that CloudPi is connected to. Projects are always linked to a specific client org, and all cost reporting flows up to this level.
+
+**Cost rollup summary:**
+
+```text
+Rule A  ─┐
+Rule B  ──┼─→  Project X  ─┐
+Rule C  ─┘                  │
+                             ├─→  Group "Platform"  ─┐
+Rule D  ─┐                  │                        │
+Rule E  ──┼─→  Project Y  ─┘                        ├─→  Client Org Total
+Rule F  ─┘                                           │
+                                                      │
+Rule G  ──→  Project Z  ──→  Group "Data"  ──────────┘
+```
+
+### Assigned vs. Unassigned Costs
+
+The **Entity Totals** panel on the Rules screen shows three numbers for your selected organization:
+
+- **Total Cost** — all cloud charges for the selected org and months
+- **Assigned Cost** — the portion captured by at least one rule
+- **Unassigned Cost** — the remainder not yet matched by any rule
+
+Your goal is to drive Unassigned Cost toward zero. A high unassigned amount usually means some accounts, tags, or resource types are not yet covered by a rule.
+
+## How To
+
+### Prerequisites
+
+- **Rules**: RULES menu access (Read to view, Write to create/edit)
+- **Projects**: PROJECTS menu access (Read to view, Write to create/edit)
+- At least one cloud organization connected to your workspace
+- Billing data available for the months you want to analyze
+
+### Step 1 — Open Cost Assignment
+
+From the left navigation menu, go to **Cost Assignment → Rules**.
+
+### Create a Rule
+
+#### Step 2 — Set Billing Context
+
+Select your **Cloud Provider**, **Organization**, and **Billed Month(s)** at the top of the rule builder. Use the presets (Current Month, Last 3 Months) or pick individual months.
+
+| Field | Description | Editable? |
+|-------|-------------|-----------|
+| Billing Type | Billed Cost, Effective Cost, or List Cost — set at workspace level | Read-only |
+| Cloud Provider | AWS, Azure, or GCP | Locked after save |
+| Organization / Billing Entity | Connected billing account | Locked after save |
+| Management Group / Folder | (Azure/GCP only) Optional sub-grouping | Optional |
+| Billed Month(s) | One or more months | Required |
+
+#### Step 3 — Choose Rule Type
+
+Select Account-Based (A), Tag-Based (T), or Attribute-Based (B).
+
+#### Step 4 — Define Filters
+
+**Account-Based (A):**
+
+- Select a **Subaccount** (required)
+- Optionally add **Region**, **Resource Group** (Azure), and up to 3 **Tag** filters
+
+**Tag-Based (T):**
+
+- Add one or more **Tag** key:value pairs — at least one required
+
+**Attribute-Based (B):**
+
+- Select one or more attributes and choose the values to match:
+  - Service, Category, Resource Type, Service Category, Usage Type, Commitment Discount
+
+#### Step 5 — Preview Matching Costs
+
+Click **Apply** to refresh the **Filter Preview** in the Cost Overview panel on the right.
+
+| Panel Section | What It Shows |
+|---------------|---------------|
+| Entity Totals | Org-wide total, assigned, and unassigned costs |
+| Dimension Costs | Breakdown by subaccount, tag, or attribute |
+| Filter Preview | Costs matched by current filter selections |
+
+#### Step 6 — Set Rule Options (Optional)
+
+| Field | Description | Default |
+|-------|-------------|---------|
+| Rule Name | Label for this rule | Auto-generated |
+| Priority | 1–100, higher evaluated first when rules overlap | 50 |
+| Exclusivity | EXCLUSIVE (no overlap) or SHARED (costs counted in multiple rules) | EXCLUSIVE |
+
+#### Step 7 — Create the Rule
+
+Click **Create Rule**, select the **Project** to link it to, and confirm. The rule appears immediately in the Rules table.
+
+### Monitor Rules in the Rules Table
+
+The Rules Table below the rule builder shows all rules in your workspace:
+
+| Column | Description |
+|--------|-------------|
+| Rule Name | Your label or auto-generated name |
+| Rule Type | Account (A), Tag (T), or Attribute (B) |
+| Priority | Evaluation order |
+| Exclusivity | EXCLUSIVE or SHARED |
+| Rule Scope | Summary of filters applied |
+| Assigned Cost | Total cost matched by this rule |
+| Project Name | The project this rule is linked to |
+| Cloud Provider | AWS, Azure, or GCP |
+| Organization | Billing entity for this rule |
+| Actions | Edit or Delete |
+
+### Create a Project Group
+
+You need at least one group before creating a project. Groups can also be created inline during project creation.
+
+1. Go to **Cost Assignment → Projects**
+2. Click **+ Create New Project**
+3. In the Project Group field, click **Create New Group**
+4. Enter a group name (alphanumeric and underscores only)
+5. Save the group — it is now available in the dropdown
+
+### Create a Project
+
+1. Go to **Cost Assignment → Projects**
+2. Click **+ Create New Project**
+3. Fill in the required fields:
+
+| Field | Notes |
+|-------|-------|
+| Project Name | 5–30 characters, unique in workspace |
+| Project Group | Select existing or create new inline |
+| Cloud Provider | AWS, Azure, or GCP — locked after creation |
+| Organization | Select from connected orgs — locked after creation |
+| Description | 16–255 characters |
+| Rules | Select one or more rules from the org (only unassigned rules or rules already on this project are shown) |
+| Custom Project ID | Optional — format `cp-xxxxx`, locked after creation |
+
+4. Optionally configure:
+   - **Recommendations** — enable cost optimization suggestions (on by default)
+   - **Remediation** — enable automated remediation (on by default, requires Recommendations on)
+   - **Self Rule** — auto-assigns any resource tagged with this project's ID
+   - **Sync Type** — sync cost data now or later
+5. Optionally invite users (Project Admin or Project User) and select a project icon
+6. Click **Create Project**
+
+The project appears under its group accordion with its current-month cost total.
+
+### View Cost Rollup by Group
+
+1. Go to **Cost Assignment → Projects**
+2. Each accordion = one Project Group
+3. The accordion header shows: group name, project count, and total group cost (sum of all child project costs for the current month)
+4. Expand the accordion to see individual project rows
+
+### View a Project's Rules
+
+1. Go to **Cost Assignment → Projects**
+2. Find the project and expand its row
+3. The expanded view shows all attached rules with rule name, type, exclusivity, scope summary, and status
+
+### Edit a Rule
+
+1. Find the rule in the Rules Table and click the **Edit** icon
+2. Adjust filters, name, priority, or exclusivity
+3. Click **Update Rule**
+
+> Cloud Provider and Organization cannot be changed in edit mode.
+
+### Edit a Project
+
+1. Find the project in the Projects table and click the **Edit** action
+2. Update description, rules, group, recommendations, or remediation settings
+3. Save changes
+
+> Cloud Provider and Organization cannot be changed after project creation.
+
+### Delete a Rule or Project
+
+**Delete a rule**: Click the Delete icon in the Rules Table and confirm. The rule's matched costs return to Unassigned.
+
+**Delete a project**: Click the Delete action in the Projects Table and confirm. All rules linked to that project become unlinked and their costs return to Unassigned.
+
+## FAQ
+
+**Q: What is the difference between a Rule, a Project, and a Group?**
+
+A rule defines the filter that matches cloud resources (which costs belong here). A project owns those costs — it is the destination rules flow into, and it is linked to a client organization. A group organizes projects for display and sums their costs; it has no cost logic of its own. The full chain is: Rules → Project → Group → Client Org.
 
 ---
 
-## Overview
+**Q: How is a Project Group's cost calculated?**
 
-Cost Assignment helps organizations:
-
-- **Allocate Costs Accurately** – Assign cloud spending to the right teams, departments, or projects
-- **Enable Chargeback/Showback** – Provide transparent cost visibility for internal billing
-- **Track Cost by Dimensions** – Monitor spending by tags, accounts, regions, or services
-- **Identify Unassigned Costs** – Find and address cost leaks in your cloud environment
-- **Enforce Accountability** – Make teams responsible for their cloud consumption
+A group's cost is the sum of costs from all projects inside it, aggregated at display time. It is not stored separately. If you move a project to a different group, the cost moves with it immediately.
 
 ---
 
-## Understanding the Rules
+**Q: What is the difference between Billed Cost, Effective Cost, and List Cost?**
 
-Create and manage cloud cost allocation rules using provider-specific metadata like tags and accounts. Monitor costs at both organization and rules levels.
-
-### Navigating to Cost Assignment
-
-1. From the main navigation menu, click on **Cost Assignment**
-2. You'll see two main tabs:
-   - **Rules** - Define cost allocation rules
-   - **Projects** - Manage projects and view allocated costs
-
-### Rules Section Overview
-
-This is the rules section where users define the allocation rule by selecting different filters.
-
-### Creating a Cost Assignment Rule
-
-**Step 1: Select Billed Month**
-
-First, the user selects the **Billed Month** to specify the billing cycle for which the cost assignment rule should apply (for example, June 2025).
-
-**Step 2: Choose Cloud Service Provider**
-
-Then, they choose a **Cloud Service Provider** such as AWS, Azure, or GCP depending on the source of the cloud bill.
-
-**Step 3: Select Organization**
-
-Next, the **Organization Name** is selected to identify which organization the rule applies to.
-
-**Step 4: Choose Organizational Unit (Optional)**
-
-If the organization has different teams or departments, the user can further refine the scope by choosing an **Organizational Unit** like DEV, QA, or FINANCE.
-
-**Step 5: Select Rule Type**
-
-After that, the user selects the **Rule Type**, which defines how the cost should be allocated—whether it's based on:
-- Account IDs only (A-type)
-- Account IDs + Region (AR-type)
-- Account IDs + Tags (AT-type)
-- Account IDs + Region + Tags (ART-type)
-- Tags only (T-type)
-
-**Step 6: Choose Subaccount (if applicable)**
-
-If the rule type includes accounts, the user will need to choose a **Subaccount** to target the specific cloud account.
-
-**Step 7: Select Region (Optional)**
-
-Optionally, the user can narrow the scope even further by selecting a **Region** (such as us-east-1 or ap-south-1) to apply the rule only to resources running in a specific location.
-
-**Step 8: Define Tags (Optional)**
-
-To assign cost based on resource metadata, the user can define **Tags**. This involves:
-- Entering a **Tag Key** (like env, project, or owner)
-- Entering one or more **Tag Values** (like production, cloudpi, or teamA)
-- Clicking **Add Tag** to include the tag filter in the rule
-
-**Step 9: Apply and Review**
-
-Once all required filters are selected, the user clicks **Apply** to view the cost distribution.
-
-**Step 10: Create Rule**
-
-If the setup is valid and doesn't conflict with existing rules, the user can proceed to click **Create Rule**.
-
-### Cost Overview
-
-This section displays key cost metrics to help you understand the cost distribution:
-
-- **Total Cost** – All cloud spends for selected filters, displayed in a summary card at the top
-- **Assigned Cost** – Portion already assigned by other rules, shows what percentage of total cost is allocated
-- **Unassigned Cost** – Portion not assigned by any rule, highlights cost leaks that need attention
-- **Visual Representation** – A pie chart displays the percentage of assigned vs unassigned cost with color-coded segments
-- **Unassigned Cost Breakdown** – Shows which subaccounts have unallocated spending with dollar amounts and percentages
-
-![Cost Assignment Rules](images/costassignment_rules1.png)
+Billed Cost is what your cloud provider charged you for the period. Effective Cost applies amortized reserved instance or savings plan discounts. List Cost is the on-demand (MSRP) price before discounts. Your workspace administrator sets which type is active — it applies to all rules and cannot be changed per rule.
 
 ---
 
-## Rule Types
+**Q: Can a rule be linked to more than one project?**
 
-When creating a cost allocation rule, the type of rule generated depends on the filters you select. In CloudPi, the type of rule created depends on the selected filters.
-
-### Rule Type Matrix
-
-- **Account only (A)** – Account-based allocation. Use case: Simple project with single account
-- **Account + Region (AR)** – Account and region-based allocation. Use case: Multi-region deployments
-- **Account + Tags (AT)** – Account and tag-based allocation. Use case: Tagged resources within account
-- **Account + Region + Tags (ART)** – Full dimensional allocation. Use case: Complex multi-region, tagged environments
-- **Tags only (T)** – Tag-based allocation. Use case: Cross-account tag-based allocation
-
-**Examples:**
-
-- **A-type rule** - Selecting only an account creates an A-type rule
-- **AR-type rule** - Adding a region changes it to AR
-- **AT-type rule** - Adding tags changes it to AT
-- **ART-type rule** - Adding both region and tags creates ART
-- **T-type rule** - If only tags are selected without an account, a T-type rule is generated—ideal for cross-account tag-based allocation
-
-### Rules Table Overview
-
-Once you create rules, they are listed in a table at the bottom of the Rules page. This table gives you a full overview of all defined rules and their properties.
-
-![Rules Table](images/RulesTable.png)
-
-**For each rule, you'll see:**
-
-- **Rule ID** – A unique identifier for the rule
-- **Rule Type** – The type (A, AR, AT, ART, or T) based on the filter combination
-- **Organization** – The organization the rule is assigned to
-- **Filters** – The specific filters used in the rule (like subaccount, region, or tag key-values)
-- **Allocated Cost** – Total cost assigned by this rule
-- **Status** – Active, Inactive, or Conflict
-- **Actions** – Edit, Delete, or View buttons
-
-### Managing Rules
-
-**Edit a Rule:**
-
-1. Click the **Edit** button in the Actions column
-2. Modify filters as needed
-3. Review the updated cost allocation
-4. Click **Update Rule**
-
-**Delete a Rule:**
-
-1. Click the **Delete** button in the Actions column
-2. Confirm deletion in the popup
-3. Note: Deleting a rule will un-assign costs previously allocated by that rule
-
-**View Rule Details:**
-
-1. Click the **View** button to see comprehensive rule information
-2. Review cost allocation breakdown
-3. See affected resources and accounts
-
-### Rule Conflicts and Overlaps
-
-This table helps you easily track, review, and manage all the cost assignment rules in one place.
-
-**Important Considerations:**
-
-- Check for any rule conflicts or overlapping conditions
-- If you see a warning message about cost overlap, review and resolve the conflict
-- CloudPi highlights rules with conflicts in yellow/red
-- Overlapping rules can lead to double-counting or incorrect allocations
-
-**Resolving Conflicts:**
-
-1. Identify the conflicting rules (marked with warning icons)
-2. Review the filters of each conflicting rule
-3. Adjust filters to remove overlap
-4. Consider rule priority or specificity
-5. Re-validate cost allocation after changes
+No. Each rule links to exactly one project. Create separate rules with appropriate filters if you need to assign similar costs to multiple projects.
 
 ---
 
-## Projects
+**Q: Can the same cost appear in two different projects?**
 
-The Projects Page under the Cost Assignment module allows users to manage and track cloud costs at a project level. This is where users can view all existing projects, create new ones, and update or delete them as needed.
-
-![Projects](images/projects1.png)
-
-### Viewing Projects
-
-When you navigate to the Projects page, you'll see a list of all existing **project groups** displayed with:
-
-- **Number of projects** in each group
-- **Cost of the group** for the current month
-- **Trend indicator** (increasing/decreasing)
-
-**Click on a project group** to expand and view the projects it contains.
-
-**The following details will be shown for each project:**
-
-- **Project ID** – Unique project identifier
-- **Project Name** – Name of the project
-- **Description** – Brief project description
-- **Project Owner** – Team or person responsible
-- **Cost** – Total allocated cost for current month
-- **Status** – Active, Inactive, or Archived
-- **Actions** – View, Edit, Delete options
-
-This table provides an overview of all active projects and their configurations.
-
-### Creating a Project
-
-To create a new project, click the **"Create Project"** button located at the top of the page.
-
-Upon clicking, a form modal will open where the user needs to fill in the required project information.
-
-**The form includes the following fields:**
-
-- **Project Name** (Required) – A unique name to identify the project
-- **Project Group** (Required) – Used to group related projects together
-- **Description** (Required) – A summary explaining the purpose of the project
-- **Cloud Service Provider (CSP)** (Required) – Choose between AWS, Azure, or GCP
-- **Organization Name** (Required) – The organizational unit the project belongs to
-- **Rules** (Required) – Select one or more existing cost assignment rules to link to this project
-- **Project Icon** (Optional) – Optionally, choose an icon to visually represent the project
-- **Enable Self Tag** (Optional) – If enabled, all resources with a tag matching the project ID will be automatically associated with this project
-
-![Create Project](images/createproject1.png)
-
-**Steps to Create:**
-
-1. Click **Create Project**
-2. Fill in all required fields
-3. Select one or more cost assignment rules
-4. Optionally, enable **Self Tag** for automatic resource association
-5. Choose a project icon (optional)
-6. Click **Create Project** to finalize
-
-**Once created:**
-
-- The newly created project will appear in the project list
-- The project status will reflect its configuration
-- Costs will be allocated based on the selected rules
-
-### Managing Existing Projects
-
-Users can manage projects using the action buttons available in the **Actions** column:
-
-**View/Edit:**
-
-- Click the **Edit** icon to update project details such as:
-  - Rules
-  - Name
-  - Description
-  - Project group assignment
-  - Cloud service provider
-  - Self-tag settings
-
-**Delete:**
-
-- Click the **Delete** icon to decommission or remove a project permanently
-- **Warning:** Deleting a project will remove cost allocations associated with it
-- A confirmation prompt will appear before deletion
+Only if both matching rules are set to **SHARED** exclusivity. If both are EXCLUSIVE, only the higher-priority rule's project receives the cost. Use SHARED deliberately — for example, shared infrastructure that legitimately belongs to multiple teams.
 
 ---
 
-## Permissions
+**Q: What happens to costs when I delete a rule or project?**
 
-Access to Cost Assignment is role-based:
-
-**Workspace Admin** - Full access to create, edit, delete rules and projects
-
-**Project Admin** - Can create projects and rules for their organization
-
-**Finance Team** - View-only access to cost allocations and reports
-
-**Project User** - View assigned project costs only
+Deleting a rule returns its matched costs to Unassigned. Deleting a project unlinks all its rules — their costs also return to Unassigned. The rules themselves are not deleted, but they are no longer linked to any project.
 
 ---
 
-Cost Assignment in CloudPi ensures accurate, transparent, and actionable cost allocation across your entire cloud environment, enabling effective financial management and accountability.
+**Q: Why can't I change the Cloud Provider or Organization on an existing rule or project?**
+
+These fields define which billing data source the rule or project reads from. Changing them would silently re-scope all historical cost data, causing inconsistencies in reports. Create a new rule or project for a different provider or org.
+
+---
+
+**Q: What does "Unassigned" cost mean?**
+
+Unassigned cost is the portion of your cloud billing data not captured by any rule. Review the **Dimension Costs** panel to see which subaccounts, tags, or resource types are uncovered, then create rules for each. The goal is to drive Unassigned close to zero.
+
+---
+
+**Q: Why does my Filter Preview show $0?**
+
+- The selected Billed Month(s) may not have ingested data yet — check Dimension Costs to confirm data exists
+- Tag-Based rules are case-sensitive — verify tag keys and values match your cloud tags exactly
+- For Account-Based rules, confirm the subaccount belongs to the selected organization
+- Click **Apply** after any filter change — the preview does not refresh automatically
+
+---
+
+**Q: What is rule Priority and when should I change it?**
+
+Priority determines which EXCLUSIVE rule wins when two rules match the same cost. Higher numbers are evaluated first. The default of 50 works for most cases. Set a specific rule to priority 90 and a broad catch-all rule to priority 30 so the specific rule always wins.
+
+---
+
+**Q: What is the Self Rule option on a project?**
+
+Self Rule automatically assigns any cloud resource tagged with this project's ID to the project, without a separately defined rule. Useful when your team already tags resources with project identifiers at provisioning time.
+
+---
+
+**Q: Can I assign the same project to multiple groups?**
+
+No. Each project belongs to exactly one group. Edit the project and select a different group from the dropdown to reorganize.
+
+---
+
+**Q: How often do cost totals refresh?**
+
+Cost totals update each time CloudPi ingests new billing data from your cloud provider — typically daily. Intra-day changes are not reflected until the next ingestion cycle.
+
+---
+
+**Q: What are wildcard or pattern-based filters?**
+
+Some filter fields support `*` as a wildcard — for example, `prod-*` matches `prod-api`, `prod-db`, and any other value starting with `prod-`. Regex patterns are available in advanced configurations — contact your workspace administrator.
+
+---
+
+**Q: I do not see the Create Rule or Create New Project button. Why?**
+
+Both buttons require **Write** permission for their respective menus (RULES and PROJECTS). If you only have Read access, you can view and preview but not create or edit. Contact your workspace administrator to request Write access.

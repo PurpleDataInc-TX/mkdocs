@@ -4,6 +4,7 @@
 /* Removed header hiding to allow custom restyled header to show */
 
 :root {
+  --md-header-height: 72px;
   /* --md-primary-fg-color:        #EE0F0F; */
   --md-primary-fg-color:        #6F44A6;
   --md-primary-fg-color--light: #AC8AE7;
@@ -192,8 +193,9 @@ img {
   }
 }  
 
-.md-sidebar__scrollwrap{
+.md-sidebar__scrollwrap {
   margin: 0;
+  overflow-y: auto;
   scrollbar-color: #eecbe90f;
 }
 

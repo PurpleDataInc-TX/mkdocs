@@ -117,22 +117,25 @@ nav:
           - Connect AWS: ConnectAWS.md
           - Connect Azure: ConnectAzure.md
           - Connect GCP: ConnectGCP.md
+  - Cost Assignment:
+      - Cost Assignment: CostAssignment.md
+      - Tag Management: TagManagement.md
+      - Tag Governance: TagGovernance.md
+  - Policies & Workflows:
+      - Policies & Workflows: AutomationPolicies.md
+      - Policy YAML Sync: PolicyYAMLSync.md
+      - Global Policy Settings: GlobalPolicies.md
   - Cost Management:
       - Billing Hub: MultiCloudBillingHub.md
       - Financials: Financials.md
       - Budgeting: Budgeting.md
       - Forecast: Forecast.md
       - Cost Types: CostTypes.md
-      - Cost Assignment: CostAssignment.md
-      - Tag Management: TagManagement.md
-      - Tag Governance: TagGovernance.md
   - Optimizations:
       - CloudPi Optimizations: CloudPiOptimisations.md
   - Automation:
       - Automation Overview: AutomationOverview.md
       - Automation: Automations.md
-      - Policies & Workflows: AutomationPolicies.md
-      - Policy YAML Sync: PolicyYAMLSync.md
       - VM Scheduler: AutomationVMScheduler.md
       - Scheduler: Scheduler.md
       - Intelligence Automation: IntelligenceAutomation.md
@@ -148,7 +151,6 @@ nav:
       - Audit Logging: AuditLogging.md
       - Workspace Settings: workspace.md
       - Admin Settings: AdminSetting.md
-      - Global Policy Settings: GlobalPolicies.md
       - Alerts & Notifications: AlertsNotifications.md
   - Operations:
       - Task Management: TaskManagement.md
