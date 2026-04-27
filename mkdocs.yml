@@ -137,8 +137,8 @@ nav:
       - Automation Overview: AutomationOverview.md
       - Automation: Automations.md
       - VM Scheduler: AutomationVMScheduler.md
-      - Scheduler: Scheduler.md
-      - Intelligence Automation: IntelligenceAutomation.md
+      # - Scheduler: Scheduler.md                            # Disabled until feature validated in product
+      # - Intelligence Automation: IntelligenceAutomation.md # Disabled - feature not in frontend yet
   - Integrations:
       - Integrations: Integrations.md
       - Integrations Catalog: IntegrationsCatalog.md
