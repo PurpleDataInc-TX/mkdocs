@@ -26,6 +26,7 @@ Cloud Billing Data (AWS / Azure / GCP)
   [ Client Organization ]  ←── top-level billing entity
 ```
 
+
 ## Understanding Key Concepts
 
 ### Rules
@@ -46,6 +47,7 @@ Each rule also has:
 - **Exclusivity**: EXCLUSIVE means a cost can only be counted once; SHARED means a cost can appear in multiple rules simultaneously
 
 A rule is always linked to exactly one project. You cannot share a rule across projects.
+
 
 ### Projects
 
@@ -68,6 +70,7 @@ A project's cost = the sum of all costs matched by all rules attached to that pr
 
 Costs not matched by any rule appear as **Unassigned** at the organization level.
 
+
 ### Project Groups
 
 A project group is an organizational container for projects. It has no cost logic of its own — its total is simply the sum of costs from all projects inside it.
@@ -83,6 +86,7 @@ Key group properties:
 | Group Cost | Automatically calculated as the sum of all child project costs |
 
 Every project must belong to a group. If no group is specified during project creation, a default group is used.
+
 
 ### Client Organization
 
@@ -112,6 +116,7 @@ The **Entity Totals** panel on the Rules screen shows three numbers for your sel
 
 Your goal is to drive Unassigned Cost toward zero. A high unassigned amount usually means some accounts, tags, or resource types are not yet covered by a rule.
 
+
 ## How To
 
 ### Prerequisites
@@ -124,6 +129,8 @@ Your goal is to drive Unassigned Cost toward zero. A high unassigned amount usua
 ### Step 1 — Open Cost Assignment
 
 From the left navigation menu, go to **Cost Assignment → Rules**.
+
+![Cost Assignment Rules page](images/cost-assignment-page.png)
 
 ### Create a Rule
 
@@ -139,9 +146,11 @@ Select your **Cloud Provider**, **Organization**, and **Billed Month(s)** at the
 | Management Group / Folder | (Azure/GCP only) Optional sub-grouping | Optional |
 | Billed Month(s) | One or more months | Required |
 
+
 #### Step 3 — Choose Rule Type
 
 Select Account-Based (A), Tag-Based (T), or Attribute-Based (B).
+
 
 #### Step 4 — Define Filters
 
@@ -159,6 +168,7 @@ Select Account-Based (A), Tag-Based (T), or Attribute-Based (B).
 - Select one or more attributes and choose the values to match:
   - Service, Category, Resource Type, Service Category, Usage Type, Commitment Discount
 
+
 #### Step 5 — Preview Matching Costs
 
 Click **Apply** to refresh the **Filter Preview** in the Cost Overview panel on the right.
@@ -168,6 +178,7 @@ Click **Apply** to refresh the **Filter Preview** in the Cost Overview panel on 
 | Entity Totals | Org-wide total, assigned, and unassigned costs |
 | Dimension Costs | Breakdown by subaccount, tag, or attribute |
 | Filter Preview | Costs matched by current filter selections |
+
 
 #### Step 6 — Set Rule Options (Optional)
 
@@ -180,6 +191,7 @@ Click **Apply** to refresh the **Filter Preview** in the Cost Overview panel on 
 #### Step 7 — Create the Rule
 
 Click **Create Rule**, select the **Project** to link it to, and confirm. The rule appears immediately in the Rules table.
+
 
 ### Monitor Rules in the Rules Table
 
@@ -198,6 +210,8 @@ The Rules Table below the rule builder shows all rules in your workspace:
 | Organization | Billing entity for this rule |
 | Actions | Edit or Delete |
 
+![Rules table](images/cost-assignment-table.png)
+
 ### Create a Project Group
 
 You need at least one group before creating a project. Groups can also be created inline during project creation.
@@ -207,6 +221,7 @@ You need at least one group before creating a project. Groups can also be create
 3. In the Project Group field, click **Create New Group**
 4. Enter a group name (alphanumeric and underscores only)
 5. Save the group — it is now available in the dropdown
+
 
 ### Create a Project
 
@@ -232,7 +247,9 @@ You need at least one group before creating a project. Groups can also be create
 5. Optionally invite users (Project Admin or Project User) and select a project icon
 6. Click **Create Project**
 
+
 The project appears under its group accordion with its current-month cost total.
+
 
 ### View Cost Rollup by Group
 
@@ -241,11 +258,14 @@ The project appears under its group accordion with its current-month cost total.
 3. The accordion header shows: group name, project count, and total group cost (sum of all child project costs for the current month)
 4. Expand the accordion to see individual project rows
 
+![Projects page with grouped projects](images/cost-assignments-project.png)
+
 ### View a Project's Rules
 
 1. Go to **Cost Assignment → Projects**
 2. Find the project and expand its row
 3. The expanded view shows all attached rules with rule name, type, exclusivity, scope summary, and status
+
 
 ### Edit a Rule
 
@@ -254,6 +274,7 @@ The project appears under its group accordion with its current-month cost total.
 3. Click **Update Rule**
 
 > Cloud Provider and Organization cannot be changed in edit mode.
+
 
 ### Edit a Project
 
@@ -317,6 +338,7 @@ These fields define which billing data source the rule or project reads from. Ch
 
 Unassigned cost is the portion of your cloud billing data not captured by any rule. Review the **Dimension Costs** panel to see which subaccounts, tags, or resource types are uncovered, then create rules for each. The goal is to drive Unassigned close to zero.
 
+
 ---
 
 **Q: Why does my Filter Preview show $0?**
@@ -325,6 +347,7 @@ Unassigned cost is the portion of your cloud billing data not captured by any ru
 - Tag-Based rules are case-sensitive — verify tag keys and values match your cloud tags exactly
 - For Account-Based rules, confirm the subaccount belongs to the selected organization
 - Click **Apply** after any filter change — the preview does not refresh automatically
+
 
 ---
 
