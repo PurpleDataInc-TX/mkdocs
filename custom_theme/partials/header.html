@@ -162,10 +162,8 @@
     <button class="cp-topbar__menu-toggle" id="cp-menu-toggle">&#9776;</button>
 
     <div class="cp-topbar__brand">
-      <a href="https://cloudpi.ai/" style="display: flex; align-items: center;">
+      <a href="{{ base_url }}/" style="display: flex; align-items: center; text-decoration: none; color: inherit; gap: 0.75rem;">
         <img src="{{ base_url }}/images/cp-logo.png" alt="CloudPi" class="cp-topbar__logo">
-      </a>
-      <a href="{{ base_url }}/" style="text-decoration: none; color: inherit;">
         <span class="cp-topbar__name">CloudPi Docs</span>
       </a>
     </div>
@@ -206,7 +204,7 @@
     <nav class="cp-topbar__nav">
       <ul style="list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; align-items: center;">
         <li><a href="{{ base_url }}/" style="text-decoration: none; color: #4b5563; font-weight: 500; font-size: 1rem;">Product Docs</a></li>
-        <li><a href="{{ base_url }}/changelog/" style="text-decoration: none; color: #4b5563; font-weight: 500; font-size: 1rem;">Changelog</a></li>
+        <li><a href="{{ base_url }}/Changelog/" style="text-decoration: none; color: #4b5563; font-weight: 500; font-size: 1rem;">Changelog</a></li>
       </ul>
     </nav>
 
@@ -225,7 +223,7 @@
 <div id="cp-slide-menu" class="cp-slide-menu">
   <ul>
     <li><a href="{{ base_url }}/">Product Docs</a></li>
-    <li><a href="{{ base_url }}/changelog/">Changelog</a></li>
+    <li><a href="{{ base_url }}/Changelog/">Changelog</a></li>
     <hr style="margin:1rem 0;border:none;border-top:1px solid #eee;">
     {% for nav_item in nav.items %}
     <li><a href="{{ nav_item.url }}">{{ nav_item.title }}</a></li>

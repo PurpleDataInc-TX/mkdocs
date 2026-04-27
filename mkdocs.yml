@@ -169,16 +169,20 @@ extra:
       name: CloudPi on GitHub
 
     - icon: fontawesome/brands/x-twitter
-      link: https://twitter.com/cloudpi_ai
+      link: https://x.com/cloudpi_ai
       name: CloudPi on X (Twitter)
 
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/cloudpi-ai
+      link: https://www.linkedin.com/company/purpledatainc/
       name: CloudPi on LinkedIn
 
     - icon: fontawesome/brands/youtube
-      link: https://youtube.com/@cloudpi-ai
+      link: https://www.youtube.com/@cloudpiai
       name: CloudPi on YouTube
+
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/cloudpi_ai/
+      name: CloudPi on Instagram
 
   generator: false
 
