@@ -135,8 +135,8 @@ nav:
       - CloudPi Optimizations: CloudPiOptimisations.md
   - Automation:
       - Automation Overview: AutomationOverview.md
-      - Automation: Automations.md
       - VM Scheduler: AutomationVMScheduler.md
+      # - Automation: Automations.md                         # Disabled - duplicate of VM Scheduler / Policies & Workflows
       # - Scheduler: Scheduler.md                            # Disabled until feature validated in product
       # - Intelligence Automation: IntelligenceAutomation.md # Disabled - feature not in frontend yet
   - Integrations:
