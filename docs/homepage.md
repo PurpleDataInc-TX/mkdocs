@@ -27,8 +27,6 @@ The landing page presents tiles that open the corresponding CloudPi area:
 ## Workspace Home Page
 The workspace Home Page provides an executive-style overview of cloud cost, FinOps, and optimization signals. It is designed for quick review and continuous monitoring.
 
-![Workspace Home Page (KPIs and trends)](images/landing.png)
-
 ### What You Can Do on the Home Page
 - Monitor high-level KPIs for spend, variance, and optimization impact
 - Change the analysis period using the date filter (for example, `Last 3 Months`)
@@ -63,6 +61,34 @@ Common charts and widgets include:
 - **Cost by Category** breakdown
 - **Recommendations Summary** list to review optimization opportunities
 - **Health Status** indicators (for example, infrastructure health and compliance)
+
+### Customizing the Home Page
+
+The Home Page is fully customizable per user. Click **Customize** at the bottom-right corner of the page to open the **Widget Configuration** panel, where you decide which widgets appear on your Home Page, change their order, and pull charts in from other dashboards.
+
+![Home Page with the Customize button visible at the bottom-right](images/home-page-overview.jpeg)
+
+**What you can do from the Widget Configuration panel:**
+
+- **Arrange Widgets** — drag widgets to change their position on the page
+- **Add Report Chart** — pull a chart from a different dashboard so it shows up on your Home Page
+- **Save Layout** — store your customized arrangement so it persists across sessions
+- **View Details** — see how many widgets are currently visible (e.g., *8 visible*)
+
+**Widget Visibility toggles** — turn individual widgets on or off. Toggles are grouped by category:
+
+| Category | Widgets in this group |
+|----------|----------------------|
+| **Cost KPIs** | Spend at a Glance |
+| **FinOps KPIs** | Budget Health |
+| **Optimization KPIs** | Savings Realized |
+| **Charts** | Cost By Projects, Budget Summary |
+| **Lists** | Cost By Category, Recommendations Summary, Alerts |
+| **Report Charts** | FinOps Metrics Trend |
+
+![Widget Configuration panel with category groups and toggles](images/home-page-customize-top.jpeg)
+
+To revert all customizations, click **Reset to Default** at the bottom of the panel.
 
 ### Recommendations and Health Signals
 When reviewing recommendations and health widgets:
