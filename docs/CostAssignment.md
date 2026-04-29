@@ -130,7 +130,7 @@ Your goal is to drive Unassigned Cost toward zero. A high unassigned amount usua
 
 From the left navigation menu, go to **Cost Assignment → Rules**.
 
-![Cost Assignment Rules page](images/cost-assignment-page.png)
+![Cost Assignment Rules page](images/cost-assignment-rules-page.png)
 
 ### Create a Rule
 
@@ -210,7 +210,7 @@ The Rules Table below the rule builder shows all rules in your workspace:
 | Organization | Billing entity for this rule |
 | Actions | Edit or Delete |
 
-![Rules table](images/cost-assignment-table.png)
+![Rules table](images/cost-assignment-rules-list.png)
 
 ### Create a Project Group
 
@@ -247,6 +247,7 @@ You need at least one group before creating a project. Groups can also be create
 5. Optionally invite users (Project Admin or Project User) and select a project icon
 6. Click **Create Project**
 
+![Create New Project dialog](images/cost-assignment-create-project.png)
 
 The project appears under its group accordion with its current-month cost total.
 
@@ -258,7 +259,7 @@ The project appears under its group accordion with its current-month cost total.
 3. The accordion header shows: group name, project count, and total group cost (sum of all child project costs for the current month)
 4. Expand the accordion to see individual project rows
 
-![Projects page with grouped projects](images/cost-assignments-project.png)
+![Projects page with grouped projects](images/cost-assignment-project-groups.png)
 
 ### View a Project's Rules
 
@@ -266,6 +267,7 @@ The project appears under its group accordion with its current-month cost total.
 2. Find the project and expand its row
 3. The expanded view shows all attached rules with rule name, type, exclusivity, scope summary, and status
 
+![Project expanded showing Project Rules](images/cost-assignment-project-expanded.png)
 
 ### Edit a Rule
 
@@ -281,6 +283,8 @@ The project appears under its group accordion with its current-month cost total.
 1. Find the project in the Projects table and click the **Edit** action
 2. Update description, rules, group, recommendations, or remediation settings
 3. Save changes
+
+![Edit project form](images/cost-assignment-edit-project.png)
 
 > Cloud Provider and Organization cannot be changed after project creation.
 

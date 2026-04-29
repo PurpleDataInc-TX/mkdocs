@@ -149,7 +149,7 @@ nav:
       - User Management: UserManagement.md
       - Service Accounts: ServiceAccounts.md
       - Audit Logging: AuditLogging.md
-      - Workspace Settings: workspace.md
+      # - Workspace Settings: workspace.md          # Disabled - reflects old app version, content out of date
       - Admin Settings: AdminSetting.md
       - Alerts & Notifications: AlertsNotifications.md
   - Operations:

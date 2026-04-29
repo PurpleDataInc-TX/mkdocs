@@ -1,123 +1,219 @@
 # User Management
 
-The User Management page allows administrators to add, edit, and remove users within CloudPi. Users are assigned roles that determine their access level, and can be scoped to either the entire workspace or specific projects and project groups.
+The User Management page is where administrators handle the **lifecycle of users** in CloudPi: inviting them, activating their accounts, adjusting their access, and removing them when they no longer need access. This page focuses on the user lifecycle. For the definitions of each role and what each role can do, see [Role-Based Access Control (RBAC)](rbac.md).
 
 ## Accessing User Management
 
-1. Navigate to **Admin Settings > User Management**
-2. The User Management page displays a list of all users with their:
-   - Name
-   - Email
-   - Role Name
+1. Navigate to **Admin Settings → User Management**.
+2. The User Management page lists every user you have permission to see.
 
-## User Management Features
+![User Management page](images/rbac-user-management-ws-admin.png)
 
-### Search and Filter
-- Use the **Search Users** field to find specific users by name or email
-- Use the **All Roles** dropdown to filter users by their assigned role
-- View user details in the table including role assignments and status
+The list shows the following columns:
 
-### User Actions
-For each user in the list, you can:
+| Column | Description |
+|--------|-------------|
+| **User** | Display name and email |
+| **Type** | Authentication type — Local or SSO |
+| **Role** | The user's CloudPi role |
+| **Scope** | Workspace, Project Group, or Project — based on the role |
+| **Projects** | Specific projects (or *All Projects* for workspace-scoped users) |
+| **Actions** | View, Edit, and Delete icons (visible based on your own role and the target user — see [Editing User Permissions](#editing-user-permissions)) |
 
-- **View** - Click the eye icon to view user details (read-only)
-- **Delete** - Click the trash icon to remove a user from the system
-- **Edit Permissions** - Click the pencil icon or "Edit Permissions" button to modify user access
+!!! note "What you see depends on your role"
+    Workspace Administrators see every user in the workspace. Project Administrators only see users with access to their assigned projects, so the list is shorter. The product applies role-based filtering automatically — see [What Each Role Sees](rbac.md#what-each-role-sees) in the RBAC documentation for examples.
 
-## Inviting New Users
+### Search and filter
 
-To add a new user to CloudPi:
+- Use the **Search Users** field to find a user by name or email
+- Use the **All Roles** dropdown to filter by role
+- Use the **All Status** dropdown to filter by user status (Active, Pending, Deactivated)
+- Use the **All Types** dropdown to filter by authentication type (Local or SSO)
 
-1. Click the **+ Invite User** button in the top right
-2. The Invite User dialog appears with two options:
-    - **Workspace** - Grant access at the workspace level
-    - **Project** - Grant access to specific projects
+## User Lifecycle
 
-### Inviting Workspace Users
+A user moves through four stages from invitation to removal:
 
-When inviting a user at the workspace level:
+**Invite** → **Activate** → **Edit** → **Remove**
 
-1. Select the **Workspace** radio button
-2. Enter the user's **Email** address
-3. Select the **User type**:
-    - Local Auth User
-    - SSO
-4. Select the **Role**:
-    - Workspace Admin
-    - Workspace User
-5. Click **Submit** to send the invitation
+| # | Stage | Status code | Triggered by |
+|---|-------|-------------|--------------|
+| 1 | **Invite** — user has been invited but has not yet accepted | PEND (Pending) | Workspace Administrator clicks **+ Invite User** |
+| 2 | **Activate** — user has accepted the invitation and can sign in | APRV (Active) | User clicks the validation link in the invitation email |
+| 3 | **Edit** — an authorized user adjusts the user's project or project group access (without changing their role) | APRV (Active) | An authorized user edits the assignments and clicks **Update** |
+| 4 | **Remove** — user is removed and access is revoked | DACT (Deactivated) | An authorized user clicks the delete icon and confirms |
 
-**Note:** Workspace-level users have access across the entire workspace or to assigned project groups, depending on their role.
+## Inviting Users
 
-### Inviting Project Users
+Inviting a user creates a Pending account and sends an invitation email containing a validation link. The user remains Pending until they click the link.
 
-When inviting a user at the project level:
+!!! note "Who can invite users"
+    Only **CloudPi Administrators** and **Workspace Administrators** can invite users. Workspace Users, Project Administrators, Project Users, and Viewers do not see the **+ Invite User** button.
 
-1. Select the **Project** radio button
-2. Enter the user's **Email** address
-3. Select the **User type**:
-    - Local Auth User
-    - SSO
-4. Select the **Project group** from the dropdown (example options might include):
-    - CoreInfrastructure
-    - DataScience
-    - ProductAndEngineering
-    - MarketingAndSales
-    - (Additional project groups based on your configuration)
-5. Select the **Projects** to assign (can select multiple)
-6. Select the **Role**:
-    - Project Admin
-    - Project User
-7. Click **Submit** to send the invitation
+!!! note "Roles available during invitation"
+    Only **Workspace Administrator** and **Workspace User** roles can be assigned at the time of invitation. **Project Administrator** and **Project User** roles are assigned by editing a Workspace User after their account is activated, or by creating a project-scoped invitation that uses the Project type (see [Inviting Project Users](#inviting-project-users) below). This separation prevents over-privileged accounts during onboarding.
 
-**Note:** Project-level users only have access to the specific projects assigned to them.
+To invite a user:
+
+1. On the User Management page, click **+ Invite User** (top-right corner).
+2. The Invite User dialog opens with two scope options: **Workspace** or **Project**.
+3. The form fields shown next depend on the scope and role you select.
+
+### Inviting a Workspace Administrator
+
+A Workspace Administrator gets full access across the entire workspace.
+
+1. Select the **Workspace** radio button.
+2. Enter the user's **Email** address.
+3. Select the **User type** — Local Auth User or SSO.
+4. Select **Workspace Administrator** from the Role dropdown.
+5. Click **Submit**.
+
+![Invite User dialog — Workspace Administrator](images/user-management-invite-workspace-admin.png)
+
+### Inviting a Workspace User
+
+A Workspace User gets access to specific project groups within the workspace.
+
+1. Select the **Workspace** radio button.
+2. Enter the user's **Email** address.
+3. Select the **User type** — Local Auth User or SSO.
+4. Select **Workspace User** from the Role dropdown.
+5. Select one or more **Project Groups** from the dropdown that appears.
+6. Click **Submit**.
+
+![Invite User dialog — Workspace User](images/user-management-invite-workspace-user.png)
+
+### Inviting a Project User
+
+A Project User gets read-only access to specific projects.
+
+1. Select the **Project** radio button.
+2. Enter the user's **Email** address.
+3. Select the **User type** — Local Auth User or SSO.
+4. Select the **Project group** that contains the projects the user will access.
+5. Select one or more **Projects** within that group.
+6. Select **Project User** from the Role dropdown.
+7. Click **Submit**.
+
+![Invite User dialog — Project User](images/user-management-invite-project-user.png)
+
+### Inviting a Project Administrator
+
+A Project Administrator can manage specific projects (create / update settings, configure budgets, edit workflows). The invitation form is the same as for a Project User — the only difference is the role you select.
+
+1. Follow the steps above for **Inviting a Project User**.
+2. In step 6, select **Project Administrator** instead of Project User.
+
+### Activation (the user's side)
+
+The invited user receives an email titled *"You've been invited to CloudPi"* (or similar). The email contains a validation link. When the user clicks the link:
+
+- Their user status changes from **PEND** to **APRV** (Active)
+- Their permission records change from **PEND** to **APRV**
+- They can now sign in and access the resources scoped to their role
+
+If the validation link expires or is lost, the inviter can resend the invitation from the User Management page.
+
+## Viewing a User's Details
+
+Click the **View** icon (eye) in the Actions column of any user row to open a read-only details panel for that user. The panel shows the user's email, role, scope, and the projects or project groups they currently have access to.
+
+![View user permissions](images/user-management-view-permissions.png)
+
+The View action is available to anyone who can see the user in the list. It does not modify anything — use it to confirm a user's current access before deciding whether to edit or remove them.
 
 ## Editing User Permissions
 
-To modify an existing user's access:
+You can change which project groups or projects a user has access to *without* deleting and re-inviting them.
 
-1. Locate the user in the User Management list
-2. Click the **Edit Permissions** button or pencil icon in the Actions column
-3. The Edit User Permissions panel appears showing:
-    - Email (read-only)
-    - Role (read-only - shows current role)
-    - Projects (editable)
-4. Modify the **Projects** field to add or remove project assignments
-5. Click **Update** to save changes, or **Cancel** to discard
+!!! warning "Roles cannot be changed by editing"
+    The Edit form does **not** allow changing a user's role. Email and Role are shown as **read-only**. To change a user's role, remove the user and re-invite them with the new role. See [Changing a User's Role](#changing-a-users-role) below.
 
-**Important:** User roles cannot be changed through the Edit Permissions dialog. To change a user's role, you must remove the user and re-invite them with the new role.
+### Who can edit whom
 
-## User Types
+Edit access is governed by both the editor's role and the target user's role:
 
-CloudPi supports two authentication methods:
+| Target user's role | Allowed editors |
+|--------------------|-----------------|
+| CloudPi Administrator | **None** — non-editable |
+| Workspace Administrator | **None** — non-editable |
+| Workspace User | CloudPi Administrator, Workspace Administrator |
+| Project Administrator | CloudPi Administrator, Workspace Administrator, Workspace User |
+| Project User | CloudPi Administrator, Workspace Administrator, Workspace User |
 
-- **Local Auth User** - Users authenticate with a username and password managed within CloudPi
-- **Single Sign-On** - Users authenticate through Single Sign-On
+The Edit icon (pencil) is hidden in the Actions column for any combination not allowed above. CloudPi Administrators and Workspace Administrators are intentionally non-editable because they already have full access.
 
-The user type is selected during the invitation process and determines how users will log in to CloudPi.
+### How to edit
+
+1. In the User Management list, find the user and click the **Edit** icon (pencil) in the Actions column.
+2. The Edit form expands inline below the user's row, showing:
+   - **Email** — read-only
+   - **Role** — read-only (e.g., *Project Administrator*)
+   - For a **Workspace User**: **Project Groups** multi-select dropdown (editable)
+   - For a **Project Administrator** or **Project User**: **Projects** multi-select dropdown (editable)
+3. Add or remove project groups / projects as needed. Currently assigned items are pre-selected.
+4. Click **Update** to save, or **Cancel** to discard changes.
+
+!!! note "At least one assignment is required"
+    A user must have at least one project group (Workspace User) or one project (Project Administrator / Project User) at all times. The form rejects an attempt to remove all assignments and shows a validation error.
+
+![Edit user permissions form](images/user-management-edit.png)
+
+## Authentication Types
+
+CloudPi supports two authentication methods. The type is set at invitation time and determines how the user signs in.
+
+| Type | Sign-in flow |
+|------|--------------|
+| **Local Auth User** | User receives a verification email, sets a password, and signs in with their email and password |
+| **Single Sign-On (SSO)** | User signs in through your organization's identity provider (e.g., Okta, Azure AD, Google Workspace). Requires SSO to be configured for your workspace — see [SSO Setup](SSOSetup.md). |
 
 ## User Status
 
-Users can have the following statuses:
-
-- **Active** - User has accepted the invitation and can access CloudPi
-- **Pending** (if applicable) - User has been invited but has not yet accepted
+| Status | Meaning |
+|--------|---------|
+| **Active (APRV)** | The user has accepted the invitation and can sign in and use CloudPi |
+| **Pending (PEND)** | The user has been invited but has not yet clicked the validation link |
+| **Deactivated (DACT)** | The user has been removed; access is revoked |
 
 ## Removing Users
 
-To remove a user from CloudPi:
+Removing a user revokes all of their access to CloudPi immediately.
 
-1. Locate the user in the User Management list
-2. Click the trash/delete icon in the Actions column
-3. Confirm the deletion when prompted
+To remove a user:
 
-**Warning:** Removing a user will revoke all their access to CloudPi immediately. This action is not reversible - the only way to restore access is to re-invite the user with the same role or a different role.
+1. In the User Management list, find the user.
+2. Click the **Delete** icon (trash) in the Actions column.
+3. Confirm the deletion in the dialog that appears.
+
+![Delete user confirmation](images/user-management-delete.png)
+
+The user's status changes to **Deactivated (DACT)**. Their permission records remain in the system for audit purposes but no longer grant any access. Active sessions continue until the user's authentication token expires (within minutes), after which the user is signed out automatically.
+
+To restore access for a previously removed user, send them a new invitation from the **+ Invite User** flow. The new invitation creates a fresh user record.
+
+## Changing a User's Role
+
+CloudPi does not support changing a user's role on an existing account. To move a user from one role to another:
+
+1. **Remove** the user via the Delete action.
+2. **Re-invite** the user from **+ Invite User** with the new role and the appropriate scope.
+
+This is intentional — re-invitation forces a clean record of the role change and ensures audit logs capture both the removal and the new assignment with explicit timestamps and approvals.
 
 ## Best Practices
 
-- **Use project-level invitations** when users only need access to specific projects, following the principle of least privilege
-- **Use workspace-level invitations** for users who need broader access across multiple project groups
-- **Regularly audit user access** by reviewing the User Management list and removing users who no longer need access
-- **Choose appropriate roles** based on whether users need read-only access (Project User, Workspace User) or administrative capabilities (Project Admin, Workspace Admin)
-- **Leverage project groups** to organize access by department, team, or business unit
-- **Document role assignments** to maintain clear accountability for who has access to what resources
+- **Plan invitations in advance.** Decide on the role and scope before sending an invitation rather than inviting first and editing afterwards.
+- **Prefer project-scoped invitations** for users who only need access to specific projects. They are clearer and align with the principle of least privilege.
+- **Review pending invitations weekly.** If an invitation has been Pending for more than a few days, the user may not have received the email — resend it.
+- **Audit user access quarterly.** Filter the user list by role and confirm each user still needs the access they have. Remove users who have left the team.
+- **Use Edit Permissions for routine changes.** It is faster than remove/re-invite, and it keeps the user's authentication history intact.
+- **Use remove + re-invite only for role changes.** That is the only path to change a user's role.
+- **Document SSO mappings.** If you use SSO, keep a record of which identity provider users belong to and how their groups map to CloudPi roles.
+
+## Related Documentation
+
+- [Role-Based Access Control (RBAC)](rbac.md) — what each role can do and how access is scoped
+- [SSO Setup](SSOSetup.md) — configure Single Sign-On for your workspace
+- [Service Accounts](ServiceAccounts.md) — for non-human (API / automation) access to CloudPi

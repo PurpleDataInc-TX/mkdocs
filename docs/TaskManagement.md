@@ -33,7 +33,8 @@ The task list displays all tasks with the following details:
 - **Description** – Brief summary of what needs to be done
 - **Priority** – Urgency level (High, Medium, Low)
 - **Status** – Current state (Initiated, In Progress, Completed, Closed)
-- **Actions** – View, Edit, Delete options
+- **Due Date** – The deadline for the task (in YYYY-MM-DD format)
+- **Actions** – **View** (eye icon) and **Edit** (pencil icon) only — tasks cannot be deleted from this page
 
 ---
 
@@ -58,7 +59,7 @@ To create a new task, click the **+ Create Task** button.
 - **Project** – Select the associated project from dropdown
 - **Assign to** – Choose the team member responsible for the task
 - **Priority** – Select urgency level (Low, Medium, High)
-- **Due date** – Set the target completion date (MM/DD/YYYY format)
+- **Due date** – Set the target completion date (YYYY-MM-DD format)
 
 Click **Save** to create the task.
 

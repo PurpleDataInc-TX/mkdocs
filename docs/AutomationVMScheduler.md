@@ -15,8 +15,8 @@ When you click **+ Create Schedule** on the Schedules screen, you choose one of 
 
 | Type | What it does | Typical use |
 |------|--------------|-------------|
-| **Vacation** | Stops VMs for a one-time date range | Office closures, holiday breaks |
-| **Custom** | Stops and starts VMs on selected days at fixed times | Dev / test environments with predictable hours |
+| **Vacation** | Snooze VMs for a one-time date range | Office closures, holiday breaks |
+| **Custom** | Stops,Snooze and starts VMs on selected days at fixed times | Dev / test environments with predictable hours |
 | **Maintenance** | Automatic rightsizing at recurring maintenance windows, based on P95 CPU and Memory metrics | Variable workloads where the right VM size shifts over time |
 | **RightSize** | Runs VMs at full size during business hours, scales them down to a smaller size outside those hours | Production workloads with predictable peak / off-peak patterns |
 
@@ -239,8 +239,6 @@ Additional controls above the Resources table:
 - **Add Columns** (+) — Customize visible columns
 
 Click the **Close View** icon (X) in the actions row to collapse the panel and return to the schedule list.
-
-![Schedule details and resources panel](images/vm-scheduler-schedules.png)
 
 #### Manual Override
 

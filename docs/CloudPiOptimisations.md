@@ -6,7 +6,7 @@ The CloudPi Recommendations Page is designed to streamline the process of identi
 
 Get insights and suggestions to optimize cloud resources and boost performance. The Recommendations page provides a centralized view of all optimization opportunities across your cloud environment.
 
-![Recommendations Overview](images/recommendations1.png)
+![Recommendations page](images/recommendations-page.png)
 
 ---
 
@@ -105,10 +105,23 @@ The page allows users to take actions based on the status of each recommendation
 
 ### Individual Actions
 
-Click the **Actions** menu (three dots) on any recommendation row to access:
+Each row in the Recommendations table has two action icons in the **Actions** column:
 
-- **View Details** - Open detailed recommendation information
-- **Execute Action** - Perform the recommended remediation
+| Icon | What it does |
+|------|--------------|
+| 👁 **View** (eye) | Opens the recommendation detail panel — the same view described in the [Recommendation Details](#recommendation-details) section below |
+| 🛠 **Workflow** (wrench / tool) | Either **views the existing workflow** for the recommendation's policy, or **starts creating one** — depending on whether a workflow already exists for that policy |
+
+#### Workflow icon — two states
+
+The wrench icon changes colour based on whether the recommendation's underlying policy has a workflow configured:
+
+- **Green wrench** — A workflow exists for this policy. Hover shows *"View Workflow — Remediate"*. Clicking opens the workflow so you can review or trigger remediation.
+- **Grey/black wrench** — No workflow has been configured for this policy yet. Hover shows *"Create Workflow"*. Clicking navigates to the policy on the **Policies & Workflows** page, where you can configure rules and create the workflow.
+
+In the Recommendations table you'll typically see a mix — recently configured policies show the green icon, while newly surfaced policies still show grey until someone sets up automation for them.
+
+For full details on configuring rules, actions, and approvals on a workflow, see [Policies & Workflows](AutomationPolicies.md).
 
 ---
 
@@ -116,7 +129,7 @@ Click the **Actions** menu (three dots) on any recommendation row to access:
 
 Click on a recommendation to view detailed information in a side panel:
 
-![Recommendation Details](images/recommendations2.png)
+![Recommendation details panel](images/recommendation-details.png)
 
 ### Header Information
 
@@ -152,18 +165,39 @@ This section provides:
 
 ### Workflow Status
 
-If no workflow is configured, you'll see:
+The detail panel shows different content depending on whether a workflow has been configured for the recommendation's underlying policy.
 
-- **No Workflow Configured** message
-- Option to **Create Workflow For This Policy**
+**If no workflow is configured:**
 
-**Benefits of Workflow Automation:**
+- A **No Workflow Configured** message is shown
+- An option to **Create Workflow for This Policy** links you to the Policies & Workflows page for the relevant policy
 
-- Automate remediation actions based on this policy
-- Schedule automated checks and approvals
+**Benefits of configuring a workflow:**
+
+- Automate remediation actions for matching recommendations
+- Schedule recurring checks and approvals
 - Receive notifications when actions complete
 - Track execution history and audit logs
-- Reduce manual intervention and save time
+- Reduce manual intervention
+
+### Workflow Logs
+
+If a workflow is already configured and has run for this recommendation, the detail panel includes a **Workflow Logs** section listing each execution.
+
+Each log entry shows:
+
+- **RecId** — unique recommendation identifier (clickable for the full record)
+- **Resource name and type** — e.g., `shutsown04 · Azure Virtual Machine · westus`
+- **Success counter** — e.g., *"3 Success"* if all configured actions completed successfully
+- A list of the **actions** that ran (Send Email, Create Task, Snapshot, Tag, etc.) with each one showing:
+  - **Initialized at** — when the action was queued
+  - **Executed at** — when the action actually ran
+  - A status badge: **SUCCESSFUL** / **FAILED** / **PENDING**
+  - A short result message (e.g., *"Email sent successfully for resource shutsown04"*)
+
+Use Workflow Logs to confirm remediation actions actually completed, troubleshoot failures, and provide an audit trail for FinOps reporting.
+
+For full details on configuring the actions and rules that drive these workflows, see [Policies & Workflows](AutomationPolicies.md).
 
 ---
 

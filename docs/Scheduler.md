@@ -55,7 +55,7 @@ When a schedule fires, CloudPi sends a start or stop command to the cloud provid
 | Type | Behavior |
 |------|----------|
 | **Snooze** | Stops VMs at a set time, restarts them at another time — repeats on selected days |
-| **Vacation** | Stops VMs for a one-time date range (e.g., holiday break) |
+| **Vacation** | Snooze VMs for a one-time date range (e.g., holiday break) |
 | **Start** | Starts VMs at a set time only |
 | **Stop** | Stops VMs at a set time only |
 

@@ -28,31 +28,47 @@ Billing Analysis delivers insights to optimize your cloud spending. It provides 
 
 ### Quick Filters
 
-Use these key filters to quickly narrow down your billing data view:
+The Quick Filters bar at the top of the page covers the most-used controls. You set them once, click **Apply**, and the chart and table refresh.
 
-**Analysis Type** - Select the type of analysis (Anomaly Analysis, Trend Analysis, Comparative Analysis, Budget Analysis, Optimization Analysis)
+| Filter | Options | Notes |
+|--------|---------|-------|
+| **Analysis Type** | Cost / Anomaly / Trend / Comparative / Budget / Optimization / Preset | See [Analysis Types](#analysis-types) below for what each does |
+| **Cloud Service Provider** | All Providers / AWS / Azure / GCP | Filters resources to one provider or shows all |
+| **Projects** | Multi-select from your assigned projects | At least one project is required |
+| **Cost Type** | Billed Cost / Effective Cost / List Cost | Defaults to your workspace setting; can be overridden here |
+| **Granularity** | Daily / Weekly / Monthly | How time-series data is bucketed |
+| **Date Range** | 7d / 30d / 60d / 90d / Custom | Maximum range is 120 days |
+| **Limit** | 5 / 10 / All | Top N items by cost; remaining items rolled up under "Others" |
+| **PRIMARY Group By** | Service Name, Account, Region, etc. | Main grouping dimension. Marked with a star icon since it drives the chart |
 
-**Cloud Service Provider** - Filter by AWS, Azure, GCP, or All Providers
+**Auto-hide on Apply** — A toggle on the right of the Quick Filters bar. When on, the filter panel collapses after you click Apply, freeing up screen space for the chart and table.
 
-**Projects** - Select specific projects to analyze
+Filter selections persist as you move between pages within the same session, so you do not lose your setup if you navigate away and come back.
 
-**Cost Type** - Choose Billed Cost or other cost types
-
-**Granularity** - Switch between Daily, Weekly, or Monthly views
-
-**Date Range** - Select time period (60D, 90D, or Custom) with max 120 days
-
-**Limit** - Choose Top 10 or other limits for data display
-
-**PRIMARY Group By** - Select the main analysis dimension (e.g., Service Name)
-
-Click **+ Advanced Filters** to access additional filtering options for more granular analysis.
+Click **Advanced Filters** in the sidebar (left) to access additional dimension-specific filters — see [Advanced Filters](#advanced-filters).
 
 ### Analysis Types
 
-The Analysis Type dropdown provides five different views for analyzing your billing data:
+The Analysis Type dropdown provides seven different ways to look at your billing data. Each type drives a different chart, a different default set of dimensions, and (for some types) a different summary panel.
 
-#### 1. Anomaly Analysis
+![Analysis Type dropdown](images/billing-analysis-dropdown.png)
+
+#### 1. Cost Analysis
+
+Resource-level cost detail with time-series visualization. This is the everyday workhorse view: pick a primary dimension (Service Name, Account, Region, etc.) and you get a chart of costs over the date range, plus a detailed table grouped by that dimension.
+
+**What's on the page:**
+
+- **Chart** — Bar / Stacked / Area / Line. Click the chart-type buttons in the top-right corner of the chart to switch between them. Each series corresponds to one value of the Primary Group By (e.g., one bar per service).
+- **Detailed Data** table — one row per dimension value, plus a Grand Total row. The columns visible are configurable via the **Columns** dropdown above the table; you can add Region, Account, or any other dimension as additional columns.
+- **Search this page** — quick filter inside the table.
+- **Pagination** — Rows per page (default 10) and standard page navigation.
+
+**Use Cost Analysis when** you want to break down spend by an arbitrary dimension over a time window — what services cost most this month, which accounts grew the most, where is regional cost concentrated, and so on.
+
+![Cost Analysis view](images/billing-analysis-cost-analysis.png)
+
+#### 2. Anomaly Analysis
 
 Detect unusual spending patterns and cost spikes across your cloud environment.
 
@@ -80,7 +96,7 @@ Below the chart, a detailed table shows:
 
 ![Anomaly Analysis - Detailed Data](images/billing2.png)
 
-#### 2. Trend Analysis
+#### 3. Trend Analysis
 
 Monthly cost trends with moving average and cumulative totals to understand spending patterns over time.
 
@@ -108,7 +124,7 @@ Monthly cost trends with moving average and cumulative totals to understand spen
 
 ![Trend Analysis - Detailed Data](images/billing4.png)
 
-#### 3. Comparative Analysis
+#### 4. Comparative Analysis
 
 Compare costs across multiple time periods to identify changes and growth patterns.
 
@@ -142,17 +158,58 @@ The table highlights significant changes:
 
 ![Comparative Analysis - Detailed Data](images/billing6.png)
 
-#### 4. Budget Analysis
+#### 5. Budget Analysis
 
-Track budget consumption and compare actual spending against allocated budgets.
+Track budget consumption and compare actual spending against allocated budgets. Use this view to see at a glance whether projects are on track, where forecasted spend will land, and which periods are over or under budget.
 
-**Features:**
+!!! note "Requires configured budgets"
+    Budget Analysis only works if budgets have been set up for your projects. If no budgets are configured, the page shows a message prompting you to configure them first. See your administrator if you have permission to create budgets.
 
-- Budget vs. actual cost comparison
-- Budget utilization percentage
-- Forecast vs. actual spending trends
+**What's on the page:**
 
-#### 5. Optimization Analysis
+A fiscal-year selector (e.g., **FY 2026 (Jan–Dec)**) in the top-right scopes everything below to that fiscal period.
+
+**Budget Performance Overview** — four KPI cards:
+
+| Card | Shows |
+|------|-------|
+| **Total Budget** | Total allocated budget for the period |
+| **Total Cost** | Current actual spend, with an **On Track** / **Off Track** badge based on pace vs. budget |
+| **Total Forecast** | Forecasted spend for the remainder of the period |
+| **Projected Cost** | Total expected spend for the full period (current + forecast). A warning icon appears if the projection exceeds the budget |
+
+**Budget Utilization** — progress bar showing spend as a percentage of budget (e.g., *$336.8 / $500.0 (67%)* with *$163.28 remaining*).
+
+**Budget vs Spend chart** — a multi-series line chart spanning the fiscal year. Four series:
+
+- **Budget** — the allocated monthly budget line
+- **Spend** — actual spend per month (already incurred)
+- **Forecast** — predicted spend for upcoming months
+- **Projected** — total trajectory line combining actual and forecast
+
+Click any series in the legend to show or hide it.
+
+**Budget Variance Details** — table at the bottom showing one row per budget period (or per project, depending on the budget definition):
+
+| Column | Description |
+|--------|-------------|
+| **Period** | Project or period name |
+| **Budget Allocated** | Budget assigned to this period |
+| **Spend** | Actual spend so far |
+| **Forecast** | Predicted remaining spend |
+| **Projected Cost** | Total projected spend |
+| **Variance Amount ($)** | Dollar difference between budget and projected cost |
+| **Variance Percentage (%)** | Percentage difference |
+| **Remaining Budget** | Budget left if projection holds |
+| **Status** | **Under Budget** / **On Track** / **Over Budget** badge |
+
+The **All Statuses** filter above the table lets you narrow to only Over Budget rows when reviewing problem areas.
+
+**Use Budget Analysis when** you want to monitor financial performance against allocated budgets, identify projects trending over budget before they breach, and review month-by-month variance for FinOps reporting.
+
+![Budget Analysis view](images/billing-analysis-budget-analysis.png)
+
+#### 6. Optimization Analysis
 
 Identify cost optimization opportunities and track realized savings.
 
@@ -189,24 +246,116 @@ When significant optimization opportunities are available, an alert displays: "Y
 
 ![Optimization Analysis - Breakdown](images/billing8.png)
 
+#### 7. Preset Analysis
+
+Preset Analysis lets you open a pre-configured report dashboard rather than starting from scratch. CloudPi ships with several built-in system preset views for common use cases (e.g., "Monthly cost by service", "Top spending accounts last 30 days"), and any custom views you save also appear here.
+
+**What's on the page:**
+
+- A list of available presets — system presets first, then your custom saved views
+- Each preset shows the analysis type, primary grouping, and date range it was saved with
+- Selecting a preset loads its full configuration (filters, chart, dimensions) instantly
+
+**Notes:**
+
+- System presets are read-only. To customise one, open it and use **Save as New** to create your own copy.
+- Custom views you own can be edited or deleted from this list — see [Managing Billing Views](#managing-billing-views) below.
+
+**Use Preset Analysis when** you want to start from a known good configuration without setting filters by hand, or when your team has a standard set of reports you want everyone to use.
+
+### Advanced Filters
+
+Quick Filters cover the most common controls. The **Advanced Filters** sidebar (left side of the page) lets you narrow the analysis further by specific dimension values.
+
+![Advanced Filters sidebar](images/billing-analysis-advanced-filters.png)
+
+The sidebar header shows the count of available filters (for example, *Specific Filters (12 Available)*). Each filter is a multi-select dropdown — pick one or more values to include only data matching those values.
+
+#### Specific filters
+
+| Filter | Filters by |
+|--------|-----------|
+| **Service name** | Cloud service (e.g., Virtual Machines, Storage Accounts) |
+| **Region** | Cloud region (e.g., westus, us-east-1) |
+| **Availability zone** | Specific AZ within a region |
+| **Billing account id** | Top-level billing account |
+| **Charge category** | Charge classification (Usage, Tax, Refund, etc.) |
+| **Service category** | Logical service grouping (Compute, Storage, Networking, etc.) |
+| **Sub account id** | Subaccount, subscription, or GCP project ID |
+| **Sub account name** | Friendly name of the subaccount |
+| **Resource id** | Specific cloud resource identifier |
+| **Resource name** | Friendly name of the resource |
+| **SKU id** | Cloud provider SKU |
+| **Publisher** | Service publisher (relevant on Azure for marketplace items) |
+| **Usage type** | Usage type code (e.g., BoxUsage, NodeHours) |
+
+The available filters and their values depend on the **Cloud Service Provider** and **Projects** you selected in Quick Filters — values load dynamically based on what's in scope.
+
+#### Tag filters
+
+Below the specific filters is a **Tag Filters** section. Unlike the dimension filters above, tag filters are **independent of the Primary / Secondary grouping** — selecting tag-based filters narrows the data to resources that match the tag values regardless of how the data is grouped on the chart.
+
+1. Pick a **Tag key** from the dropdown (e.g., `Environment`, `Owner`).
+2. Select one or more **values** for that tag.
+3. Repeat for additional tag keys if needed.
+
+#### Applying and resetting filters
+
+- **Apply Filters** at the bottom of the sidebar commits all your selections — chart and table refresh.
+- **Reset All** at the top or bottom clears every filter back to its default empty state.
+- All filter conditions combine with **AND** logic — a resource must match every filter to appear in results.
+- Selected filters persist in session storage as you navigate between pages.
+
 ### Managing Billing Views
+
+A **billing view** is a saved configuration — analysis type, all Quick and Advanced filters, projects, and grouping — that you can reload in one click. Use views to standardise reporting and avoid reconfiguring the same setup every session.
 
 #### Save As View
 
-To save your current filter configuration:
+1. Configure your desired filters (analysis type, projects, date range, group by, advanced filters).
+2. Click **Save As View** in the top right.
+3. Enter a name for the view.
+4. Click **Save**.
 
-1. Configure your desired filters (Analysis Type, Projects, Date Range, etc.)
-2. Click the **+ Save As View** button in the top right
-3. Enter a name for your billing view
-4. Click **Save**
+The view is persisted and immediately appears in the **Select a billing view** dropdown. The full filter set is captured: workspace context, projects, analysis type, granularity, group by, and every advanced filter value.
+
+!!! note "Validation"
+    A view name is required and must not be empty. At least one project must be selected before saving.
 
 #### Select a Billing View
 
-To load a previously saved view:
+1. Click the **Select a billing view** dropdown in the top right.
+2. Choose a view from the list. System presets appear first, then your custom views.
+3. The page reloads with all of the saved filters applied exactly as they were when you saved the view.
 
-1. Click the **Select a billing view...** dropdown in the top right
-2. Choose from your saved billing views
-3. The page updates with the saved filter configuration
+#### Update an Existing View
+
+1. Load the view you want to change from **Select a billing view**.
+2. Modify any filter — the UI shows an **unsaved changes** indicator next to the view name.
+3. Click **Update** to overwrite the view with the new configuration.
+
+The same view is updated in place — no duplicate is created.
+
+#### Save as New (from a System Preset)
+
+System preset views are read-only. If you load a preset and then change anything:
+
+1. The Save button changes to **Save as New** instead of **Update**.
+2. Enter a new name for your custom copy.
+3. Click **Save**.
+
+This keeps the original system preset intact and creates your own copy that you can update freely.
+
+#### Delete a Custom View
+
+1. Open the view menu next to the view's name in the dropdown.
+2. Click **Delete**.
+3. Confirm in the dialog.
+
+You can only delete views you own (custom views you created). System presets cannot be deleted.
+
+!!! note "Views with inaccessible projects"
+    If a saved view references a project you no longer have access to (e.g., your role was changed), the view loads with only the projects you can still see, and a warning notes which projects were excluded.
 
 ### Understanding the Interface
 
