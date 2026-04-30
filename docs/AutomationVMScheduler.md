@@ -9,6 +9,12 @@ Use the Scheduler to:
 - Run VMs at a smaller size during off-peak hours instead of stopping them
 - Apply automatic resizing at recurring maintenance windows based on observed CPU and memory usage
 
+## Supported Services
+
+The Scheduler supports a range of Azure resource types — including **Azure Virtual Machines**, **Azure Service Plans**, **Azure SQL Databases**, and others.
+
+Check with your CloudPi administrator for the complete list of resource types supported in your workspace.
+
 ## Schedule Types
 
 When you click **+ Create Schedule** on the Schedules screen, you choose one of four schedule types. Each type targets a different scheduling pattern.

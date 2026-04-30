@@ -1,128 +1,128 @@
 # Budgeting
 
-## Overview
+The Budgeting page lets you create, monitor, and manage cloud spending budgets across projects. Track actual spend against allocated budgets, configure alert thresholds, and lock budgets to prevent unauthorized changes.
 
-CloudPi Budgeting enables you to set, track, and manage cloud spending budgets across your multi-cloud environment. Stay on top of your cloud costs with proactive budget alerts and comprehensive budget tracking.
+## Fiscal Year
 
-## Key Features
+All budgets in CloudPi are scoped to a **fiscal year**. The fiscal year start month is a workspace-level setting — every budget you create, every Budget vs. Spend chart, and every fiscal-year selector in the Billing Hub uses this configuration.
 
-- **Multi-Cloud Budget Management**: Set budgets across AWS, Azure, and GCP
-- **Budget Types**: Create fixed, flexible, or rolling budgets
-- **Alert Thresholds**: Configure alerts at various threshold levels (50%, 75%, 90%, 100%)
-- **Budget Forecasting**: View projected spending vs. budget
-- **Historical Tracking**: Analyze budget performance over time
-- **Scope Configuration**: Set budgets by account, project, service, or tag
+- **Where to change it:** **Admin Settings → Workspace** (Workspace Admin only).
+- **Format:** A start month between 1 and 12 (e.g., `1` = January for a `Jan–Dec` fiscal year, `4` = April for an `Apr–Mar` fiscal year).
+- **Effect:** Changing the fiscal year start month updates how budgets and reports group their monthly buckets going forward; existing budget records are not retroactively re-bucketed.
 
-## Creating a Budget
+If you need to change the fiscal year, do it before creating budgets for the upcoming year so allocation periods line up cleanly.
 
-### Prerequisites
+## Budgets Overview
 
-- Access to Cost Management section
-- Appropriate permissions (Budget Administrator or higher)
+The Budgets page provides an overview of all budget details across your projects.
 
-### Steps to Create a Budget
+![Budgets Overview](images/Budget1.png)
 
-1. Navigate to **Cost Management** > **Budgeting**
-2. Click **Create Budget**
-3. Configure budget settings:
-   - **Budget Name**: Provide a descriptive name
-   - **Budget Scope**: Select accounts, projects, or tags
-   - **Budget Amount**: Set the budget amount
-   - **Budget Period**: Choose monthly, quarterly, or annual
-   - **Start Date**: Define when the budget begins
+### Top Cards Overview
 
-4. Set alert thresholds:
-   - Configure notification recipients
-   - Define threshold percentages
-   - Choose notification channels (email, Slack, etc.)
+At the top of the page, four key cards provide quick insights into the overall financial status:
 
-5. Click **Save Budget**
+- **Total Budget** — Total budget across all projects
+- **Total Spend** — Total spending for the selected period
+- **Total Forecast** — Total forecasted spend across all projects
+- **Total Projected Cost** — Total projected cost for the budget
 
-## Budget Types
+### Budget Summary Line Chart
 
-### Fixed Budgets
-Fixed amount for a specific period that doesn't change.
+Below the cards, a line chart displays three series across fiscal months:
 
-**Use Case**: Annual IT budget allocation
+- **Spend (green line)** — Actual spend data
+- **Forecast (yellow line)** — Forecasted spend data
+- **Budget (blue line)** — Allocated budget
 
-### Flexible Budgets
-Budget adjusts based on usage patterns or business metrics.
+The chart provides a visual comparison of actual spend, forecasted spend, and allocated budget for the entire year across all projects.
 
-**Use Case**: Development environments that scale with team size
+### Filtering Options
 
-### Rolling Budgets
-Continuously updating budget window (e.g., last 12 months).
+You can filter budget details by:
 
-**Use Case**: Long-term cost control with dynamic planning
+- **Projects** — Filter by one or more projects
+- **Organizations** — Filter based on different organizations
+- **Project Groups** — Filter based on specific project groups
 
-## Budget Alerts
+These filters let you view budget data at different levels, making it easier to analyze spending patterns across multiple projects or organizations.
 
-Configure alerts to notify stakeholders when spending approaches or exceeds budget thresholds:
+### Budget Management Table
 
-- **Forecast Alerts**: Triggered when projected spending will exceed budget
-- **Actual Alerts**: Triggered when actual spending crosses thresholds
-- **Custom Alerts**: Create custom conditions and notification rules
+Below the chart, a table displays detailed budget information for each project:
 
-## Budget Reports
+| Column | Description |
+|--------|-------------|
+| **Project Name** | Name of the project |
+| **Budget Name** | Identifier for the budget |
+| **Budget Period** | Annual or Quarterly |
+| **Allocated Budget** | Total budget amount allocated |
+| **Threshold** | Percentage threshold set for budget alerts |
+| **Actions** | Options to View, Lock, or Unlock the budget |
 
-Access comprehensive budget reports:
+## Actions
 
-- **Budget Performance**: Actual vs. budgeted spending
-- **Variance Analysis**: Identify areas over/under budget
-- **Trend Analysis**: Historical budget utilization
-- **Forecast Accuracy**: Compare forecasts to actual spending
+The Actions column provides options for interacting with the budget. The available actions depend on user permissions.
 
-## Best Practices
+### View
 
-1. **Start with Broad Budgets**: Begin with account-level budgets, then drill down
-2. **Set Realistic Thresholds**: Use historical data to inform budget amounts
-3. **Regular Reviews**: Review and adjust budgets monthly or quarterly
-4. **Stakeholder Alignment**: Ensure budget owners receive appropriate alerts
-5. **Document Assumptions**: Keep track of budget calculation methodology
+Clicking the **View** icon expands the row to display detailed budget information:
 
-## API Integration
+- **Allocated Budget** — Total budget allocated for the project, broken down by month or period
+- **Used Budget** — Amount that has been spent so far within the budget period
+- **Forecast** — Forecasted spend for the project, including any adjustments made for future periods
+- **Threshold** — Alert threshold percentage at which an alert is triggered based on actual spend
+- **Alert Notifications** — Email addresses set to receive alerts when the threshold is reached
 
-Budget data can be accessed via CloudPi API:
+The expanded view shows a detailed breakdown of used budget and forecasted spend over the budget period, so you can track how close the project is to exceeding its allocated budget.
 
-```bash
-# Get all budgets
-GET /api/v1/budgets
+## Creating a New Budget
 
-# Get specific budget
-GET /api/v1/budgets/{budget_id}
+To create a new budget, click the **Create** icon. The Create Budget form opens.
 
-# Create budget
-POST /api/v1/budgets
+![Create Budget](images/CreateBudget.png)
 
-# Update budget
-PUT /api/v1/budgets/{budget_id}
-```
+### Form Fields
 
-## Troubleshooting
+| Field | Description |
+|-------|-------------|
+| **Budget Name** | A unique, identifiable name (e.g., `Budget_Beta`, `Project_Alpha_Budget`) |
+| **Project** | The project this budget is associated with (e.g., `TestProject_Demo`, `Project_Data`) |
+| **Period** | The budget cycle — **Annually** or **Quarterly** |
+| **Start Date** | The month and year when the budget period begins (e.g., June 2025) |
+| **Allocated Budget ($)** | Total amount allocated for the period (e.g., $120,000) |
+| **Escalation Type** | Defines how forecast approvals are escalated — by **percentage** of total forecast, or by **absolute amount** |
+| **Escalation Value ($ or %)** | Threshold up to which a forecast request can be auto-approved without manual intervention |
 
-### Budget Alerts Not Triggering
+**Escalation examples:**
 
-**Issue**: Not receiving budget alerts despite exceeding thresholds
+- A `70%` escalation value auto-approves requests within 70% of the approved forecast.
+- A `$50,000` escalation value auto-approves any request within that amount.
 
-**Solutions**:
-- Verify notification settings in budget configuration
-- Check email/notification channel settings
-- Ensure budget is active and not expired
-- Verify user permissions for alert recipients
+This mechanism streamlines approvals, reduces delays, and ensures faster processing of routine forecast changes within acceptable risk limits.
 
-### Budget Data Not Updating
+Once all fields are filled, click **Create Budget**. The new budget is added to the system and made available for tracking.
 
-**Issue**: Budget shows outdated spending data
+## Editing a Budget
 
-**Solutions**:
-- Check cloud provider connection status
-- Verify billing data sync is running
-- Allow 24-48 hours for billing data to propagate
-- Contact support if issue persists
+After creating a budget, you can update it by clicking the **Edit** icon. The form opens pre-filled with existing values, letting you modify:
 
-## Related Documentation
+- **Budget Name** — e.g., change `Budget_Beta` to `Updated_Budget_Beta`
+- **Period** — e.g., switch from Annual to Quarterly
+- **Escalation Type and Value** — e.g., change to *Amount* with a value of `$100,000`
 
-- [Financials](Financials.md)
+Click **Update** to save the changes.
+
+## Lock / Unlock Budgets
+
+The lock/unlock feature ensures budget integrity:
+
+- **Lock** — Prevents any changes to the budget or forecast. Use this for finalized budgets.
+- **Unlock** — Allows editing, available to authorized users.
+
+## Related
+
+- [Financials overview](Financials.md)
 - [Forecast](Forecast.md)
 - [Multi-Cloud Billing Hub](MultiCloudBillingHub.md)
 - [Cost Types](CostTypes.md)

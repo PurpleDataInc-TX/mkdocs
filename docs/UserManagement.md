@@ -50,60 +50,32 @@ Inviting a user creates a Pending account and sends an invitation email containi
 !!! note "Who can invite users"
     Only **CloudPi Administrators** and **Workspace Administrators** can invite users. Workspace Users, Project Administrators, Project Users, and Viewers do not see the **+ Invite User** button.
 
-!!! note "Roles available during invitation"
-    Only **Workspace Administrator** and **Workspace User** roles can be assigned at the time of invitation. **Project Administrator** and **Project User** roles are assigned by editing a Workspace User after their account is activated, or by creating a project-scoped invitation that uses the Project type (see [Inviting Project Users](#inviting-project-users) below). This separation prevents over-privileged accounts during onboarding.
-
 To invite a user:
 
-1. On the User Management page, click **+ Invite User** (top-right corner).
-2. The Invite User dialog opens with two scope options: **Workspace** or **Project**.
-3. The form fields shown next depend on the scope and role you select.
+1. On the User Management page, click **+ Invite User** (top-right).
+2. Fill in the Invite User dialog:
 
-### Inviting a Workspace Administrator
+    | Field | Description |
+    |-------|-------------|
+    | **Email Address** *(required)* | The user's email address |
+    | **Display Name** *(optional)* | A friendly name for the user |
+    | **User Type** *(required)* | **Local User** — authenticates with email and password. **SSO User** — authenticates via your configured identity provider (see [SSO Setup](SSOSetup.md)) |
+    | **Role** *(required)* | The role to assign — see [Role-Based Access Control](rbac.md) for what each role can do |
 
-A Workspace Administrator gets full access across the entire workspace.
+3. After you pick a Role, an additional field appears for the role's scope:
 
-1. Select the **Workspace** radio button.
-2. Enter the user's **Email** address.
-3. Select the **User type** — Local Auth User or SSO.
-4. Select **Workspace Administrator** from the Role dropdown.
-5. Click **Submit**.
+    | Role selected | Additional field |
+    |---------------|------------------|
+    | **Workspace Administrator** | None — full workspace access |
+    | **Workspace User** | **Project Groups** — multi-select; the user can access every project in the chosen groups |
+    | **Project Administrator** | **Projects** — multi-select; the user can administer the chosen projects |
+    | **Project User** | **Projects** — multi-select; the user has user-level access to the chosen projects |
 
-![Invite User dialog — Workspace Administrator](images/user-management-invite-workspace-admin.png)
+4. Click **Send Invitation**.
 
-### Inviting a Workspace User
+![Invite User dialog](images/user-management-invite.png)
 
-A Workspace User gets access to specific project groups within the workspace.
-
-1. Select the **Workspace** radio button.
-2. Enter the user's **Email** address.
-3. Select the **User type** — Local Auth User or SSO.
-4. Select **Workspace User** from the Role dropdown.
-5. Select one or more **Project Groups** from the dropdown that appears.
-6. Click **Submit**.
-
-![Invite User dialog — Workspace User](images/user-management-invite-workspace-user.png)
-
-### Inviting a Project User
-
-A Project User gets read-only access to specific projects.
-
-1. Select the **Project** radio button.
-2. Enter the user's **Email** address.
-3. Select the **User type** — Local Auth User or SSO.
-4. Select the **Project group** that contains the projects the user will access.
-5. Select one or more **Projects** within that group.
-6. Select **Project User** from the Role dropdown.
-7. Click **Submit**.
-
-![Invite User dialog — Project User](images/user-management-invite-project-user.png)
-
-### Inviting a Project Administrator
-
-A Project Administrator can manage specific projects (create / update settings, configure budgets, edit workflows). The invitation form is the same as for a Project User — the only difference is the role you select.
-
-1. Follow the steps above for **Inviting a Project User**.
-2. In step 6, select **Project Administrator** instead of Project User.
+You can change a user's project group or project assignments later from the [Edit](#editing-user-permissions) action — the role itself cannot be changed without re-inviting.
 
 ### Activation (the user's side)
 
@@ -166,8 +138,8 @@ CloudPi supports two authentication methods. The type is set at invitation time 
 
 | Type | Sign-in flow |
 |------|--------------|
-| **Local Auth User** | User receives a verification email, sets a password, and signs in with their email and password |
-| **Single Sign-On (SSO)** | User signs in through your organization's identity provider (e.g., Okta, Azure AD, Google Workspace). Requires SSO to be configured for your workspace — see [SSO Setup](SSOSetup.md). |
+| **Local User** | Authenticates with email and password. Receives a verification email at invitation time and sets their password before first sign-in |
+| **SSO User** | Authenticates through your organization's identity provider (e.g., Okta, Azure AD, Google Workspace). Requires SSO to be configured for your workspace — see [SSO Setup](SSOSetup.md) |
 
 ## User Status
 

@@ -1,196 +1,74 @@
-# Cost Forecasting
+# Forecast
 
-## Overview
+The Forecast module helps you proactively manage cloud budgets by tracking allocated budgets, forecasts, and actual spend across projects. It provides a month-wise breakdown and lets you request and approve forecast changes.
 
-CloudPi Cost Forecasting uses advanced machine learning algorithms to predict future cloud spending based on historical usage patterns, seasonal trends, and growth trajectories. Make informed decisions with accurate cost projections.
+![Forecast Summary](images/Forecast.png)
 
-## Key Features
+## Forecast Summary Cards
 
-- **AI-Powered Predictions**: Machine learning models trained on your historical data
-- **Multi-Cloud Forecasting**: Unified forecasts across AWS, Azure, and GCP
-- **Confidence Intervals**: View forecast ranges with statistical confidence levels
-- **Scenario Analysis**: Model different growth scenarios
-- **Anomaly Detection**: Identify unusual spending patterns
-- **Forecast Accuracy Tracking**: Monitor prediction accuracy over time
+At the top of the Forecast page, high-level metrics give instant visibility into how your organization is tracking against budget:
 
-## Viewing Forecasts
+- **Total Allocated Budget** — Total budget assigned across all projects
+- **Total Budget Spend** — Actual cloud spend to date
+- **Total Forecast** — Sum of forecasted costs for all projects
+- **Total Projected** — Placeholder for projected spend (currently $0)
+- **Requested Forecast Change** — Total forecast change currently under review
+- **Variance** — Difference between budget and actual spend (negative values indicate overspending)
 
-### Accessing Forecast Dashboard
+## Forecast Table Overview
 
-1. Navigate to **Cost Management** > **Forecast**
-2. Select the time range for forecast (30, 60, 90 days, or custom)
-3. Choose forecast scope:
-   - **All Clouds**: Aggregate forecast across providers
-   - **By Provider**: Separate forecasts for each cloud provider
-   - **By Service**: Service-level cost predictions
-   - **By Tag**: Forecast by cost allocation tags
+Below the summary cards, a table lists all active projects.
 
-### Understanding Forecast Visualization
+| Column | Description |
+|--------|-------------|
+| **Project Name** | Name of the cloud project (e.g., `CPDev`, `NPDDev`) |
+| **Budget (Yr)** | Total yearly budget allocated |
+| **Forecast (Yr)** | Total forecast amount for the year |
+| **Forecast Change** | Status indicating whether any forecast modifications were requested |
+| **Start Date** | When the budget period begins |
+| **Actions** | Options to view detailed monthly forecast data and submit change requests |
 
-The forecast dashboard displays:
+You can also use filters and pagination to find specific projects.
 
-- **Historical Data**: Past 90 days of actual spending
-- **Forecast Line**: Predicted spending trajectory
-- **Confidence Bands**: Upper and lower prediction bounds (80% confidence)
-- **Budget Comparison**: Forecast vs. existing budgets
-- **Key Metrics**: Total forecasted spend, growth rate, potential overruns
+## Viewing Forecast Details
 
-## Forecast Models
+Click the ellipsis icon (`···`) under **Actions** for a project and select **View Forecast**. The row expands and displays detailed forecast data for each month.
 
-### Linear Forecast
-Best for stable, predictable workloads with consistent growth.
+The detailed forecast section shows:
 
-**Use Case**: Production environments with steady usage
+| Field | Description |
+|-------|-------------|
+| **Budget** | Monthly allocation based on the total annual budget |
+| **Spend** | Actual cloud spend for each month |
+| **Forecast** | Current monthly forecast values |
+| **Variance** | Difference between forecast and spend. Positive variance is shown in green; overspending is shown in red |
+| **Requested Change** | Any pending forecast change requests |
+| **New Forecast ($)** | Updated forecast values that will apply once the change is approved |
 
-### Seasonal Forecast
-Accounts for recurring patterns (weekly, monthly, quarterly cycles).
+At the far right, the **Total** column aggregates each row's data for the year.
 
-**Use Case**: Retail applications with seasonal traffic
+## Editing Forecasts
 
-### Growth-Adjusted Forecast
-Incorporates business growth metrics and expansion plans.
+A Project Admin can submit a forecast change by editing the **New Forecast ($)** field and providing a reason. After clicking **Save Forecast**, the change request is sent for approval.
 
-**Use Case**: Scaling startups or new product launches
+## Forecast Approval Workflow
 
-### Custom Forecast
-Define your own parameters and growth assumptions.
+Once a forecast change is submitted:
 
-**Use Case**: Unique business models or major infrastructure changes
+1. Workspace Admins/Users receive a notification to review the request.
+2. They can either **Approve** or **Reject** the change.
+3. A comment or reason is required for any approval or rejection.
+4. Once approved, the forecast is updated and reflected in both the table and the summary metrics.
 
-## Scenario Analysis
+## Change Logs Tab
 
-Model different future scenarios:
+Alongside the **Forecast Changes** tab, the **Change Logs** tab records the entire history of forecast changes.
 
-### Optimistic Scenario
-- Lower growth rate
-- Increased optimization adoption
-- Reserved instance utilization
+![Forecast Change Logs](images/Forecast1.png)
 
-### Expected Scenario
-- Current trajectory continues
-- Moderate optimization efforts
-- Baseline forecast
+## Related
 
-### Pessimistic Scenario
-- Higher growth rate
-- Minimal optimization
-- Conservative planning
-
-## Forecast Configuration
-
-### Adjusting Forecast Parameters
-
-1. Go to **Forecast Settings**
-2. Configure:
-   - **Historical Window**: Data range for model training (3-12 months)
-   - **Seasonality**: Enable/disable seasonal adjustments
-   - **Growth Rate**: Manual growth rate override
-   - **Exclusions**: Exclude one-time costs or anomalies
-   - **Model Type**: Choose prediction algorithm
-
-3. Click **Update Forecast**
-
-### Forecast Accuracy
-
-Monitor forecast performance:
-
-- **Mean Absolute Percentage Error (MAPE)**: Overall accuracy metric
-- **Actual vs. Predicted**: Historical comparison chart
-- **Confidence Score**: Model confidence rating
-- **Drift Detection**: Identify when forecasts become unreliable
-
-## Alerts and Notifications
-
-Set up forecast-based alerts:
-
-- **Budget Overrun Alert**: Forecast exceeds budget
-- **Spike Detection**: Unexpected cost increases predicted
-- **Accuracy Degradation**: Model accuracy drops below threshold
-- **Scenario Threshold**: Custom scenario-based alerts
-
-## Integration with Budgeting
-
-Forecasts automatically integrate with budgets:
-
-- **Proactive Alerts**: Warning before budget exhaustion
-- **Budget Recommendations**: Suggested budget adjustments
-- **What-If Analysis**: Impact of budget changes on operations
-
-## API Access
-
-Access forecast data programmatically:
-
-```bash
-# Get forecast for account
-GET /api/v1/forecast?scope=account&id={account_id}&days=90
-
-# Get forecast accuracy metrics
-GET /api/v1/forecast/accuracy
-
-# Generate custom forecast
-POST /api/v1/forecast/custom
-{
-  "start_date": "2026-03-01",
-  "days": 60,
-  "growth_rate": 0.15,
-  "seasonality": true
-}
-```
-
-## Best Practices
-
-1. **Regular Model Updates**: Refresh forecasts weekly or after significant changes
-2. **Validate Assumptions**: Review growth rates and seasonality patterns
-3. **Combine with Budgets**: Use forecasts to inform budget planning
-4. **Document Scenarios**: Keep records of scenario assumptions
-5. **Track Accuracy**: Monitor forecast accuracy and adjust models accordingly
-6. **Account for Changes**: Update forecasts after architecture or business changes
-
-## Advanced Features
-
-### Anomaly Detection
-
-Automatically identify unusual spending patterns:
-
-- **Statistical Outliers**: Costs beyond normal variance
-- **Trend Breaks**: Sudden changes in spending trajectory
-- **Service-Level Anomalies**: Unexpected service cost increases
-
-### What-If Analysis
-
-Model the impact of potential changes:
-
-- **Reserved Instance Purchase**: Forecast savings from RI commitment
-- **Architecture Changes**: Impact of migration or optimization
-- **Team Growth**: Forecast based on headcount increases
-- **New Projects**: Add planned new workload costs
-
-## Troubleshooting
-
-### Forecast Inaccuracy
-
-**Issue**: Forecasts consistently over or under predict
-
-**Solutions**:
-- Increase historical data window
-- Enable seasonality adjustments
-- Exclude anomalous historical periods
-- Consider custom growth rate
-- Review for recent architectural changes
-
-### Missing Forecast Data
-
-**Issue**: Forecast not available for certain accounts or services
-
-**Solutions**:
-- Ensure sufficient historical data (minimum 30 days)
-- Verify cloud provider connection is active
-- Check data ingestion status
-- Confirm account has billable usage
-
-## Related Documentation
-
+- [Financials overview](Financials.md)
 - [Budgeting](Budgeting.md)
 - [Multi-Cloud Billing Hub](MultiCloudBillingHub.md)
-- [Financials](Financials.md)
-- [CloudPi Optimizations](CloudPiOptimisations.md)
+- [Cost Types](CostTypes.md)

@@ -1,103 +1,136 @@
 # Dashboards
 
-The CloudPi Dashboard serves as a unified platform for monitoring and managing your cloud environment. It provides rich visualizations and interactive reports that give teams a clear understanding of costs, resources, and project performance across multiple cloud providers.
+The Dashboards page shows pre-built executive and cost reports across all of your connected cloud providers. Reports are configured by CloudPi administrators and stored centrally — you select a report, apply filters, and view the rendered charts.
 
-The dashboard is role-based and project-aware — ensuring every user views insights that are relevant, actionable, and aligned with their responsibilities.
+Dashboards is read-only at the user level. To create or modify report configurations, contact your CloudPi administrator.
 
-## Key Features of the Dashboard
+## Accessing the Dashboards Page
 
-### Centralized Cloud Insights
+1. Sign in to CloudPi.
+2. From the left navigation menu, click **Dashboard**.
+3. The page opens with the **Report Name** dropdown and filter controls at the top, followed by the rendered report below.
 
-The CloudPi Dashboard aggregates data across all projects into a single interface, providing:
+![Dashboards page — Executive Summary report with KPI cards and charts](images/dashboards-page.png)
 
-- **Cost Reports** - Detailed cost analysis and breakdowns
-- **Budget Tracking** - Monitor budget consumption and forecasts
-- **Showback Reports** - Allocate costs to departments and teams
-- **Executive Reports** - High-level summaries for leadership
+The selected report's content appears below the filter bar — KPI cards at the top, then charts and tables. Scroll to see additional charts further down the report.
 
-After choosing the dashboard type, select a specific dashboard name from a list tailored to your project needs.
+## Selecting a Report
 
-### Customizable Data Visualization
+Click the **Report Name** dropdown to choose which report to view. Reports are organized into three categories.
 
-**Filters Available:**
+![Report Name dropdown — Executive, Cost, and Inventory categories](images/dashboards-report-dropdown.png)
 
-- Date Range - Choose time periods (e.g., Last 90 Days, Month to Date, Till Date)
-- Top N - Select top items to display (e.g., Top 10 + Others)
-- Granularity - Switch between Daily, Monthly, or Quarterly views
-- Cloud Provider - Filter by AWS, Azure, GCP, or view combined data (All Providers)
-- Projects - Focus on selected projects
-- Cost Type - Filter by Billed Cost or other cost types
+### Executive
 
-This allows you to focus on particular areas of interest within your cloud environment.
+| Report | What it shows |
+|--------|---------------|
+| **FinOps** | FinOps performance metrics — coverage, allocation, optimization rate |
+| **MoM Cost Summary** | Month-over-month cost comparison across projects |
+| **Budget Summary** | Spend against configured budgets |
+| **Executive Summary** | High-level KPIs for cloud spend |
+| **Invoice Summary** | Invoice-level cost summary |
 
-## Navigating the Dashboard
+### Cost
 
-### Accessing the Dashboard
+| Report | What it shows |
+|--------|---------------|
+| **Cost By Projects** | Spend grouped by project |
+| **Cost By Region** | Spend grouped by cloud region |
+| **Cost By Service Category** | Spend grouped by service category (Compute, Storage, etc.) |
+| **Cost by Tags** | Spend grouped by resource tag — supports tag-key and tag-value filtering (see [Tag Filter](#tag-filter-cost-by-tags-only) below) |
 
-1. Log in to your CloudPi account.
-2. From the left navigation menu, click on the **Dashboard** icon.
-3. The main Dashboard page opens, displaying an overview panel with filters and visual reports.
+### Inventory
 
-### Selecting Dashboard Types
+| Report | What it shows |
+|--------|---------------|
+| **Cloud Inventory** | Inventory of cloud resources across providers |
 
-At the top of the dashboard, you'll find multiple dropdown filters that control what type of data is displayed.
+### Billing
 
-Use the **Dashboard Type** dropdown to choose the desired view — for example:
+| Report | What it shows |
+|--------|---------------|
+| **Purchases** | Direct purchases recorded against your billing accounts |
+| **Resource Component Cost Analysis** | Cost broken down by individual resource components (compute, storage, networking, etc.) |
 
-- **Executive** - High-level cost overview with key metrics
-- **FinOps** - Financial operations and cost governance reports
-- **Technical** - Resource utilization and performance reports
+## Filters
 
-Dashboard options are dynamically customized based on:
+The filter bar at the top of the page applies to every chart in the selected report.
 
-- Your selected project(s)
-- Your user role (e.g., Admin, Executive, FinOps Analyst)
+### Date Range
 
-This ensures that each user views insights that are relevant to their scope and responsibilities.
+| Option | Description |
+|--------|-------------|
+| Preset windows | **Current Month**, plus rolling presets such as 7D / 30D / 60D / 90D |
+| **Custom** | Pick a start and end date — maximum range is 120 days |
 
-### Choosing Specific Reports
+Selecting a date range outside the 120-day limit is blocked with a validation message.
 
-After selecting the Dashboard Type, additional dropdowns appear for further customization:
+### Top N
 
-1. In the **Dashboard Name** dropdown, choose the specific report you want to view — for instance, Executive Report, Cost by Projects, Budget Overview, or Resource Utilization.
+Limits the chart and table to the top items by cost, with the remainder collapsed into an *Others* bucket. Common options are **Top 10 + Others**, **Top 5 + Others**, and **All**.
 
-2. You can also select:
+### Granularity
 
-- **Date Range** - Time period for analysis
-- **Top N** - Number of top items to display
-- **Granularity** - Daily, Monthly, or Quarterly
-- **Cloud Provider** - AWS, Azure, GCP, or All Providers
-- **Projects** - Specific projects to include
+Controls how time-series data is bucketed. Options are **Daily**, **Weekly**, and **Monthly**. The default is **Monthly**.
 
-The dashboard then updates automatically, showing relevant charts and tables for your selection.
+### Cloud Provider
 
-## Dashboard Components
+| Option | Description |
+|--------|-------------|
+| **All Providers** | Aggregated data across AWS, Azure, and GCP (default) |
+| **AWS** | Only AWS resources |
+| **Azure** | Only Azure resources |
+| **GCP** | Only GCP resources |
 
-### Executive Report View
+### Billing Entity
 
-The Executive Report provides a high-level cost overview with key metrics:
+Filters the report to a specific billing entity (AWS billing account, Azure tenant, or GCP organization). Use **All Entities** to see data across every connected billing entity.
 
-**Summary Cards:**
+### Projects
 
-- Total Spend - Total cloud spend across all projects
-- Avg Daily Cost - Average daily cloud spend
-- Top Project Cost - Cost of highest spending project
-- Top Service Cost - Cost of highest spending service
+A multi-select dropdown of the projects you have access to. The list reflects your role:
 
-**Visualizations:**
+- Workspace Administrators see all projects in the workspace
+- Workspace Users see projects in their assigned project groups
+- Project-level users see only their assigned projects
 
-- Cost Trend By Projects - Line chart showing cost trends over time for each project
-- Cost Breakdown - Donut chart displaying cost distribution by service (e.g., Azure SQL Database, Virtual Machines, Virtual Network)
+Project selections are remembered across sessions.
 
-![Executive Report](images/dashboard.png)
+### Tag Filter (Cost by Tags only)
 
-![Executive Report](images/dashboard1.png)
+The tag filter appears only when the **Cost by Tags** report is selected. It is hidden for every other report.
 
-## Customizing Data Views
+1. Pick a tag key from the **Group By Tag** dropdown (e.g., `Environment`, `CostCenter`).
+2. Optionally pick one or more values in **Filter Values (Optional)** to narrow the report (e.g., `production`, `staging`). Leave it empty to see every value for the selected tag key.
+3. The charts in the report refresh to group cost by the selected tag and apply the value filter.
 
-You can refine and personalize your dashboard data using filters located across the top:
+![Tag filter on the Cost by Tags report — Group By Tag and Filter Values dropdowns](images/dashboards-tag-filter.png)
 
-- **Date Range Filters** - Analyze cost and usage trends across specific time frames
-- **Granularity Filters** - View your data at daily, monthly, or quarterly levels for trend analysis
-- **Cloud Provider Filters** - Narrow your view to a particular cloud provider or compare across all
-- **Project and Dimension Filters** - Focus on specific projects, services, or custom tags
+## Role-Based Access to Executive Reports
+
+The **Executive** category is restricted by role:
+
+| Role | Can see Executive reports? |
+|------|:---:|
+| CloudPi Administrator | ✗ (no access to customer data) |
+| Workspace Administrator | ✓ |
+| Workspace User | ✓ |
+| Project Administrator | ✗ |
+| Project User | ✗ |
+| Viewer | ✗ |
+
+If your role does not include Executive access, the Executive category is hidden from the Report Name dropdown. The Cost and Inventory categories are visible to all roles within the projects they have access to.
+
+For full role definitions, see [Role-Based Access Control](rbac.md).
+
+## Cost Type
+
+The current cost type is shown in the filter bar (e.g., **Effective Cost**) so you can see which cost type the charts are using. The value is set at the **system / client-settings level** by an administrator and cannot be toggled per user from this page.
+
+If your workspace's cost type is changed in client settings, all reports automatically render with the new cost type the next time they are loaded.
+
+## Data Refresh and Empty States
+
+- Charts cache their data for performance. Repeat queries within a short window load instantly from cache.
+- If no data matches the current filters, the chart shows an empty state instead of a broken chart.
+- If a single chart fails to load, the rest of the report continues to render.

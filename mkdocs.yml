@@ -119,7 +119,7 @@ nav:
           - Connect GCP: ConnectGCP.md
   - Cost Assignment:
       - Cost Assignment: CostAssignment.md
-      - Tag Management: TagManagement.md
+      # - Tag Management: TagManagement.md                   # Disabled - superseded by Tag Governance
       - Tag Governance: TagGovernance.md
   - Policies & Workflows:
       - Policies & Workflows: AutomationPolicies.md
