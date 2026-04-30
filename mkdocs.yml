@@ -158,7 +158,7 @@ nav:
   - Reference:
       - Troubleshooting: Troubleshooting.md
       - Glossary: Glossary.md
-      - Tags: tags.md
+      # - Tags: tags.md                                   # Disabled - placeholder, no content
   - Changelog: Changelog.md
 
 
