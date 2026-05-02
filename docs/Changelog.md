@@ -4,82 +4,76 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
-## v2.5.0 — April 2026
+## v1.1.026 — May 2 2026
 
 ### New Features
-- **Policy YAML Sync** — Define and version-control governance policies as YAML files in your repository. Changes sync automatically to CloudPi on commit.
-- **VM Scheduler** — Schedule start and stop actions for virtual machines across AWS, Azure, and GCP to reduce idle compute costs.
+- **Cost Summary and Commitments reports** — Two new report types in the Reports library show cost rollups and commitment utilization at a glance.
+- **Billing report totals** — Billing reports show per-page totals and a grand total for easier reconciliation.
 
 ### Improvements
-- Improved billing ingestion performance for large AWS accounts with more than 10 million line items.
-- Budget alerts now support Slack and Microsoft Teams webhook destinations in addition to email.
-- Tag governance reports updated to include untagged resource counts per project.
+- **Dashboard layout** — Billing reports moved to a dedicated Reports library section.
 
 ### Fixes
-- Fixed an issue where Azure cost data was not updating after credential rotation.
-- Resolved incorrect forecast calculations for projects with seasonal spend patterns.
+- **Schedule action picker** — Restored the *Select Schedule* picker on schedule actions; it was missing for some workspaces.
+- **Organization structure view** — Loads reliably on multi-tenant accounts.
+- **Quick filter bars** — Apply selections as expected.
+- **Savings and budget totals** — Reconcile correctly on the dashboard; chart axis labels display properly across all date ranges.
 
 ---
 
-## v2.4.0 — March 2026
+## v1.1.025 — April 29 2026
 
 ### New Features
-- **Intelligence Automation** — AI-powered recommendations surface optimization opportunities and suggest remediation actions based on historical spend patterns.
-- **Global Policy Settings** — Define tenant-wide policies that apply across all workspaces without per-workspace configuration.
-
-### Improvements
-- Cost assignment rules now support tag-based matching with wildcard patterns.
-- RBAC now allows custom role definitions in addition to the built-in viewer, manager, and admin roles.
-- Dashboard loading time reduced by 40% for workspaces with more than 50 projects.
-
-### Fixes
-- Fixed a display issue in the Financials view when filtering by multiple project groups simultaneously.
-- Resolved an authentication error during GCP service account rotation.
+- **Verified Schedule Savings** — The Scheduler dashboard now reports the actual hours and dollars saved by each scheduled snooze, validated against billing data. Includes a 90-day history so schedules created before this release are credited.
 
 ---
 
-## v2.3.0 — February 2026
+## v1.1.024 — April 28 2026
 
 ### New Features
-- **Audit Logging** — Full audit trail of user actions, policy changes, and admin configuration updates with export support.
-- **Service Accounts** — Dedicated service account management for API integrations and automation workflows.
+- **Optimization Savings dashboard** — Potential and Realized savings are now separated across the KPI tile, Top Services chart, and trend view, so opportunity and capture appear side by side instead of merged together.
+- **Cost Anomaly controls** — Anomaly detection now supports configurable sensitivity and direction (`raise`, `drop`, or `both`) per policy, and auto-resolves recommendations once a spike subsides.
 
 ### Improvements
-- Getting started wizard updated with guided provider onboarding steps.
-- SSO configuration now supports Microsoft Entra ID (formerly Azure AD) directly from the Admin Settings page.
+- **Optimization Savings card** — Renamed from "Savings Realized" to "Optimization Savings" to match the content (the card now shows both Potential and Realized).
 
 ### Fixes
-- Fixed an edge case where project group roll-up costs excluded unassigned spend.
-- Resolved a timeout issue in the ServiceNow ticketing integration for large ticket payloads.
+- **Cost anomaly duplicates** — Stops generating duplicate recommendations within the same spike window for the same resource.
+- **Project Detail pivot** — Fixed a calculation that returned different April totals depending on the active range filter.
+- **Timezone handling** — Month boundaries are now classified consistently for non-UTC browsers across billing, forecast, and home widgets.
+- **KPI description text** — Long descriptions wrap inside KPI tiles instead of being clipped.
 
 ---
 
-## v2.2.0 — January 2026
-
-### New Features
-- **Multi-Cloud Billing Hub** — Unified billing view across AWS, Azure, and GCP with normalized cost data and provider-level breakdowns.
-- **Forecast** — Monthly spend forecasting using historical usage trends with variance tracking against user-defined projections.
+## v1.1.023 — April 27 2026
 
 ### Improvements
-- Workspace selector now remembers the last active workspace across sessions.
-- Provider connection status indicators added to the Cloud Onboarding dashboard.
+- **Tagged Cost by Project tooltip** — Hovered chart segments now show the tag-value name (e.g. `Development: $44.22`) instead of bare currency.
 
 ### Fixes
-- Fixed incorrect currency conversion for Azure subscriptions billed in non-USD currencies.
-- Resolved a pagination issue in the cost assignment rules list for workspaces with more than 100 rules.
+- **Widget chart loader** — Renders correctly during data load.
+- **Duplicate collection-permission alerts** — One-time cleanup of duplicate alerts; future duplicates are now prevented.
 
 ---
 
-## v2.1.0 — December 2025
+## v1.1.022 — April 27 2026
 
 ### New Features
-- **Jira Integration** — Create and sync Jira tickets directly from CloudPi tasks and optimization recommendations.
-- **Tag Management** — Centralized tag inventory with bulk tag assignment and governance reporting.
+- **Queue Dashboard** — Real-time view of background processing activity.
+- **Server-side pagination for large reports** — Report Engine no longer freezes on large result sets; pagination is handled by the server with smooth in-place page transitions.
+- **Tag filter operators** — Billing analysis filters now support `exists` and `not exists` on tag dimensions.
+- **Purchases report** — New report type summarizing purchase activity across providers.
+- **Azure SQL Database lifecycle actions** — Right-size and downgrade actions for Azure SQL Databases, including Premium → Standard transitions.
 
 ### Improvements
-- Notification emails now include direct links to the relevant CloudPi page.
-- Admin Settings reorganized into logical sections for easier navigation.
+- **Default home page date range** — Defaults to the current month.
+- **Budget and forecast accuracy** — Variance, forecast, and savings calculations now use till-date formulas; budget and forecast charts mark the current-month boundary with a dotted line.
+- **Workflow billing views** — Saved workflow views preserve their name even when the underlying billing view is inactive.
 
 ### Fixes
-- Fixed an issue where deleted projects were still appearing in cost assignment rule previews.
-- Resolved a display bug in the budget summary widget on the workspace home page.
+- **Billing PDF export** — Uses the view's own cost metric instead of always falling back to billed cost.
+- **Billing analysis advanced filters** — Resolved an error that appeared when many filter values were selected at once.
+- **Notification bell** — Clear-all action works.
+- **Multi-selector tick mark** — No longer shows a double tick.
+
+---
