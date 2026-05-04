@@ -4,6 +4,18 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.027 — May 4 2026
+
+### New Features
+- **Per-project automation controls** — Each project now has its own switches to turn cost recommendations and automated remediation on or off, so you can opt in selectively instead of only at the organization level. The Workflows area honors the setting: when automation is off, new workflows can't be created and existing workflows display in view-only mode. Turning automation off at the organization level also disables it for the projects underneath.
+- **Workspace currency** — Pick the currency for a workspace so cost reports and dashboards display in your preferred currency.
+
+### Fixes
+- Commitments reports now show accurate totals and breakdowns.
+- Billing analysis filters for currency, cloud provider, granularity, and optimization date now apply as expected.
+
+---
+
 ## v1.1.026 — May 2 2026
 
 ### New Features
