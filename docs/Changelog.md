@@ -4,6 +4,24 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.033 — May 11 2026
+
+### New Features
+- **Azure SQL Database scheduler** — Schedule pauses and resizes for Azure SQL Databases the same way you already do for VMs. Works across DTU, provisioned vCore, and serverless vCore databases, with pause / resume controls, a tier-aware resize picker, and a cutover history view so you can see when each change happened and why.
+- **Azure SQL right-sizing** — Automatically identify Premium and Standard Azure SQL Databases that are over-provisioned for their actual usage, and resize them within the same tier to cut cost without changing the database's performance class.
+- **Tag value breakdown** — Drill into a tag key to see how cost breaks down across each individual tag value, with cost-at-risk surfaced on the tag-conflict views so you can prioritize which conflicts to fix first.
+- **More report cadences** — Schedule report deliveries on a Quarterly or Half-monthly cadence in addition to the existing Daily, Weekly, and Monthly options.
+
+### Improvements
+- Changing the workspace currency now shows an explicit warning before signing you out, so you can confirm the change instead of being signed out unexpectedly.
+- Utilization metrics on resource detail views read more clearly, with labels that adapt to the underlying unit.
+
+### Fixes
+- Several dashboard polish fixes: y-axis titles now render, scorecard variance labels are accurate, scrolling on a chart no longer hijacks the page, the cloud-provider chart picks the right fallback when data is missing, and budgets cards correctly label month-to-date totals.
+- Resolved a set of report-sharing issues — share links authenticate correctly, delivery history populates, and downloading a dashboard from a shared link works as expected.
+
+---
+
 ## v1.1.027 — May 4 2026
 
 ### New Features
