@@ -8,6 +8,7 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ### Improvements
 - Top Projects on the Executive Summary no longer includes a per-cloud-provider breakdown; the table now groups by Billing Entity → Project Group → Project.
+- Tag governance summaries now aggregate by month for accurate resource counts and faster loads.
 - Typography and layout polish across the app.
 
 ### Fixes
