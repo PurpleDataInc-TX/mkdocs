@@ -4,6 +4,21 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.034 — May 12 2026
+
+### Improvements
+- Top Projects on the Executive Summary no longer includes a per-cloud-provider breakdown; the table now groups by Billing Entity → Project Group → Project.
+- Typography and layout polish across the app.
+
+### Fixes
+- Variance on the FinOps Scorecard now shows the actual variance value on every project row (previously some rows appeared blank while the Grand Total stayed populated).
+- Resolved a login regression so signing in works reliably again.
+- Fixed the billing view so its pages load under the correct workspace.
+- Corrected currency labels on the billing screens.
+- Resolved an error that intermittently blocked access to the report screens.
+
+---
+
 ## v1.1.033 — May 11 2026
 
 ### New Features
