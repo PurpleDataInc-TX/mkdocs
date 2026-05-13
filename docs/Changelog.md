@@ -4,6 +4,16 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.035 — May 13 2026
+
+### Improvements
+- Tag Compliance KPI labels and descriptions have been rewritten for clarity.
+
+### Fixes
+- Tag governance reports now use the correct end date for the selected range.
+
+---
+
 ## v1.1.034 — May 12 2026
 
 ### Improvements
