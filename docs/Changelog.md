@@ -4,6 +4,31 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.036 — May 14 2026
+
+### New Features
+- **Share billing views** — Schedule shared deliveries of billing-analysis views (Cost Analysis, Period Comparison, Anomaly, Inventory, and others) the same way you already share dashboards. Shared links open a viewer that respects the saved filters, picks the right chart per analysis type, and shows only the data the recipient is permitted to see.
+- **Azure Cosmos DB optimization** — New optimization recommendations for Azure Cosmos DB at the database and container level. Identifies idle shared-throughput databases and dedicated-throughput containers, and recommends lowering provisioned RU/s when actual consumption has stayed well below provisioned capacity over the last 30 days.
+- **Azure SQL DTU right-sizing** — New right-sizing recommendation for Azure SQL Databases on the DTU purchase model (Standard, Premium). Flags overprovisioned databases by analyzing DTU consumption and proposes a smaller within-tier SKU without changing the database's purchase family.
+- **Savings Analysis column selector** — Pick which columns appear in Savings Analysis so the view focuses on what matters to your workflow.
+
+### Improvements
+- The Savings dashboard now uses daily actual cost for accurate day-level savings tracking, and includes baseline columns so you can compare the unmitigated cost against the realized savings.
+- The Savings trend chart supports a chart-type toggle (line / bar) and a clickable legend so you can quickly isolate a series.
+- Savings views now support dynamic grouping and multi-select filters for faster drill-down.
+- Azure idle and right-sizing detection is now based on sustained usage rather than simple averages or totals — brief activity spikes no longer hide a long-running idle pattern, and brief idle stretches no longer mask sustained over-provisioning.
+- Saved billing views now show their analysis type as a column for quicker lookup.
+- Schedule History clearly labels each schedule with the report it delivers.
+- Cost and Budget charts now show axis titles.
+
+### Fixes
+- Currency symbols no longer appear next to count-style KPI tiles, and currency formatting is consistent across bar, line, and pie charts on saved views.
+- The Anomaly view is now correctly applied when navigating from Views & Reports.
+- Several saved-view share fixes so the time range, currency, and filters are preserved correctly between save and viewer.
+- Date and label corrections on the Savings dashboard, plus a copy-link reliability fix on share dialogs.
+
+---
+
 ## v1.1.035 — May 13 2026
 
 ### Improvements
