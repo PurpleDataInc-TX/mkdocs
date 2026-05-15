@@ -4,6 +4,20 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.037 — May 15 2026
+
+### New Features
+- **Recommendation-linked savings** — Optimization Analysis, Home, Scheduler, and Recommendation pages now show savings tied to the specific recommendation that delivered them, instead of an aggregate estimate.
+
+### Improvements
+- "Potential Savings" is now consistently labeled "Estimated Savings" across the product, matching how the figures are calculated.
+- Policy Management hides the Mode setting on cost-optimization policies where it wasn't applicable.
+
+### Fixes
+- Billing Analysis now refreshes the chart correctly when you switch between presets in the dropdown.
+
+---
+
 ## v1.1.036 — May 14 2026
 
 ### New Features
