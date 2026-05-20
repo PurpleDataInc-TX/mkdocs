@@ -4,6 +4,30 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.038 — May 20 2026
+
+### New Features
+- **Cosmos DB Scheduling** — Schedule start/stop windows and automatic right-sizing for Azure Cosmos DB databases and containers, the same way you already schedule virtual machines and SQL databases.
+- **Cost Analysis drill-down** — Drill into Cost Analysis straight from the chart or table: click any segment to break it down further, retrace your path with a breadcrumb trail, customize the drill hierarchy, and drill by tag. Your drill position is saved with the view and carried through when you share or schedule it.
+
+### Improvements
+- Recommendations for Azure VM shutdown windows now judge low-usage periods by sustained utilization rather than simple averages, so brief activity spikes no longer hide a real shutdown opportunity.
+- Estimated savings on the FinOps dashboard no longer count already-realized recommendations, so the figures match the Estimated Savings shown elsewhere in the product.
+- The scheduler now explains why a particular database instance can't be scheduled instead of leaving it silently unavailable.
+- Billing filters are easier to use: a one-click "Reset All", a searchable Tag Key selector, and tag filters grouped together at the top.
+- Added a safety guardrail that stops CloudPi's automated actions from ever targeting its own hosting infrastructure.
+- Logging out now asks for confirmation in an in-app dialog.
+
+### Fixes
+- Shared and scheduled billing views now keep your Cost Analysis column selection, and shared tables no longer expand to every column.
+- Scheduled reports and delivery history show the correct details regardless of which report they were created from.
+- Corrected Cost Analysis breadcrumb, titles, grouping, month presets, and duplicate rows in multi-metric tables.
+- Budget alerts no longer send duplicate notifications.
+- New workflows now default their due date to seven days out.
+- Smaller fixes to Cloud Inventory, the page footer, date pickers, and rule reordering.
+
+---
+
 ## v1.1.037 — May 15 2026
 
 ### New Features
