@@ -4,6 +4,17 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.039 — May 21 2026
+
+### Fixes
+- Cost Analysis drill-down tables now show project names instead of internal IDs.
+- Cost Analysis drill-downs are more accurate: drilling into a single value no longer adds a stray "Others" entry, and detail tables now break down consistently with the chart.
+- Tag-value breakdowns in Cost Analysis now respect the filters applied to the view.
+- Editing the Cost Analysis grouping now refreshes results immediately and keeps the view in sync, instead of briefly showing stale data.
+- Estimated savings on recommendations are now calculated from billed cost for greater accuracy.
+
+---
+
 ## v1.1.038 — May 20 2026
 
 ### New Features
