@@ -4,6 +4,16 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.040 — May 22 2026
+
+### Improvements
+- Azure VM shutdown schedules now estimate weekend savings from the actual recommended weekend window instead of assuming a full weekend off, giving more accurate projected savings.
+
+### Fixes
+- Resolved a data formatting issue that could affect tag and category breakdowns in monthly and weekly cost views.
+
+---
+
 ## v1.1.039 — May 21 2026
 
 ### New Features
