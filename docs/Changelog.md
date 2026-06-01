@@ -4,6 +4,29 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.041 — June 1 2026
+
+### New Features
+- **Cost Allocation** — Define your own cost-allocation dimensions and group cloud spend by rule-based business categories, with built-in overlap detection that warns you before two rules double-count the same cost.
+- **App Service Plan Optimization** — CloudPi now detects idle and over-provisioned Azure App Service Plans and recommends removing or right-sizing them, and you can schedule App Service Plans for start/stop and right-sizing the same way you schedule virtual machines, SQL databases, and Cosmos DB.
+- **Azure Cache for Redis** — New recommendations flag over-provisioned Azure Cache for Redis instances so you can right-size them and cut spend.
+- **Scale Set Scheduling** — Schedule Azure Virtual Machine Scale Sets to a fixed instance count on your chosen windows.
+- **Drill-Down Everywhere** — Drill-down now works across Trend, Comparative, and Anomaly analysis, not just Cost Analysis, and you can drill by your custom cost dimensions with lineage columns that show the path you took.
+
+### Improvements
+- Scheduling views now show estimated monthly savings for each scheduled resource, with more accurate figures that exclude savings already realized.
+- Cost Analysis charts now load independently, so the page becomes interactive faster and individual charts no longer wait on one another.
+- The scheduler now explains, in plain language, why a particular resource can't be scheduled or what happens during a scheduled change, instead of leaving it unclear.
+- Refreshed the Savings summary cards in Billing Analysis for a consistent look with the Budget and Optimization views.
+
+### Fixes
+- Report sharing now detects failed email deliveries and automatically archives shares whose underlying report has been deleted.
+- Cost Analysis detail tables now paginate correctly and show all relevant columns, and grouped values no longer collapse into "Unknown".
+- Budget charts now cover the full fiscal year, and shared Cost Analysis views no longer error when a Top N limit is applied.
+- Dashboard fixes: corrected KPI card alignment, chart legend paging, tooltip accuracy, and project axis labels.
+
+---
+
 ## v1.1.040 — May 22 2026
 
 ### Improvements
