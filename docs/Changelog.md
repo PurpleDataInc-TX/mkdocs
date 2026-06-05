@@ -4,6 +4,26 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.042 — June 5 2026
+
+### New Features
+- **Comparative Analysis** — A new comparative view shows your cost run-rate side by side across periods at month, week, or day granularity, with headline totals and highest-spending breakdowns, so you can see at a glance how spend is shifting from one time window to the next.
+- **Dimension Coverage** — Each cost-allocation dimension now shows a coverage summary, so you can see how much of your spend is mapped to your business categories and where gaps remain.
+- **Scale Set Optimization** — CloudPi now flags idle and over-provisioned Azure Virtual Machine Scale Sets and recommends scaling them down or enabling autoscaling to cut spend.
+
+### Improvements
+- Charts across the dashboard and billing analysis now use a single consistent color set, so the same category keeps the same color from one chart to the next.
+- Cost and analysis views now show project and project-group names everywhere — including shared views — instead of internal identifiers.
+- Comparative analysis now opens on first visit and defaults to all projects, and the Quick Filters were refined into a clearer labelled bar.
+
+### Fixes
+- Billing analysis now shows clear, plain-language messages instead of raw error codes, and no longer displays blank values when a total is zero.
+- Shared billing and comparative views now reliably load the latest saved view, render their charts (including all-projects views), and keep your drill-down position.
+- All-caps cost tags are now preserved instead of being merged with their lowercase variants, so tag breakdowns are accurate.
+- Removed a duplicate report label and corrected several billing analysis display issues.
+
+---
+
 ## v1.1.041 — June 1 2026
 
 ### New Features
