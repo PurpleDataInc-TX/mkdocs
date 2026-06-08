@@ -4,6 +4,24 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.043 — June 8 2026
+
+### New Features
+- **Advanced Cost-Allocation Rules** — Build cost-allocation categories from nested, multi-condition rules using match-all or match-any logic in a guided builder, with a live cost preview and built-in overlap detection so you can see exactly what spend each rule captures before you save it.
+
+### Improvements
+- Comparative analysis now offers a bar or stacked chart view, a compact run-rate summary, and a lineage column that traces the value you drilled in from.
+- Shared cost and comparative views now resolve project and project-group names and show accurate totals across all compared periods.
+- Optimization recommendations now focus on the current month and show one row per group, removing duplicate rows and outdated date-range options.
+
+### Fixes
+- Advanced filters now apply correctly in billing and comparative analysis, including the headline totals.
+- Tag breakdowns no longer fail when a tag name contains special characters.
+- Anomaly analysis now defaults to all of your projects.
+- Cost-allocation views refresh their coverage figures immediately after you add, edit, or remove a rule, and display multi-condition rules clearly.
+
+---
+
 ## v1.1.042 — June 5 2026
 
 ### New Features
