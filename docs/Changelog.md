@@ -4,6 +4,23 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.044 — June 11 2026
+
+### New Features
+- **Customizable Home Dashboard** — Your Home page is now a personalized dashboard you can arrange to suit your team: move and resize the spend, budget, cost-by-project, cost-by-category, recommendation, and alert panels, and your layout is saved for next time.
+- **Project Group Breakdown** — Billing analysis can now group spend by project group, so you can see costs rolled up to your larger business units instead of only individual projects.
+
+### Improvements
+- Scheduling savings estimates now use your actual billed hourly rate across AWS, Azure, and GCP, so the projected savings for start/stop schedules reflect what you were really charged.
+- Saved billing views now keep their filters when you navigate away and come back, and reopen on the analysis page they were created from.
+- AWS billing data is now imported more reliably and accurately, including cleaner cost and tag breakdowns.
+
+### Fixes
+- Budget alert emails now show correctly formatted amounts in your selected currency and identify each alert by its budget — no more missing or malformed values.
+- The Delivery History view now lists every record reflected in its summary count.
+
+---
+
 ## v1.1.043 — June 8 2026
 
 ### New Features
