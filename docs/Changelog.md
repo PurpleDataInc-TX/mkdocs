@@ -4,6 +4,25 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.045 — June 20 2026
+
+### New Features
+- **Databricks Cost Management** — CloudPi now supports Databricks as a cloud platform. Connect your Databricks environment (running on AWS, Azure, or GCP) and see your Databricks usage and spend alongside your other clouds in billing analysis and on your dashboards.
+- **Resource-Level Cost Allocation** — Cost-allocation rules can now match on individual resource IDs and names, with value pickers to choose from, so you can attribute spend down to specific resources.
+
+### Improvements
+- Comparative analysis now shows the cost difference and percentage change between periods directly, making period-over-period shifts easier to read at a glance.
+- The Home spend trend now compares like-for-like across months, and Budget Health reflects your full fiscal year.
+- The top filters and header in billing analysis were refreshed for a clearer, more consistent layout.
+
+### Fixes
+- Billing analysis now shows only approved project groups; unapproved groups no longer appear in your cost breakdowns.
+- Budget totals now match your stored annual budget, and project groups no longer appear twice in the Budget Summary.
+- Analysis tables and charts now show a clear placeholder for missing names instead of blank values.
+- Comparative analysis pagination now navigates between pages, and saved billing views keep only valid projects.
+
+---
+
 ## v1.1.044 — June 11 2026
 
 ### New Features
