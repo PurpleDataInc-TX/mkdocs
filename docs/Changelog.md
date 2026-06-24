@@ -4,6 +4,29 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.046 — June 24 2026
+
+### New Features
+- **Visual Policy & Workflow Builder** — Build and review optimization policies on a new drag-and-connect canvas. A three-panel layout lets you pick policies from a palette, arrange them visually, and inspect each one inline — with View and Edit modes, pan and zoom, and the ability to insert a step anywhere in the flow. Policy cards show how many resources match, per-policy outcome counts, and the run and action history right in the inspector.
+- **Workspace-Wide Cost-Allocation Rules** — Cost-allocation rules now span your entire workspace and apply across all your connected clouds at once, instead of being tied to a single cloud account. Rules can match on the cloud provider and account directly, and your cost overview shows the workspace total alongside an assigned-versus-unassigned breakdown by organization.
+- **Connect AWS Without Access Keys** — You can now onboard AWS accounts using the IAM role attached to your CloudPi environment instead of static access keys, with optional cross-account access. Choose "Instance profile" during onboarding and CloudPi handles the rest — no secret keys to store or rotate.
+- **Databricks Optimization Recommendations** — CloudPi now generates cost-savings recommendations for your Databricks clusters: it flags idle clusters, over-provisioned clusters, and clusters missing auto-termination, with estimated savings for each.
+
+### Improvements
+- Databricks spend and savings now appear throughout your reports and dashboards, including Top Services by Savings, the Optimization Savings Trend, and the Home total-cloud-spend legend.
+- Cost-allocation rules can now match on individual resource IDs and names against your full workspace data.
+- Weekly and monthly billing breakdowns now carry the same detailed cost dimensions as the daily view, so period rollups stay consistent with day-level analysis.
+- Cloud connection tests now allow more time to complete, so onboarding no longer fails for slower environments.
+
+### Fixes
+- The project rule picker now shows all of your workspace rules regardless of cloud or account, and hides rules already assigned to a project.
+- Duplicate collection-permission alerts for the same credential and service are no longer raised.
+- Temporary cloud errors and input-validation issues no longer trigger false "permission" alerts; only genuine access-denied errors do.
+- The Total Forecast / budget card now shows your stored annual budget instead of a sum of rounded monthly values.
+- Editing a rule no longer flags it as overlapping or duplicating itself during a dry run, and deleting a rule that isn't tied to a specific organization no longer fails.
+
+---
+
 ## v1.1.045 — June 20 2026
 
 ### New Features
