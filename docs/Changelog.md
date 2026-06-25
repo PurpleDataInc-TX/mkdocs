@@ -4,6 +4,21 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.047 — June 25 2026
+
+### Improvements
+- The Policy & Workflow Builder now supports undo and redo, automatically saves your work as you go, and asks for confirmation before you discard unsaved changes.
+
+### Fixes
+- Actions in the builder now require their mandatory fields to be filled in before saving, with inline prompts and an "Incomplete" marker on any card that's missing details.
+- Picking an action, scope, or delay step from the builder palette now reliably opens or selects it.
+- Rule value pickers now show only real values from the organization you select — no placeholder samples, and no values carried over from other or deleted organizations.
+- The ticket-provider picker now lists only the providers you've configured, and due dates display correctly when editing a ticket.
+- Newly onboarded cloud providers now appear right away, without needing a refresh.
+- Removing a cloud organization no longer disturbs cost-allocation rules that apply across your whole workspace.
+
+---
+
 ## v1.1.046 — June 24 2026
 
 ### New Features
