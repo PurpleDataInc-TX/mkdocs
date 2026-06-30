@@ -4,6 +4,26 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.048 — June 30 2026
+
+### New Features
+- **OAuth2 Email Integration** — Connect your email provider with OAuth2 (Microsoft / Google) instead of storing a password, for a more secure email setup.
+- **Unified Cross-Cloud Budgets** — A single project budget now tracks spend across every connected cloud (AWS, Azure, GCP, and Databricks), so you no longer need a separate budget per provider — alerts fire on the combined spend.
+- **Databricks Tag Governance** — New checks flag Databricks resources that are untagged, missing required tags such as Owner or Cost Center, or carrying deprecated tags, helping keep cost allocation and ownership clean.
+- **Cost by Resource Type** — Billing Analysis can now group and break down costs by resource type in the cost details view.
+
+### Improvements
+- Onboarding now discovers your accounts and projects from the connected identity when organization-level access isn't available, so AWS and GCP onboarding succeeds even without Organizations access.
+- The Home dashboard now leads with your total spend alongside Projected, Budget, and month-over-month cards, with the Cost vs Budget figure linking straight to the Budget page, plus a last-synced indicator.
+- The Projects list is now spend-first, showing per-project and per-rule cost with month-over-month movement, and you can open a project's cost rules inline.
+- Activity logs have been redesigned with a health summary, an activity timeline, clearer status indicators, quick filters, and export.
+
+### Fixes
+- Cloud connection tests for GCP and Azure credentials now work correctly.
+- The Policy & Workflow Builder now shows policy details even when a workflow hasn't been created yet.
+
+---
+
 ## v1.1.047 — June 25 2026
 
 ### Improvements
