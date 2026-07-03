@@ -24,6 +24,9 @@ Connect Azure to CloudPi to ingest cost exports and enable detailed billing anal
 ## Step 2 - Grant Reader Permissions
 Assign the **Reader** role to the service principal at the billing scope or subscription scope required for the export.
 
+For the full set of roles to assign — read-only and write/remediation — see
+[Azure Permissions](AzurePermissions.md).
+
 ## Step 3 - Create the Billing Export
 1. Open **Cost Management > Exports**.
 2. Create a new export to a storage account.
