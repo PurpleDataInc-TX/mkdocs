@@ -4,6 +4,31 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.049 — July 7 2026
+
+### New Features
+- **Databricks Cost Explorer** — A dedicated Databricks cost view that breaks spend down to the individual query, with summary metrics (cost, query runs, average cost per query, data scanned), ranked charts with a bar/trend toggle, and click-through to per-query details.
+- **Databricks Direct Connection Onboarding** — Connect Databricks using a service principal through a guided setup wizard.
+- **Cost Exclusion Rules** — Mark a cost-allocation rule as an exclusion to keep specific spend out of project totals, with a dedicated excluded-cost view on the workspace cost overview.
+
+### Improvements
+- Billing Analysis now uses each cloud's own native terminology across group-by, filters, columns, and the Savings, Optimization, and Comparative views, so labels match what you see in AWS, Azure, GCP, and Databricks.
+- Databricks query costs now roll up accurately to the right project across cost views.
+- The comparative cost summary has been redesigned to always show total cost and the percentage change at a glance.
+- The Home "Needs Attention" list now compares the same period month over month, so genuine cost increases surface reliably.
+- The Budget Summary now follows your configured fiscal year instead of the calendar year.
+- Improved accuracy of AWS cost data ingestion.
+
+### Fixes
+- Resolved an error that could prevent some cost analysis charts from loading.
+- Optimization now shows a clear "No recommendations found" message for projects with no qualifying spend, instead of appearing blank.
+- Viewing a decommissioned or inactive project now opens its details as expected.
+- Creating a project group now shows a proper success confirmation.
+- The project rule picker now offers rules only once you've selected an organization, and duplicate rule-name errors are shown clearly.
+- Cloud integration cards no longer display an inaccurate "Configured by" label.
+
+---
+
 ## v1.1.048 — June 30 2026
 
 ### New Features
