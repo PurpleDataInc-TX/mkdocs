@@ -8,6 +8,7 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ### Improvements
 - Faster cloud data collection and onboarding for AWS and GCP.
+- Faster Databricks billing data processing.
 - Clearer error messages when AWS billing storage access is misconfigured.
 
 ### Fixes
