@@ -4,6 +4,45 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.053 — July 8 2026
+
+### New Features
+- **Azure VM Scale Set optimization** — CloudPi now flags underutilized Azure Virtual Machine Scale Sets and recommends resizing or shutting them down to reduce spend.
+
+### Improvements
+- Removing an idle Azure App Service Plan now also removes the apps hosted on it, so cleanup completes in a single step.
+- Scheduled resize actions show clearer, plain-language status messages and include estimated savings for Azure App Service and Cosmos DB.
+- More reliable AWS billing data import, with improved accuracy of AWS cost ingestion.
+- More accurate weekly and monthly Databricks cost rollups.
+
+### Fixes
+- AWS cost imports now correctly handle duplicate tags in billing exports.
+- Corrected cost calculations for scheduled start and stop actions.
+- Fixed budget-alert display and improved the reliability of email notifications.
+
+---
+
+## v1.1.052 — July 7 2026
+
+### Improvements
+- Behind-the-scenes improvements to how Databricks billing data is processed.
+
+---
+
+## v1.1.051 — July 7 2026
+
+### Improvements
+- Improved the reliability of Databricks billing data imports by removing duplicate entries.
+
+---
+
+## v1.1.050 — July 7 2026
+
+### Improvements
+- Behind-the-scenes security and performance hardening.
+
+---
+
 ## v1.1.049 — July 7 2026
 
 ### New Features
