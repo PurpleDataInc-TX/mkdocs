@@ -4,6 +4,18 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.054 — July 8 2026
+
+### Improvements
+- Faster cloud data collection and onboarding for AWS and GCP.
+- Clearer error messages when AWS billing storage access is misconfigured.
+
+### Fixes
+- Resolved an issue where one organization's cost data collection could overwrite another organization's data.
+- Fixed AWS cost group-by showing a duplicate "Usage Type" column instead of "SKU ID".
+
+---
+
 ## v1.1.053 — July 8 2026
 
 ### New Features
