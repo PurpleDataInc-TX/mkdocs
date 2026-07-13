@@ -4,6 +4,25 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.056 — July 13 2026
+
+### Improvements
+- Cost and Billing Analysis views respond faster when switching between filters and returning to a previously viewed selection.
+- More accurate AWS billing, with automatic handling of restated cost data so corrections from your cloud provider are reflected without duplicates.
+- Faster and more reliable Databricks billing data processing.
+- Refined the cost anomaly setup experience with clearer, more consistent form fields.
+- Smoother project syncing that keeps the app responsive while changes are applied.
+
+### Fixes
+- Fixed the onboarding progress indicator so it accurately reflects completion across all cloud providers.
+- Organization-level dashboards and reports now work correctly for users who have not set up any projects.
+- The Executive Summary Key Points card now reflects only the selected billing entities and their active projects.
+- Fixed charts on the FinOps Scorecard and Home page that could occasionally fail to load.
+- Fixed the "Test" button when connecting an Azure account.
+- Fixed billing-entity filtering and dashboard behavior when no matching entity is found.
+
+---
+
 ## v1.1.054 — July 8 2026
 
 ### Improvements
