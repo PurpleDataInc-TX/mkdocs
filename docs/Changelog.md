@@ -4,6 +4,64 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.059 — July 20 2026
+
+### New Features
+- **Databricks Service Principal Connections** — Databricks accounts connected with a service principal now collect the full picture: cost attribution, utilization metrics, and job details, matching what file-based connections already provided.
+- **Jobs and Model Serving Breakdown** — Databricks spend can now be broken down by job and by model serving endpoint, alongside the existing warehouse and query views.
+
+### Improvements
+- Databricks resources now report their actual region instead of a single generic value, making regional cost breakdowns meaningful.
+- Billing Analysis now works for workspaces that have no projects set up, showing organization-wide cost instead of an empty page.
+- Cost filter options refresh in a fraction of the time on large accounts.
+- Cloud data collection is substantially more reliable when several organizations collect at the same time, and uses far less memory on large Databricks and AWS accounts.
+- Cost tables now clearly indicate when figures are still refreshing, so earlier results are no longer mistaken for the new selection.
+- Advanced Filters now start collapsed in Billing Analysis, keeping the focus on Quick Filters.
+
+### Fixes
+- Fixed two issues that could silently omit a small share of Databricks billing records from cost totals and anomaly detection.
+- Corrected several AWS cost figures, including list cost, savings plan and reserved instance amortized charges, and the categorization of credits and refunds.
+- Expired and deleted projects no longer appear in project lists or contribute to cost totals.
+- Fixed errors and indefinite loading when viewing Databricks usage details from comparative and dimension breakdowns.
+- Sub-accounts are no longer hidden from filters when cost is recorded against an organization without a project.
+- Newly created projects now appear immediately, and their cost is reflected without waiting for the next data collection.
+- The cost table now always shows a page total, and keeps the relevant columns visible when moving between tags.
+- Fixed keyboard focus moving to the wrong row when reordering drill-down levels.
+
+---
+
+## v1.1.058 — July 17 2026
+
+### Fixes
+- Fixed cost figures being overstated when a cost-allocation rule was combined with a tag or another filter while drilling down, where the additional filter was silently ignored.
+- Resolved every tag value showing an identical cost total when drilling into tags alongside a cost-allocation rule.
+
+---
+
+## v1.1.057 — July 16 2026
+
+### New Features
+- **Executive Summary** — New at-a-glance summary cards on the Executive Summary view surface headline spend and savings figures without opening a report.
+- **Cost Anomaly Detection** — Unexpected spend movements are now detected and surfaced so you can investigate cost spikes as they happen.
+- **Databricks** — A dedicated Databricks dashboard with executive cards and a DBU cost trend chart gives Databricks spend its own first-class view.
+- **Onboarding** — A new Rules Setup stage on the AWS, Azure, GCP, and Databricks onboarding screens walks you through cost-allocation rules before you create your first project.
+- **Cost Allocation Rules** — Applying a rule now runs in the background with a live progress indicator, so you can keep working while allocation catches up.
+
+### Improvements
+- Cost-allocation rules propagate across your data noticeably faster after they are created or edited.
+- Workspace and cost reports load faster on large accounts.
+- Data collection now automatically retries once after a transient failure instead of requiring a manual re-run.
+- The rule builder no longer offers attributes that could not be reliably matched, making rule creation simpler and more predictable.
+
+### Fixes
+- Fixed Azure SQL pricing being filtered incorrectly, which could misstate Azure SQL costs.
+- Resolved long resource, tag, and commitment values being truncated in cost reports and exports.
+- Fixed Databricks data collection failing to retrieve usage directly from the workspace.
+- Resolved duplicate billing files being loaded for an organization, which could double-count spend.
+- Fixed the DBU cost trend chart not rendering as a trend line on newly created environments.
+
+---
+
 ## v1.1.056 — July 13 2026
 
 ### Improvements
