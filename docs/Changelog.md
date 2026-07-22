@@ -9,7 +9,7 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 ### Improvements
 - **Rules page performance** — Setting up cost-allocation rules is much faster on large accounts. The tag picker, month selector, and cost overview load quickly, and the page no longer runs unnecessary lookups while you build a rule — results preview only once you've entered a filter value.
 - **Faster cost data collection** — Databricks and AWS cost data collection is faster and more reliable on large accounts.
-- The Rules page billed-month quick-select is now labeled "Last 30 Days" and selects every available month.
+- The Rules page now shows the billed month as a read-only "Last 30 Days" view covering all recent billing data, in place of the month picker.
 
 ### Fixes
 - Fixed the dashboard "Last synced" indicator occasionally showing a future date.
