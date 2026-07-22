@@ -4,6 +4,18 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.062 — July 22 2026
+
+### Improvements
+- **Rules page performance** — Setting up cost-allocation rules is much faster on large accounts. The tag picker, month selector, and cost overview load quickly, and the page no longer runs unnecessary lookups while you build a rule — results preview only once you've entered a filter value.
+- **Faster cost data collection** — Databricks and AWS cost data collection is faster and more reliable on large accounts.
+- The Rules page billed-month quick-select is now labeled "Last 30 Days" and selects every available month.
+
+### Fixes
+- Fixed the dashboard "Last synced" indicator occasionally showing a future date.
+
+---
+
 ## v1.1.059 — July 20 2026
 
 ### New Features
