@@ -4,6 +4,28 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.063 — July 23 2026
+
+### New Features
+- **Databricks Import Status** — Databricks accounts connected directly over SQL now show the import status of every billing month during setup, so a failed import is visible instead of silent.
+- **Trend Analysis Date Ranges** — Trend analysis now offers month-to-date, quarter-to-date and year-to-date ranges, and custom trend ranges are no longer limited to 120 days.
+
+### Improvements
+- Databricks cost attribution breakdowns load dramatically faster. Drill-downs that previously ran past two minutes and timed out now return in seconds, and the detail tables behind them page much more quickly.
+- Databricks cost now rolls up into weekly and monthly views the same way AWS, Azure and GCP do, with weekly and monthly totals reconciling exactly against the daily figures — including the week that straddles a month boundary.
+- Databricks data collection now continues when some Databricks system tables aren't available to CloudPi, collecting everything it can and reporting what was skipped, instead of failing the whole collection.
+- Databricks resources no longer add machine-generated run and job identifiers to your tag list, keeping tag pickers fast and usable — and a tag of your own carrying the same name is no longer overwritten.
+- The Rules page fetches cost data once per load instead of twice, and its cost overview now reflects the organization you have selected.
+- In Cost Assignment, clicking a dimension element now expands the row to show its rule, instead of opening a pop-up that repeated the table.
+
+### Fixes
+- Fixed dashboard Key Points showing meaningless callouts, such as recommendations that would save $0 per month, or a 0% workflow success rate when nothing was awaiting approval.
+- Fixed Comparative analysis failing to load the first time Billing Analysis is opened.
+- Fixed the trend chart showing a second legend whose colours did not match the chart.
+- Fixed the date range appearing empty after switching away from Trend analysis.
+
+---
+
 ## v1.1.062 — July 22 2026
 
 ### Improvements
