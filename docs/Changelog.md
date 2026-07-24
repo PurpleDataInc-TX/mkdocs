@@ -4,6 +4,31 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.064 — July 24 2026
+
+### New Features
+- **Value Mapping** — Group inconsistent spellings and variants of the same value under one name. Define a mapping once, reuse it across dimensions, and edit it in one place to update everywhere it is used.
+- **Dimension Value Builder** — Build a dimension's values by splitting a value into parts, standardizing its format, or falling back to another source when the first one is empty.
+- **Group by Tag Strategy** — Cost Analysis can now group and drill down by the keys defined in your tag strategy.
+- **Anomaly Date Ranges** — Anomaly detection now offers Last 15 Days and Last 30 Days ranges, and always reports on a daily basis.
+
+### Improvements
+- Cost filter options refresh in seconds on large accounts, where the refresh could previously run for hours and hold up cost updates while it ran.
+- Cost-allocation rules apply faster on large accounts.
+- Large reports page more quickly.
+
+### Fixes
+- Fixed Databricks billing collection failing repeatedly on large accounts, which could leave monthly cost totals empty for days at a time.
+- When connecting Databricks, only the months you select are imported. Previously, choosing an older month also pulled in every later month, and gaps in a non-contiguous selection were filled in silently.
+- Fixed Databricks resources derived from billing records being labelled as clusters, which produced a large number of irrelevant recommendations.
+- Databricks now appears consistently across the recommendation, rule and policy screens.
+- Cost filters no longer offer values belonging to expired organizations.
+- Fixed incorrect record counts on reports that list unique values.
+- Fixed the billing drill-down carrying the wrong hierarchy when switching between analysis types.
+- Fixed a dimension element's cost and status loading indefinitely.
+
+---
+
 ## v1.1.063 — July 23 2026
 
 ### New Features
