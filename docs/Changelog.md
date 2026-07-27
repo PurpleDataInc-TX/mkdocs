@@ -4,6 +4,15 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.065 — July 27 2026
+
+### Fixes
+- Fixed cloud data collection stopping altogether after a single failure. One collection failing could take the rest down with it, leaving cost and usage data stale until CloudPi was restarted.
+- Fixed Databricks cost attribution dropping its job, model serving and MLflow breakdowns for accounts with no SQL or query activity, leaving those costs unattributed until the next full collection. The same step no longer holds up other Databricks cost updates while it runs.
+- Fixed the Dashboard's last-synced date showing the first of the month rather than the most recent day of billing data, which made freshly collected data look weeks out of date.
+
+---
+
 ## v1.1.064 — July 24 2026
 
 ### New Features
