@@ -44,6 +44,9 @@ Grant the CloudPi service account **BigQuery Data Viewer** on the billing datase
 ## Step 4 - Optional: Active Resource Access
 If you want active resource visibility, grant the **Viewer** role on the relevant projects.
 
+For the full set of roles to assign — read-only and write/remediation — see
+[GCP Permissions](GCPPermissions.md).
+
 ## Step 5 - Connect in CloudPi
 1. Go to **Integrations** or **Cloud Onboarding**.
 2. Select **GCP** and enter:

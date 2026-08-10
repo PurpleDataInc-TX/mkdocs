@@ -117,6 +117,11 @@ nav:
           - Connect AWS: ConnectAWS.md
           - Connect Azure: ConnectAzure.md
           - Connect GCP: ConnectGCP.md
+      - Roles & Permissions:
+          - Overview: RolesPermissions.md
+          - AWS Permissions: AWSPermissions.md
+          - Azure Permissions: AzurePermissions.md
+          - GCP Permissions: GCPPermissions.md
   - Cost Assignment:
       - Cost Assignment: CostAssignment.md
       # - Tag Management: TagManagement.md                   # Disabled - superseded by Tag Governance

@@ -33,6 +33,9 @@ Connect AWS to CloudPi to ingest Cost and Usage Report (CUR) data and enable det
 2. Use the **External ID** provided by CloudPi.
 3. Apply least-privilege permissions required for CUR access.
 
+For the exact permissions to grant — read-only and write/remediation — see
+[AWS Permissions](AWSPermissions.md).
+
 ## Step 4 - Grant CloudPi Access to the CUR Bucket
 1. Update the S3 bucket policy to allow the CloudPi role to read CUR files.
 2. Ensure the role has permission to list and read report objects.
