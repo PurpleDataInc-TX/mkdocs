@@ -11,6 +11,7 @@ CloudPi supports the following integrations:
 - **Ticket Providers** (Azure DevOps, Jira, ServiceNow)
 - **SSO** (Single Sign-On)
 - **SMTP** (Simple Mail Transfer Protocol)
+- **Slack** (Team Messaging)
 
 ---
 
@@ -143,6 +144,61 @@ A success message confirms the SMTP integration is configured successfully.
 ### Error Handling
 
 Error messages will indicate issues such as "Unable to connect to SMTP server" or "Invalid email credentials."
+
+---
+
+## Slack Integration
+
+Connect a Slack channel to CloudPi so your cost policies and workflows can post messages straight into your team's workspace. You connect the channel once from the Integrations hub, and CloudPi handles the delivery details from then on.
+
+### Prerequisites
+
+- Admin access to Integrations
+- A Slack incoming webhook URL for the channel you want CloudPi to post into. Create this in your own Slack workspace before you begin.
+
+### Steps to Configure
+
+**1. Open the Slack Integration**
+
+- Navigate to **Integrations**
+- Select the **Slack** card
+
+**2. Provide Required Details**
+
+Click **Connect Slack** and complete the following:
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Webhook URL** | Yes | The incoming webhook URL from your Slack workspace, in the form `https://hooks.slack.com/services/…`. It is visible only while you type it and is masked everywhere after saving |
+| **Channel label** | Yes | The channel CloudPi posts into, for example `#cloudpi-alerts`. This is shown on the Integrations hub card so your team can see where messages are going |
+| **Label** | No | A private note for your own reference. It is not shown on the Integrations hub card and is never sent to Slack |
+
+**3. Send a Test Message**
+
+Click **Send test message** to confirm the webhook is live. The button becomes available once the URL you have entered is a valid Slack webhook, and it works before you save, so you can verify the connection without committing to it. CloudPi reports the result in plain language, including the specific reason if the message could not be delivered.
+
+**4. Save**
+
+Click **Save**. The Slack card now displays the connected channel along with a masked version of the webhook URL.
+
+### Editing the Connection
+
+To change the connection, open the Slack card and edit it. You will need to paste the webhook URL again. CloudPi treats the URL as a credential and never displays it in full once saved, so it cannot be pre-filled for you.
+
+### Disconnecting Slack
+
+Disconnecting asks you to confirm, then removes the connection from your workspace.
+
+Disconnecting does not retroactively alter workflows that were already saved. Those workflows keep posting to the channel until the webhook itself is revoked in Slack.
+
+### Things to Know
+
+- **One channel per workspace.** CloudPi supports a single connected Slack webhook per workspace. Messages from every project are delivered to that one channel.
+- **Rotating a webhook.** If you replace the webhook in Slack, reconnect it in CloudPi as well. Workflows saved earlier hold a point-in-time copy and are not updated automatically.
+
+### Error Handling
+
+If a test message fails, CloudPi reports the reason returned by Slack, such as a webhook that no longer exists, a channel that has been deleted, or a webhook that Slack has blocked from posting. Reconnect with a newly generated webhook URL to resolve these.
 
 ---
 
