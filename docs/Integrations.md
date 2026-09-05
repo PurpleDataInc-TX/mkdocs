@@ -170,8 +170,10 @@ Click **Connect Slack** and complete the following:
 | Field | Required | Description |
 |-------|----------|-------------|
 | **Webhook URL** | Yes | The incoming webhook URL from your Slack workspace, in the form `https://hooks.slack.com/services/…`. It is visible only while you type it and is masked everywhere after saving |
-| **Channel label** | Yes | The channel CloudPi posts into, for example `#cloudpi-alerts`. This is shown on the Integrations hub card so your team can see where messages are going |
+| **Channel label** | Yes | A display label only, shown on the Integrations hub card so your team can see where messages are going. It does not route anything — messages always go to the channel the webhook was created for in Slack |
 | **Label** | No | A private note for your own reference. It is not shown on the Integrations hub card and is never sent to Slack |
+
+![Connect Slack dialog](images/slack-connect-dialog.png)
 
 **3. Send a Test Message**
 
@@ -180,6 +182,8 @@ Click **Send test message** to confirm the webhook is live. The button becomes a
 **4. Save**
 
 Click **Save**. The Slack card now displays the connected channel along with a masked version of the webhook URL.
+
+![Slack card on the Integrations hub, showing a connected channel](images/slack-integration-card.png)
 
 ### Editing the Connection
 
