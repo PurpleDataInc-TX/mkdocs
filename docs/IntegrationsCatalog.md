@@ -10,6 +10,7 @@ CloudPi integrates with common ticketing, notification, and identity systems. Th
 
 ## Notifications
 - **SMTP Email**: [Integrations](Integrations.md)
+- **Slack**: [Integrations](Integrations.md)
 
 ## Identity and Access
 - **Okta SSO**: [SSO Setup](SSOSetup.md)
