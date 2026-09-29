@@ -4,6 +4,41 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.071 — September 29 2026
+
+### New Features
+- **Guided Dimension Builder** — Create or edit a dimension in three guided steps: name it, define its elements and rules, then review and activate. Pick values from live samples, split or clean values as you go, and put anything left over into a single named "Others" group.
+- **Sub-Dimensions** — Attach one dimension beneath elements of another, including many elements at once, to build layered cost breakdowns. Only active elements can be attached to.
+- **Free-Form Drill-Down** — In Billing Analysis, click any row on Cost, Trend, Comparative or Anomaly and choose which column to drill into next. This replaces the fixed grouping hierarchy, and the drill you choose is kept when you refresh the page.
+- **Slack Notifications** — Connect a Slack channel from the Integrations page, send a test message, and use "Send Slack Message" as a workflow action. Messages carry the same resource details as email.
+- **GitHub Pull Requests and Issues** — Workflows can now open a GitHub pull request or issue from a recommendation, including right-sizing pull requests for EC2 and RDS.
+- **AI Cost & Usage** — A dedicated dashboard for AI spend across every provider, with breakdowns by service, model and workspace. AI spend also appears as its own row in Spend at a Glance on Home.
+- **Permission Gaps** — See which cloud permissions are missing and which recommendations or data they held back, in a new Permission Gaps page linked from the notification bell.
+- **AWS Billing Exports in FOCUS 1.2** — AWS onboarding now accepts billing exports in the FOCUS 1.2 format.
+- **New Recommendations** — Databricks: idle and held-open SQL warehouses, oversized job clusters, warehouses that should be serverless, off-hours waste, jobs with no timeout, and idle vector search endpoints. AWS: idle database migration instances, EC2 instances that can be shut down on a schedule, and S3 lifecycle savings.
+
+### Improvements
+- Comparative analysis loads much faster on large accounts, where the monthly view could previously time out.
+- Billing Analysis has a single-line filter bar, and "Shared Reports and Views" is now "Billing Views", listed by workspace.
+- Trend analysis adds Month, Quarter and Year to Date ranges.
+- Costs show two decimals at every size, and unallocated cost is labelled "Others" everywhere.
+- Charts and tables in Billing Analysis and Cost Analysis now display correctly in dark mode.
+- The Inventory page loads faster.
+- Cost anomaly detection is now on by default.
+
+### Fixes
+- Fixed AWS billing exports that deliver new files each time being counted more than once, which inflated the cost of earlier days.
+- Fixed Databricks SQL warehouses showing 100% idle cost even when they were in use.
+- Fixed the Last 7 Days and Last 14 Days ranges coming back empty.
+- Fixed Billing Analysis filters resetting to the 60-day default when the page was refreshed.
+- Fixed recommendations reappearing after their ticket had been resolved.
+- Fixed policy names in generated pull requests being replaced with masked text.
+- Fixed daily Comparative columns including today's unfinished day.
+- Fixed cost views including organizations that have been retired.
+- Fixed a dimension's cost and status showing incorrectly after an element was deleted or attached.
+
+---
+
 ## v1.1.065 — July 27 2026
 
 ### Fixes
