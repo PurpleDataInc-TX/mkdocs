@@ -4,6 +4,31 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.072 — September 30 2026
+
+### Improvements
+- Dimension reports are more accurate for cost breakdowns built from grouped or attached rules, closing several edge cases that could under- or over-count costs.
+- Trend Analysis can now break down by Databricks usage details (such as users, warehouses, and queries), matching what Cost Analysis already offers.
+- Drill-down hints are now consistent across every report table.
+- Project Group is no longer offered as a way to group cost reports.
+
+### Fixes
+- Fixed Trend Analysis's total spend under-reporting once a cost breakdown had more entries than the chart could display.
+- Fixed a dimension's cost showing as zero when viewed through an attachment, and made shared dimensions clearer about where a number comes from.
+- Fixed Comparative reports coming back empty for some cost breakdowns, and corrected totals in the "Others" row and empty-cost rows.
+- Fixed Comparative reports occasionally showing results from the previous time period after changing dates, and added a Retry option when a request fails.
+- Fixed Cost Analysis defaulting to the wrong date range on first load.
+- Fixed the cost detail table only sorting the rows currently on screen instead of the full report.
+- Fixed drilling back to "All" re-running expensive Databricks queries across the whole account.
+- Fixed switching report types carrying over a stale grouping from the previous view.
+- Fixed a saved or loaded billing view losing its selection.
+- Fixed a broken "Go to Dashboard" link on the billing error screen.
+- Fixed dimension elements occasionally being archived or reordered incorrectly during high-volume updates.
+- Fixed a recommendation's details showing "No data found" when the underlying resource had since been deleted.
+- Fixed a policy's action details crashing when the linked action was no longer available.
+
+---
+
 ## v1.1.071 — September 29 2026
 
 ### New Features
