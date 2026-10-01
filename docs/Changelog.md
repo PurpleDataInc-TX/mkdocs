@@ -4,6 +4,26 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.073 — October 1 2026
+
+### Improvements
+- Dimension cost summaries load faster, especially on large accounts.
+- The dimension builder now warns you when an earlier rule already captures everything a later rule would match, so that rule would never show any cost.
+- Trend and Comparative now let you choose what to drill into next when you click an element with no further breakdown, matching Cost Analysis.
+- Comparative reports can now break down dimension elements by Databricks usage details (such as users, queries, and databases), matching what Cost Analysis already offers.
+- Sub-dimensions are now offered for attachment in the same order your rules are evaluated.
+
+### Fixes
+- Fixed some Databricks query and storage charts failing to load for certain dimensions.
+- Fixed Optimization reports grouped by Region or Project showing repeated rows and hiding some regions or projects.
+- Fixed the Optimization realization rating disagreeing with the savings zones shown in the breakdown table.
+- Fixed a rule with several values not reopening as "is any of" when you edit it.
+- Fixed Billing Analysis showing organization-wide cost when your projects failed to load; it now shows a clear message with a Retry option.
+- Fixed error messages appearing after deleting a dimension.
+- Fixed the Top N selector showing a bare number instead of its label.
+
+---
+
 ## v1.1.072 — September 30 2026
 
 ### Improvements
