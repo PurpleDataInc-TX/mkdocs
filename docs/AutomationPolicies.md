@@ -250,11 +250,47 @@ Inside each rule, configure the actions that should run when the rule matches. E
 |-------|-------------|
 | **Add delay** | Optional delay before the action runs, expressed in *days* and *hours*. Set both to `0` to run immediately |
 | **Step** | Auto-numbered position in the action chain (Step 1, Step 2, …) |
-| **Select action** | Choose the action from the dropdown — e.g., Send Email, Create Task, Attach Tag, Create Ticket, Trigger Webhook |
+| **Select action** | Choose the action from the dropdown — e.g., Send Email, Create Task, Attach Tag, Create Ticket, Trigger Webhook, Send Slack Message |
 | **On failure** | What to do if this action fails — **Continue Next** (run the next action anyway) or **Stop Workflow** (abort the entire workflow). New actions default to *Stop Workflow*; switch to *Continue Next* for non-critical steps such as notifications |
 | **Action parameters** | Fields specific to the chosen action — for example *Notification email* for Send Email; *Title*, *Description*, *Assigned to*, *Due Date* for Create Task; *Tag key* and *Tag value* for Attach Tag |
 
 Click **+ Add Action** to chain another step inside the same rule.
+
+### Sending a Slack Message
+
+The **Send Slack Message** action posts to your team's Slack channel when a policy fires, so the people who need to act on a cost event see it where they already work.
+
+**Before you begin** — connect Slack for your workspace, and confirm the connection using **Send test message**. See [Slack Integration](Integrations.md#slack-integration). You connect the channel once; you never enter a webhook URL while building a workflow.
+
+**To add the action:**
+
+1. Go to **Automation** → **Policy and Workflow**, and open or create a workflow on the policy you want.
+2. Inside a rule, click **+ Add Action**.
+3. From **Select action**, choose **Send Slack Message**.
+4. Fill in the **Message** field.
+5. Click **Save Changes**.
+
+#### The Message field
+
+Type the message you want posted. Plain text is all that is required, for example `Idle instance detected`.
+
+CloudPi wraps what you type and adds the details of the resource that triggered the policy — Service, Priority, Region, Resource ID, Account ID, and the time the event was generated. This is the same enrichment applied to the body of a Send Email action, so your channel receives a readable summary rather than a bare sentence.
+
+If you would rather control the exact message, enter valid JSON instead, for example `{"text": "custom message"}`. CloudPi passes JSON through unchanged and adds nothing to it.
+
+#### Where it can be used
+
+Send Slack Message is available on every policy that offers Trigger Webhook, which in practice means any workflow you can build. It fires whenever the policy attached to that workflow is met — the action has no separate trigger of its own.
+
+Common examples include idle instance policies such as `idle-instances-vm`, tag compliance policies such as `untagged-instances`, and budget threshold policies such as `budget-upper-bound-alert-azure`. See [Common Policy Examples](#common-policy-examples) for how these are set up.
+
+Because notifications are rarely the critical step in a chain, consider setting **On failure** to *Continue Next* so a Slack delivery problem does not stop the rest of the workflow.
+
+#### If the message does not arrive
+
+If Slack has not been connected for the workspace — or was disconnected — the action reports that no Slack integration is configured. Reconnect the channel from the Integrations hub and run the workflow again.
+
+Delivery results are recorded like any other action. Open the workflow's detail page and check the **Workflow Logs** to see whether the step succeeded, along with when it was queued and when it ran.
 
 ### Save the Workflow
 

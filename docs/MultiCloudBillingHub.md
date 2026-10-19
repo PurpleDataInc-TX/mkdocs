@@ -32,24 +32,53 @@ The Quick Filters bar at the top of the page covers the most-used controls. You 
 
 | Filter | Options | Notes |
 |--------|---------|-------|
-| **Analysis Type** | Cost / Anomaly / Trend / Comparative / Budget / Optimization / Preset | See [Analysis Types](#analysis-types) below for what each does |
-| **Cloud Service Provider** | All Providers / AWS / Azure / GCP | Filters resources to one provider or shows all |
-| **Projects** | Multi-select from your assigned projects | At least one project is required |
-| **Cost Type** | Billed Cost / Effective Cost / List Cost | Defaults to your workspace setting; can be overridden here |
+| **Analysis Type** | Cost / Anomaly / Trend / Comparative / Budget / Optimization / Preset / Savings | Selected from the breadcrumb at the top of the page rather than the filter bar. See [Analysis Types](#analysis-types) |
+| **Projects** | Multi-select from your assigned projects | Several analysis types need at least one project — see [Which analysis types are available](#which-analysis-types-are-available) |
 | **Granularity** | Daily / Weekly / Monthly | How time-series data is bucketed |
-| **Date Range** | 7d / 30d / 60d / 90d / Custom | Maximum range is 120 days |
-| **Limit** | 5 / 10 / All | Top N items by cost; remaining items rolled up under "Others" |
-| **PRIMARY Group By** | Service Name, Account, Region, etc. | Main grouping dimension. Marked with a star icon since it drives the chart |
+| **Date Range** | 7d / 30d / 60d / 90d / Custom | Maximum range is 120 days. Not shown for Budget or Comparative — those set their own periods |
+| **Group By** | Service Name, Region, Sub Account and more — plus your tags and your Cost Assignment Dimensions | The primary grouping. It drives the chart and is the first level you drill from. Not shown for Budget or Preset, whose grouping is fixed |
+| **Tag Key** / **Tag Values** | Your tag keys and their values | Appear only when **Group By** is set to a tag. The key is required; leaving values empty shows every value for that key |
+| **Grouping Hierarchy** | A pre-set drill path | Anomaly, Trend and Comparative only. Older control — drill levels are now normally chosen as you go |
+| **Preset Report** | Your available preset reports | Preset analysis only |
 
 **Auto-hide on Apply** — A toggle on the right of the Quick Filters bar. When on, the filter panel collapses after you click Apply, freeing up screen space for the chart and table.
 
 Filter selections persist as you move between pages within the same session, so you do not lose your setup if you navigate away and come back.
 
+#### Controls that are not in the filter bar
+
+Three controls people commonly look for in Quick Filters live elsewhere:
+
+- **Top N (Limit)** — at the top-right of the chart itself. It caps how many items the chart draws, rolling the remainder into *Others*.
+- **Cost Type** — in the [Advanced Filters](#advanced-filters) sidebar, and only for the analysis types that let you choose one. Cost, Anomaly, Savings and Preset always total on your workspace's configured cost type, so they show no control.
+- **Cloud Service Provider** — no longer offered as a filter. The provider is readable from the data itself: **Host Provider** and **Service Provider** are billing dimensions you can group by or filter on.
+
+#### Default filter state
+
+Opening Billing Analysis without changing anything gives you:
+
+| Control | Default |
+|---------|---------|
+| Analysis Type | **Cost Analysis** |
+| Group By | **Service Name** |
+| Granularity | **Monthly** |
+| Date Range | The last **60 days** |
+| Top N | **10** |
+| Cost Type | Your workspace's configured cost type |
+| Specific filters, tag filters, Dimension scope | None applied |
+
 Click **Advanced Filters** in the sidebar (left) to access additional dimension-specific filters — see [Advanced Filters](#advanced-filters).
 
 ### Analysis Types
 
-The Analysis Type dropdown provides seven different ways to look at your billing data. Each type drives a different chart, a different default set of dimensions, and (for some types) a different summary panel.
+The Analysis Type selector provides eight different ways to look at your billing data. Each type drives a different chart, a different default set of dimensions, and (for some types) a different summary panel.
+
+#### Which analysis types are available
+
+You may not see all eight. The list is filtered two ways:
+
+- **By what your workspace has configured.** The available types are served from the backend catalogue, so a type with nothing configured behind it does not appear. Anomaly and Preset always show.
+- **By whether you have projects.** With no projects assigned, only **Cost**, **Anomaly**, **Trend** and **Comparative** appear — those can report organisation-wide. Budget, Optimization, Savings and Preset all need a project scope.
 
 ![Analysis Type dropdown](images/billing-analysis-dropdown.png)
 
@@ -153,6 +182,10 @@ Compare costs across multiple time periods to identify changes and growth patter
 The table highlights significant changes:
 - **Red badges** indicate cost increases (e.g., +411.62%)
 - **Green badges** indicate cost decreases (e.g., -85.04%)
+
+**Use Comparative Analysis when** the question is *"what changed?"* rather than *"what are we spending?"* — month-end reviews, explaining a bill that jumped, or checking whether an optimisation actually took effect. It answers with a period-over-period difference and a percentage per service.
+
+Use [Cost Analysis](#1-cost-analysis) instead when you want the current picture at resource level: what is running, what it costs, and where the money sits right now. A rough rule — Cost Analysis for *how much*, Comparative for *how much more (or less) than before*. Comparative sets its own three-month periods, which is why the Date Range control is hidden while you are in it.
 
 ![Comparative Analysis](images/billing5.png)
 
@@ -263,13 +296,69 @@ Preset Analysis lets you open a pre-configured report dashboard rather than star
 
 **Use Preset Analysis when** you want to start from a known good configuration without setting filters by hand, or when your team has a standard set of reports you want everyone to use.
 
+#### 8. Savings Analysis
+
+Savings Analysis reports **TRUE Savings** — money not spent because a schedule or a workflow actually stopped, resized or removed something. Each figure is verified against the resource's baseline rate rather than estimated, so this is a record of realised savings, not an opportunity list.
+
+For potential savings you have not acted on yet, use [Optimization Analysis](#6-optimization-analysis) instead.
+
+**Summary cards** across the top:
+
+| Card | Shows |
+|------|-------|
+| **TRUE Savings** | Total verified savings across all sources |
+| **Scheduler TRUE Savings** | The portion produced by schedule actions |
+| **Workflow TRUE Savings** | The portion produced by workflow automations |
+
+**Trend chart** — savings accrued over the selected date range, so you can see when automation started paying off.
+
+**Detail table** — resource-level records behind the totals. The table is sortable (newest savings date first by default) and paged. Which columns appear follows your **Group By** selection; change Group By and the column set resets to the default for that grouping.
+
+**Savings filters.** The Advanced Filters sidebar swaps its usual contents for eight savings-specific filters:
+
+| Filter | Filters by |
+|--------|-----------|
+| **Saving Scope** | Scheduler or Workflow |
+| **Saving Source** | The specific schedule or workflow that produced the saving |
+| **Status** | State of the savings record |
+| **Service Name** | Cloud service the saved resource belongs to |
+| **Region** | Cloud region |
+| **Account ID** | Billing account |
+| **Savings Mode** | Auto Workflow, Gated Workflow, Manual, Scheduler or Workflow — plus **Not Set** for records with no mode recorded |
+| **Resource Name** | A specific resource |
+
+**Notes:**
+
+- Savings Analysis needs a project scope — it does not appear at organisation level.
+- If you select more than one project, the page reports on the first one and shows a banner saying so.
+- There is no Cost Type control here; savings always total on your workspace's configured cost type.
+
+**Use Savings Analysis when** you need to show what automation has actually saved — a monthly savings report, or evidence that a scheduling policy is worth keeping.
+
 ### Advanced Filters
 
 Quick Filters cover the most common controls. The **Advanced Filters** sidebar (left side of the page) lets you narrow the analysis further by specific dimension values.
 
 ![Advanced Filters sidebar](images/billing-analysis-advanced-filters.png)
 
-The sidebar header shows the count of available filters (for example, *Specific Filters (12 Available)*). Each filter is a multi-select dropdown — pick one or more values to include only data matching those values.
+The sidebar header shows the count of available filters (for example, *Specific Filters (11 Available)*). Each filter is a multi-select dropdown — pick one or more values to include only data matching those values.
+
+**The sidebar is not the same for every analysis type.** It is available on Cost, Anomaly, Trend, Comparative and Savings. Budget, Optimization and Preset use their own filter controls, so neither the sidebar nor the **All Filters** toggle appears for them. Savings replaces the whole set with its own eight filters — see [Savings Analysis](#8-savings-analysis).
+
+#### Scoping to a Cost Assignment Dimension
+
+**Cost Analysis only.** A **Dimension** picker at the top of the sidebar scopes the entire cost view to one of your Cost Assignment dimensions. Selecting a dimension shows only the costs its element rules match — the union of every element in that dimension — so you can answer "what does this team / product / cost centre actually spend?" without rebuilding the same filter set by hand.
+
+Only **approved, top-level** dimensions are listed. Draft dimensions are excluded, because an element still in draft contributes no rules and the filter would silently do nothing. Sub-dimensions are excluded too — you reach those by drilling down from the root dimension.
+
+If the dropdown says *No dimensions exist*, create one in Cost Assignment first.
+
+There are two ways in, and they do different things:
+
+- **Group By → Dimensions** (Quick Filters) — groups the chart *by* the dimension's elements. Picking a dimension here sets the grouping and the scope together, and the sidebar picker hides because the choice is already made.
+- **The sidebar Dimension picker** — keeps your existing Group By (Service, Region, and so on) and simply *narrows* the data to that dimension's scope.
+
+Changing the dimension resets any drill path you had open.
 
 #### Specific filters
 
@@ -279,7 +368,6 @@ The sidebar header shows the count of available filters (for example, *Specific 
 | **Region** | Cloud region (e.g., westus, us-east-1) |
 | **Availability zone** | Specific AZ within a region |
 | **Billing account id** | Top-level billing account |
-| **Charge category** | Charge classification (Usage, Tax, Refund, etc.) |
 | **Service category** | Logical service grouping (Compute, Storage, Networking, etc.) |
 | **Sub account id** | Subaccount, subscription, or GCP project ID |
 | **Sub account name** | Friendly name of the subaccount |
@@ -287,17 +375,48 @@ The sidebar header shows the count of available filters (for example, *Specific 
 | **Resource name** | Friendly name of the resource |
 | **SKU id** | Cloud provider SKU |
 | **Publisher** | Service publisher (relevant on Azure for marketplace items) |
-| **Usage type** | Usage type code (e.g., BoxUsage, NodeHours) |
 
-The available filters and their values depend on the **Cloud Service Provider** and **Projects** you selected in Quick Filters — values load dynamically based on what's in scope.
+The available filters and their values depend on the **Projects** you selected in Quick Filters — values load dynamically based on what's in scope.
+
+Two things worth knowing:
+
+- **Labels follow the provider.** When the data in scope belongs to one provider, the filters use that provider's own vocabulary — *Sub Account Name* reads as *Subscription* on Azure, *Region* as *Location*, and so on.
+- **Select All is safe on large dimensions.** Resource ID, Resource Name, SKU ID, Sub Account ID and Sub Account Name can hold hundreds of thousands of values. Choosing *Select All* on these sends a "select everything" instruction rather than the full list, so the request does not fail.
 
 #### Tag filters
 
-Below the specific filters is a **Tag Filters** section. Unlike the dimension filters above, tag filters are **independent of the Primary / Secondary grouping** — selecting tag-based filters narrows the data to resources that match the tag values regardless of how the data is grouped on the chart.
+Below the specific filters is a **Tag Filters** section. Unlike the dimension filters above, tag filters are **independent of how the data is grouped** — selecting tag-based filters narrows the data to resources that match the tag values regardless of the grouping on the chart.
 
 1. Pick a **Tag key** from the dropdown (e.g., `Environment`, `Owner`).
 2. Select one or more **values** for that tag.
 3. Repeat for additional tag keys if needed.
+
+Tag filters are hidden when your Group By is already a tag — in that case use the **Tag Key** and **Tag Values** controls in Quick Filters instead.
+
+#### Databricks query filters
+
+**Cost Analysis only, and only when Databricks data is in scope.** Eight additional filters appear under a **Databricks Query Filters** heading:
+
+| Filter | Filters by |
+|--------|-----------|
+| **Statement Type** | The kind of statement run (SELECT, INSERT, and so on) |
+| **Compute Type** | The compute that ran it (warehouse, cluster, and so on) |
+| **Query Source** | Where the query came from |
+| **Execution Status** | How it finished — for example finished or failed |
+| **Client Application** | The application that submitted it |
+| **Client Driver** | The driver used to connect |
+| **User** | The principal that ran the query |
+| **Role** | That principal's role |
+
+These describe individual queries, and query detail only exists below the cost level. **They do not change the top-level cost chart** — they take effect once you drill down to query level (for example SQL → Resource Name → Query). Setting them and seeing no change at the top of the page is expected.
+
+#### Cost type
+
+For the analysis types that let you choose — Trend, Comparative, Budget and Optimization — a **Cost Type** control sits below the filters. Leave it untouched and the analysis totals on your workspace's configured cost type, which keeps Billing Analysis consistent with Home, Report Engine and Dimensions. Cost, Anomaly, Savings and Preset always use the workspace setting and show no control.
+
+#### Trend controls
+
+On Trend analysis the sidebar adds two extra controls: the **moving average window** (7, 14 or 30 days; 7 by default) and the **projection period** (7, 30, 60 or 90 days; 30 by default).
 
 #### Applying and resetting filters
 
@@ -305,6 +424,38 @@ Below the specific filters is a **Tag Filters** section. Unlike the dimension fi
 - **Reset All** at the top or bottom clears every filter back to its default empty state.
 - All filter conditions combine with **AND** logic — a resource must match every filter to appear in results.
 - Selected filters persist in session storage as you navigate between pages.
+
+### Drilling into the Data
+
+Filters narrow what you are looking at. **Drill-down** lets you move through it — start from a high-level total and step inward until you reach the specific resource, account, or tag behind a cost.
+
+Drill-down is available on **Cost**, **Anomaly**, **Trend**, and **Comparative** analysis, and behaves the same way in each.
+
+#### Starting a Drill
+
+Click a row in the results table to drill into it. A hint beside the table title — **↳ Click a row to drill down** — marks the table as interactive.
+
+Each drill narrows the chart and the table together, so both always describe the same slice of spend. Your Quick and Advanced filters stay applied throughout.
+
+#### Following Your Path
+
+Once you drill in, a breadcrumb strip appears above the chart showing the path you have taken. It is hidden at the top level, so its presence tells you at a glance that you are viewing a subset rather than the full total.
+
+Use the breadcrumbs to move back:
+
+- Click any earlier step to return to that level, discarding the steps after it.
+- Click the **home** icon at the start of the trail to return to the top level.
+- Use the **undo** control to step back one level at a time.
+
+#### When a Level Has No Data
+
+If you drill into something with no matching spend, CloudPi shows a short message in place of the chart explaining that the level is empty, rather than an empty chart. Step back and choose a different path.
+
+#### Sharing and the Browser Back Button
+
+On **Cost Analysis**, your drill path is reflected in the page address. This means the browser **Back** button retraces your drill steps, and copying the address shares the exact view you are looking at, drill path included.
+
+Other analysis types keep your drill position for the session but do not put it in the address, so **Back** leaves the page instead of stepping back a level. Use the breadcrumbs to navigate in those views.
 
 ### Managing Billing Views
 
