@@ -4,6 +4,36 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ---
 
+## v1.1.074 — November 13 2026
+
+### New Features
+- **Analytics Database** — Cost and dimension reports now run on a new analytics database built for large volumes of cost data.
+- **AI FinOps Analyst in Slack** — Connect CloudPi to Slack to get a daily digest of new recommendations and cost anomalies, and ask the analyst about your cloud spend.
+- **Pre-computed Dimensions** — Choose up to four top-level dimensions to pre-compute so their cost breakdowns open faster; each shows when its data was last refreshed.
+- **Resource Breakdowns** — Grouping by resource now keeps resources with the same name apart, labelling each with a short identifier.
+- **Workflow Builder** — Rename a workflow and edit its description directly in the builder.
+
+### Improvements
+- Billing Analysis custom and year-to-date ranges are no longer limited to 120 days.
+- The Trend table now lists every group, not only the top entries.
+- The AI spend figure on the Home page now covers AI services on every cloud, matching the Executive Summary.
+- The Activity Logs daily chart now includes sign-in activity, so it matches the event total.
+- Saved billing views with relative dates now move forward with today's date.
+- Databricks usage breakdowns are clearly labelled as estimates.
+- Clearer empty states and messages across Billing Analysis, including "No cost in this period" when a chart has no cost.
+- Accessibility and visual consistency improvements across pages.
+
+### Fixes
+- Fixed dimension drill-downs showing $0 for some elements when a dimension was opened under a parent element.
+- Fixed budget variance colours, budget-to-date figures and forecast projected cost.
+- Fixed anomaly summary figures, precision and trend display.
+- Fixed Rules and Projects briefly showing $0 while costs load, and list totals differing from the detail view.
+- Fixed charts and tables disagreeing for Resource Group and date breakdowns.
+- Fixed AWS Marketplace charges showing a product code instead of the product name.
+- Fixed being signed out when opening CloudPi in another browser tab.
+
+---
+
 ## v1.1.073 — October 1 2026
 
 ### Improvements
