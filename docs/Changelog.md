@@ -8,7 +8,7 @@ All notable changes to CloudPi are documented here. Releases follow [semantic ve
 
 ### New Features
 - **Analytics Database** — Cost and dimension reports now run on a new analytics database built for large volumes of cost data.
-- **AI FinOps Analyst in Slack** — Connect CloudPi to Slack to get a daily digest of new recommendations and cost anomalies, and ask the analyst about your cloud spend.
+- **Pico, AI FinOps Analyst in Slack** — Connect CloudPi to Slack to get a daily digest of new recommendations and cost anomalies, and ask Pico about your cloud spend.
 - **Pre-computed Dimensions** — Choose up to four top-level dimensions to pre-compute so their cost breakdowns open faster; each shows when its data was last refreshed.
 - **Resource Breakdowns** — Grouping by resource now keeps resources with the same name apart, labelling each with a short identifier.
 - **Workflow Builder** — Rename a workflow and edit its description directly in the builder.
